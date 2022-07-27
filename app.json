@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
+  "brandColor": "#229ED9",
   "platforms": [
     "local"
   ],
@@ -47,9 +48,9 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/spkesDE"
+    "url": "https://github.com/spkesDE/TelegramNotifications/issues"
   },
-  "source": "https://github.com/spkesDE",
+  "source": "https://github.com/spkesDE/TelegramNotifications",
   "support": "https://github.com/spkesDE",
   "flow": {
     "actions": [

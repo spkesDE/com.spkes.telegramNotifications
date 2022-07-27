@@ -69,16 +69,15 @@ class TelegramNotifications extends Homey.App {
               id: user.userId,
             });
           });
-
-          // filter based on the query
           return results.filter((result: any) => {
             return result.name.toLowerCase().includes(query.toLowerCase());
           });
         },
       );
       await bot.launch();
+      this.log('Telegram Notifications has been initialized');
     }
-    this.log('Telegram Notifications has been initialized');
+    this.log('Telegram Notifications has no token. Please enter a Token in the Settings!');
   }
 
 }
