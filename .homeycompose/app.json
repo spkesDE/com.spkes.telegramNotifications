@@ -1,0 +1,54 @@
+{
+  "id": "com.spkes.telegramNotifications",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "brandColor": "#",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Telegram Notifications"
+  },
+  "description": {
+    "en": "Send Telegram Messages to your Phone"
+  },
+  "category": [
+    "internet"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Julian Suhl",
+    "email": "julian@suhl.de"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "spkesDE",
+        "email": "spkes@spkes.de"
+      }
+    ],
+    "translators": [
+      {
+        "name": "spkesDE"
+      }
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "spikes022"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/spkesDE"
+  },
+  "source": "https://github.com/spkesDE",
+  "support": "https://github.com/spkesDE"
+}

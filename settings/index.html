@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- The '/homey.js' script must be included in your settings view to work -->
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+</head>
+<body>
+<h1 data-i18n="settings.title">
+    <!-- This will be filled with the translated string with key 'settings.title'. -->
+</h1>
+
+<fieldset>
+    <legend>Settings</legend>
+    <div class="field row">
+        <label for="bot-token">Bot Token</label>
+        <input id="bot-token" type="text" value=""/>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Users</legend>
+    <div class="field row">
+        <p id="users">Empty :(</p>
+    </div>
+</fieldset>
+
+<button id="save" class="right">Save changes</button>
+<button id="clear" class="left">Clear users</button>
+
+<script type="text/javascript">
+  // a method named 'onHomeyReady' must be present in your code
+  function onHomeyReady(Homey) {
+    // Tell Homey we're ready to be displayed
+    Homey.ready();
+
+    let botTokenElement = document.getElementById('bot-token');
+    let usersElement = document.getElementById('users');
+    let saveElement = document.getElementById('save');
+    let clearElement = document.getElementById('clear');
+
+    Homey.get('bot-token', function(err, botToken) {
+      if (err) return Homey.alert(err);
+      botTokenElement.value = botToken;
+    });
+
+    Homey.get('users', function(err, users) {
+      if (err) return Homey.alert(err);
+      if (users === null) return;
+      usersElement.innerHTML = users;
+    });
+
+    saveElement.addEventListener('click', function(e) {
+      Homey.set('bot-token', botTokenElement.value, function(err) {
+        if (err) return Homey.alert(err);
+      });
+    });
+
+    clearElement.addEventListener('click', function(e) {
+      Homey.set('users', null, function(err) {
+        usersElement.innerHTML = "Empty! :(";
+        if (err) return Homey.alert(err);
+      });
+    });
+  }
+</script>
+</body>
+</html>
