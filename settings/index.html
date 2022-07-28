@@ -5,12 +5,11 @@
     <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
 </head>
 <body>
-<h1 data-i18n="settings.title">
-    <!-- This will be filled with the translated string with key 'settings.title'. -->
-</h1>
-
 <fieldset>
     <legend>Settings</legend>
+    <h2 data-i18n="settings.title">
+        <!-- This will be filled with the translated string with key 'settings.title'. -->
+    </h2>
     <div class="field row">
         <label for="bot-token">Bot Token</label>
         <input id="bot-token" type="text" value=""/>
@@ -28,11 +27,7 @@
 <button id="clear" class="left">Clear users</button>
 
 <script type="text/javascript">
-  // a method named 'onHomeyReady' must be present in your code
   function onHomeyReady(Homey) {
-    // Tell Homey we're ready to be displayed
-    Homey.ready();
-
     let botTokenElement = document.getElementById('bot-token');
     let usersElement = document.getElementById('users');
     let saveElement = document.getElementById('save');
@@ -46,7 +41,18 @@
     Homey.get('users', function(err, users) {
       if (err) return Homey.alert(err);
       if (users === null) return;
-      usersElement.innerHTML = users;
+      let json = JSON.parse(users);
+      let html = "";
+      for(let i = 0; i < json.length; i++) {
+        let obj = json[i];
+
+        html += '<p style="text-align:left;">' +
+          obj.chatName
+          + '<span style="float:right;"> ID: '
+          + obj.userId
+          + "</span></p>";
+      }
+      usersElement.innerHTML = html;
     });
 
     saveElement.addEventListener('click', function(e) {
@@ -56,11 +62,10 @@
     });
 
     clearElement.addEventListener('click', function(e) {
-      Homey.set('users', null, function(err) {
-        usersElement.innerHTML = "Empty! :(";
-        if (err) return Homey.alert(err);
-      });
+      Homey.unset('users');
+      usersElement.innerHTML = "Empty! :(";
     });
+    Homey.ready();
   }
 </script>
 </body>
