@@ -1,5 +1,8 @@
 {
   "1.0.0": {
     "en": "First Version"
+  },
+  "1.0.1": {
+    "en": "Receive Messages from Telegram to your Homey"
   }
 }
