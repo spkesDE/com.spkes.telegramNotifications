@@ -4,5 +4,8 @@
   },
   "1.0.1": {
     "en": "Receive Messages from Telegram to your Homey"
+  },
+  "1.0.2": {
+    "en": "Update flows with more tokens"
   }
 }
