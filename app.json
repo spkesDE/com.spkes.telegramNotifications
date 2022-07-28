@@ -57,6 +57,29 @@
   "source": "https://github.com/spkesDE/TelegramNotifications",
   "support": "https://github.com/spkesDE",
   "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "When a message is received"
+        },
+        "titleFormatted": {
+          "en": "A message is received"
+        },
+        "tokens": [
+          {
+            "name": "message",
+            "type": "string",
+            "title": {
+              "en": "Message"
+            },
+            "example": {
+              "en": "Hello from Telegram!"
+            }
+          }
+        ],
+        "id": "receiveMessage"
+      }
+    ],
     "actions": [
       {
         "title": {

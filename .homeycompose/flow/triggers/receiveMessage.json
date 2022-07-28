@@ -1,0 +1,12 @@
+{
+  "title": { "en": "When a message is received" },
+  "titleFormatted": { "en": "A message is received" },
+  "tokens": [
+    {
+      "name": "message",
+      "type": "string",
+      "title": { "en": "Message" },
+      "example": { "en": "Hello from Telegram!" }
+    }
+  ]
+}
