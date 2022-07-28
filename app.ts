@@ -86,9 +86,9 @@ class TelegramNotifications extends Homey.App {
     const sendNotificationCard = this.homey.flow.getActionCard('sendNotification');
     sendNotificationCard.registerRunListener((args, state) => {
       if (this.bot != null) {
-        this.bot.telegram.sendMessage(args.user.id, args.message).catch((reason) => {
-          return false;
-        });
+        this.bot.telegram.sendMessage(args.user.id, args.message)
+          .catch(this.error)
+          .then();
       }
     });
     sendNotificationCard.registerArgumentAutocompleteListener(
