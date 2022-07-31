@@ -1,18 +1,17 @@
-Use Telegram with your Homey Pro!
-Currently only message receiving.
-Will support incoming messages soon.
+This app adds support to send Telegram messages from and to your Homey Pro.
 
-How to setup the App:
-Step 1:
-    Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access the message archive.
-Step 2:
-    Enter @Botfather in the search tab of Telegram and choose the @Botfather bot.
-Step 3:
-    Click “Start” to activate BotFather bot or enter /newbot.
-Step 4:
-    Enter the Token inside the App Settings
-Step 5:
-    Restart the App and message your Bot /start and click the button!
+How to setup
 
-Done!
-
+STEP 1
+    Install the app
+STEP 2
+    Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access the message archive. Enter @Botfather in the search tab of Telegram and choose the @Botfather bot.
+STEP 3
+    Click “Start” to activate @BotFather bot or enter /newbot. I recommend to set the bot to private (aka /setjoingroup to DISABLED) and to set the privacy to DISABLED (Send /setprivacy to @BotFather)
+STEP 4
+    Enter the Token inside the app settings
+STEP 5
+    Write your bot over Telegram /start and follow the instructions
+    Each user has to also send the Bot the /start command. You can share the Bot via Telegram over the profile or search for the like u searched for the BotFather bot.
+STEP 6
+    Enjoy! :)
