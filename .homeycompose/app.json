@@ -1,6 +1,6 @@
 {
   "id": "com.spkes.telegramNotifications",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#229ED9",
@@ -8,10 +8,12 @@
     "local"
   ],
   "name": {
-    "en": "Telegram Notifications"
+    "en": "Telegram Notifications",
+    "de": "Telegram Notifications"
   },
   "description": {
-    "en": "Send Telegram Messages to your Phone"
+    "en": "Send Telegram Messages to your favourite chat!",
+    "de": "Sende Telegram-Nachrichten an deinen Lieblings-Chat!"
   },
   "category": [
     "internet"

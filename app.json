@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.spkes.telegramNotifications",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#229ED9",
@@ -9,10 +9,12 @@
     "local"
   ],
   "name": {
-    "en": "Telegram Notifications"
+    "en": "Telegram Notifications",
+    "de": "Telegram Notifications"
   },
   "description": {
-    "en": "Send Telegram Messages to your Phone"
+    "en": "Send Telegram Messages to your favourite chat!",
+    "de": "Sende Telegram-Nachrichten an deinen Lieblings-Chat!"
   },
   "category": [
     "internet"
@@ -61,37 +63,44 @@
     "triggers": [
       {
         "title": {
-          "en": "When a message is received"
+          "en": "When a message is received",
+          "de": "Eine Nachricht wird empfangen"
         },
         "titleFormatted": {
-          "en": "A message is received"
+          "en": "A message is received",
+          "de": "Eine Nachricht wird empfangen"
         },
         "tokens": [
           {
             "name": "message",
             "type": "string",
             "title": {
-              "en": "Message"
+              "en": "Message",
+              "de": "Nachricht"
             },
             "example": {
-              "en": "Hello from Telegram!"
+              "en": "Hello from Telegram!",
+              "de": "Hallo von Telegram!"
             }
           },
           {
             "name": "from",
             "type": "string",
             "title": {
-              "en": "Sender"
+              "en": "First Name",
+              "de": "Vorname"
             },
             "example": {
-              "en": "Julian"
+              "en": "Julian",
+              "de": "Julian"
             }
           },
           {
             "name": "username",
             "type": "string",
             "title": {
-              "en": "Sender Username"
+              "en": "Username",
+              "de": "Benutzername"
             },
             "example": {
               "en": "julian022"
@@ -101,20 +110,24 @@
             "name": "chat",
             "type": "string",
             "title": {
-              "en": "Name of the Chat"
+              "en": "Chatname",
+              "de": "Chatname"
             },
             "example": {
-              "en": "Family Group Chat"
+              "en": "Family Group",
+              "de": "Familiengruppe"
             }
           },
           {
             "name": "chatType",
             "type": "string",
             "title": {
-              "en": "Type of Chat"
+              "en": "Type",
+              "de": "Typ"
             },
             "example": {
-              "en": "Group"
+              "en": "Group",
+              "de": "Gruppe"
             }
           }
         ],
@@ -124,30 +137,36 @@
     "actions": [
       {
         "title": {
-          "en": "Send a message"
+          "en": "Send a message",
+          "de": "Eine Nachricht senden"
         },
         "titleFormatted": {
-          "en": "Send message [[message]] to [[user]]"
+          "en": "Send message [[message]] to [[user]]",
+          "de": "Nachricht [[message]] an [[user]] senden"
         },
         "args": [
           {
             "type": "text",
             "name": "message",
             "title": {
-              "en": "Message"
+              "en": "Message",
+              "de": "Nachricht"
             },
             "placeholder": {
-              "en": "Hello from Homey!"
+              "en": "Hello from Homey!",
+              "de": "Hallo von Homey!"
             }
           },
           {
             "type": "autocomplete",
             "name": "user",
             "title": {
-              "en": "User"
+              "en": "User",
+              "de": "Benutzer"
             },
             "placeholder": {
-              "en": "Created with <3"
+              "en": "Created with <3",
+              "de": "Erstellt mit <3"
             }
           }
         ],

@@ -10,5 +10,8 @@
   },
   "1.0.3": {
     "en": "Added Homey Community Topic to the manifest"
+  },
+  "1.0.4": {
+    "en": "German Translation"
   }
 }
