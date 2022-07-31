@@ -1,0 +1,11 @@
+{
+  "settings": {
+    "title": "Bitte geben Sie Ihren Token ein",
+    "users": "Benutzer / Gruppen Chats",
+    "empty": "Leer :(",
+    "settings": "Einstellungen",
+    "token": "Token",
+    "save": "Speichern",
+    "clear": "Benutzer leeren"
+  }
+}

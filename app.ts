@@ -15,10 +15,6 @@ class User {
 
 /*
   Todo
-  - Group Chat
-     => Working. When Upgrading to Supergroup the send Flow has to be updated
-  - Message Receving
-     => Working
   - Add "(RE)Start" Button in the Settings Page
   - Add State of the Bot in the Settings Page
  */
@@ -64,7 +60,7 @@ class TelegramNotifications extends Homey.App {
           + '\n\n'
           + 'Press the button below to register yourself!',
         Markup.inlineKeyboard([
-          Markup.callbackButton('Register this Telegram Chat!', 'user-add'),
+          Markup.callbackButton('Register this Telegram chat!', 'user-add'),
         ], { columns: 1 }).extra(),
       );
     });

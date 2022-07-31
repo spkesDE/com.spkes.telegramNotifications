@@ -6,25 +6,25 @@
 </head>
 <body>
 <fieldset>
-    <legend>Settings</legend>
+    <legend data-i18n="settings.settings">Settings</legend>
     <h2 data-i18n="settings.title">
         <!-- This will be filled with the translated string with key 'settings.title'. -->
     </h2>
     <div class="field row">
-        <label for="bot-token">Bot Token</label>
+        <label for="bot-token" data-i18n="settings.token">Bot Token</label>
         <input id="bot-token" type="text" value=""/>
     </div>
 </fieldset>
 
 <fieldset>
-    <legend>Users / Group Chats</legend>
+    <legend data-i18n="settings.users">Users / Group Chats</legend>
     <div class="field row">
-        <p id="users">Empty :(</p>
+        <p id="users" data-i18n="settings.empty">Empty :(</p>
     </div>
 </fieldset>
 
-<button id="save" class="right">Save changes</button>
-<button id="clear" class="left">Clear users</button>
+<button id="save" class="right" data-i18n="settings.save">Save changes</button>
+<button id="clear" class="left" data-i18n="settings.clear">Clear users</button>
 
 <script type="text/javascript">
   function onHomeyReady(Homey) {

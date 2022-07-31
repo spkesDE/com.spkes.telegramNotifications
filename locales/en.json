@@ -1,5 +1,11 @@
 {
   "settings": {
-    "title": "Please enter your token"
+    "title": "Please enter your token",
+    "users": "Users / Group Chats",
+    "empty": "Empty :(",
+    "settings": "Settings",
+    "token": "Token",
+    "save": "Save changes",
+    "clear": "Clear users"
   }
 }

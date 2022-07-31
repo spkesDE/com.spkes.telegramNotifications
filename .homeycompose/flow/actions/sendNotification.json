@@ -1,18 +1,36 @@
 {
-  "title": { "en": "Send a message" },
-  "titleFormatted": { "en": "Send message [[message]] to [[user]]" },
+  "title": {
+    "en": "Send a message",
+    "de": "Eine Nachricht senden"
+  },
+  "titleFormatted": {
+    "en": "Send message [[message]] to [[user]]",
+    "de": "Nachricht [[message]] an [[user]] senden"
+  },
   "args": [
     {
       "type": "text",
       "name": "message",
-      "title": { "en": "Message" },
-      "placeholder": { "en": "Hello from Homey!" }
+      "title": {
+        "en": "Message",
+        "de": "Nachricht"
+      },
+      "placeholder": {
+        "en": "Hello from Homey!",
+        "de": "Hallo von Homey!"
+      }
     },
     {
       "type": "autocomplete",
       "name": "user",
-      "title": { "en": "User" },
-      "placeholder": { "en": "Created with <3" }
+      "title": {
+        "en": "User",
+        "de": "Benutzer"
+      },
+      "placeholder": {
+        "en": "Created with <3",
+        "de": "Erstellt mit <3"
+      }
     }
   ]
 }
