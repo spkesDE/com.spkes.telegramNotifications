@@ -1,0 +1,14 @@
+{
+  "settings": {
+    "title": "Voer uw token in alstublieft",
+    "users": "Gebruikers / Groep Chats",
+    "empty": "Leeg :(",
+    "settings": "Instellingen",
+    "token": "Token",
+    "save": "Wijzigingen opslaan",
+    "clear": "Gebruikers leegmaken",
+    "userInfo": "Als u de gebruikers leeg maakt, moet u de gebruikers her-registreren in uw eigen Telegram Bot. Dit betekend dat u opnieuw het commando /start moet versturen.",
+    "clearLogs": "Logboeken leegmaken",
+    "logs": "Logboeken"
+  }
+}

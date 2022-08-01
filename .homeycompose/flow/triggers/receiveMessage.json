@@ -2,12 +2,12 @@
   "title": {
     "en": "When a message is received",
     "de": "Eine Nachricht wird empfangen",
-    "nl": ""
+    "nl": "Als een bericht is ontvangen"
   },
   "titleFormatted": {
     "en": "A message is received",
     "de": "Eine Nachricht wird empfangen",
-    "nl": ""
+    "nl": "Een bericht is ontvangen"
   },
   "tokens": [
     {
@@ -16,12 +16,12 @@
       "title": {
         "en": "Message",
         "de": "Nachricht",
-        "nl": ""
+        "nl": "Bericht"
       },
       "example": {
         "en": "Hello from Telegram!",
         "de": "Hallo von Telegram!",
-        "nl": ""
+        "nl": "Hallo van Telegram!"
       }
     },
     {
@@ -30,12 +30,12 @@
       "title": {
         "en": "First Name",
         "de": "Vorname",
-        "nl": ""
+        "nl": "Voornaam"
       },
       "example": {
         "en": "Julian",
         "de": "Julian",
-        "nl": ""
+        "nl": "Julian"
       }
     },
     {
@@ -44,12 +44,12 @@
       "title": {
         "en": "Username",
         "de": "Benutzername",
-        "nl": ""
+        "nl": "Gebruikersnaam"
       },
       "example": {
         "en": "julian022",
         "de": "julian022",
-        "nl": ""
+        "nl": "julian022"
       }
     },
     {
@@ -58,12 +58,12 @@
       "title": {
         "en": "Chatname",
         "de": "Chatname",
-        "nl": ""
+        "nl": "Chatnaam"
       },
       "example": {
         "en": "Family Group",
         "de": "Familiengruppe",
-        "nl": ""
+        "nl": "Familie Groep"
       }
     },
     {
@@ -72,12 +72,12 @@
       "title": {
         "en": "Type",
         "de": "Typ",
-        "nl": ""
+        "nl": "Type"
       },
       "example": {
         "en": "Group",
         "de": "Gruppe",
-        "nl": ""
+        "nl": "Group"
       }
     }
   ]
