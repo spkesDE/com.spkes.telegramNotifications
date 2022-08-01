@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.spkes.telegramNotifications",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#229ED9",
@@ -43,6 +43,9 @@
     "translators": [
       {
         "name": "spkesDE"
+      },
+      {
+        "name": "Twan_Veugelers"
       }
     ]
   },
@@ -65,12 +68,12 @@
         "title": {
           "en": "When a message is received",
           "de": "Eine Nachricht wird empfangen",
-          "nl": ""
+          "nl": "Als een bericht is ontvangen"
         },
         "titleFormatted": {
           "en": "A message is received",
           "de": "Eine Nachricht wird empfangen",
-          "nl": ""
+          "nl": "Een bericht is ontvangen"
         },
         "tokens": [
           {
@@ -79,12 +82,12 @@
             "title": {
               "en": "Message",
               "de": "Nachricht",
-              "nl": ""
+              "nl": "Bericht"
             },
             "example": {
               "en": "Hello from Telegram!",
               "de": "Hallo von Telegram!",
-              "nl": ""
+              "nl": "Hallo van Telegram!"
             }
           },
           {
@@ -93,12 +96,12 @@
             "title": {
               "en": "First Name",
               "de": "Vorname",
-              "nl": ""
+              "nl": "Voornaam"
             },
             "example": {
               "en": "Julian",
               "de": "Julian",
-              "nl": ""
+              "nl": "Julian"
             }
           },
           {
@@ -107,12 +110,12 @@
             "title": {
               "en": "Username",
               "de": "Benutzername",
-              "nl": ""
+              "nl": "Gebruikersnaam"
             },
             "example": {
               "en": "julian022",
               "de": "julian022",
-              "nl": ""
+              "nl": "julian022"
             }
           },
           {
@@ -121,12 +124,12 @@
             "title": {
               "en": "Chatname",
               "de": "Chatname",
-              "nl": ""
+              "nl": "Chatnaam"
             },
             "example": {
               "en": "Family Group",
               "de": "Familiengruppe",
-              "nl": ""
+              "nl": "Familie Groep"
             }
           },
           {
@@ -135,12 +138,12 @@
             "title": {
               "en": "Type",
               "de": "Typ",
-              "nl": ""
+              "nl": "Type"
             },
             "example": {
               "en": "Group",
               "de": "Gruppe",
-              "nl": ""
+              "nl": "Group"
             }
           }
         ],
@@ -152,12 +155,12 @@
         "title": {
           "en": "Send a message",
           "de": "Eine Nachricht senden",
-          "nl": ""
+          "nl": "Verstuur een bericht"
         },
         "titleFormatted": {
           "en": "Send message [[message]] to [[user]]",
           "de": "Nachricht [[message]] an [[user]] senden",
-          "nl": "Send message [[message]] to [[user]]"
+          "nl": "Bericht [[message]] naar [[user]] versturen"
         },
         "args": [
           {
@@ -166,12 +169,12 @@
             "title": {
               "en": "Message",
               "de": "Nachricht",
-              "nl": ""
+              "nl": "Bericht"
             },
             "placeholder": {
               "en": "Hello from Homey!",
               "de": "Hallo von Homey!",
-              "nl": ""
+              "nl": "Hallo van Homey!"
             }
           },
           {
@@ -180,12 +183,12 @@
             "title": {
               "en": "User",
               "de": "Benutzer",
-              "nl": ""
+              "nl": "Gebruiker"
             },
             "placeholder": {
               "en": "Created with <3",
               "de": "Erstellt mit <3",
-              "nl": ""
+              "nl": "Gemaakt met <3"
             }
           }
         ],
