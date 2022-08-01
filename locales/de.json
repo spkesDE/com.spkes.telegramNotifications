@@ -6,6 +6,9 @@
     "settings": "Einstellungen",
     "token": "Token",
     "save": "Speichern",
-    "clear": "Benutzer leeren"
+    "clear": "Benutzer leeren",
+    "userInfo": "Wenn Sie die Benutzer leeren, müssen Sie die Benutzer erneut beim Telegram-Bot registrieren. Das bedeutet, dass Sie den Befehl /start erneut senden müssen.",
+    "clearLogs": "Logs leeren",
+    "logs": "Logs"
   }
 }

@@ -21,17 +21,34 @@
     <div class="field row">
         <p id="users" data-i18n="settings.empty">Empty :(</p>
     </div>
+    <hr>
+    <div class="field row">
+        <p data-i18n="settings.userInfo">When you clear the users you have to re-register the users to the Telegram bot.
+            This means you have to send the /start command again.</p>
+    </div>
+</fieldset>
+<fieldset>
+    <div class="field row">
+        <button id="save" class="right" data-i18n="settings.save">Save changes</button>
+        <button id="clear" class="left" data-i18n="settings.clear">Clear users</button>
+    </div>
 </fieldset>
 
-<button id="save" class="right" data-i18n="settings.save">Save changes</button>
-<button id="clear" class="left" data-i18n="settings.clear">Clear users</button>
+<fieldset>
+    <legend data-i18n="settings.logs">Logs</legend>
+    <button id="clearLogs" class="right" data-i18n="settings.clearLogs">Clear Logs</button>
+    <p id="logs"></p>
+</fieldset>
+
 
 <script type="text/javascript">
   function onHomeyReady(Homey) {
     let botTokenElement = document.getElementById('bot-token');
     let usersElement = document.getElementById('users');
+    let logsElement = document.getElementById('logs');
     let saveElement = document.getElementById('save');
     let clearElement = document.getElementById('clear');
+    let clearLogsElement = document.getElementById('clearLogs');
 
     Homey.get('bot-token', function(err, botToken) {
       if (err) return Homey.alert(err);
@@ -42,17 +59,29 @@
       if (err) return Homey.alert(err);
       if (users === null) return;
       let json = JSON.parse(users);
-      let html = "";
-      for(let i = 0; i < json.length; i++) {
+      let html = '';
+      for (let i = 0; i < json.length; i++) {
         let obj = json[i];
 
         html += '<p style="text-align:left;">' +
           obj.chatName
           + '<span style="float:right;"> ID: '
           + obj.userId
-          + "</span></p>";
+          + '</span></p>';
       }
       usersElement.innerHTML = html;
+    });
+
+    Homey.get('logs', function(err, logs) {
+      if (err) return Homey.alert(err);
+      if (logs === null) return;
+      let json = JSON.parse(logs);
+      let html = '';
+      for (let i = 0; i < json.length; i++) {
+        let obj = json[i];
+        html += obj.date + "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + obj.message + "<br>";
+      }
+      logsElement.innerHTML = html;
     });
 
     saveElement.addEventListener('click', function(e) {
@@ -63,7 +92,14 @@
 
     clearElement.addEventListener('click', function(e) {
       Homey.unset('users');
-      usersElement.innerHTML = "Empty! :(";
+      usersElement.innerHTML = 'Empty! :(';
+    });
+
+    clearLogsElement.addEventListener('click', function(e) {
+      Homey.set('logs', '[]', function(err) {
+        if (err) return Homey.alert(err);
+      });
+      usersElement.innerHTML = '';
     });
     Homey.ready();
   }

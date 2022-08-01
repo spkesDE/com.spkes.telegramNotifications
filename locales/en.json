@@ -6,6 +6,9 @@
     "settings": "Settings",
     "token": "Token",
     "save": "Save changes",
-    "clear": "Clear users"
+    "clear": "Clear users",
+    "userInfo": "When you clear the users you have to re-register the users to the Telegram bot. This means you have to send the /start command again.",
+    "clearLogs": "Clear logs",
+    "logs": "Logs"
   }
 }

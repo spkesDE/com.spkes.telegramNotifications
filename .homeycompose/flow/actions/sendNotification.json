@@ -1,11 +1,13 @@
 {
   "title": {
     "en": "Send a message",
-    "de": "Eine Nachricht senden"
+    "de": "Eine Nachricht senden",
+    "nl": ""
   },
   "titleFormatted": {
     "en": "Send message [[message]] to [[user]]",
-    "de": "Nachricht [[message]] an [[user]] senden"
+    "de": "Nachricht [[message]] an [[user]] senden",
+    "nl": "Send message [[message]] to [[user]]"
   },
   "args": [
     {
@@ -13,11 +15,13 @@
       "name": "message",
       "title": {
         "en": "Message",
-        "de": "Nachricht"
+        "de": "Nachricht",
+        "nl": ""
       },
       "placeholder": {
         "en": "Hello from Homey!",
-        "de": "Hallo von Homey!"
+        "de": "Hallo von Homey!",
+        "nl": ""
       }
     },
     {
@@ -25,11 +29,13 @@
       "name": "user",
       "title": {
         "en": "User",
-        "de": "Benutzer"
+        "de": "Benutzer",
+        "nl": ""
       },
       "placeholder": {
         "en": "Created with <3",
-        "de": "Erstellt mit <3"
+        "de": "Erstellt mit <3",
+        "nl": ""
       }
     }
   ]

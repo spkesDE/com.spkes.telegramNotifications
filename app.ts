@@ -34,13 +34,13 @@ class TelegramNotifications extends Homey.App {
       if (data === 'bot-token') {
         this.token = this.homey.settings.get('bot-token');
         if (this.bot === null) {
-          this.startBot();
+          this.startBot().catch(this.error);
         }
       }
     });
 
     if (this.token !== null && this.token !== '') {
-      await this.startBot();
+      await this.startBot().catch(this.error);
     } else {
       this.log('Telegram Notifications has no token. Please enter a Token in the Settings!');
     }
@@ -62,8 +62,8 @@ class TelegramNotifications extends Homey.App {
         Markup.inlineKeyboard([
           Markup.callbackButton('Register this Telegram chat!', 'user-add'),
         ], { columns: 1 }).extra(),
-      );
-    });
+      ).catch(this.error);
+    }).catch(this.error);
     this.bot.action('user-add', (ctx) => {
       let user: User | null = null;
       // this.log(ctx.chat);
@@ -75,23 +75,23 @@ class TelegramNotifications extends Homey.App {
       if (user !== null && user.userId !== 0) {
         if (!this.users.some((u) => u.userId === user?.userId)) {
           this.users.push(user);
-          ctx.reply('👍');
+          ctx.reply('👍').catch(this.error);
           this.homey.settings.set('users', JSON.stringify(this.users));
         } else {
-          ctx.reply('👎');
-          ctx.reply('Already in the user list!');
+          ctx.reply('👎').catch(this.error);
+          ctx.reply('Already in the user list!').catch(this.error);
         }
       } else {
-        ctx.reply('Something went wrong! Can\'t get the User Id');
+        ctx.reply('Something went wrong! Can\'t get the User Id').catch(this.error);
       }
-    });
+    }).catch(this.error);
 
     // Flows
     this.sendNotificationActionFlow();
     this.receiveMessageTriggerFlow();
 
-    await this.bot.launch();
-    this.log('Telegram Notifications bot has ben started!');
+    await this.bot.launch().catch(this.error);
+    this.log('Telegram Notifications app is initialized.');
   }
 
   private sendNotificationActionFlow() {
@@ -120,6 +120,16 @@ class TelegramNotifications extends Homey.App {
     );
   }
 
+  public log(message: string) {
+    this.writeLog(message).then();
+    this.homey.log(message);
+  }
+
+  public error(message: string) {
+    this.writeLog(message).then();
+    this.homey.error(message);
+  }
+
   private receiveMessageTriggerFlow() {
     const receiveMessageCard = this.homey.flow.getTriggerCard('receiveMessage');
     if (this.bot != null) {
@@ -135,8 +145,18 @@ class TelegramNotifications extends Homey.App {
         receiveMessageCard.trigger(token)
           .catch(this.error)
           .then();
-      });
+      }).catch(this.error);
     }
+  }
+
+  private async writeLog(message: string) {
+    let oldLogs = this.homey.settings.get('logs');
+    if (oldLogs === null || oldLogs === undefined || oldLogs === '') oldLogs = '[]';
+    const newMessage:JSON = <JSON><unknown>{ date: new Date().toLocaleString(), message };
+    const savedHistory = JSON.parse(oldLogs);
+    if (savedHistory.length >= 20) savedHistory.pop();
+    savedHistory.unshift(newMessage);
+    this.homey.settings.set('logs', JSON.stringify(savedHistory));
   }
 
 }
