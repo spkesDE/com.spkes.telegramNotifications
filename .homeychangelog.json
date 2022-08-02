@@ -22,5 +22,8 @@
   },
   "1.0.7": {
     "en": "Improved Settings Page"
+  },
+  "1.0.8": {
+    "en": "Allowing to remove users individually."
   }
 }
