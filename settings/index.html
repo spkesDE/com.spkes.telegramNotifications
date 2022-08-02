@@ -3,13 +3,27 @@
 <head>
     <!-- The '/homey.js' script must be included in your settings view to work -->
     <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+    <style>
+        .status {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            float: right;
+            background-color: #b30000;
+        }
+        .running {
+            background-color: #17b300 !important;
+        }
+    </style>
 </head>
 <body>
 <fieldset>
     <legend data-i18n="settings.settings">Settings</legend>
-    <h2 data-i18n="settings.title">
+    <h2 style="display: inline" data-i18n="settings.title">
         <!-- This will be filled with the translated string with key 'settings.title'. -->
     </h2>
+    <div id="running-status" class="status not-running"></div>
     <div class="field row">
         <label for="bot-token" data-i18n="settings.token">Bot Token</label>
         <input id="bot-token" type="text" value=""/>
@@ -42,18 +56,21 @@
 
 
 <script type="text/javascript">
-  function onHomeyReady(Homey) {
-    let botTokenElement = document.getElementById('bot-token');
-    let usersElement = document.getElementById('users');
-    let logsElement = document.getElementById('logs');
-    let saveElement = document.getElementById('save');
-    let clearElement = document.getElementById('clear');
-    let clearLogsElement = document.getElementById('clearLogs');
+  let botTokenElement = document.getElementById('bot-token');
+  let usersElement = document.getElementById('users');
+  let logsElement = document.getElementById('logs');
+  let saveElement = document.getElementById('save');
+  let clearElement = document.getElementById('clear');
+  let clearLogsElement = document.getElementById('clearLogs');
+  let runningStatusElement = document.getElementById('running-status');
 
+  function onHomeyReady(Homey) {
     Homey.get('bot-token', function(err, botToken) {
       if (err) return Homey.alert(err);
       botTokenElement.value = botToken;
     });
+
+    updateStatus(Homey);
 
     Homey.get('users', function(err, users) {
       if (err) return Homey.alert(err);
@@ -72,21 +89,16 @@
       usersElement.innerHTML = html;
     });
 
-    Homey.get('logs', function(err, logs) {
-      if (err) return Homey.alert(err);
-      if (logs === null) return;
-      let json = JSON.parse(logs);
-      let html = '';
-      for (let i = 0; i < json.length; i++) {
-        let obj = json[i];
-        html += obj.date + "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + obj.message + "<br>";
-      }
-      logsElement.innerHTML = html;
-    });
+    updateLogs(Homey)
 
     saveElement.addEventListener('click', function(e) {
+      runningStatusElement.classList.remove('running');
       Homey.set('bot-token', botTokenElement.value, function(err) {
         if (err) return Homey.alert(err);
+      });
+      delay(1000).then(() => {
+        updateStatus(Homey);
+        updateLogs(Homey);
       });
     });
 
@@ -99,9 +111,37 @@
       Homey.set('logs', '[]', function(err) {
         if (err) return Homey.alert(err);
       });
-      usersElement.innerHTML = '';
+      logsElement.innerHTML = '';
     });
     Homey.ready();
+  }
+
+  function updateLogs(Homey) {
+    Homey.get('logs', function(err, logs) {
+      if (err) return Homey.alert(err);
+      if (logs === null) return;
+      let json = JSON.parse(logs);
+      let html = '';
+      for (let i = 0; i < json.length; i++) {
+        let obj = json[i];
+        html += obj.date + "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + obj.message + "<br>";
+      }
+      logsElement.innerHTML = html;
+    });
+  }
+
+  function updateStatus(Homey) {
+    Homey.get('bot-running', function(err, status) {
+      if (err) return Homey.alert(err);
+      if(status)
+        runningStatusElement.classList.add('running');
+      else
+        runningStatusElement.classList.remove('running');
+    });
+  }
+
+  function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
   }
 </script>
 </body>

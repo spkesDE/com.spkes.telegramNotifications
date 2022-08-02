@@ -24,6 +24,8 @@ class TelegramNotifications extends Homey.App {
   users: User[] = [];
   bot:Telegraf<any> | null = null;
   token: string | null = null;
+  private startSuccess: boolean = true;
+  private flowsRegistered: boolean = false;
   /**
    * onInit is called when the app is initialized.
    */
@@ -33,14 +35,20 @@ class TelegramNotifications extends Homey.App {
     this.homey.settings.on('set', (data) => {
       if (data === 'bot-token') {
         this.token = this.homey.settings.get('bot-token');
-        if (this.bot === null) {
-          this.startBot().catch(this.error);
+        if (this.bot === null || !this.startSuccess) {
+          this.startBot();
+          this.changeBotState(true);
+        } else {
+          this.bot.stop();
+          this.changeBotState(true);
+          this.bot = null;
+          this.startBot();
         }
       }
     });
 
     if (this.token !== null && this.token !== '') {
-      await this.startBot().catch(this.error);
+      await this.startBot();
     } else {
       this.log('Telegram Notifications has no token. Please enter a Token in the Settings!');
     }
@@ -87,11 +95,21 @@ class TelegramNotifications extends Homey.App {
     }).catch(this.error);
 
     // Flows
-    this.sendNotificationActionFlow();
-    this.receiveMessageTriggerFlow();
-
-    await this.bot.launch().catch(this.error);
-    this.log('Telegram Notifications app is initialized.');
+    if (!this.flowsRegistered) {
+      this.sendNotificationActionFlow();
+      this.receiveMessageTriggerFlow();
+      this.flowsRegistered = true;
+    }
+    this.bot.catch(this.error);
+    await this.bot.launch();
+    // eslint-disable-next-line no-return-assign
+    await this.bot.telegram.getMe().catch((r) => this.changeBotState(false));
+    if (!this.startSuccess) {
+      this.log('Failed to start. Token most likely wrong.');
+    } else {
+      this.log('Telegram Notifications app is initialized.');
+      this.changeBotState(true);
+    }
   }
 
   private sendNotificationActionFlow() {
@@ -118,6 +136,11 @@ class TelegramNotifications extends Homey.App {
         });
       },
     );
+  }
+
+  private changeBotState(bool: boolean) {
+    this.startSuccess = bool;
+    this.homey.settings.set('bot-running', bool);
   }
 
   public log(message: string) {
