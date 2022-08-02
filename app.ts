@@ -32,8 +32,8 @@ class TelegramNotifications extends Homey.App {
   async onInit() {
     this.token = await this.homey.settings.get('bot-token');
 
-    this.homey.settings.on('set', (data) => {
-      if (data === 'bot-token') {
+    this.homey.settings.on('set', (dataName) => {
+      if (dataName === 'bot-token') {
         this.token = this.homey.settings.get('bot-token');
         if (this.bot === null || !this.startSuccess) {
           this.startBot();
@@ -44,6 +44,9 @@ class TelegramNotifications extends Homey.App {
           this.bot = null;
           this.startBot();
         }
+      }
+      if (dataName === 'users') {
+        this.users = JSON.parse(this.homey.settings.get('users'));
       }
     });
 
@@ -72,9 +75,9 @@ class TelegramNotifications extends Homey.App {
         ], { columns: 1 }).extra(),
       ).catch(this.error);
     }).catch(this.error);
+
     this.bot.action('user-add', (ctx) => {
       let user: User | null = null;
-      // this.log(ctx.chat);
       if (ctx.chat.type === 'group' || ctx.chat.type === 'supergroup') {
         user = new User(ctx.chat?.id ?? 0, ctx.chat?.title ?? 'Error');
       } else if (ctx.chat.type === 'private') {

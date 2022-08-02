@@ -3,19 +3,7 @@
 <head>
     <!-- The '/homey.js' script must be included in your settings view to work -->
     <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
-    <style>
-        .status {
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-            display: inline-block;
-            float: right;
-            background-color: #b30000;
-        }
-        .running {
-            background-color: #17b300 !important;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <fieldset>
@@ -24,125 +12,26 @@
         <!-- This will be filled with the translated string with key 'settings.title'. -->
     </h2>
     <div id="running-status" class="status not-running"></div>
-    <div class="field row">
-        <label for="bot-token" data-i18n="settings.token">Bot Token</label>
-        <input id="bot-token" type="text" value=""/>
-    </div>
+    <label for="bot-token" data-i18n="settings.token">Bot Token</label>
+    <input id="bot-token" type="text" value=""/>
+    <button id="save" class="right" data-i18n="settings.save" style="width: 100%; margin-top: 1em">Save changes</button>
 </fieldset>
-
 <fieldset>
     <legend data-i18n="settings.users">Users / Group Chats</legend>
-    <div class="field row">
-        <p id="users" data-i18n="settings.empty">Empty :(</p>
+    <div id="users" class="users">
     </div>
     <hr>
-    <div class="field row">
-        <p data-i18n="settings.userInfo">When you clear the users you have to re-register the users to the Telegram bot.
-            This means you have to send the /start command again.</p>
-    </div>
+    <p data-i18n="settings.userInfo">When you clear the users you have to re-register the
+        users to the Telegram bot.
+        This means you have to send the /start command again.</p>
+    <button id="clear" data-i18n="settings.clear" style="width: 100%">Clear users</button>
 </fieldset>
-<fieldset>
-    <div class="field row">
-        <button id="save" class="right" data-i18n="settings.save">Save changes</button>
-        <button id="clear" class="left" data-i18n="settings.clear">Clear users</button>
-    </div>
-</fieldset>
-
 <fieldset>
     <legend data-i18n="settings.logs">Logs</legend>
     <button id="clearLogs" class="right" data-i18n="settings.clearLogs">Clear Logs</button>
-    <p id="logs"></p>
+    <p id="logs" style="margin-bottom: 0"></p>
 </fieldset>
 
-
-<script type="text/javascript">
-  let botTokenElement = document.getElementById('bot-token');
-  let usersElement = document.getElementById('users');
-  let logsElement = document.getElementById('logs');
-  let saveElement = document.getElementById('save');
-  let clearElement = document.getElementById('clear');
-  let clearLogsElement = document.getElementById('clearLogs');
-  let runningStatusElement = document.getElementById('running-status');
-
-  function onHomeyReady(Homey) {
-    Homey.get('bot-token', function(err, botToken) {
-      if (err) return Homey.alert(err);
-      botTokenElement.value = botToken;
-    });
-
-    updateStatus(Homey);
-
-    Homey.get('users', function(err, users) {
-      if (err) return Homey.alert(err);
-      if (users === null) return;
-      let json = JSON.parse(users);
-      let html = '';
-      for (let i = 0; i < json.length; i++) {
-        let obj = json[i];
-
-        html += '<p style="text-align:left;">' +
-          obj.chatName
-          + '<span style="float:right;"> ID: '
-          + obj.userId
-          + '</span></p>';
-      }
-      usersElement.innerHTML = html;
-    });
-
-    updateLogs(Homey)
-
-    saveElement.addEventListener('click', function(e) {
-      runningStatusElement.classList.remove('running');
-      Homey.set('bot-token', botTokenElement.value, function(err) {
-        if (err) return Homey.alert(err);
-      });
-      delay(1000).then(() => {
-        updateStatus(Homey);
-        updateLogs(Homey);
-      });
-    });
-
-    clearElement.addEventListener('click', function(e) {
-      Homey.unset('users');
-      usersElement.innerHTML = 'Empty! :(';
-    });
-
-    clearLogsElement.addEventListener('click', function(e) {
-      Homey.set('logs', '[]', function(err) {
-        if (err) return Homey.alert(err);
-      });
-      logsElement.innerHTML = '';
-    });
-    Homey.ready();
-  }
-
-  function updateLogs(Homey) {
-    Homey.get('logs', function(err, logs) {
-      if (err) return Homey.alert(err);
-      if (logs === null) return;
-      let json = JSON.parse(logs);
-      let html = '';
-      for (let i = 0; i < json.length; i++) {
-        let obj = json[i];
-        html += obj.date + "<br>&nbsp;&nbsp;&nbsp;&nbsp;" + obj.message + "<br>";
-      }
-      logsElement.innerHTML = html;
-    });
-  }
-
-  function updateStatus(Homey) {
-    Homey.get('bot-running', function(err, status) {
-      if (err) return Homey.alert(err);
-      if(status)
-        runningStatusElement.classList.add('running');
-      else
-        runningStatusElement.classList.remove('running');
-    });
-  }
-
-  function delay(time) {
-    return new Promise(resolve => setTimeout(resolve, time));
-  }
-</script>
+<script type="text/javascript" src="index.js"></script>
 </body>
 </html>

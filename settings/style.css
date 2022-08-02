@@ -1,0 +1,21 @@
+.status {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    float: right;
+    background-color: #b30000;
+}
+
+.running {
+    background-color: #17b300 !important;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
