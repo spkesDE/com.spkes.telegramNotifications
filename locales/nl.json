@@ -6,7 +6,7 @@
     "settings": "Instellingen",
     "token": "Token",
     "save": "Wijzigingen opslaan",
-    "clear": "Gebruikers leegmaken",
+    "clear": "Leeg alle gebruikers",
     "userInfo": "Als u de gebruikers leeg maakt, moet u de gebruikers her-registreren in uw eigen Telegram Bot. Dit betekend dat u opnieuw het commando /start moet versturen.",
     "clearLogs": "Logboeken leegmaken",
     "logs": "Logboeken"
