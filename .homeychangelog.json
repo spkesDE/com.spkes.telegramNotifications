@@ -19,5 +19,8 @@
   },
   "1.0.6": {
     "en": "Added Logs to the settings page. Added Dutch translation - Thanks to @Twan_Veugelers"
+  },
+  "1.0.7": {
+    "en": "Improved Settings Page"
   }
 }
