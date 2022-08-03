@@ -66,6 +66,63 @@
     "triggers": [
       {
         "title": {
+          "en": "A new user/chat has been discovered",
+          "de": "Ein neuer Benutzer/Chat wurde entdeckt",
+          "nl": "Er is een nieuwe gebruiker/chat ontdekt"
+        },
+        "titleFormatted": {
+          "en": "A new user/chat has been discovered",
+          "de": "Ein neuer Benutzer/Chat wurde entdeckt",
+          "nl": "Er is een nieuwe gebruiker/chat ontdekt"
+        },
+        "tokens": [
+          {
+            "name": "from",
+            "type": "string",
+            "title": {
+              "en": "First Name",
+              "de": "Vorname",
+              "nl": "Voornaam"
+            },
+            "example": {
+              "en": "Julian",
+              "de": "Julian",
+              "nl": "Julian"
+            }
+          },
+          {
+            "name": "username",
+            "type": "string",
+            "title": {
+              "en": "Username",
+              "de": "Benutzername",
+              "nl": "Gebruikersnaam"
+            },
+            "example": {
+              "en": "julian022",
+              "de": "julian022",
+              "nl": "julian022"
+            }
+          },
+          {
+            "name": "chatType",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "de": "Typ",
+              "nl": "Type"
+            },
+            "example": {
+              "en": "Group",
+              "de": "Gruppe",
+              "nl": "Group"
+            }
+          }
+        ],
+        "id": "newUser"
+      },
+      {
+        "title": {
           "en": "When a message is received",
           "de": "Eine Nachricht wird empfangen",
           "nl": "Als een bericht is ontvangen"

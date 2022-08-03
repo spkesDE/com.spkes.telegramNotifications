@@ -74,6 +74,13 @@ class TelegramNotifications extends Homey.App {
           Markup.callbackButton('Register this Telegram chat!', 'user-add'),
         ], { columns: 1 }).extra(),
       ).catch(this.error);
+      this.homey.flow.getTriggerCard('newUser').trigger({
+        from: ctx.chat.type === 'private' ? ctx.chat.first_name : ctx.chat.title,
+        username: ctx.chat.type === 'private' ? ctx.chat.username : ctx.chat.title,
+        chatType: ctx.chat.type,
+      })
+          .catch(this.error)
+          .then();
     }).catch(this.error);
 
     this.bot.action('user-add', (ctx) => {
