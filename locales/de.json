@@ -9,6 +9,9 @@
     "clear": "Alle Benutzer leeren",
     "userInfo": "Wenn Sie die Benutzer leeren, müssen Sie die Benutzer erneut beim Telegram-Bot registrieren. Das bedeutet, dass Sie den Befehl /start erneut senden müssen.",
     "clearLogs": "Logs leeren",
-    "logs": "Logs"
+    "logs": "Logs",
+    "userInfoPassword": "Um nun einen Chatraum zu registieren muss man nun /start [dein Password] eingeben",
+    "password": "Bot-Passwort",
+    "passwordEnable": "Password aktivieren"
   }
 }

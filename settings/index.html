@@ -8,14 +8,24 @@
 <body>
 <fieldset>
     <legend data-i18n="settings.settings">Settings</legend>
-    <h2 style="display: inline" data-i18n="settings.title">
-        <!-- This will be filled with the translated string with key 'settings.title'. -->
-    </h2>
     <div id="running-status" class="status not-running"></div>
+    <h2 data-i18n="settings.title">
+        Title
+    </h2>
     <label for="bot-token" data-i18n="settings.token">Bot Token</label>
     <input id="bot-token" type="text" value=""/>
+    <div style="margin-top: 1em">
+        <input type="checkbox" id="usePassword">
+        <label data-i18n="settings.passwordEnable" for="usePassword">Enable Password</label>
+    </div>
+    <div class="hidden" id="usePasswordDiv">
+        <label for="bot-password" data-i18n="settings.password">Bot Password</label>
+        <input id="bot-password" type="password" value=""/>
+        <p style="margin-bottom: 0" data-i18n="settings.userInfoPassword">To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram</p>
+    </div>
     <button id="save" class="right" data-i18n="settings.save" style="width: 100%; margin-top: 1em">Save changes</button>
 </fieldset>
+
 <fieldset>
     <legend data-i18n="settings.users">Users / Group Chats</legend>
     <div id="users" class="users">
@@ -26,6 +36,7 @@
         This means you have to send the /start command again.</p>
     <button id="clear" data-i18n="settings.clear" style="width: 100%">Clear users</button>
 </fieldset>
+
 <fieldset>
     <legend data-i18n="settings.logs">Logs</legend>
     <button id="clearLogs" class="right" data-i18n="settings.clearLogs">Clear Logs</button>

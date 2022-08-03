@@ -31,7 +31,6 @@ class TelegramNotifications extends Homey.App {
    */
   async onInit() {
     this.token = await this.homey.settings.get('bot-token');
-
     this.homey.settings.on('set', (dataName) => {
       if (dataName === 'bot-token') {
         this.token = this.homey.settings.get('bot-token');
@@ -66,6 +65,16 @@ class TelegramNotifications extends Homey.App {
 
     // Start Command
     this.bot.start((ctx) => {
+      let usePassword = this.homey.settings.get('use-password')
+      if(usePassword !== null && usePassword){
+        let enteredPassword = ctx.message.text.split(' ')[1] ?? '';
+        let password = this.homey.settings.get('password')
+        if(password === null || password !== enteredPassword) {
+          ctx.reply("Wrong password.");
+          return;
+        }
+      }
+
       ctx.replyWithMarkdown(
         'Welcome to the Homey Telegram Bot!'
           + '\n\n'

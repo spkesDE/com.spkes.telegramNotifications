@@ -9,6 +9,9 @@
     "clear": "Clear all users",
     "userInfo": "When you clear the users you have to re-register the users to the Telegram bot. This means you have to send the /start command again.",
     "clearLogs": "Clear logs",
-    "logs": "Logs"
+    "logs": "Logs",
+    "userInfoPassword": "To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram",
+    "password": "Bot Password",
+    "passwordEnable": "Enable password"
   }
 }

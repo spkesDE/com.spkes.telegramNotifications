@@ -9,6 +9,9 @@
     "clear": "Leeg alle gebruikers",
     "userInfo": "Als u de gebruikers leeg maakt, moet u de gebruikers her-registreren in uw eigen Telegram Bot. Dit betekend dat u opnieuw het commando /start moet versturen.",
     "clearLogs": "Logboeken leegmaken",
-    "logs": "Logboeken"
+    "logs": "Logboeken",
+    "userInfoPassword": "Om nu een gebruiker/chat te registreren moet je /start [jouwPaswoord] invoeren bij de bot via Telegram.",
+    "password": "Bot Wachtwoord",
+    "passwordEnable": "Wachtwoord inschakelen"
   }
 }

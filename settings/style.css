@@ -19,3 +19,8 @@
     flex-direction: row;
     align-items: center;
 }
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}

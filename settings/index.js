@@ -5,6 +5,9 @@ const saveElement = document.getElementById('save');
 const clearElement = document.getElementById('clear');
 const clearLogsElement = document.getElementById('clearLogs');
 const runningStatusElement = document.getElementById('running-status');
+const usePasswordElement = document.getElementById('usePassword');
+const usePasswordDivElement = document.getElementById('usePasswordDiv');
+const botPasswordElement = document.getElementById('bot-password');
 
 function updateUsers(Homey) {
   Homey.get('users', (err, users) => {
@@ -67,10 +70,29 @@ function delay(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
+function togglePassword(){
+  if (usePasswordElement.checked) {
+    usePasswordDivElement.classList.remove('hidden');
+  } else {
+    usePasswordDivElement.classList.add('hidden');
+  }
+}
+
 function onHomeyReady(Homey) {
   Homey.get('bot-token', (err, botToken) => {
     if (err) return Homey.alert(err);
     botTokenElement.value = botToken;
+  });
+
+  Homey.get('password', (err, pw) => {
+    if (err) return Homey.alert(err);
+    botPasswordElement.value = pw ?? "";
+  });
+
+  Homey.get('use-password', (err, bool) => {
+    if (err) return Homey.alert(err);
+    usePasswordElement.checked = bool ?? false;
+    togglePassword();
   });
 
   updateStatus(Homey);
@@ -93,11 +115,23 @@ function onHomeyReady(Homey) {
     }
   });
 
+  usePasswordElement.addEventListener('click', (e) => {
+    togglePassword()
+  });
+
   saveElement.addEventListener('click', (e) => {
     runningStatusElement.classList.remove('running');
     Homey.set('bot-token', botTokenElement.value, (err) => {
       if (err) return Homey.alert(err);
     });
+    Homey.set('use-password', usePasswordElement.checked, (err) => {
+      if (err) return Homey.alert(err);
+    });
+    if(usePasswordElement.checked) {
+      Homey.set('password', botPasswordElement.value, (err) => {
+        if (err) return Homey.alert(err);
+      });
+    }
     delay(1000)
       .then(() => {
         updateStatus(Homey);

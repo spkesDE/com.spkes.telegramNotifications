@@ -25,5 +25,8 @@
   },
   "1.0.8": {
     "en": "Allowing to remove users individually."
+  },
+  "1.0.9": {
+    "en": "Added 'A new user/chat has been discovered' flow card, Added support for a password for the /start command"
   }
 }
