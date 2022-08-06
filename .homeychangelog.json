@@ -28,5 +28,8 @@
   },
   "1.0.9": {
     "en": "Added 'A new user/chat has been discovered' flow card, Added support for a password for the /start command"
+  },
+  "1.0.10": {
+    "en": "Bug fixes"
   }
 }
