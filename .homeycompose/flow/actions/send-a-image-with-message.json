@@ -1,0 +1,59 @@
+{
+  "title": {
+    "en": "Send a image with a message",
+    "de": "Eine Nachricht senden",
+    "nl": "Verstuur een bericht"
+  },
+  "titleFormatted": {
+    "en": "Send image [[url]] to [[user]] with the message [[message]]",
+    "de": "Bild [[url]] mit Nachricht [[message]] an [[user]] senden",
+    "nl": "Stuur afbeelding [[url]] naar [[user]] met het bericht [[message]]"
+  },
+  "hint": {
+    "en": "Sends a Image to your Telegram chat"
+  },
+  "args": [
+    {
+      "type": "text",
+      "name": "message",
+      "title": {
+        "en": "Message",
+        "de": "Nachricht",
+        "nl": "Bericht"
+      },
+      "placeholder": {
+        "en": "Hello from Homey!",
+        "de": "Hallo von Homey!",
+        "nl": "Hallo van Homey!"
+      }
+    },
+    {
+      "type": "text",
+      "name": "url",
+      "title": {
+        "en": "URL",
+        "de": "URL",
+        "nl": "URL"
+      },
+      "placeholder": {
+        "en": "http://url/image.png",
+        "de": "http://url/image.png",
+        "nl": "http://url/image.png"
+      }
+    },
+    {
+      "type": "autocomplete",
+      "name": "user",
+      "title": {
+        "en": "User",
+        "de": "Benutzer",
+        "nl": "Gebruiker"
+      },
+      "placeholder": {
+        "en": "Created with <3",
+        "de": "Erstellt mit <3",
+        "nl": "Gemaakt met <3"
+      }
+    }
+  ]
+}

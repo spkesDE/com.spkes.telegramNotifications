@@ -118,6 +118,8 @@ class TelegramNotifications extends Homey.App {
         if (!this.flowsRegistered) {
             this.sendNotificationActionFlow();
             this.receiveMessageTriggerFlow();
+            this.sendAImageActionFlow();
+            this.sendAImageWithMessageActionFlow();
             this.flowsRegistered = true;
         }
         this.bot.catch(this.error);
@@ -130,6 +132,58 @@ class TelegramNotifications extends Homey.App {
             this.log('Telegram Notifications app is initialized.');
             this.changeBotState(true);
         }
+    }
+
+    private sendAImageActionFlow() {
+        const sendNotificationCard = this.homey.flow.getActionCard('send-a-image');
+        sendNotificationCard.registerRunListener((args, state) => {
+            if (this.bot != null) {
+                this.bot.telegram.sendPhoto(args.user.id, args.url)
+                    .catch(this.error)
+                    .then();
+            }
+        });
+        sendNotificationCard.registerArgumentAutocompleteListener(
+            'user',
+            async (query, args) => {
+                const results: any = [];
+                this.users.forEach((user) => {
+                    results.push({
+                        name: user.chatName,
+                        id: user.userId,
+                    });
+                });
+                return results.filter((result: any) => {
+                    return result.name.toLowerCase().includes(query.toLowerCase());
+                });
+            },
+        );
+    }
+
+    private sendAImageWithMessageActionFlow() {
+        const sendNotificationCard = this.homey.flow.getActionCard('send-a-image-with-message');
+        sendNotificationCard.registerRunListener((args, state) => {
+            if (this.bot != null) {
+                this.bot.telegram.sendPhoto(args.user.id, args.url, {caption: args.message})
+                    .catch(this.error)
+                    .then();
+            }
+        });
+        sendNotificationCard.registerArgumentAutocompleteListener(
+            'user',
+            async (query, args) => {
+                const results: any = [];
+                this.users.forEach((user) => {
+                    results.push({
+                        name: user.chatName,
+                        id: user.userId,
+                    });
+                });
+                return results.filter((result: any) => {
+                    return result.name.toLowerCase().includes(query.toLowerCase());
+                });
+            },
+        );
     }
 
     private sendNotificationActionFlow() {
