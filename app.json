@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.spkes.telegramNotifications",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#229ED9",
@@ -317,6 +317,94 @@
           }
         ],
         "id": "send-a-image-with-message"
+      },
+      {
+        "title": {
+          "en": "Send an image with a message",
+          "de": "Ein Bild mit einer Nachricht senden",
+          "nl": "Verstuur een afbeelding met een bericht"
+        },
+        "titleFormatted": {
+          "en": "Send image [[droptoken]] to [[user]] with the message [[message]]",
+          "de": "Bild [[droptoken]] mit Nachricht [[message]] an [[user]] senden",
+          "nl": "Stuur afbeelding [[droptoken]] naar [[user]] met het bericht [[message]]"
+        },
+        "hint": {
+          "en": "Sends a Image to your Telegram chat",
+          "de": "Sendet ein Bild an deinen Telegram-Chat",
+          "nl": "Verstuurt een afbeelding naar uw Telegram chat"
+        },
+        "droptoken": [
+          "image"
+        ],
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "Message",
+              "de": "Nachricht",
+              "nl": "Bericht"
+            },
+            "placeholder": {
+              "en": "Hello from Homey!",
+              "de": "Hallo von Homey!",
+              "nl": "Hallo van Homey!"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-a-image-with-message-and-tag"
+      },
+      {
+        "title": {
+          "en": "Send an Image",
+          "de": "Ein Bild senden",
+          "nl": "Verstuur een afbeelding"
+        },
+        "titleFormatted": {
+          "en": "Send an image [[droptoken]] to [[user]]",
+          "de": "Bild [[droptoken]] an [[user]] senden",
+          "nl": "Afbeelding [[droptoken]] naar [[user]] versturen"
+        },
+        "hint": {
+          "en": "Sends a Image to your Telegram chat",
+          "de": "Sendet ein Bild an deinen Telegram-Chat",
+          "nl": "Verstuur een afbeelding naar uw Telegram chat"
+        },
+        "droptoken": [
+          "image"
+        ],
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-a-image-with-tag"
       },
       {
         "title": {

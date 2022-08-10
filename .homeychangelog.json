@@ -34,5 +34,8 @@
   },
   "1.1.0": {
     "en": "Send an Image Flow Card"
+  },
+  "1.1.1": {
+    "en": "Added Send Image Flow Card with Homey Images"
   }
 }
