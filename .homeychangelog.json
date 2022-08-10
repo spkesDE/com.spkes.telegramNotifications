@@ -31,5 +31,8 @@
   },
   "1.0.10": {
     "en": "Bug fixes"
+  },
+  "1.1.0": {
+    "en": "Send an Image Flow Card"
   }
 }
