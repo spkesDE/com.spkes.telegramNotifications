@@ -251,7 +251,7 @@ class TelegramNotifications extends Homey.App {
         if (oldLogs === null || oldLogs === undefined || oldLogs === '') oldLogs = '[]';
         const newMessage: JSON = <JSON><unknown>{date: new Date().toLocaleString(), message};
         const savedHistory = JSON.parse(oldLogs);
-        if (savedHistory.length >= 20) savedHistory.pop();
+        if (savedHistory.length >= 15) savedHistory.pop();
         savedHistory.unshift(newMessage);
         this.homey.settings.set('logs', JSON.stringify(savedHistory));
     }

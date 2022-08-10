@@ -1,16 +1,18 @@
 {
   "title": {
-    "en": "Send a Image",
-    "de": "Eine Nachricht senden",
-    "nl": "Verstuur een bericht"
+    "en": "Send an Image",
+    "de": "Ein Bild senden",
+    "nl": "Verstuur een afbeelding"
   },
   "titleFormatted": {
-    "en": "Send image [[url]] to [[user]]",
+    "en": "Send an image [[url]] to [[user]]",
     "de": "Bild [[url]] an [[user]] senden",
-    "nl": "Bericht [[url]] naar [[user]] versturen"
+    "nl": "Afbeelding [[url]] naar [[user]] versturen"
   },
   "hint": {
-    "en": "Sends a Image to your Telegram chat"
+    "en": "Sends a Image to your Telegram chat",
+    "de": "Sendet ein Bild an deinen Telegram-Chat",
+    "nl": "Verstuur een afbeelding naar uw Telegram chat"
   },
   "args": [
     {
