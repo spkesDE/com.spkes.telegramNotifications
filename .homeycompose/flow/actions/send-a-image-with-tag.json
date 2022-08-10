@@ -1,0 +1,34 @@
+{
+  "title": {
+    "en": "Send an Image",
+    "de": "Ein Bild senden",
+    "nl": "Verstuur een afbeelding"
+  },
+  "titleFormatted": {
+    "en": "Send an image [[droptoken]] to [[user]]",
+    "de": "Bild [[droptoken]] an [[user]] senden",
+    "nl": "Afbeelding [[droptoken]] naar [[user]] versturen"
+  },
+  "hint": {
+    "en": "Sends a Image to your Telegram chat",
+    "de": "Sendet ein Bild an deinen Telegram-Chat",
+    "nl": "Verstuur een afbeelding naar uw Telegram chat"
+  },
+  "droptoken": ["image"],
+  "args": [
+    {
+      "type": "autocomplete",
+      "name": "user",
+      "title": {
+        "en": "User",
+        "de": "Benutzer",
+        "nl": "Gebruiker"
+      },
+      "placeholder": {
+        "en": "Created with <3",
+        "de": "Erstellt mit <3",
+        "nl": "Gemaakt met <3"
+      }
+    }
+  ]
+}

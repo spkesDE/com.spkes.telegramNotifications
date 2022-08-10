@@ -119,7 +119,9 @@ class TelegramNotifications extends Homey.App {
             this.sendNotificationActionFlow();
             this.receiveMessageTriggerFlow();
             this.sendAImageActionFlow();
+            this.sendAImageWithTagActionFlow();
             this.sendAImageWithMessageActionFlow();
+            this.sendAImageWithMessageAndTagActionFlow();
             this.flowsRegistered = true;
         }
         this.bot.catch(this.error);
@@ -170,6 +172,58 @@ class TelegramNotifications extends Homey.App {
             }
         });
         sendNotificationCard.registerArgumentAutocompleteListener(
+            'user',
+            async (query, args) => {
+                const results: any = [];
+                this.users.forEach((user) => {
+                    results.push({
+                        name: user.chatName,
+                        id: user.userId,
+                    });
+                });
+                return results.filter((result: any) => {
+                    return result.name.toLowerCase().includes(query.toLowerCase());
+                });
+            },
+        );
+    }
+
+    private sendAImageWithTagActionFlow() {
+        const sendAImageWithTagCard = this.homey.flow.getActionCard('send-a-image-with-tag');
+        sendAImageWithTagCard.registerRunListener((args, state) => {
+            if (this.bot != null) {
+                this.bot.telegram.sendPhoto(args.user.id, args.droptoken.cloudUrl)
+                    .catch(this.error)
+                    .then();
+            }
+        });
+        sendAImageWithTagCard.registerArgumentAutocompleteListener(
+            'user',
+            async (query, args) => {
+                const results: any = [];
+                this.users.forEach((user) => {
+                    results.push({
+                        name: user.chatName,
+                        id: user.userId,
+                    });
+                });
+                return results.filter((result: any) => {
+                    return result.name.toLowerCase().includes(query.toLowerCase());
+                });
+            },
+        );
+    }
+
+    private sendAImageWithMessageAndTagActionFlow() {
+        const sendAImageWithMessageAndTagCard = this.homey.flow.getActionCard('send-a-image-with-message-and-tag');
+        sendAImageWithMessageAndTagCard.registerRunListener((args, state) => {
+            if (this.bot != null) {
+                this.bot.telegram.sendPhoto(args.user.id, args.droptoken.cloudUrl, {caption: args.message})
+                    .catch(this.error)
+                    .then();
+            }
+        });
+        sendAImageWithMessageAndTagCard.registerArgumentAutocompleteListener(
             'user',
             async (query, args) => {
                 const results: any = [];
