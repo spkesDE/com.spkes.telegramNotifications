@@ -37,5 +37,8 @@
   },
   "1.1.1": {
     "en": "Added Send Image Flow Card with Homey Images"
+  },
+  "1.1.2": {
+    "en": "Workaround for Telegrams's image caching "
   }
 }
