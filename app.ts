@@ -140,7 +140,7 @@ class TelegramNotifications extends Homey.App {
         const sendNotificationCard = this.homey.flow.getActionCard('send-a-image');
         sendNotificationCard.registerRunListener((args, state) => {
             if (this.bot != null) {
-                this.bot.telegram.sendPhoto(args.user.id, args.url)
+                this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url})
                     .catch(this.error)
                     .then();
             }
@@ -166,7 +166,7 @@ class TelegramNotifications extends Homey.App {
         const sendNotificationCard = this.homey.flow.getActionCard('send-a-image-with-message');
         sendNotificationCard.registerRunListener((args, state) => {
             if (this.bot != null) {
-                this.bot.telegram.sendPhoto(args.user.id, args.url, {caption: args.message})
+                this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url}, {caption: args.message})
                     .catch(this.error)
                     .then();
             }
@@ -192,7 +192,7 @@ class TelegramNotifications extends Homey.App {
         const sendAImageWithTagCard = this.homey.flow.getActionCard('send-a-image-with-tag');
         sendAImageWithTagCard.registerRunListener((args, state) => {
             if (this.bot != null) {
-                this.bot.telegram.sendPhoto(args.user.id, args.droptoken.cloudUrl)
+                this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.droptoken.cloudUrl})
                     .catch(this.error)
                     .then();
             }
@@ -218,7 +218,10 @@ class TelegramNotifications extends Homey.App {
         const sendAImageWithMessageAndTagCard = this.homey.flow.getActionCard('send-a-image-with-message-and-tag');
         sendAImageWithMessageAndTagCard.registerRunListener((args, state) => {
             if (this.bot != null) {
-                this.bot.telegram.sendPhoto(args.user.id, args.droptoken.cloudUrl, {caption: args.message})
+                this.bot.telegram.sendPhoto(args.user.id, {
+                    filename: "",
+                    url: args.droptoken.cloudUrl
+                }, {caption: args.message})
                     .catch(this.error)
                     .then();
             }
