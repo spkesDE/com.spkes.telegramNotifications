@@ -9,10 +9,12 @@
   ],
   "name": {
     "en": "Telegram Notifications",
+    "it": "Telegram Notifications",
     "de": "Telegram Notifications"
   },
   "description": {
     "en": "Send Telegram Messages to your favourite chat!",
+    "it": "Invia messaggi Telegram nella tua chat preferita!",
     "de": "Sende Telegram-Nachrichten an deinen Lieblings-Chat!"
   },
   "category": [
@@ -45,6 +47,9 @@
       },
       {
         "name": "Twan_Veugelers"
+      },
+      {
+        "name": "ilpaolino"
       }
     ]
   },
