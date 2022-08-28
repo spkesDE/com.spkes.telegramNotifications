@@ -1,16 +1,19 @@
 {
   "title": {
     "en": "Send an Image",
+    "it": "Invia una Immagine",
     "de": "Ein Bild senden",
     "nl": "Verstuur een afbeelding"
   },
   "titleFormatted": {
     "en": "Send an image [[url]] to [[user]]",
+    "it": "Invia una Immagine [[url]] a [[user]]",
     "de": "Bild [[url]] an [[user]] senden",
     "nl": "Afbeelding [[url]] naar [[user]] versturen"
   },
   "hint": {
     "en": "Sends a Image to your Telegram chat",
+    "it": "Invia una Immagine nella tua chat Telegram",
     "de": "Sendet ein Bild an deinen Telegram-Chat",
     "nl": "Verstuur een afbeelding naar uw Telegram chat"
   },
@@ -20,11 +23,13 @@
       "name": "url",
       "title": {
         "en": "URL",
+        "it": "URL",
         "de": "URL",
         "nl": "URL"
       },
       "placeholder": {
         "en": "http://url/image.png",
+        "it": "http://url/image.png",
         "de": "http://url/image.png",
         "nl": "http://url/image.png"
       }
@@ -34,11 +39,13 @@
       "name": "user",
       "title": {
         "en": "User",
+        "it": "Utente",
         "de": "Benutzer",
         "nl": "Gebruiker"
       },
       "placeholder": {
         "en": "Created with <3",
+        "it": "Creato con <3",
         "de": "Erstellt mit <3",
         "nl": "Gemaakt met <3"
       }
