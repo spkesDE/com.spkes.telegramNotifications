@@ -40,5 +40,8 @@
   },
   "1.1.2": {
     "en": "Workaround for Telegrams's image caching "
+  },
+  "1.1.3": {
+    "en": "Added italian translation thanks to ilpaolino"
   }
 }
