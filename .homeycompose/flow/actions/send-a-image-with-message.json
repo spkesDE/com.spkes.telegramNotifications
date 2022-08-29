@@ -1,16 +1,19 @@
 {
   "title": {
     "en": "Send an image with a message",
+    "it": "Invia una Immagine con un messaggio",
     "de": "Ein Bild mit einer Nachricht senden",
     "nl": "Verstuur een afbeelding met een bericht"
   },
   "titleFormatted": {
     "en": "Send image [[url]] to [[user]] with the message [[message]]",
+    "it": "Invia immagine [[url]] a [[user]] con il messaggio [[message]]",
     "de": "Bild [[url]] mit Nachricht [[message]] an [[user]] senden",
     "nl": "Stuur afbeelding [[url]] naar [[user]] met het bericht [[message]]"
   },
   "hint": {
     "en": "Sends a Image to your Telegram chat",
+    "it": "Invia una Immagine nella tua chat Telegram",
     "de": "Sendet ein Bild an deinen Telegram-Chat",
     "nl": "Verstuurt een afbeelding naar uw Telegram chat"
   },
@@ -20,11 +23,13 @@
       "name": "message",
       "title": {
         "en": "Message",
+        "it": "Messaggio",
         "de": "Nachricht",
         "nl": "Bericht"
       },
       "placeholder": {
         "en": "Hello from Homey!",
+        "it": "Ciao da Homey!",
         "de": "Hallo von Homey!",
         "nl": "Hallo van Homey!"
       }
@@ -34,11 +39,13 @@
       "name": "url",
       "title": {
         "en": "URL",
+        "it": "URL",
         "de": "URL",
         "nl": "URL"
       },
       "placeholder": {
         "en": "http://url/image.png",
+        "it": "http://url/image.png",
         "de": "http://url/image.png",
         "nl": "http://url/image.png"
       }
@@ -48,11 +55,13 @@
       "name": "user",
       "title": {
         "en": "User",
+        "it": "Utente",
         "de": "Benutzer",
         "nl": "Gebruiker"
       },
       "placeholder": {
         "en": "Created with <3",
+        "it": "Creato con <3",
         "de": "Erstellt mit <3",
         "nl": "Gemaakt met <3"
       }

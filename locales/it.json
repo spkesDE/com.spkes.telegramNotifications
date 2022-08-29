@@ -1,0 +1,17 @@
+{
+  "settings": {
+    "title": "Inserisci il tuo token",
+    "users": "Utenti / Gruppi di Chat",
+    "empty": "Vuoto :(",
+    "settings": "Impostazioni",
+    "token": "Token",
+    "save": "Salva modifiche",
+    "clear": "Svuota tutti gli utenti",
+    "userInfo": "Quando svuoti gli utenti ydevi ri-registrarli sul bot Telegram. Questo significa che devi inviare nuovamente il comando /start .",
+    "clearLogs": "Svuota log",
+    "logs": "Logs",
+    "userInfoPassword": "Per registrare un utente/chat devi scrivere /start [yourPassword] al bot tramite Telegram",
+    "password": "Password Bot",
+    "passwordEnable": "Abilita password"
+  }
+}

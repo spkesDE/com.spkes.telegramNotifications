@@ -1,11 +1,13 @@
 {
   "title": {
     "en": "A new user/chat has been discovered",
+    "it": "Un nuovo utente/chat è stato trovato",
     "de": "Ein neuer Benutzer/Chat wurde entdeckt",
     "nl": "Er is een nieuwe gebruiker/chat ontdekt"
   },
   "titleFormatted": {
     "en": "A new user/chat has been discovered",
+    "it": "Un nuovo utente/chat è stato trovato",
     "de": "Ein neuer Benutzer/Chat wurde entdeckt",
     "nl": "Er is een nieuwe gebruiker/chat ontdekt"
   },
@@ -15,11 +17,13 @@
       "type": "string",
       "title": {
         "en": "First Name",
+        "it": "Nome",
         "de": "Vorname",
         "nl": "Voornaam"
       },
       "example": {
         "en": "Julian",
+        "it": "Julian",
         "de": "Julian",
         "nl": "Julian"
       }
@@ -29,11 +33,13 @@
       "type": "string",
       "title": {
         "en": "Username",
+        "it": "Nome Utente",
         "de": "Benutzername",
         "nl": "Gebruikersnaam"
       },
       "example": {
         "en": "julian022",
+        "it": "julian022",
         "de": "julian022",
         "nl": "julian022"
       }
@@ -43,11 +49,13 @@
       "type": "string",
       "title": {
         "en": "Type",
+        "it": "Tipo",
         "de": "Typ",
         "nl": "Type"
       },
       "example": {
         "en": "Group",
+        "it": "Gruppo",
         "de": "Gruppe",
         "nl": "Group"
       }

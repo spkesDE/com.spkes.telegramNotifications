@@ -1,16 +1,19 @@
 {
   "title": {
     "en": "Send an Image",
+    "it": "Invia una Immagine",
     "de": "Ein Bild senden",
     "nl": "Verstuur een afbeelding"
   },
   "titleFormatted": {
     "en": "Send an image [[droptoken]] to [[user]]",
+    "it": "Invia una immagine [[droptoken]] a [[user]]",
     "de": "Bild [[droptoken]] an [[user]] senden",
     "nl": "Afbeelding [[droptoken]] naar [[user]] versturen"
   },
   "hint": {
     "en": "Sends a Image to your Telegram chat",
+    "it": "Invia una Immagine nella tua chat Telegram",
     "de": "Sendet ein Bild an deinen Telegram-Chat",
     "nl": "Verstuur een afbeelding naar uw Telegram chat"
   },
@@ -21,11 +24,13 @@
       "name": "user",
       "title": {
         "en": "User",
+        "it": "Utente",
         "de": "Benutzer",
         "nl": "Gebruiker"
       },
       "placeholder": {
         "en": "Created with <3",
+        "it": "Creato con <3",
         "de": "Erstellt mit <3",
         "nl": "Gemaakt met <3"
       }
