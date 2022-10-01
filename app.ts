@@ -1,8 +1,8 @@
 import Homey from 'homey';
 import {Telegraf, Markup} from 'telegraf';
+import {Question} from "./question";
 
 class User {
-
     userId: number
     chatName: string
 
@@ -10,14 +10,8 @@ class User {
         this.chatName = chatName;
         this.userId = userId;
     }
-
 }
 
-/*
-  Todo
-  - Add "(RE)Start" Button in the Settings Page
-  - Add State of the Bot in the Settings Page
- */
 
 class TelegramNotifications extends Homey.App {
 
@@ -92,6 +86,19 @@ class TelegramNotifications extends Homey.App {
                 .catch(this.error)
                 .then();
         }).catch(this.error);
+
+        this.bot.command('test', async (ctx) => {
+            //Todo Create Question via flow, Save Question
+           let q = new Question(this.bot, ctx.message.chat.id, "What do you want to eat?", ["Lasagna", "Ice Cream", "Steak", "Pizza", "Pasta"])
+        });
+
+        this.bot.on('callback_query', async (ctx) => {
+            await ctx.telegram.answerCbQuery(ctx.callbackQuery.id);
+            await ctx.answerCbQuery();
+            //Todo Get Question, Trigger Flow, Pizza, Remove Question
+            await ctx.telegram.editMessageReplyMarkup(ctx.callbackQuery.message.chat.id, ctx.callbackQuery.message.message_id, [])
+        });
+
 
         this.bot.action('user-add', (ctx) => {
             let user: User | null = null;
