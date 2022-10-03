@@ -298,8 +298,8 @@ class TelegramNotifications extends Homey.App {
                 if (ctx.message.text === undefined) return;
                 const token = {
                     message: ctx.message.text,
-                    from: ctx.message.from.first_name,
-                    username: ctx.message.from.username,
+                    from: ctx.message.from.first_name !== undefined ? ctx.message.from.first_name : 'undefined',
+                    username: ctx.message.from.username !== undefined ? ctx.message.from.username : 'undefined',
                     chat: ctx.chat.type === 'private' ? ctx.chat.first_name : ctx.chat.title,
                     chatType: ctx.chat.type,
                 };
