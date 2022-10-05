@@ -46,5 +46,8 @@
   },
   "1.1.4": {
     "en": "Bug fix"
+  },
+  "1.1.5": {
+    "en": "Bug fixes, Better error handling"
   }
 }

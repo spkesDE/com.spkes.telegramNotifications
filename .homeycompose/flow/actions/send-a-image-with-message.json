@@ -12,10 +12,10 @@
     "nl": "Stuur afbeelding [[url]] naar [[user]] met het bericht [[message]]"
   },
   "hint": {
-    "en": "Sends a Image to your Telegram chat",
-    "it": "Invia una Immagine nella tua chat Telegram",
-    "de": "Sendet ein Bild an deinen Telegram-Chat",
-    "nl": "Verstuurt een afbeelding naar uw Telegram chat"
+    "en": "Sends a Image to your Telegram chat. Only HTTPS is supported.",
+    "it": "Invia una Immagine nella tua chat Telegram. Only HTTPS is supported.",
+    "de": "Sendet ein Bild an deinen Telegram-Chat. Nur HTTPS protokoll ist unterstützt.",
+    "nl": "Verstuur een afbeelding naar uw Telegram chat. Only HTTPS is supported."
   },
   "args": [
     {

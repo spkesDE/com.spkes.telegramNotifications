@@ -134,27 +134,36 @@ class TelegramNotifications extends Homey.App {
         this.bot.catch(this.error);
         await this.bot.launch().catch(this.error);
         // eslint-disable-next-line no-return-assign
-        await this.bot.telegram.getMe().catch((r) => this.changeBotState(false));
+        await this.bot.telegram.getMe().catch(() => this.changeBotState(false));
         if (!this.startSuccess) {
             this.log('Failed to start. Token most likely wrong.');
         } else {
             this.log('Telegram Notifications app is initialized.');
+            this.homey.log('Debug => Total-Users ' + this.users.length + ', Log-Size: ' + this.getLogSize() + " and start was " + (this.startSuccess ? 'successful' : 'unsuccessful'));
             this.changeBotState(true);
         }
     }
 
     private sendAImageActionFlow() {
         const sendNotificationCard = this.homey.flow.getActionCard('send-a-image');
-        sendNotificationCard.registerRunListener((args, state) => {
+        sendNotificationCard.registerRunListener((args) => {
             if (this.bot != null) {
-                this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url})
-                    .catch(this.error)
-                    .then();
+                if (this.validateURL(args.url)) {
+                    this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url})
+                        .catch(this.error)
+                        .then();
+                } else {
+                    this.error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')
+                    throw new Error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')
+                }
+            } else {
+                this.error('Failed to start bot. Token most likely wrong.')
+                throw new Error('Failed to start bot. Token most likely wrong.')
             }
         });
         sendNotificationCard.registerArgumentAutocompleteListener(
             'user',
-            async (query, args) => {
+            async (query) => {
                 const results: any = [];
                 this.users.forEach((user) => {
                     results.push({
@@ -171,16 +180,24 @@ class TelegramNotifications extends Homey.App {
 
     private sendAImageWithMessageActionFlow() {
         const sendNotificationCard = this.homey.flow.getActionCard('send-a-image-with-message');
-        sendNotificationCard.registerRunListener((args, state) => {
+        sendNotificationCard.registerRunListener((args) => {
             if (this.bot != null) {
-                this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url}, {caption: args.message})
-                    .catch(this.error)
-                    .then();
+                if (this.validateURL(args.url)) {
+                    this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url}, {caption: args.message})
+                        .catch(this.error)
+                        .then();
+                } else {
+                    this.error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')
+                    throw new Error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')
+                }
+            } else {
+                this.error('Failed to start bot. Token most likely wrong.')
+                throw new Error('Failed to start bot. Token most likely wrong.')
             }
         });
         sendNotificationCard.registerArgumentAutocompleteListener(
             'user',
-            async (query, args) => {
+            async (query) => {
                 const results: any = [];
                 this.users.forEach((user) => {
                     results.push({
@@ -197,7 +214,7 @@ class TelegramNotifications extends Homey.App {
 
     private sendAImageWithTagActionFlow() {
         const sendAImageWithTagCard = this.homey.flow.getActionCard('send-a-image-with-tag');
-        sendAImageWithTagCard.registerRunListener((args, state) => {
+        sendAImageWithTagCard.registerRunListener((args) => {
             if (this.bot != null) {
                 this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.droptoken.cloudUrl})
                     .catch(this.error)
@@ -206,7 +223,7 @@ class TelegramNotifications extends Homey.App {
         });
         sendAImageWithTagCard.registerArgumentAutocompleteListener(
             'user',
-            async (query, args) => {
+            async (query) => {
                 const results: any = [];
                 this.users.forEach((user) => {
                     results.push({
@@ -223,7 +240,7 @@ class TelegramNotifications extends Homey.App {
 
     private sendAImageWithMessageAndTagActionFlow() {
         const sendAImageWithMessageAndTagCard = this.homey.flow.getActionCard('send-a-image-with-message-and-tag');
-        sendAImageWithMessageAndTagCard.registerRunListener((args, state) => {
+        sendAImageWithMessageAndTagCard.registerRunListener((args) => {
             if (this.bot != null) {
                 this.bot.telegram.sendPhoto(args.user.id, {
                     filename: "",
@@ -235,7 +252,7 @@ class TelegramNotifications extends Homey.App {
         });
         sendAImageWithMessageAndTagCard.registerArgumentAutocompleteListener(
             'user',
-            async (query, args) => {
+            async (query) => {
                 const results: any = [];
                 this.users.forEach((user) => {
                     results.push({
@@ -252,7 +269,7 @@ class TelegramNotifications extends Homey.App {
 
     private sendNotificationActionFlow() {
         const sendNotificationCard = this.homey.flow.getActionCard('sendNotification');
-        sendNotificationCard.registerRunListener((args, state) => {
+        sendNotificationCard.registerRunListener((args) => {
             if (this.bot != null) {
                 this.bot.telegram.sendMessage(args.user.id, args.message)
                     .catch(this.error)
@@ -261,7 +278,7 @@ class TelegramNotifications extends Homey.App {
         });
         sendNotificationCard.registerArgumentAutocompleteListener(
             'user',
-            async (query, args) => {
+            async (query) => {
                 const results: any = [];
                 this.users.forEach((user) => {
                     results.push({
@@ -281,12 +298,12 @@ class TelegramNotifications extends Homey.App {
         this.homey.settings.set('bot-running', bool);
     }
 
-    public log(message: string) {
+    public log(message: any) {
         this.writeLog(message).then();
         this.homey.log(message);
     }
 
-    public error(message: string) {
+    public error(message: any) {
         this.writeLog(message).then();
         this.homey.error(message);
     }
@@ -294,7 +311,7 @@ class TelegramNotifications extends Homey.App {
     private receiveMessageTriggerFlow() {
         const receiveMessageCard = this.homey.flow.getTriggerCard('receiveMessage');
         if (this.bot != null) {
-            this.bot.on('text', (ctx, next) => {
+            this.bot.on('text', (ctx) => {
                 if (ctx.message.text === undefined) return;
                 const token = {
                     message: ctx.message.text,
@@ -310,7 +327,7 @@ class TelegramNotifications extends Homey.App {
         }
     }
 
-    private async writeLog(message: string) {
+    private async writeLog(message: any) {
         let oldLogs = this.homey.settings.get('logs');
         if (oldLogs === null || oldLogs === undefined || oldLogs === '') oldLogs = '[]';
         const newMessage: JSON = <JSON><unknown>{date: new Date().toLocaleString(), message};
@@ -318,6 +335,20 @@ class TelegramNotifications extends Homey.App {
         if (savedHistory.length >= 15) savedHistory.pop();
         savedHistory.unshift(newMessage);
         this.homey.settings.set('logs', JSON.stringify(savedHistory));
+    }
+
+    private getLogSize() : number {
+        let oldLogs = this.homey.settings.get('logs');
+        const savedHistory = JSON.parse(oldLogs);
+        return savedHistory.length
+    }
+
+    private validateURL(link: string)
+    {
+        if (link.indexOf("http://") == 0) {
+            return false;
+        }
+        return link.indexOf("https://") == 0;
     }
 
 }
