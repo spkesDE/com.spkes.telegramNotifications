@@ -132,6 +132,7 @@ class TelegramNotifications extends Homey.App {
             this.log('Failed to start. Token most likely wrong.');
         } else {
             this.log('Telegram Notifications app is initialized.');
+            this.homey.log('Debug: Total Users ' + this.users.length + ' Log Size: ' + this.getLogSize() + " and start was " + this.startSuccess ? 'successful' : 'unsuccessful')
             this.changeBotState(true);
         }
     }
@@ -311,6 +312,12 @@ class TelegramNotifications extends Homey.App {
         if (savedHistory.length >= 15) savedHistory.pop();
         savedHistory.unshift(newMessage);
         this.homey.settings.set('logs', JSON.stringify(savedHistory));
+    }
+
+    private getLogSize() : number {
+        let oldLogs = this.homey.settings.get('logs');
+        const savedHistory = JSON.parse(oldLogs);
+        return savedHistory.length
     }
 
 }
