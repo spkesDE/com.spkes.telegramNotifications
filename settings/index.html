@@ -5,9 +5,16 @@
     <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<fieldset>
-    <legend data-i18n="settings.settings">Settings</legend>
+<div class="tab">
+    <button class="tab-links" id="defaultOpen">Settings</button>
+    <button class="tab-links">Users</button>
+    <button class="tab-links">Questions</button>
+    <button class="tab-links">Logs</button>
+</div>
+
+<div id="Settings" class="tab-content">
     <div id="running-status" class="status not-running"></div>
     <h2 data-i18n="settings.title">
         Title
@@ -21,27 +28,47 @@
     <div class="hidden" id="usePasswordDiv">
         <label for="bot-password" data-i18n="settings.password">Bot Password</label>
         <input id="bot-password" type="password" value=""/>
-        <p style="margin-bottom: 0" data-i18n="settings.userInfoPassword">To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram</p>
+        <p style="margin-bottom: 0" data-i18n="settings.userInfoPassword">To Register a user/chat now you have to
+            enter /start [yourPassword] to the bot via Telegram</p>
     </div>
-    <button id="save" class="right" data-i18n="settings.save" style="width: 100%; margin-top: 1em">Save changes</button>
-</fieldset>
+    <button id="save" data-i18n="settings.save" style="width: 100%; margin-top: 1em">Save changes</button>
+</div>
 
-<fieldset>
-    <legend data-i18n="settings.users">Users / Group Chats</legend>
-    <div id="users" class="users">
+<div id="Users" class="tab-content">
+    <div id="users-list" class="users">
     </div>
     <hr>
     <p data-i18n="settings.userInfo">When you clear the users you have to re-register the
         users to the Telegram bot.
         This means you have to send the /start command again.</p>
     <button id="clear" data-i18n="settings.clear" style="width: 100%">Clear users</button>
-</fieldset>
+</div>
 
-<fieldset>
-    <legend data-i18n="settings.logs">Logs</legend>
-    <button id="clearLogs" class="right" data-i18n="settings.clearLogs">Clear Logs</button>
-    <p id="logs" style="margin-bottom: 0"></p>
-</fieldset>
+<div id="Questions" class="tab-content">
+    <fieldset>
+        <legend>Add question</legend>
+        <div class="col">
+            <label for="question-name" data-i18n="settings.question">Question</label>
+            <input id="question-name" class="question-input" type="text" value="" placeholder="Do you want to close the shutters?"/>
+        </div>
+        <div class="row" style="margin-top: .5em; margin-bottom: .5em">
+            <h2>Answers</h2>
+            <button class="right">Add</button>
+        </div>
+        <div class="col">
+            <input id="question-name2" class="question-input" type="text" value=""/>
+        </div>
+        <div class="col">
+            <input id="question-name3" class="question-input" type="text" value=""/>
+        </div>
+        <button id="saveQuestion" data-i18n="settings.saveQuestion" style="width: 100%; margin-top: 1em">Save question</button>
+    </fieldset>
+</div>
+
+<div id="Logs" class="tab-content">
+    <p id="logs-list"></p>
+    <button id="clearLogs" style="width: 100%" data-i18n="settings.clearLogs">Clear Logs</button>
+</div>
 
 <script type="text/javascript" src="index.js"></script>
 </body>

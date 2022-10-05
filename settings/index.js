@@ -1,6 +1,6 @@
 const botTokenElement = document.getElementById('bot-token');
-const usersElement = document.getElementById('users');
-const logsElement = document.getElementById('logs');
+const usersElement = document.getElementById('users-list');
+const logsElement = document.getElementById('logs-list');
 const saveElement = document.getElementById('save');
 const clearElement = document.getElementById('clear');
 const clearLogsElement = document.getElementById('clearLogs');
@@ -66,11 +66,25 @@ function updateStatus(Homey) {
   });
 }
 
+function handleTab(event) {
+  //Hide all tabs
+  let tabContent = document.getElementsByClassName('tab-content');
+  for (let i = 0; i < tabContent.length; i++) {
+    tabContent[i].style.display = 'none';
+  }
+  let tabLinks = document.getElementsByClassName('tab-links');
+  for (let i = 0; i < tabLinks.length; i++) {
+    tabLinks[i].className = tabLinks[i].className.replace(' active', '');
+  }
+  document.getElementById(event.currentTarget.innerHTML).style.display = 'block';
+  event.currentTarget.className += ' active';
+}
+
 function delay(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
 
-function togglePassword(){
+function togglePassword() {
   if (usePasswordElement.checked) {
     usePasswordDivElement.classList.remove('hidden');
   } else {
@@ -79,6 +93,11 @@ function togglePassword(){
 }
 
 function onHomeyReady(Homey) {
+  Array.from(document.getElementsByClassName("tab-links")).forEach(function(element) {
+    element.addEventListener('click', handleTab);
+  });
+  document.getElementById("defaultOpen").click();
+
   Homey.get('bot-token', (err, botToken) => {
     if (err) return Homey.alert(err);
     botTokenElement.value = botToken;
@@ -86,7 +105,7 @@ function onHomeyReady(Homey) {
 
   Homey.get('password', (err, pw) => {
     if (err) return Homey.alert(err);
-    botPasswordElement.value = pw ?? "";
+    botPasswordElement.value = pw ?? '';
   });
 
   Homey.get('use-password', (err, bool) => {
@@ -115,11 +134,11 @@ function onHomeyReady(Homey) {
     }
   });
 
-  usePasswordElement.addEventListener('click', (e) => {
-    togglePassword()
+  usePasswordElement.addEventListener('click', () => {
+    togglePassword();
   });
 
-  saveElement.addEventListener('click', (e) => {
+  saveElement.addEventListener('click', () => {
     runningStatusElement.classList.remove('running');
     Homey.set('bot-token', botTokenElement.value, (err) => {
       if (err) return Homey.alert(err);
@@ -127,7 +146,7 @@ function onHomeyReady(Homey) {
     Homey.set('use-password', usePasswordElement.checked, (err) => {
       if (err) return Homey.alert(err);
     });
-    if(usePasswordElement.checked) {
+    if (usePasswordElement.checked) {
       Homey.set('password', botPasswordElement.value, (err) => {
         if (err) return Homey.alert(err);
       });
@@ -139,12 +158,12 @@ function onHomeyReady(Homey) {
       });
   });
 
-  clearElement.addEventListener('click', (e) => {
+  clearElement.addEventListener('click', () => {
     Homey.unset('users');
     usersElement.innerHTML = 'Empty! :(';
   });
 
-  clearLogsElement.addEventListener('click', (e) => {
+  clearLogsElement.addEventListener('click', () => {
     Homey.set('logs', '[]', (err) => {
       if (err) return Homey.alert(err);
     });

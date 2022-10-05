@@ -15,22 +15,21 @@ class TelegramNotifications extends Homey.App {
 
     async onInit() {
         this.token = await this.homey.settings.get('bot-token');
-        this.homey.settings.on('set', (dataName) => {
-            if (dataName === 'bot-token') {
+        this.homey.settings.on('set', key => {
+            if (key === 'bot-token') {
                 this.token = this.homey.settings.get('bot-token');
                 if (this.bot === null || !this.startSuccess) {
                     this.startBot();
                     this.changeBotState(true);
                 } else {
                     this.bot.stop();
-                    this.changeBotState(true);
+                    this.changeBotState(false);
                     this.bot = null;
                     this.startBot();
                 }
             }
-            if (dataName === 'users') {
-                this.users = JSON.parse(this.homey.settings.get('users'));
-            }
+            if (key === 'users')
+                this.loadUsers();
         });
         await this.startBot();
     }
@@ -75,12 +74,20 @@ class TelegramNotifications extends Homey.App {
     private handleQuestions(): void {
         if (this.bot == null) return;
 
+        //Once the Setting Question is set by the app settings in will reload it to the memory
+        this.homey.settings.on('set', (key) => {
+            if(key == 'questions')
+                this.loadQuestions()
+        })
+
+        //Debug command
         this.bot.command('test', async (ctx) => {
             //Todo Create Question via flow, Save Question
             let q = new Question(this.bot, ctx.message.chat.id, "What do you want to eat?", ["Lasagna", "Ice Cream", "Steak", "Pizza", "Pasta"])
             this.questions.push(q);
         });
 
+        //This event will trigger once an inline button is pressed
         this.bot.on('callback_query', async (ctx) => {
             await ctx.telegram.answerCbQuery(ctx.callbackQuery.id);
             await ctx.answerCbQuery();
@@ -363,11 +370,19 @@ class TelegramNotifications extends Homey.App {
     }
 
     private loadSavedArrays() {
-        if (this.homey.settings.get('users') !== null) {
-            this.users = JSON.parse(this.homey.settings.get('users')) as User[];
-        }
+        this.loadUsers();
+        this.loadQuestions();
+    }
+
+    private loadQuestions() {
         if (this.homey.settings.get('questions') !== null) {
             this.questions = JSON.parse(this.homey.settings.get('questions')) as Question[];
+        }
+    }
+
+    private loadUsers() {
+        if (this.homey.settings.get('users') !== null) {
+            this.users = JSON.parse(this.homey.settings.get('users')) as User[];
         }
     }
 
