@@ -8,7 +8,7 @@ export class Question {
     UUID: string | undefined;
     messageId: number = 0;
     chatId: number = 0;
-    private buttons: string[] = [];
+    buttons: string[] = [];
 
     constructor(bot: Telegraf<any> | null, userId: number, question: string, buttons: string[]) {
         this.userId = userId;
