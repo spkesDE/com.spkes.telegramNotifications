@@ -127,7 +127,7 @@ class TelegramNotifications extends Homey.App {
         this.bot.catch(this.error);
         await this.bot.launch().catch(this.error);
         // eslint-disable-next-line no-return-assign
-        await this.bot.telegram.getMe().catch((r) => this.changeBotState(false));
+        await this.bot.telegram.getMe().catch(() => this.changeBotState(false));
         if (!this.startSuccess) {
             this.log('Failed to start. Token most likely wrong.');
         } else {
@@ -138,7 +138,7 @@ class TelegramNotifications extends Homey.App {
 
     private sendAImageActionFlow() {
         const sendNotificationCard = this.homey.flow.getActionCard('send-a-image');
-        sendNotificationCard.registerRunListener((args, state) => {
+        sendNotificationCard.registerRunListener((args) => {
             if (this.bot != null) {
                 this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url})
                     .catch(this.error)
@@ -147,7 +147,7 @@ class TelegramNotifications extends Homey.App {
         });
         sendNotificationCard.registerArgumentAutocompleteListener(
             'user',
-            async (query, args) => {
+            async (query) => {
                 const results: any = [];
                 this.users.forEach((user) => {
                     results.push({
@@ -164,7 +164,7 @@ class TelegramNotifications extends Homey.App {
 
     private sendAImageWithMessageActionFlow() {
         const sendNotificationCard = this.homey.flow.getActionCard('send-a-image-with-message');
-        sendNotificationCard.registerRunListener((args, state) => {
+        sendNotificationCard.registerRunListener((args) => {
             if (this.bot != null) {
                 this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url}, {caption: args.message})
                     .catch(this.error)
@@ -173,7 +173,7 @@ class TelegramNotifications extends Homey.App {
         });
         sendNotificationCard.registerArgumentAutocompleteListener(
             'user',
-            async (query, args) => {
+            async (query) => {
                 const results: any = [];
                 this.users.forEach((user) => {
                     results.push({
@@ -190,7 +190,7 @@ class TelegramNotifications extends Homey.App {
 
     private sendAImageWithTagActionFlow() {
         const sendAImageWithTagCard = this.homey.flow.getActionCard('send-a-image-with-tag');
-        sendAImageWithTagCard.registerRunListener((args, state) => {
+        sendAImageWithTagCard.registerRunListener((args) => {
             if (this.bot != null) {
                 this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.droptoken.cloudUrl})
                     .catch(this.error)
@@ -199,7 +199,7 @@ class TelegramNotifications extends Homey.App {
         });
         sendAImageWithTagCard.registerArgumentAutocompleteListener(
             'user',
-            async (query, args) => {
+            async (query) => {
                 const results: any = [];
                 this.users.forEach((user) => {
                     results.push({
@@ -216,7 +216,7 @@ class TelegramNotifications extends Homey.App {
 
     private sendAImageWithMessageAndTagActionFlow() {
         const sendAImageWithMessageAndTagCard = this.homey.flow.getActionCard('send-a-image-with-message-and-tag');
-        sendAImageWithMessageAndTagCard.registerRunListener((args, state) => {
+        sendAImageWithMessageAndTagCard.registerRunListener((args) => {
             if (this.bot != null) {
                 this.bot.telegram.sendPhoto(args.user.id, {
                     filename: "",
@@ -228,7 +228,7 @@ class TelegramNotifications extends Homey.App {
         });
         sendAImageWithMessageAndTagCard.registerArgumentAutocompleteListener(
             'user',
-            async (query, args) => {
+            async (query) => {
                 const results: any = [];
                 this.users.forEach((user) => {
                     results.push({
@@ -245,7 +245,7 @@ class TelegramNotifications extends Homey.App {
 
     private sendNotificationActionFlow() {
         const sendNotificationCard = this.homey.flow.getActionCard('sendNotification');
-        sendNotificationCard.registerRunListener((args, state) => {
+        sendNotificationCard.registerRunListener((args) => {
             if (this.bot != null) {
                 this.bot.telegram.sendMessage(args.user.id, args.message)
                     .catch(this.error)
@@ -254,7 +254,7 @@ class TelegramNotifications extends Homey.App {
         });
         sendNotificationCard.registerArgumentAutocompleteListener(
             'user',
-            async (query, args) => {
+            async (query) => {
                 const results: any = [];
                 this.users.forEach((user) => {
                     results.push({
@@ -287,7 +287,7 @@ class TelegramNotifications extends Homey.App {
     private receiveMessageTriggerFlow() {
         const receiveMessageCard = this.homey.flow.getTriggerCard('receiveMessage');
         if (this.bot != null) {
-            this.bot.on('text', (ctx, next) => {
+            this.bot.on('text', (ctx) => {
                 if (ctx.message.text === undefined) return;
                 const token = {
                     message: ctx.message.text,
