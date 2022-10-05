@@ -132,7 +132,7 @@ class TelegramNotifications extends Homey.App {
             this.log('Failed to start. Token most likely wrong.');
         } else {
             this.log('Telegram Notifications app is initialized.');
-            this.homey.log('Debug: Total Users ' + this.users.length + ' Log Size: ' + this.getLogSize() + " and start was " + this.startSuccess ? 'successful' : 'unsuccessful')
+            this.homey.log('Debug => Total-Users ' + this.users.length + ', Log-Size: ' + this.getLogSize() + " and start was " + (this.startSuccess ? 'successful' : 'unsuccessful'));
             this.changeBotState(true);
         }
     }
@@ -141,9 +141,17 @@ class TelegramNotifications extends Homey.App {
         const sendNotificationCard = this.homey.flow.getActionCard('send-a-image');
         sendNotificationCard.registerRunListener((args) => {
             if (this.bot != null) {
-                this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url})
-                    .catch(this.error)
-                    .then();
+                if (this.validateURL(args.url)) {
+                    this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url})
+                        .catch(this.error)
+                        .then();
+                } else {
+                    this.error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')
+                    throw new Error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')
+                }
+            } else {
+                this.error('Failed to start bot. Token most likely wrong.')
+                throw new Error('Failed to start bot. Token most likely wrong.')
             }
         });
         sendNotificationCard.registerArgumentAutocompleteListener(
@@ -167,9 +175,17 @@ class TelegramNotifications extends Homey.App {
         const sendNotificationCard = this.homey.flow.getActionCard('send-a-image-with-message');
         sendNotificationCard.registerRunListener((args) => {
             if (this.bot != null) {
-                this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url}, {caption: args.message})
-                    .catch(this.error)
-                    .then();
+                if (this.validateURL(args.url)) {
+                    this.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url}, {caption: args.message})
+                        .catch(this.error)
+                        .then();
+                } else {
+                    this.error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')
+                    throw new Error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')
+                }
+            } else {
+                this.error('Failed to start bot. Token most likely wrong.')
+                throw new Error('Failed to start bot. Token most likely wrong.')
             }
         });
         sendNotificationCard.registerArgumentAutocompleteListener(
@@ -318,6 +334,14 @@ class TelegramNotifications extends Homey.App {
         let oldLogs = this.homey.settings.get('logs');
         const savedHistory = JSON.parse(oldLogs);
         return savedHistory.length
+    }
+
+    private validateURL(link: string)
+    {
+        if (link.indexOf("http://") == 0) {
+            return false;
+        }
+        return link.indexOf("https://") == 0;
     }
 
 }
