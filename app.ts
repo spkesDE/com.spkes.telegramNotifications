@@ -274,12 +274,12 @@ class TelegramNotifications extends Homey.App {
         this.homey.settings.set('bot-running', bool);
     }
 
-    public log(message: string) {
+    public log(message: any) {
         this.writeLog(message).then();
         this.homey.log(message);
     }
 
-    public error(message: string) {
+    public error(message: any) {
         this.writeLog(message).then();
         this.homey.error(message);
     }
@@ -303,7 +303,7 @@ class TelegramNotifications extends Homey.App {
         }
     }
 
-    private async writeLog(message: string) {
+    private async writeLog(message: any) {
         let oldLogs = this.homey.settings.get('logs');
         if (oldLogs === null || oldLogs === undefined || oldLogs === '') oldLogs = '[]';
         const newMessage: JSON = <JSON><unknown>{date: new Date().toLocaleString(), message};
