@@ -1,13 +1,13 @@
 {
   "title": {
     "en": "A question has been answered",
-    "it": "A question has been answered",
+    "it": "Una domanda ha ricevuto risposta",
     "de": "Eine Frage wurde beantwortet",
     "nl": "Een vraag is beantwoord"
   },
   "titleFormatted": {
     "en": "The [[question]] has been answered",
-    "it": "The [[question]] has been answered",
+    "it": "[[question]] ha ricevuto risposta",
     "de": "Die [[question]] wurde beantwortet",
     "nl": "De [[question]] is beantwoord"
   },
@@ -17,7 +17,7 @@
       "name": "question",
       "title": {
         "en": "Question",
-        "it": "Question",
+        "it": "Domanda",
         "de": "Frage",
         "nl": "Vraag"
       }
@@ -29,13 +29,13 @@
       "type": "string",
       "title": {
         "en": "Question",
-        "it": "Question",
+        "it": "Domanda",
         "de": "Frage",
         "nl": "Vraag"
       },
       "example": {
         "en": "Do you like pizza?",
-        "it": "Do you like pizza?",
+        "it": "Ti piace la pizza?",
         "de": "Magst du Pizza?",
         "nl": "Lust je pizza?"
       }
@@ -45,13 +45,13 @@
       "type": "string",
       "title": {
         "en": "Answer",
-        "it": "Answer",
+        "it": "Risposta",
         "de": "Antwort",
         "nl": "Antwoord"
       },
       "example": {
         "en": "Yes, of course. Is that even a question?",
-        "it": "Yes, of course. Is that even a question?",
+        "it": "Sì, certametne. È una domanda?",
         "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
         "nl": "Ja, natuurlijk. Is dit echt een vraag?"
       }

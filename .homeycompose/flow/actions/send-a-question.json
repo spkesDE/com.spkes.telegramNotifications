@@ -1,19 +1,19 @@
 {
   "title": {
     "en": "Send an Question",
-    "it": "Send an Question",
+    "it": "Invia una domanda",
     "de": "Sende eine Frage",
     "nl": "Stuur een vraag"
   },
   "titleFormatted": {
     "en": "Send a question [[question]] to [[user]]",
-    "it": "Send a question [[question]] to [[user]]",
+    "it": "Invia domanda [[question]] a [[user]]",
     "de": "Sende eine Frage [[question]] zu [[user]]",
     "nl": "Stuur de vraag [[question]] naar [[user]]"
   },
   "hint": {
     "en": "Sends a Question to your Telegram chat.",
-    "it": "Sends a Question to your Telegram chat.",
+    "it": "Invia una domanda nella tua chat Telegram.",
     "de": "Sendet eine Frage an Ihren Telegram-Chat.",
     "nl": "Stuurt een vraag naar je Telegram chat."
   },
@@ -23,7 +23,7 @@
       "name": "question",
       "title": {
         "en": "Question",
-        "it": "Question",
+        "it": "Domanda",
         "de": "Frage",
         "nl": "Vraag"
       },
