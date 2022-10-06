@@ -222,7 +222,6 @@ function onHomeyReady(Homey) {
     }
 
     let questionObj = {question: question.value , UUID: uuidv4(), buttons:answersArray };
-    console.log(questionObj)
     Homey.get('questions', (err, questionString) => {
       if (err) return Homey.alert(err);
       let json = [];
@@ -235,7 +234,10 @@ function onHomeyReady(Homey) {
     });
 
     clearAddQuestionForm();
-    updateQuestions();
+    delay(1000)
+      .then(() => {
+        updateQuestions(Homey);
+      });
   });
 
   clearElement.addEventListener('click', () => {
@@ -269,6 +271,7 @@ function createNewInputField() {
   const newElem = document.createElement("input");
   newElem.setAttribute("type", "text");
   newElem.classList.add('answer-input');
+  if(container.children.length >= 25) return;
   container.appendChild(newElem);
 }
 

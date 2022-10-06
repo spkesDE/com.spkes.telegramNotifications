@@ -139,13 +139,13 @@
           "en": "A question has been answered",
           "it": "A question has been answered",
           "de": "Eine Frage wurde beantwortet",
-          "nl": "A question has been answered"
+          "nl": "Een vraag is beantwoord"
         },
         "titleFormatted": {
           "en": "The [[question]] has been answered",
           "it": "The [[question]] has been answered",
           "de": "Die [[question]] wurde beantwortet",
-          "nl": "The [[question]] has been answered"
+          "nl": "De [[question]] is beantwoord"
         },
         "args": [
           {
@@ -155,7 +155,7 @@
               "en": "Question",
               "it": "Question",
               "de": "Frage",
-              "nl": "Question"
+              "nl": "Vraag"
             }
           }
         ],
@@ -167,13 +167,13 @@
               "en": "Question",
               "it": "Question",
               "de": "Frage",
-              "nl": "Question"
+              "nl": "Vraag"
             },
             "example": {
               "en": "Do you like pizza?",
               "it": "Do you like pizza?",
               "de": "Magst du Pizza?",
-              "nl": "Do you like pizza?"
+              "nl": "Lust je pizza?"
             }
           },
           {
@@ -183,13 +183,13 @@
               "en": "Answer",
               "it": "Answer",
               "de": "Antwort",
-              "nl": "Answer"
+              "nl": "Antwoord"
             },
             "example": {
               "en": "Yes, of course. Is that even a question?",
               "it": "Yes, of course. Is that even a question?",
               "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
-              "nl": "Yes, of course. Is that even a question?"
+              "nl": "Ja, natuurlijk. Is dit echt een vraag?"
             }
           },
           {
@@ -264,13 +264,13 @@
           "en": "A question has been answered",
           "it": "A question has been answered",
           "de": "Eine Frage wurde beantwortet",
-          "nl": "A question has been answered"
+          "nl": "Een vraag is beantwoord"
         },
         "titleFormatted": {
           "en": "The [[question]] has been answered with [[answer]]",
           "it": "The [[question]] has been answered with [[answer]]",
           "de": "Die [[question]] wurde mit [[answer]] beantwortet",
-          "nl": "The [[question]] has been answered with [[answer]]"
+          "nl": "De [[question]] is beantwoord met [[answer]]"
         },
         "args": [
           {
@@ -280,7 +280,7 @@
               "en": "Question",
               "it": "Question",
               "de": "Frage",
-              "nl": "Question"
+              "nl": "Vraag"
             }
           },
           {
@@ -290,13 +290,13 @@
               "en": "Answer",
               "it": "Answer",
               "de": "Antwort",
-              "nl": "Answer"
+              "nl": "Antwoord"
             },
             "placeholder": {
               "en": "Yes, of course. Is that even a question?",
               "it": "Yes, of course. Is that even a question?",
               "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
-              "nl": "Yes, of course. Is that even a question?"
+              "nl": "Ja, natuurlijk. Is dit echt een vraag?"
             }
           }
         ],
@@ -308,13 +308,13 @@
               "en": "Question",
               "it": "Question",
               "de": "Frage",
-              "nl": "Question"
+              "nl": "Vraag"
             },
             "example": {
               "en": "Do you like pizza?",
               "it": "Do you like pizza?",
               "de": "Magst du Pizza?",
-              "nl": "Do you like pizza?"
+              "nl": "Lust je pizza?"
             }
           },
           {
@@ -324,13 +324,13 @@
               "en": "Answer",
               "it": "Answer",
               "de": "Antwort",
-              "nl": "Answer"
+              "nl": "Antwoord"
             },
             "example": {
               "en": "Yes, of course. Is that even a question?",
               "it": "Yes, of course. Is that even a question?",
               "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
-              "nl": "Yes, of course. Is that even a question?"
+              "nl": "Ja, natuurlijk. Is dit echt een vraag?"
             }
           },
           {
@@ -730,19 +730,19 @@
           "en": "Send an Question",
           "it": "Send an Question",
           "de": "Sende eine Frage",
-          "nl": "Send an Question"
+          "nl": "Stuur een vraag"
         },
         "titleFormatted": {
           "en": "Send a question [[question]] to [[user]]",
           "it": "Send a question [[question]] to [[user]]",
           "de": "Sende eine Frage [[question]] zu [[user]]",
-          "nl": "Send a question [[question]] to [[user]]"
+          "nl": "Stuur de vraag [[question]] naar [[user]]"
         },
         "hint": {
           "en": "Sends a Question to your Telegram chat.",
           "it": "Sends a Question to your Telegram chat.",
           "de": "Sendet eine Frage an Ihren Telegram-Chat.",
-          "nl": "Sends a Question to your Telegram chat."
+          "nl": "Stuurt een vraag naar je Telegram chat."
         },
         "args": [
           {
@@ -752,7 +752,7 @@
               "en": "Question",
               "it": "Question",
               "de": "Frage",
-              "nl": "Question"
+              "nl": "Vraag"
             },
             "placeholder": {
               "en": "Created with <3",
