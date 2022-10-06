@@ -49,5 +49,8 @@
   },
   "1.1.5": {
     "en": "Bug fixes, Better error handling"
+  },
+  "1.2.0": {
+    "en": "Beta of the question system"
   }
 }
