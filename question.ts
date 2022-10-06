@@ -6,16 +6,16 @@ export class Question {
     UUID: string = "";
     buttons: string[] = [];
 
-    async createMessage(bot: Telegraf<any>, userId: number) {
+    static async createMessage(q: Question, bot: Telegraf<any>, userId: number) {
         let callbackButtons: CallbackButton[] = [];
-        this.buttons.forEach((value, i) => {
+        q.buttons.forEach((value, i) => {
             //Todo Save DateTime
-            callbackButtons.push(Markup.callbackButton(value, this.UUID + '.' + i))
+            callbackButtons.push(Markup.callbackButton(value, q.UUID + '.' + i))
         })
-        await bot.telegram.sendMessage(userId, this.question, Markup.inlineKeyboard(callbackButtons, {columns: 2}).extra());
+        await bot.telegram.sendMessage(userId, q.question, Markup.inlineKeyboard(callbackButtons, {columns: 2}).extra());
     }
 
-    getAnswer(answerId: number) {
-        return this.buttons[answerId];
+    static getAnswer(q: Question, answerId: number) {
+        return q.buttons[answerId];
     }
 }

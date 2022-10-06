@@ -461,6 +461,61 @@
       },
       {
         "title": {
+          "en": "Send an Question",
+          "it": "Send an Question",
+          "de": "Sende eine Frage",
+          "nl": "Send an Question"
+        },
+        "titleFormatted": {
+          "en": "Send a question [[question]] to [[user]]",
+          "it": "Send a question [[question]] to [[user]]",
+          "de": "Sende eine Frage [[question]] zu [[user]]",
+          "nl": "Send a question [[question]] to [[user]]"
+        },
+        "hint": {
+          "en": "Sends a Question to your Telegram chat.",
+          "it": "Sends a Question to your Telegram chat.",
+          "de": "Sendet eine Frage an Ihren Telegram-Chat.",
+          "nl": "Sends a Question to your Telegram chat."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "question",
+            "title": {
+              "en": "Question",
+              "it": "Question",
+              "de": "Frage",
+              "nl": "Question"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "it": "Utente",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-a-question"
+      },
+      {
+        "title": {
           "en": "Send a message",
           "it": "Invia messaggio",
           "de": "Eine Nachricht senden",

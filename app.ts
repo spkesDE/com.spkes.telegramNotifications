@@ -55,6 +55,7 @@ class TelegramNotifications extends Homey.App {
             this.sendAImageWithTagActionFlow();
             this.sendAImageWithMessageActionFlow();
             this.sendAImageWithMessageAndTagActionFlow();
+            this.sendAQuestionFlow();
             this.flowsRegistered = true;
         }
         this.bot.catch(this.error);
@@ -77,9 +78,8 @@ class TelegramNotifications extends Homey.App {
 
         //Once the Setting Question is set by the app settings in will reload it to the memory
         this.homey.settings.on('set', (key) => {
-            if(key == 'questions')
+            if (key == 'questions')
                 this.loadQuestions()
-            console.log(this.questions)
         })
 
         //This event will trigger once an inline button is pressed
@@ -88,18 +88,68 @@ class TelegramNotifications extends Homey.App {
             await ctx.answerCbQuery();
             await ctx.telegram.editMessageReplyMarkup(ctx.callbackQuery.message.chat.id, ctx.callbackQuery.message.message_id, []);
             //Todo Get Question, Trigger Flow, Pizza, Remove Question
-            if(ctx.callbackQuery.data == 'user-add') return;
+            if (ctx.callbackQuery.data == 'user-add') return;
             let questionId = ctx.callbackQuery.data.split('.')[0]
             let answerId = ctx.callbackQuery.data.split('.')[1]
-            let question = this.questions.find((q) => q.UUID === questionId);
-            if(question === undefined){
+            let question = this.getQuestion(questionId);
+            if (question === undefined) {
                 this.error('Question not found"')
                 throw new Error('Question with UUID ' + questionId + ' not found');
             }
             // https://apps.developer.homey.app/the-basics/flow/arguments#flow-state
 
-            await ctx.reply("Today we will be getting some juicy " + question.getAnswer(answerId));
+            await ctx.reply("Today we will be getting some juicy " + Question.getAnswer(question, answerId));
         });
+    }
+
+    private getQuestion(questionId: string): Question | undefined {
+        return this.questions.find((q) => q.UUID === questionId);
+    }
+
+    private sendAQuestionFlow() {
+        const actionCard = this.homey.flow.getActionCard('send-a-question');
+        actionCard.registerRunListener(async (args) => {
+            let question = this.getQuestion(args.question.id);
+            if (question === undefined) {
+                this.error('Question not found')
+                throw new Error('Question with UUID ' + args.question.id + ' not found');
+            }
+            if (this.bot === undefined || this.bot === null) {
+                this.error('Bot has failed to initialize')
+                throw new Error('Bot has failed to initialize');
+            }
+            await Question.createMessage(question, this.bot, args.user.id)
+        });
+        actionCard.registerArgumentAutocompleteListener(
+            'user',
+            async (query) => {
+                const results: any = [];
+                this.users.forEach((user) => {
+                    results.push({
+                        name: user.chatName,
+                        id: user.userId,
+                    });
+                });
+                return results.filter((result: any) => {
+                    return result.name.toLowerCase().includes(query.toLowerCase());
+                });
+            },
+        );
+        actionCard.registerArgumentAutocompleteListener(
+            'question',
+            async (query) => {
+                const results: any = [];
+                this.questions.forEach((question) => {
+                    results.push({
+                        name: question.question,
+                        id: question.UUID,
+                    });
+                });
+                return results.filter((result: any) => {
+                    return result.name.toLowerCase().includes(query.toLowerCase());
+                });
+            },
+        );
     }
 
     //endregion
