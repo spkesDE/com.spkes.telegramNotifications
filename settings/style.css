@@ -41,6 +41,7 @@
     background-color: #f1f1f1;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .tab button {
