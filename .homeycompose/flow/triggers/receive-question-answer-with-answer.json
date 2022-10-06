@@ -1,0 +1,140 @@
+{
+  "title": {
+    "en": "A question has been answered",
+    "it": "A question has been answered",
+    "de": "Eine Frage wurde beantwortet",
+    "nl": "A question has been answered"
+  },
+  "titleFormatted": {
+    "en": "The [[question]] has been answered with [[answer]]",
+    "it": "The [[question]] has been answered with [[answer]]",
+    "de": "Die [[question]] wurde mit [[answer]] beantwortet",
+    "nl": "The [[question]] has been answered with [[answer]]"
+  },
+  "args": [
+    {
+      "type": "autocomplete",
+      "name": "question",
+      "title": {
+        "en": "Question",
+        "it": "Question",
+        "de": "Frage",
+        "nl": "Question"
+      }
+    },
+    {
+      "type": "text",
+      "name": "answer",
+      "title": {
+        "en": "Answer",
+        "it": "Answer",
+        "de": "Antwort",
+        "nl": "Answer"
+      },
+      "placeholder": {
+        "en": "Yes, of course. Is that even a question?",
+        "it": "Yes, of course. Is that even a question?",
+        "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
+        "nl": "Yes, of course. Is that even a question?"
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "name": "question",
+      "type": "string",
+      "title": {
+        "en": "Question",
+        "it": "Question",
+        "de": "Frage",
+        "nl": "Question"
+      },
+      "example": {
+        "en": "Do you like pizza?",
+        "it": "Do you like pizza?",
+        "de": "Magst du Pizza?",
+        "nl": "Do you like pizza?"
+      }
+    },
+    {
+      "name": "answer",
+      "type": "string",
+      "title": {
+        "en": "Answer",
+        "it": "Answer",
+        "de": "Antwort",
+        "nl": "Answer"
+      },
+      "example": {
+        "en": "Yes, of course. Is that even a question?",
+        "it": "Yes, of course. Is that even a question?",
+        "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
+        "nl": "Yes, of course. Is that even a question?"
+      }
+    },
+    {
+      "name": "from",
+      "type": "string",
+      "title": {
+        "en": "First Name",
+        "it": "Nome",
+        "de": "Vorname",
+        "nl": "Voornaam"
+      },
+      "example": {
+        "en": "Julian",
+        "it": "Julian",
+        "de": "Julian",
+        "nl": "Julian"
+      }
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "title": {
+        "en": "Username",
+        "it": "Nome Utente",
+        "de": "Benutzername",
+        "nl": "Gebruikersnaam"
+      },
+      "example": {
+        "en": "spkesDE",
+        "it": "spkesDE",
+        "de": "spkesDE",
+        "nl": "spkesDE"
+      }
+    },
+    {
+      "name": "chat",
+      "type": "string",
+      "title": {
+        "en": "Chatname",
+        "it": "Nome Chat",
+        "de": "Chatname",
+        "nl": "Chatnaam"
+      },
+      "example": {
+        "en": "Family Group",
+        "it": "Gruppo Famiglia",
+        "de": "Familiengruppe",
+        "nl": "Familie Groep"
+      }
+    },
+    {
+      "name": "chatType",
+      "type": "string",
+      "title": {
+        "en": "Type",
+        "it": "Tipo",
+        "de": "Typ",
+        "nl": "Type"
+      },
+      "example": {
+        "en": "Group",
+        "it": "Gruppo",
+        "de": "Gruppe",
+        "nl": "Group"
+      }
+    }
+  ]
+}

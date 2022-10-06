@@ -1,31 +1,59 @@
 {
   "title": {
-    "en": "When a message is received",
-    "it": "Quando un messaggio è stato ricevuto",
-    "de": "Eine Nachricht wird empfangen",
-    "nl": "Als een bericht is ontvangen"
+    "en": "A question has been answered",
+    "it": "A question has been answered",
+    "de": "Eine Frage wurde beantwortet",
+    "nl": "A question has been answered"
   },
   "titleFormatted": {
-    "en": "A message is received",
-    "it": "Un  messaggio è stato ricevuto",
-    "de": "Eine Nachricht wird empfangen",
-    "nl": "Een bericht is ontvangen"
+    "en": "The [[question]] has been answered",
+    "it": "The [[question]] has been answered",
+    "de": "Die [[question]] wurde beantwortet",
+    "nl": "The [[question]] has been answered"
   },
+  "args": [
+    {
+      "type": "autocomplete",
+      "name": "question",
+      "title": {
+        "en": "Question",
+        "it": "Question",
+        "de": "Frage",
+        "nl": "Question"
+      }
+    }
+  ],
   "tokens": [
     {
-      "name": "message",
+      "name": "question",
       "type": "string",
       "title": {
-        "en": "Message",
-        "it": "Messaggio",
-        "de": "Nachricht",
-        "nl": "Bericht"
+        "en": "Question",
+        "it": "Question",
+        "de": "Frage",
+        "nl": "Question"
       },
       "example": {
-        "en": "Hello from Telegram!",
-        "it": "Ciao da Telegram!",
-        "de": "Hallo von Telegram!",
-        "nl": "Hallo van Telegram!"
+        "en": "Do you like pizza?",
+        "it": "Do you like pizza?",
+        "de": "Magst du Pizza?",
+        "nl": "Do you like pizza?"
+      }
+    },
+    {
+      "name": "answer",
+      "type": "string",
+      "title": {
+        "en": "Answer",
+        "it": "Answer",
+        "de": "Antwort",
+        "nl": "Answer"
+      },
+      "example": {
+        "en": "Yes, of course. Is that even a question?",
+        "it": "Yes, of course. Is that even a question?",
+        "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
+        "nl": "Yes, of course. Is that even a question?"
       }
     },
     {

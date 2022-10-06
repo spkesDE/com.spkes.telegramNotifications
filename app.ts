@@ -82,6 +82,54 @@ class TelegramNotifications extends Homey.App {
                 this.loadQuestions()
         })
 
+        //Getting Trigger Flows
+        const receiveQuestionAnswerTrigger = this.homey.flow.getTriggerCard('receive-question-answer');
+        const receiveQuestionAnswerWithAnswerTrigger = this.homey.flow.getTriggerCard('receive-question-answer-with-answer');
+
+
+        //region Autocomplete
+        receiveQuestionAnswerTrigger.registerArgumentAutocompleteListener(
+            'question',
+            async (query) => {
+                const results: any = [];
+                this.questions.forEach((question) => {
+                    results.push({
+                        name: question.question,
+                        id: question.UUID,
+                    });
+                });
+                return results.filter((result: any) => {
+                    return result.name.toLowerCase().includes(query.toLowerCase());
+                });
+            },
+        );
+        receiveQuestionAnswerWithAnswerTrigger.registerArgumentAutocompleteListener(
+            'question',
+            async (query) => {
+                const results: any = [];
+                this.questions.forEach((question) => {
+                    results.push({
+                        name: question.question,
+                        id: question.UUID,
+                    });
+                });
+                return results.filter((result: any) => {
+                    return result.name.toLowerCase().includes(query.toLowerCase());
+                });
+            },
+        );
+        //endregion
+
+        //region State checking
+        receiveQuestionAnswerTrigger.registerRunListener(async (args, state) => {
+            return args.question.id === state.uuid;
+        });
+
+        receiveQuestionAnswerWithAnswerTrigger.registerRunListener(async (args, state) => {
+            return args.question.id === state.uuid && args.answer == state.answer;
+        });
+        //endregion
+
         //This event will trigger once an inline button is pressed
         this.bot.on('callback_query', async (ctx) => {
             await ctx.telegram.answerCbQuery(ctx.callbackQuery.id);
@@ -97,8 +145,20 @@ class TelegramNotifications extends Homey.App {
                 throw new Error('Question with UUID ' + questionId + ' not found');
             }
             // https://apps.developer.homey.app/the-basics/flow/arguments#flow-state
+            //Building Token
+            let token = {
+                question: question.question,
+                answer: Question.getAnswer(question, answerId),
+                from: ctx.callbackQuery.from.first_name !== undefined ? ctx.callbackQuery.from.first_name : 'undefined',
+                username: ctx.callbackQuery.from.username !== undefined ? ctx.callbackQuery.from.username : 'undefined',
+                chat: ctx.chat.type === 'private' ? ctx.chat.first_name : ctx.chat.title,
+                chatType: ctx.chat.type,
+            };
 
-            await ctx.reply("Today we will be getting some juicy " + Question.getAnswer(question, answerId));
+            //Trigger Card with given state
+            let state =  { uuid: question.UUID, answer: Question.getAnswer(question, answerId)};
+            receiveQuestionAnswerTrigger.trigger(token, state).catch(this.error).then();
+            receiveQuestionAnswerWithAnswerTrigger.trigger(token, state).catch(this.error).then();
         });
     }
 
