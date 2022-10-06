@@ -65,7 +65,8 @@ class TelegramNotifications extends Homey.App {
             this.log('Failed to start. Token most likely wrong.');
         } else {
             this.log('Telegram Notifications app is initialized.');
-            this.homey.log('Debug => Total-Users ' + this.users.length + ', Log-Size: ' + this.getLogSize() + " and start was " + (this.startSuccess ? 'successful' : 'unsuccessful'));
+            this.homey.log('Debug => Total-Users ' + this.users.length + ', Question-Size: ' + this.questions.length +
+                ', Log-Size: ' + this.getLogSize() + ' and start was ' + (this.startSuccess ? 'successful' : 'unsuccessful'));
             this.changeBotState(true);
         }
     }
@@ -78,20 +79,14 @@ class TelegramNotifications extends Homey.App {
         this.homey.settings.on('set', (key) => {
             if(key == 'questions')
                 this.loadQuestions()
+            console.log(this.questions)
         })
-
-        //Debug command
-        this.bot.command('test', async (ctx) => {
-            //Todo Create Question via flow, Save Question
-            let q = new Question(this.bot, ctx.message.chat.id, "What do you want to eat?", ["Lasagna", "Ice Cream", "Steak", "Pizza", "Pasta"])
-            this.questions.push(q);
-        });
 
         //This event will trigger once an inline button is pressed
         this.bot.on('callback_query', async (ctx) => {
             await ctx.telegram.answerCbQuery(ctx.callbackQuery.id);
             await ctx.answerCbQuery();
-            await ctx.telegram.editMessageReplyMarkup(ctx.callbackQuery.message.chat.id, ctx.callbackQuery.message.message_id, [])
+            await ctx.telegram.editMessageReplyMarkup(ctx.callbackQuery.message.chat.id, ctx.callbackQuery.message.message_id, []);
             //Todo Get Question, Trigger Flow, Pizza, Remove Question
             if(ctx.callbackQuery.data == 'user-add') return;
             let questionId = ctx.callbackQuery.data.split('.')[0]

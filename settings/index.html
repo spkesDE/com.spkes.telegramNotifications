@@ -8,13 +8,13 @@
 
 <body>
 <div class="tab">
-    <button class="tab-links" id="defaultOpen">Settings</button>
-    <button class="tab-links">Users</button>
-    <button class="tab-links">Questions</button>
-    <button class="tab-links">Logs</button>
+    <button class="tab-links" data-i18n="settings.settings" data-target="settings" id="defaultOpen">Settings</button>
+    <button class="tab-links" data-i18n="settings.users" data-target="users">Users</button>
+    <button class="tab-links" data-i18n="settings.questions" data-target="questions">Questions</button>
+    <button class="tab-links" data-i18n="settings.logs" data-target="logs">Logs</button>
 </div>
 
-<div id="Settings" class="tab-content">
+<div id="settings" class="tab-content">
     <div id="running-status" class="status not-running"></div>
     <h2 data-i18n="settings.title">
         Title
@@ -34,7 +34,7 @@
     <button id="save" data-i18n="settings.save" style="width: 100%; margin-top: 1em">Save changes</button>
 </div>
 
-<div id="Users" class="tab-content">
+<div id="users" class="tab-content">
     <div id="users-list" class="users">
     </div>
     <hr>
@@ -44,28 +44,36 @@
     <button id="clear" data-i18n="settings.clear" style="width: 100%">Clear users</button>
 </div>
 
-<div id="Questions" class="tab-content">
+<div id="questions" class="tab-content">
     <fieldset>
-        <legend>Add question</legend>
+        <legend data-i18n="settings.question">Questions</legend>
+        <div id="question-list" class="users">
+        </div>
+        <hr>
+        <p data-i18n="settings.questionInfo">Todo</p>
+        <button id="clearQuestions" data-i18n="settings.clearQuestions" style="width: 100%">Clear all questions</button>
+    </fieldset>
+    <fieldset>
+        <legend data-i18n="settings.addQuestion">Add question</legend>
         <div class="col">
             <label for="question-name" data-i18n="settings.question">Question</label>
-            <input id="question-name" class="question-input" type="text" value="" placeholder="Do you want to close the shutters?"/>
+            <input id="question-name" class="question-input" type="text" value=""
+                   placeholder="Do you want to close the shutters?"/>
         </div>
         <div class="row" style="margin-top: .5em; margin-bottom: .5em">
-            <h2>Answers</h2>
-            <button class="right">Add</button>
+            <h2 data-i18n="settings.answers">Answers</h2>
+            <button class="right" onclick="createNewInputField()" data-i18n="settings.addAnswerButton">Add answer
+            </button>
         </div>
-        <div class="col">
-            <input id="question-name2" class="question-input" type="text" value=""/>
+        <div class="col" id="question-answer-col">
+
         </div>
-        <div class="col">
-            <input id="question-name3" class="question-input" type="text" value=""/>
-        </div>
-        <button id="saveQuestion" data-i18n="settings.saveQuestion" style="width: 100%; margin-top: 1em">Save question</button>
+        <button id="addQuestion" data-i18n="settings.saveQuestion" style="width: 100%; margin-top: 1em">Save question
+        </button>
     </fieldset>
 </div>
 
-<div id="Logs" class="tab-content">
+<div id="logs" class="tab-content">
     <p id="logs-list"></p>
     <button id="clearLogs" style="width: 100%" data-i18n="settings.clearLogs">Clear Logs</button>
 </div>

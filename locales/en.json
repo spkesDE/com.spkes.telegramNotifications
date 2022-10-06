@@ -12,6 +12,15 @@
     "logs": "Logs",
     "userInfoPassword": "To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram",
     "password": "Bot Password",
-    "passwordEnable": "Enable password"
+    "passwordEnable": "Enable password",
+
+    "questionInfo": "Todo",
+    "clearQuestions": "Clear all questions",
+    "questions": "Question",
+    "question": "Question",
+    "saveQuestion": "Save question",
+    "addAnswerButton": "Add answer",
+    "addQuestion": "Add question",
+    "answers": "Answers"
   }
 }

@@ -1,7 +1,7 @@
 {
   "settings": {
     "title": "Bitte geben Sie Ihren Token ein",
-    "users": "Benutzer / Gruppen Chats",
+    "users": "Benutzer",
     "empty": "Leer :(",
     "settings": "Einstellungen",
     "token": "Token",
@@ -12,6 +12,14 @@
     "logs": "Logs",
     "userInfoPassword": "Um nun einen Chatraum zu registieren muss man nun /start [dein Password] eingeben",
     "password": "Bot-Passwort",
-    "passwordEnable": "Password aktivieren"
+    "passwordEnable": "Password aktivieren",
+    "questionInfo": "Todo",
+    "clearQuestions": "Alle Fragen löschen",
+    "question": "Frage",
+    "questions": "Fragen",
+    "saveQuestion": "Frage speichern",
+    "addAnswerButton": "Antwort hinzufügen",
+    "addQuestion": "Frage hinzufügen",
+    "answers": "Antworten"
   }
 }
