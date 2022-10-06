@@ -235,6 +235,7 @@ function onHomeyReady(Homey) {
     });
 
     clearAddQuestionForm();
+    updateQuestions();
   });
 
   clearElement.addEventListener('click', () => {
