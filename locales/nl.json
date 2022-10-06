@@ -12,6 +12,14 @@
     "logs": "Logboeken",
     "userInfoPassword": "Om nu een gebruiker/chat te registreren moet je /start [jouwPaswoord] invoeren bij de bot via Telegram.",
     "password": "Bot Wachtwoord",
-    "passwordEnable": "Wachtwoord inschakelen"
+    "passwordEnable": "Wachtwoord inschakelen",
+    "questionInfo": "An edit mode of the question is planned.",
+    "clearQuestions": "Clear all questions",
+    "questions": "Question",
+    "question": "Question",
+    "saveQuestion": "Save question",
+    "addAnswerButton": "Add answer",
+    "addQuestion": "Add question",
+    "answers": "Answers"
   }
 }

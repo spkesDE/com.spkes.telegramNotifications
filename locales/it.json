@@ -12,6 +12,14 @@
     "logs": "Logs",
     "userInfoPassword": "Per registrare un utente/chat devi scrivere /start [yourPassword] al bot tramite Telegram",
     "password": "Password Bot",
-    "passwordEnable": "Abilita password"
+    "passwordEnable": "Abilita password",
+    "questionInfo": "An edit mode of the question is planned.",
+    "clearQuestions": "Clear all questions",
+    "questions": "Question",
+    "question": "Question",
+    "saveQuestion": "Save question",
+    "addAnswerButton": "Add answer",
+    "addQuestion": "Add question",
+    "answers": "Answers"
   }
 }
