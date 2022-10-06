@@ -3,13 +3,13 @@
     "en": "A question has been answered",
     "it": "A question has been answered",
     "de": "Eine Frage wurde beantwortet",
-    "nl": "A question has been answered"
+    "nl": "Een vraag is beantwoord"
   },
   "titleFormatted": {
     "en": "The [[question]] has been answered with [[answer]]",
     "it": "The [[question]] has been answered with [[answer]]",
     "de": "Die [[question]] wurde mit [[answer]] beantwortet",
-    "nl": "The [[question]] has been answered with [[answer]]"
+    "nl": "De [[question]] is beantwoord met [[answer]]"
   },
   "args": [
     {
@@ -19,7 +19,7 @@
         "en": "Question",
         "it": "Question",
         "de": "Frage",
-        "nl": "Question"
+        "nl": "Vraag"
       }
     },
     {
@@ -29,13 +29,13 @@
         "en": "Answer",
         "it": "Answer",
         "de": "Antwort",
-        "nl": "Answer"
+        "nl": "Antwoord"
       },
       "placeholder": {
         "en": "Yes, of course. Is that even a question?",
         "it": "Yes, of course. Is that even a question?",
         "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
-        "nl": "Yes, of course. Is that even a question?"
+        "nl": "Ja, natuurlijk. Is dit echt een vraag?"
       }
     }
   ],
@@ -47,13 +47,13 @@
         "en": "Question",
         "it": "Question",
         "de": "Frage",
-        "nl": "Question"
+        "nl": "Vraag"
       },
       "example": {
         "en": "Do you like pizza?",
         "it": "Do you like pizza?",
         "de": "Magst du Pizza?",
-        "nl": "Do you like pizza?"
+        "nl": "Lust je pizza?"
       }
     },
     {
@@ -63,13 +63,13 @@
         "en": "Answer",
         "it": "Answer",
         "de": "Antwort",
-        "nl": "Answer"
+        "nl": "Antwoord"
       },
       "example": {
         "en": "Yes, of course. Is that even a question?",
         "it": "Yes, of course. Is that even a question?",
         "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
-        "nl": "Yes, of course. Is that even a question?"
+        "nl": "Ja, natuurlijk. Is dit echt een vraag?"
       }
     },
     {
