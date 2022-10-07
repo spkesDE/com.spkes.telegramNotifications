@@ -20,6 +20,9 @@
     "saveQuestion": "Salva domanda",
     "addAnswerButton": "Aggiungi risposta",
     "addQuestion": "Aggiungi domanda",
-    "answers": "Risposte"
+    "answers": "Risposte",
+    "editQuestion": "Modifica domanda",
+    "hideEditQuestion": "Nascondi modalità di modifica",
+    "saveEditQuestion": "Modifica domanda"
   }
 }

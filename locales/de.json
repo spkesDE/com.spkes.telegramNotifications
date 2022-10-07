@@ -20,6 +20,9 @@
     "saveQuestion": "Frage speichern",
     "addAnswerButton": "Antwort hinzufügen",
     "addQuestion": "Frage hinzufügen",
-    "answers": "Antworten"
+    "answers": "Antworten",
+    "editQuestion": "Frage bearbeiten",
+    "hideEditQuestion": "Bearbeitungsmodus verstecken",
+    "saveEditQuestion": "Frage bearbeiten"
   }
 }

@@ -11,6 +11,7 @@ const usePasswordElement = document.getElementById('usePassword');
 const usePasswordDivElement = document.getElementById('usePasswordDiv');
 const botPasswordElement = document.getElementById('bot-password');
 const addQuestionElement = document.getElementById('addQuestion');
+const editQuestionElement = document.getElementById('editQuestion');
 
 function updateUsers(Homey) {
   Homey.get('users', (err, users) => {
@@ -116,11 +117,107 @@ function togglePassword() {
   }
 }
 
-function onHomeyReady(Homey) {
-  Array.from(document.getElementsByClassName("tab-links")).forEach(function(element) {
-    element.addEventListener('click', handleTab);
+function getQuestion(Homey, UUID) {
+  return new Promise((resolve, reject) => {
+    Homey.get('questions', (err, questionJson) => {
+      if (err) reject(err);
+      if (questionJson === null) return;
+      let json = JSON.parse(questionJson);
+      resolve(json.find((q) => q.UUID === UUID));
+    });
   });
-  document.getElementById("defaultOpen").click();
+}
+
+function loadQuestion(Question) {
+  document.getElementById('question-name-edit').value = Question.question;
+  document.getElementById('question-uuid-edit').value = Question.UUID;
+  document.getElementById('question-answer-edit-col').innerHTML = '';
+  Question.buttons.forEach((b) => {
+    createNewInputFieldForEdit(b);
+  });
+}
+
+function addQuestion(Homey) {
+  let question = document.getElementById('question-name');
+  let answers = document.getElementsByClassName('answer-input');
+  if (question.value === '' || question.value === ' ') {
+    Homey.alert('Empty question field');
+  }
+
+  let answersArray = [];
+  for (let answer of answers) {
+    if (answer.value === '') continue;
+    answersArray.push(answer.value);
+  }
+
+  let questionObj = {
+    question: question.value,
+    UUID: uuidv4(),
+    buttons: answersArray
+  };
+  Homey.get('questions', (err, questionString) => {
+    if (err) return Homey.alert(err);
+    let json = [];
+    if (questionString !== null) {
+      json = JSON.parse(questionString);
+    }
+    json.push(questionObj);
+    Homey.set('questions', JSON.stringify(json), (err) => {
+      if (err) return Homey.alert(err);
+    });
+  });
+
+  clearAddQuestionForm();
+  delay(1000)
+    .then(() => {
+      updateQuestions(Homey);
+    });
+}
+
+function editQuestion(Homey) {
+  let question = document.getElementById('question-name-edit').value;
+  let uuid = document.getElementById('question-uuid-edit').value;
+  let answers = document.getElementsByClassName('answer-edit-input');
+  if (question.value === '' || question.value === ' ') {
+    Homey.alert('Empty question field');
+  }
+  let answersArray = [];
+  for (let answer of answers) {
+    if (answer.value === '') continue;
+    answersArray.push(answer.value);
+  }
+  let questionObj = {
+    question: question,
+    UUID: uuid,
+    buttons: answersArray
+  };
+  Homey.get('questions', (err, questionString) => {
+    if (err) return Homey.alert(err);
+    let json = [];
+    if (questionString !== null) {
+      json = JSON.parse(questionString);
+    }
+    json = json.filter((q) => q.UUID !== uuid);
+    json.push(questionObj);
+    Homey.set('questions', JSON.stringify(json), (err) => {
+      if (err) return Homey.alert(err);
+    });
+  });
+
+  toggleEditField(false);
+  delay(1000)
+    .then(() => {
+      updateQuestions(Homey);
+    });
+}
+
+function onHomeyReady(Homey) {
+  Array.from(document.getElementsByClassName('tab-links'))
+    .forEach(function(element) {
+      element.addEventListener('click', handleTab);
+    });
+  document.getElementById('defaultOpen')
+    .click();
   createNewInputField();
   createNewInputField();
 
@@ -161,28 +258,15 @@ function onHomeyReady(Homey) {
     }
   });
 
-  questionListElement.addEventListener('click', (e) => {
+  questionListElement.addEventListener('click', async (e) => {
     if (e.target.tagName.toUpperCase() === 'BUTTON') {
-      if(e.target.id === 'deleteQuestion') {
-        const questionUUID = e.target.dataset.id;
-        Homey.get('questions', (err, questionJson) => {
-          if (err) return Homey.alert(err);
-          if (questionJson === null) return;
-          const json = JSON.parse(questionJson);
-          const questionFilter = json.filter((user) => user.UUID !== questionUUID);
-          Homey.set('questions', JSON.stringify(questionFilter), (err) => {
-            if (err) return Homey.alert(err);
-          });
-          updateQuestions(Homey);
-        });
+      if (e.target.id === 'deleteQuestion') {
+        removeQuestion(Homey, e.target.dataset.id);
       }
-      if(e.target.id === 'editQuestion') {
-        const questionUUID = e.target.dataset.id;
-        document.getElementById('question-add-field').classList.add('hidden');
-        document.getElementById('question-edit-field').classList.remove('hidden');
-        console.log(questionUUID);
-
-        //Todo getQuestion(Homey, UUID), loadQuestion(Question), saveQuestion(Homey,Question), removeQuestion(Homey, UUID), Hide Editmode
+      if (e.target.id === 'editQuestion') {
+        let question = await getQuestion(Homey, e.target.dataset.id);
+        loadQuestion(question);
+        toggleEditField();
       }
     }
   });
@@ -212,35 +296,11 @@ function onHomeyReady(Homey) {
   });
 
   addQuestionElement.addEventListener('click', () => {
-    let question = document.getElementById("question-name");
-    let answers = document.getElementsByClassName("answer-input");
-    if(question.value === "" || question.value === " "){
-      Homey.alert("Empty question field")
-    }
+    addQuestion(Homey);
+  });
 
-    let answersArray = [];
-    for (let answer of answers) {
-      if(answer.value === "") continue;
-      answersArray.push(answer.value)
-    }
-
-    let questionObj = {question: question.value , UUID: uuidv4(), buttons:answersArray };
-    Homey.get('questions', (err, questionString) => {
-      if (err) return Homey.alert(err);
-      let json = [];
-      if (questionString !== null)
-        json = JSON.parse(questionString);
-      json.push(questionObj)
-      Homey.set('questions', JSON.stringify(json), (err) => {
-        if (err) return Homey.alert(err);
-      });
-    });
-
-    clearAddQuestionForm();
-    delay(1000)
-      .then(() => {
-        updateQuestions(Homey);
-      });
+  editQuestionElement.addEventListener('click', () => {
+    editQuestion(Homey);
   });
 
   clearElement.addEventListener('click', () => {
@@ -263,32 +323,64 @@ function onHomeyReady(Homey) {
 }
 
 function clearAddQuestionForm() {
-  document.getElementById('question-answer-col').innerHTML = "";
-  document.getElementById("question-name").value = "";
+  document.getElementById('question-answer-col').innerHTML = '';
+  document.getElementById('question-name').value = '';
   createNewInputField();
   createNewInputField();
 }
 
 function createNewInputField() {
   const container = document.getElementById('question-answer-col');
-  const newElem = document.createElement("input");
-  newElem.setAttribute("type", "text");
+  const newElem = document.createElement('input');
+  newElem.setAttribute('type', 'text');
   newElem.classList.add('answer-input');
-  if(container.children.length >= 25) return;
+  if (container.children.length >= 25) return;
   container.appendChild(newElem);
 }
 
-function createNewInputFieldForEdit() {
+function removeQuestion(Homey, UUID) {
+  Homey.get('questions', (err, questionJson) => {
+    if (err) return Homey.alert(err);
+    if (questionJson === null) return;
+    const json = JSON.parse(questionJson);
+    const questionFilter = json.filter((user) => user.UUID !== UUID);
+    Homey.set('questions', JSON.stringify(questionFilter), (err) => {
+      if (err) return Homey.alert(err);
+    });
+    updateQuestions(Homey);
+  });
+}
+
+function createNewInputFieldForEdit(value = '') {
   const container = document.getElementById('question-answer-edit-col');
-  const newElem = document.createElement("input");
-  newElem.setAttribute("type", "text");
+  const newElem = document.createElement('input');
+  newElem.setAttribute('type', 'text');
   newElem.classList.add('answer-edit-input');
-  if(container.children.length >= 25) return;
+  newElem.value = value;
+  if (container.children.length >= 25) return;
   container.appendChild(newElem);
+}
+
+function toggleEditField(bool = true) {
+  if (bool) {
+    document.getElementById('question-add-field')
+      .classList
+      .add('hidden');
+    document.getElementById('question-edit-field')
+      .classList
+      .remove('hidden');
+  } else {
+    document.getElementById('question-add-field')
+      .classList
+      .remove('hidden');
+    document.getElementById('question-edit-field')
+      .classList
+      .add('hidden');
+  }
 }
 
 function uuidv4() {
-  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+  return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
     (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
   );
 }

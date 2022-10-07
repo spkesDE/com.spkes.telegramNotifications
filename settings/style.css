@@ -87,6 +87,10 @@
     margin-bottom: .2em;
 }
 
+.question-input:disabled, .answer-input:disabled, .answer-edit-input:disabled {
+    background-color: #cfcfcf;
+}
+
 @keyframes fadeEffect {
 from {opacity: 0;}
 to {opacity: 1;}

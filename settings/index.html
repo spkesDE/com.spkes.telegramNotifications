@@ -49,9 +49,9 @@
         <legend data-i18n="settings.questions">Questions</legend>
         <div id="question-list" class="users">
         </div>
-        <hr>
-        <p data-i18n="settings.questionInfo">Todo</p>
-        <button id="clearQuestions" data-i18n="settings.clearQuestions" style="width: 100%">Clear all questions</button>
+        <!--<hr>
+        <p data-i18n="settings.questionInfo"></p>-->
+        <button id="clearQuestions" data-i18n="settings.clearQuestions" style="width: 100%; margin-top: 0.5em">Clear all questions</button>
     </fieldset>
     <fieldset id="question-add-field">
         <legend data-i18n="settings.addQuestion">Add question</legend>
@@ -74,9 +74,14 @@
 
     <fieldset id="question-edit-field" class="hidden">
         <legend data-i18n="settings.editQuestion">Edit question</legend>
+        <button id="hideEditQuestion" onclick="toggleEditField(false)" data-i18n="settings.hideEditQuestion" style="width: 100%;">Hide Edit mode</button>
+        <div class="col">
+            <label for="question-uuid-edit">UUID</label>
+            <input id="question-uuid-edit" disabled class="question-input" type="text" value=""/>
+        </div>
         <div class="col">
             <label for="question-name-edit" data-i18n="settings.question">Question</label>
-            <input id="question-name-edit" class="question-input" type="text" value="" placeholder="Do you want to close the shutters?"/>
+            <input id="question-name-edit" class="question-input" type="text" value=""/>
         </div>
         <div class="row" style="margin-top: .5em; margin-bottom: .5em">
             <h2 data-i18n="settings.answers">Answers</h2>

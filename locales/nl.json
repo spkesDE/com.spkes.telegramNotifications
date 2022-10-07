@@ -20,6 +20,9 @@
     "saveQuestion": "Sla vraag op",
     "addAnswerButton": "Voeg antwoord toe",
     "addQuestion": "Voeg vraag toe",
-    "answers": "Antwoorden"
+    "answers": "Antwoorden",
+    "editQuestion": "Vraag bewerken",
+    "hideEditQuestion": "De bewerkingsmodus verbergen",
+    "saveEditQuestion": "Vraag bewerken"
   }
 }

@@ -13,7 +13,6 @@
     "userInfoPassword": "To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram",
     "password": "Bot Password",
     "passwordEnable": "Enable password",
-
     "questionInfo": "An edit mode of the question is planned.",
     "clearQuestions": "Clear all questions",
     "questions": "Question",
@@ -21,6 +20,10 @@
     "saveQuestion": "Save question",
     "addAnswerButton": "Add answer",
     "addQuestion": "Add question",
-    "answers": "Answers"
+    "answers": "Answers",
+    "editQuestion": "Edit question",
+    "hideEditQuestion": "Hide edit mode",
+    "saveEditQuestion": "Edit question"
+
   }
 }
