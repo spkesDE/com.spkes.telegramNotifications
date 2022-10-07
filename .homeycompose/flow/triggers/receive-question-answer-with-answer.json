@@ -6,10 +6,10 @@
     "nl": "Een vraag is beantwoord"
   },
   "titleFormatted": {
-    "en": "The [[question]] has been answered with [[answer]]",
+    "en": "The question [[question]] has been answered with [[answer]]",
     "it": "[[question]] ha ricevuto la risposta [[answer]]",
-    "de": "Die [[question]] wurde mit [[answer]] beantwortet",
-    "nl": "De [[question]] is beantwoord met [[answer]]"
+    "de": "Die Frage [[question]] wurde mit [[answer]] beantwortet",
+    "nl": "De vraag [[question]] is beantwoord met [[answer]]"
   },
   "args": [
     {

@@ -142,10 +142,10 @@
           "nl": "Een vraag is beantwoord"
         },
         "titleFormatted": {
-          "en": "The [[question]] has been answered",
+          "en": "The question [[question]] has been answered",
           "it": "[[question]] ha ricevuto risposta",
-          "de": "Die [[question]] wurde beantwortet",
-          "nl": "De [[question]] is beantwoord"
+          "de": "Die Frage [[question]] wurde beantwortet",
+          "nl": "De vraag [[question]] is beantwoord"
         },
         "args": [
           {
@@ -267,10 +267,10 @@
           "nl": "Een vraag is beantwoord"
         },
         "titleFormatted": {
-          "en": "The [[question]] has been answered with [[answer]]",
+          "en": "The question [[question]] has been answered with [[answer]]",
           "it": "[[question]] ha ricevuto la risposta [[answer]]",
-          "de": "Die [[question]] wurde mit [[answer]] beantwortet",
-          "nl": "De [[question]] is beantwoord met [[answer]]"
+          "de": "Die Frage [[question]] wurde mit [[answer]] beantwortet",
+          "nl": "De vraag [[question]] is beantwoord met [[answer]]"
         },
         "args": [
           {
