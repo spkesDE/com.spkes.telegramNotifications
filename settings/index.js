@@ -49,22 +49,15 @@ function updateQuestions(Homey) {
     if (err) return Homey.alert(err);
     if (questions === null) return;
     const json = JSON.parse(questions);
-    let html = '<div class="row">\n'
-      + '            <div class="col">\n'
-      + '                <strong>Question</strong>\n'
-      + '            </div>\n'
-      + '            <div class="col">\n'
-      + '                <strong>Remove</strong>\n'
-      + '            </div>\n'
-      + '        </div>\n'
-      + '        <hr>';
+    let html = '';
     for (let i = 0; i < json.length; i++) {
       const obj = json[i];
 
       html += `${'<div class="row">'
         + '            <div class="col">'}${obj.question}</div>`
-        + '            <div class="col">'
-        + `                <button id="removeQuestion" data-id="${obj.UUID}">X</button>`
+        + '            <div class="col" style="flex-direction: row">'
+        + `                <button id="editQuestion" data-id="${obj.UUID}">E</button>`
+        + `                <button id="deleteQuestion" data-id="${obj.UUID}">X</button>`
         + '            </div>'
         + '        </div>';
     }
@@ -170,17 +163,27 @@ function onHomeyReady(Homey) {
 
   questionListElement.addEventListener('click', (e) => {
     if (e.target.tagName.toUpperCase() === 'BUTTON') {
-      const questionUUID = e.target.dataset.id;
-      Homey.get('questions', (err, questionJson) => {
-        if (err) return Homey.alert(err);
-        if (questionJson === null) return;
-        const json = JSON.parse(questionJson);
-        const questionFilter = json.filter((user) => user.UUID !== questionUUID);
-        Homey.set('questions', JSON.stringify(questionFilter), (err) => {
+      if(e.target.id === 'deleteQuestion') {
+        const questionUUID = e.target.dataset.id;
+        Homey.get('questions', (err, questionJson) => {
           if (err) return Homey.alert(err);
+          if (questionJson === null) return;
+          const json = JSON.parse(questionJson);
+          const questionFilter = json.filter((user) => user.UUID !== questionUUID);
+          Homey.set('questions', JSON.stringify(questionFilter), (err) => {
+            if (err) return Homey.alert(err);
+          });
+          updateQuestions(Homey);
         });
-        updateQuestions(Homey);
-      });
+      }
+      if(e.target.id === 'editQuestion') {
+        const questionUUID = e.target.dataset.id;
+        document.getElementById('question-add-field').classList.add('hidden');
+        document.getElementById('question-edit-field').classList.remove('hidden');
+        console.log(questionUUID);
+
+        //Todo getQuestion(Homey, UUID), loadQuestion(Question), saveQuestion(Homey,Question), removeQuestion(Homey, UUID), Hide Editmode
+      }
     }
   });
 
@@ -271,6 +274,15 @@ function createNewInputField() {
   const newElem = document.createElement("input");
   newElem.setAttribute("type", "text");
   newElem.classList.add('answer-input');
+  if(container.children.length >= 25) return;
+  container.appendChild(newElem);
+}
+
+function createNewInputFieldForEdit() {
+  const container = document.getElementById('question-answer-edit-col');
+  const newElem = document.createElement("input");
+  newElem.setAttribute("type", "text");
+  newElem.classList.add('answer-edit-input');
   if(container.children.length >= 25) return;
   container.appendChild(newElem);
 }

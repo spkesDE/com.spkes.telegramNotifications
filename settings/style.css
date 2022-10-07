@@ -72,7 +72,7 @@
     animation: fadeEffect 1s;
 }
 
-.question-input, .answer-input {
+.question-input, .answer-input, .answer-edit-input {
     display: block;
     width: 94% !important;
     padding: 0.275rem 0.5rem !important;
