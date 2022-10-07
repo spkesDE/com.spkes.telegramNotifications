@@ -25,21 +25,21 @@
     "hideEditQuestion": "De bewerkingsmodus verbergen",
     "saveEditQuestion": "Vraag bewerken",
     "questionSetup": {
-      "title": "How to use the question system",
-      "step1": "Set up a question with the add a question feature.",
-      "step1-1": "Enter a question e.g. 'Do you like pizza?'",
-      "step1-2": "Enter any amount of answers below",
-      "step1-3": "Save the question",
-      "step2": "Send this question to your telegram via the \"Send a question\" THEN-flowcard",
-      "step3": "Add a \"A Question has been answered\" WHEN-flowcard",
-      "step4": "Use the token of the card to make your favorite flow!"
+      "title": "Hoe gebruik je het vragensysteem",
+      "step1": "Stel een vraag in met de voeg een vraag toe voorziening.",
+      "step1-1": "Voeg een vraag toe i.e. 'Lust je pizza?'",
+      "step1-2": "Voeg hieronder een willekeurig aantal antwoorden toe",
+      "step1-3": "Sla de vraag op",
+      "step2": "Verstuur deze vraag naar je Telegram via de \"Send a question\" THEN-flowcard",
+      "step3": "Voeg een \"A Question has been answered\" WHEN-flowcard toe",
+      "step4": "Gebruik het token van de kaart om je favoriete flow te maken!"
     },
     "howToSetup": {
-      "title": "How to setup",
-      "step1": "Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access the message archive. Enter @Botfather in the search tab of Telegram and choose the @Botfather bot.",
-      "step2": "Click “Start” to activate @BotFather bot or enter /newbot. \n/setjoingroup disables that the bot is allowed to join a group.\n/setprivacy disabels that the bot can read messages inside a group",
-      "step3": "Enter the Token inside the app settings",
-      "step4": "Write your bot over Telegram /start and follow the instructions\nEach user has to also send the Bot the /start command. You can share the Bot via Telegram over the profile or search for the like you searched for the BotFather bot."
+      "title": "Hoe werkt het instellen",
+      "step1": "Creeër je eigen Telegram bot. Dit is volledig veilig en prive, sinds jij de enige bent die het berichten archief kan bereiken. Voeg @Botfather in het zoek blad van Telegram en selecteer de @Botfather bot.",
+      "step2": "Klik \"Start\", om @Botfather te activeren of gebruik /newbot. \n/setjoingroup zorgt er voor dat de bot aan een groep toegevoegd kan worden. \n/setprivacy schakelt de mogelijkheid voor de bot uit om groepsberichten te lezen",
+      "step3": "Voeg het Token toe in de app settings",
+      "step4": "Schrijf /start naar je bot in Telegram en volg de instructies\nElke gebruiker moet ook een /start commando sturen naar de Bot. Je kan de Bot ook delen via Telegram via het profiel of zoek er naar zoals je naar de Botfather gezocht hebt"
     }
   }
 }
