@@ -59,6 +59,9 @@ class TelegramNotifications extends Homey.App {
             this.flowsRegistered = true;
         }
         this.bot.catch(this.error);
+        await this.bot.telegram.setMyCommands([{
+            "command": "start",
+            "description": "Start using the bot."}])
         await this.bot.launch().catch(this.error);
         // eslint-disable-next-line no-return-assign
         await this.bot.telegram.getMe().catch(() => this.changeBotState(false));
