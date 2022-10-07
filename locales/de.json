@@ -23,6 +23,23 @@
     "answers": "Antworten",
     "editQuestion": "Frage bearbeiten",
     "hideEditQuestion": "Bearbeitungsmodus verstecken",
-    "saveEditQuestion": "Frage bearbeiten"
+    "saveEditQuestion": "Frage bearbeiten",
+    "questionSetup": {
+      "title": "Wie man das Fragesystem benutzt",
+      "step1": "Eine Frage mit der Funktion \"Frage hinzufügen\", hinzufügen",
+      "step1-1": "Geben Sie eine Frage ein wie z.B. 'Mögen Sie Pizza?'",
+      "step1-2": "Geben Sie darunter eine beliebige Anzahl von Antworten ein",
+      "step1-3": "Speichern Sie diese Frage",
+      "step2": "Senden Sie diese Frage über die \"Frage senden\" DANN-Flowkarte an Ihr Telegramm Chat",
+      "step3": "Fügen Sie eine \"Eine Frage wurde beantwortet\" WENN-Flowkarte hinzu",
+      "step4": "Verwende die \"Token\" der Karte, um deinen Lieblingsflow zu erstellen!"
+    },
+    "howToSetup": {
+      "title": "Wie man den Bot einrichtet",
+      "step1": "Richten Sie Ihren eigenen Telegram-Bot ein. Dieser ist vollkommen sicher und privat, da nur Sie auf das Nachrichtenarchiv zugreifen können. Geben Sie @Botfather in die Suchleiste von Telegram ein und wählen Sie den @Botfather-Bot aus.",
+      "step2": "Klicke auf \"Start\", um den @BotFather-Bot zu aktivieren oder gib /newbot ein. \n/setjoingroup deaktiviert, dass der Bot einer Gruppe beitreten darf.\n/setprivacy deaktiviert, dass der Bot Nachrichten innerhalb einer Gruppe lesen kann",
+      "step3": "Geben Sie den Token in den App-Einstellungen ein",
+      "step4": "Schreibe deinen Bot über Telegram /start und folge den Anweisungen\nJeder Benutzer muss dem Bot auch den Befehl /start senden. Du kannst den Bot über Telegram über das Profil teilen oder wie beim BotFather-Bot danach suchen."
+    }
   }
 }

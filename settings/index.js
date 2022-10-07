@@ -1,17 +1,5 @@
-const botTokenElement = document.getElementById('bot-token');
-const usersElement = document.getElementById('users-list');
-const questionListElement = document.getElementById('question-list');
-const logsElement = document.getElementById('logs-list');
-const saveElement = document.getElementById('save');
-const clearElement = document.getElementById('clear');
-const clearAllQuestionElement = document.getElementById('clearQuestions');
-const clearLogsElement = document.getElementById('clearLogs');
-const runningStatusElement = document.getElementById('running-status');
-const usePasswordElement = document.getElementById('usePassword');
-const usePasswordDivElement = document.getElementById('usePasswordDiv');
-const botPasswordElement = document.getElementById('bot-password');
-const addQuestionElement = document.getElementById('addQuestion');
-const editQuestionElement = document.getElementById('editQuestion');
+// noinspection JSUnusedGlobalSymbols,JSUnresolvedVariable
+// noinspection JSUnresolvedVariable
 
 function updateUsers(Homey) {
   Homey.get('users', (err, users) => {
@@ -19,10 +7,10 @@ function updateUsers(Homey) {
     if (users === null) return;
     const json = JSON.parse(users);
     let html = '<div class="row">\n'
-      + '            <div class="col">\n'
+      + '            <div class="col" style="margin-right: auto">\n'
       + '                <strong>Name</strong>\n'
       + '            </div>\n'
-      + '            <div class="col">\n'
+      + '            <div class="col" style="margin-right: 8px">\n'
       + '                <strong>ID</strong>\n'
       + '            </div>\n'
       + '            <div class="col">\n'
@@ -34,14 +22,17 @@ function updateUsers(Homey) {
       const obj = json[i];
 
       html += `${'<div class="row">'
-        + '            <div class="col">'}${obj.chatName}</div>`
-        + `            <div class="col">${obj.userId}</div>`
+        + '            <div class="col" style="margin-right: auto">'}${obj.chatName}</div>`
+        + `            <div class="col" style="margin-right: 8px">${obj.userId}</div>`
         + '            <div class="col">'
-        + `                <button id="removeUser" data-id="${obj.userId}">X</button>`
+        + `                <button id="removeUser" onclick="onDeleteUser('${obj.UUID}')" class="btn-delete" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon" viewBox="0 0 16 16">
+  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+</svg></button>`
         + '            </div>'
-        + '        </div>';
+        + '        </div>'
+        + '        <hr style="margin-top: 0.5em; margin-bottom: 0.5em"/>';
     }
-    usersElement.innerHTML = html;
+    document.getElementById('users-list').innerHTML = html;
   });
 }
 
@@ -55,14 +46,20 @@ function updateQuestions(Homey) {
       const obj = json[i];
 
       html += `${'<div class="row">'
-        + '            <div class="col">'}${obj.question}</div>`
+        + '            <div class="col" style="padding-right: 8px">'}${obj.question}</div>`
         + '            <div class="col" style="flex-direction: row">'
-        + `                <button id="editQuestion" data-id="${obj.UUID}">E</button>`
-        + `                <button id="deleteQuestion" data-id="${obj.UUID}">X</button>`
+        + `                <button onclick="onEditQuestion('${obj.UUID}')" id="editQuestion" class="btn-edit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon" viewBox="0 0 16 16">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+</svg></button>`
+        + `                <button onclick="onDeleteQuestion('${obj.UUID}')" id="deleteQuestion" class="btn-delete"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon" viewBox="0 0 16 16">
+  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+</svg></button>`
         + '            </div>'
-        + '        </div>';
+        + '        </div>'
+        + '        <hr style="margin-top: 0.5em; margin-bottom: 0.5em"/>';
     }
-    questionListElement.innerHTML = html;
+    document.getElementById('question-list').innerHTML = html;
   });
 }
 
@@ -76,7 +73,7 @@ function updateLogs(Homey) {
       const obj = json[i];
       html += `${obj.date}<br>&nbsp;&nbsp;&nbsp;&nbsp;${obj.message}<br>`;
     }
-    logsElement.innerHTML = html;
+    document.getElementById('logs-list').innerHTML = html;
   });
 }
 
@@ -84,9 +81,9 @@ function updateStatus(Homey) {
   Homey.get('bot-running', (err, status) => {
     if (err) return Homey.alert(err);
     if (status) {
-      runningStatusElement.classList.add('running');
+      document.getElementById('running-status').classList.add('running');
     } else {
-      runningStatusElement.classList.remove('running');
+      document.getElementById('running-status').classList.remove('running');
     }
   });
 }
@@ -110,10 +107,10 @@ function delay(time) {
 }
 
 function togglePassword() {
-  if (usePasswordElement.checked) {
-    usePasswordDivElement.classList.remove('hidden');
+  if (document.getElementById('usePassword').checked) {
+    document.getElementById('usePasswordDiv').classList.remove('hidden');
   } else {
-    usePasswordDivElement.classList.add('hidden');
+    document.getElementById('usePasswordDiv').classList.add('hidden');
   }
 }
 
@@ -137,7 +134,7 @@ function loadQuestion(Question) {
   });
 }
 
-function addQuestion(Homey) {
+function addQuestion() {
   let question = document.getElementById('question-name');
   let answers = document.getElementsByClassName('answer-input');
   if (question.value === '' || question.value === ' ') {
@@ -152,7 +149,7 @@ function addQuestion(Homey) {
 
   let questionObj = {
     question: question.value,
-    UUID: uuidv4(),
+    UUID: UUIDv4(),
     buttons: answersArray
   };
   Homey.get('questions', (err, questionString) => {
@@ -174,7 +171,7 @@ function addQuestion(Homey) {
     });
 }
 
-function editQuestion(Homey) {
+function editQuestion() {
   let question = document.getElementById('question-name-edit').value;
   let uuid = document.getElementById('question-uuid-edit').value;
   let answers = document.getElementsByClassName('answer-edit-input');
@@ -211,6 +208,59 @@ function editQuestion(Homey) {
     });
 }
 
+async function onEditQuestion(uuid) {
+  let question = await getQuestion(Homey, uuid);
+  loadQuestion(question);
+  toggleEditField();
+}
+
+async function onDeleteQuestion(uuid) {
+  Homey.get('questions', (err, questionJson) => {
+    if (err) return Homey.alert(err);
+    if (questionJson === null) return;
+    const json = JSON.parse(questionJson);
+    const questionFilter = json.filter((user) => user.UUID !== uuid);
+    Homey.set('questions', JSON.stringify(questionFilter), (err) => {
+      if (err) return Homey.alert(err);
+    });
+    updateQuestions(Homey);
+  });
+}
+
+function onDeleteUser(userId){
+  Homey.get('users', (err, users) => {
+    if (err) return Homey.alert(err);
+    if (users === null) return;
+    const json = JSON.parse(users);
+    const newUsers = json.filter((user) => user.userId !== userId);
+    Homey.set('users', JSON.stringify(newUsers), (err) => {
+      if (err) return Homey.alert(err);
+    });
+    updateUsers(Homey);
+  });
+}
+
+function onSaveToken() {
+  let usePasswordElement = document.getElementById('usePassword');
+  document.getElementById('running-status').classList.remove('running');
+  Homey.set('bot-token', document.getElementById('bot-token').value, (err) => {
+    if (err) return Homey.alert(err);
+  });
+  Homey.set('use-password', usePasswordElement.checked, (err) => {
+    if (err) return Homey.alert(err);
+  });
+  if (usePasswordElement.checked) {
+    Homey.set('password', document.getElementById('bot-password').value, (err) => {
+      if (err) return Homey.alert(err);
+    });
+  }
+  delay(1000)
+    .then(() => {
+      updateStatus(Homey);
+      updateLogs(Homey);
+    });
+}
+
 function onHomeyReady(Homey) {
   Array.from(document.getElementsByClassName('tab-links'))
     .forEach(function(element) {
@@ -223,17 +273,17 @@ function onHomeyReady(Homey) {
 
   Homey.get('bot-token', (err, botToken) => {
     if (err) return Homey.alert(err);
-    botTokenElement.value = botToken;
+    document.getElementById('bot-token').value = botToken;
   });
 
   Homey.get('password', (err, pw) => {
     if (err) return Homey.alert(err);
-    botPasswordElement.value = pw ?? '';
+    document.getElementById('bot-password').value = pw ?? '';
   });
 
   Homey.get('use-password', (err, bool) => {
     if (err) return Homey.alert(err);
-    usePasswordElement.checked = bool ?? false;
+    document.getElementById('usePassword').checked = bool ?? false;
     togglePassword();
   });
 
@@ -241,85 +291,19 @@ function onHomeyReady(Homey) {
   updateUsers(Homey);
   updateQuestions(Homey);
   updateLogs(Homey);
-
-  usersElement.addEventListener('click', (e) => {
-    if (e.target.tagName.toUpperCase() === 'BUTTON') {
-      const userId = parseInt(e.target.dataset.id);
-      Homey.get('users', (err, users) => {
-        if (err) return Homey.alert(err);
-        if (users === null) return;
-        const json = JSON.parse(users);
-        const newUsers = json.filter((user) => user.userId !== userId);
-        Homey.set('users', JSON.stringify(newUsers), (err) => {
-          if (err) return Homey.alert(err);
-        });
-        updateUsers(Homey);
-      });
-    }
-  });
-
-  questionListElement.addEventListener('click', async (e) => {
-    if (e.target.tagName.toUpperCase() === 'BUTTON') {
-      if (e.target.id === 'deleteQuestion') {
-        removeQuestion(Homey, e.target.dataset.id);
-      }
-      if (e.target.id === 'editQuestion') {
-        let question = await getQuestion(Homey, e.target.dataset.id);
-        loadQuestion(question);
-        toggleEditField();
-      }
-    }
-  });
-
-  usePasswordElement.addEventListener('click', () => {
-    togglePassword();
-  });
-
-  saveElement.addEventListener('click', () => {
-    runningStatusElement.classList.remove('running');
-    Homey.set('bot-token', botTokenElement.value, (err) => {
-      if (err) return Homey.alert(err);
-    });
-    Homey.set('use-password', usePasswordElement.checked, (err) => {
-      if (err) return Homey.alert(err);
-    });
-    if (usePasswordElement.checked) {
-      Homey.set('password', botPasswordElement.value, (err) => {
-        if (err) return Homey.alert(err);
-      });
-    }
-    delay(1000)
-      .then(() => {
-        updateStatus(Homey);
-        updateLogs(Homey);
-      });
-  });
-
-  addQuestionElement.addEventListener('click', () => {
-    addQuestion(Homey);
-  });
-
-  editQuestionElement.addEventListener('click', () => {
-    editQuestion(Homey);
-  });
-
-  clearElement.addEventListener('click', () => {
-    Homey.unset('users');
-    usersElement.innerHTML = 'Empty! :(';
-  });
-
-  clearAllQuestionElement.addEventListener('click', () => {
-    Homey.unset('questions');
-    usersElement.innerHTML = 'Empty! :(';
-  });
-
-  clearLogsElement.addEventListener('click', () => {
-    Homey.set('logs', '[]', (err) => {
-      if (err) return Homey.alert(err);
-    });
-    logsElement.innerHTML = '';
-  });
   Homey.ready();
+}
+
+function clearLogs(){
+  Homey.set('logs', '[]', (err) => {
+    if (err) return Homey.alert(err);
+  });
+  document.getElementById('logs-list').innerHTML = '';
+}
+
+function clearAllUsers(){
+  Homey.unset('users');
+  document.getElementById('users-list').innerHTML = 'Empty! :(';
 }
 
 function clearAddQuestionForm() {
@@ -336,19 +320,6 @@ function createNewInputField() {
   newElem.classList.add('answer-input');
   if (container.children.length >= 25) return;
   container.appendChild(newElem);
-}
-
-function removeQuestion(Homey, UUID) {
-  Homey.get('questions', (err, questionJson) => {
-    if (err) return Homey.alert(err);
-    if (questionJson === null) return;
-    const json = JSON.parse(questionJson);
-    const questionFilter = json.filter((user) => user.UUID !== UUID);
-    Homey.set('questions', JSON.stringify(questionFilter), (err) => {
-      if (err) return Homey.alert(err);
-    });
-    updateQuestions(Homey);
-  });
 }
 
 function createNewInputFieldForEdit(value = '') {
@@ -379,7 +350,7 @@ function toggleEditField(bool = true) {
   }
 }
 
-function uuidv4() {
+function UUIDv4() {
   return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
     (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
   );

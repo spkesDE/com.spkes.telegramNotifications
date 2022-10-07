@@ -72,6 +72,33 @@
     animation: fadeEffect 1s;
 }
 
+.icon {
+    display: inline-block;
+    vertical-align: -0.125em;
+    fill: currentcolor;
+    width: 1em;
+    height: 1em;
+    background-color: transparent !important;
+}
+
+.btn-delete {
+    padding: 6px 10px !important;
+    color: #fff !important;
+    background-color: #dc3545 !important;
+}
+
+.btn-edit {
+    padding: 6px 10px !important;
+    color: #fff !important;
+    background-color: #4f8fd7 !important;
+}
+
+.btn-save {
+    padding: 6px 10px !important;
+    color:#fff !important;
+    background-color: #198754 !important;
+}
+
 .question-input, .answer-input, .answer-edit-input {
     display: block;
     width: 94% !important;

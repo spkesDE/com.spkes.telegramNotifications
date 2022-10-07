@@ -22,7 +22,7 @@
     <label for="bot-token" data-i18n="settings.token">Bot Token</label>
     <input id="bot-token" type="text" value=""/>
     <div style="margin-top: 1em">
-        <input type="checkbox" id="usePassword">
+        <input onclick="togglePassword()" type="checkbox" id="usePassword">
         <label data-i18n="settings.passwordEnable" for="usePassword">Enable Password</label>
     </div>
     <div class="hidden" id="usePasswordDiv">
@@ -31,7 +31,26 @@
         <p style="margin-bottom: 0" data-i18n="settings.userInfoPassword">To Register a user/chat now you have to
             enter /start [yourPassword] to the bot via Telegram</p>
     </div>
-    <button id="save" data-i18n="settings.save" style="width: 100%; margin-top: 1em">Save changes</button>
+    <button id="save" class="btn-save" onclick="onSaveToken()" data-i18n="settings.save"
+            style="width: 100%; margin-top: 1em; margin-bottom: 1em">Save changes
+    </button>
+    <h2><strong data-i18n="settings.howToSetup.title">How to setup</strong></h2>
+    <ol>
+        <li data-i18n="settings.howToSetup.step1">Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access
+            the message archive. Enter&nbsp;<strong><span class="mention">@Botfather</span></strong>&nbsp;in the search
+            tab of&nbsp;<strong>Telegram</strong>&nbsp;and choose the&nbsp;<strong><span
+                    class="mention">@Botfather</span></strong>&nbsp;bot.
+        </li>
+        <li data-i18n="settings.howToSetup.step2">Click &ldquo;Start&rdquo; to activate&nbsp;<strong><span class="mention">@BotFather</span></strong>&nbsp;bot
+            or enter&nbsp;<code>/newbot</code>.&nbsp;<br/><code>/setjoingroup </code>disables that the bot is allowed to
+            join a group.<br/><code>/setprivacy</code>&nbsp;disabels that the bot can read messages inside a group
+        </li>
+        <li data-i18n="settings.howToSetup.step3">Enter the Token inside the app settings</li>
+        <li data-i18n="settings.howToSetup.step4">Write your bot over Telegram&nbsp;<code>/start</code>&nbsp;and follow the instructions<br/>Each user has to
+            also send the Bot the&nbsp;<code>/start</code>&nbsp;command. You can share the Bot via Telegram over the
+            profile or search for the like you searched for the BotFather bot.
+        </li>
+    </ol>
 </div>
 
 <div id="users" class="tab-content">
@@ -41,18 +60,15 @@
     <p data-i18n="settings.userInfo">When you clear the users you have to re-register the
         users to the Telegram bot.
         This means you have to send the /start command again.</p>
-    <button id="clear" data-i18n="settings.clear" style="width: 100%">Clear users</button>
+    <button id="clear" class="btn-delete" onclick="clearAllUsers()" data-i18n="settings.clear" style="width: 100%">Clear
+        users
+    </button>
 </div>
 
 <div id="questions" class="tab-content">
-    <fieldset>
-        <legend data-i18n="settings.questions">Questions</legend>
-        <div id="question-list" class="users">
-        </div>
-        <!--<hr>
-        <p data-i18n="settings.questionInfo"></p>-->
-        <button id="clearQuestions" data-i18n="settings.clearQuestions" style="width: 100%; margin-top: 0.5em">Clear all questions</button>
-    </fieldset>
+    <div id="question-list">
+        No questions setup :(
+    </div>
     <fieldset id="question-add-field">
         <legend data-i18n="settings.addQuestion">Add question</legend>
         <div class="col">
@@ -62,19 +78,23 @@
         </div>
         <div class="row" style="margin-top: .5em; margin-bottom: .5em">
             <h2 data-i18n="settings.answers">Answers</h2>
-            <button class="right" onclick="createNewInputField()" data-i18n="settings.addAnswerButton">Add answer
+            <button class="right" onclick="createNewInputField()" class="btn-save" data-i18n="settings.addAnswerButton">
+                Add answer
             </button>
         </div>
         <div class="col" id="question-answer-col">
 
         </div>
-        <button id="addQuestion" data-i18n="settings.saveQuestion" style="width: 100%; margin-top: 1em">Save question
+        <button id="addQuestion" class="btn-save" onclick="addQuestion()" data-i18n="settings.saveQuestion"
+                style="width: 100%; margin-top: 1em">Save question
         </button>
     </fieldset>
 
     <fieldset id="question-edit-field" class="hidden">
         <legend data-i18n="settings.editQuestion">Edit question</legend>
-        <button id="hideEditQuestion" onclick="toggleEditField(false)" data-i18n="settings.hideEditQuestion" style="width: 100%;">Hide Edit mode</button>
+        <button id="hideEditQuestion" class="btn-edit" onclick="toggleEditField(false)"
+                data-i18n="settings.hideEditQuestion" style="width: 100%;">Hide Edit mode
+        </button>
         <div class="col">
             <label for="question-uuid-edit">UUID</label>
             <input id="question-uuid-edit" disabled class="question-input" type="text" value=""/>
@@ -85,16 +105,39 @@
         </div>
         <div class="row" style="margin-top: .5em; margin-bottom: .5em">
             <h2 data-i18n="settings.answers">Answers</h2>
-            <button class="right" onclick="createNewInputFieldForEdit()" data-i18n="settings.addAnswerButton">Add answer</button>
+            <button class="right" onclick="createNewInputFieldForEdit()" class="btn-save"
+                    data-i18n="settings.addAnswerButton">Add answer
+            </button>
         </div>
         <div class="col" id="question-answer-edit-col"></div>
-        <button id="editQuestion" data-i18n="settings.saveEditQuestion" style="width: 100%; margin-top: 1em">Edit question</button>
+        <button id="editQuestion" onclick="editQuestion()" data-i18n="settings.saveEditQuestion" class="btn-save"
+                style="width: 100%; margin-top: 1em">Edit question
+        </button>
     </fieldset>
+
+    <h2><strong data-i18n="settings.questionSetup.title">How to use the question system</strong></h2>
+    <ol>
+        <li><p style="margin-bottom: 0" data-i18n="settings.questionSetup.step1">Set up a question with the add a
+            question feature.</p>
+            <ol style="margin-bottom: 0">
+                <li data-i18n="settings.questionSetup.step1-1">Enter a question e.g. 'Do you like pizza?</li>
+                <li data-i18n="settings.questionSetup.step1-2">Enter any amount of answers below</li>
+                <li data-i18n="settings.questionSetup.step1-3">Save the question</li>
+            </ol>
+        </li>
+        <li data-i18n="settings.questionSetup.step2">Send this question to your telegram via the "Send a question"
+            THEN-flowcard
+        </li>
+        <li data-i18n="settings.questionSetup.step3">Add a "A Question has been answered" WHEN-flowcard</li>
+        <li data-i18n="settings.questionSetup.step4">Use the token of the card to make your favorite flow!</li>
+    </ol>
 </div>
 
 <div id="logs" class="tab-content">
     <p id="logs-list"></p>
-    <button id="clearLogs" style="width: 100%" data-i18n="settings.clearLogs">Clear Logs</button>
+    <button id="clearLogs" onclick="clearLogs()" class="btn-delete" style="width: 100%" data-i18n="settings.clearLogs">
+        Clear Logs
+    </button>
 </div>
 
 <script type="text/javascript" src="index.js"></script>

@@ -23,6 +23,23 @@
     "answers": "Risposte",
     "editQuestion": "Modifica domanda",
     "hideEditQuestion": "Nascondi modalità di modifica",
-    "saveEditQuestion": "Modifica domanda"
+    "saveEditQuestion": "Modifica domanda",
+    "questionSetup": {
+      "title": "How to use the question system",
+      "step1": "Set up a question with the add a question feature.",
+      "step1-1": "Enter a question e.g. 'Do you like pizza?'",
+      "step1-2": "Enter any amount of answers below",
+      "step1-3": "Save the question",
+      "step2": "Send this question to your telegram via the \"Send a question\" THEN-flowcard",
+      "step3": "Add a \"A Question has been answered\" WHEN-flowcard",
+      "step4": "Use the token of the card to make your favorite flow!"
+    },
+    "howToSetup": {
+      "title": "How to setup",
+      "step1": "Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access the message archive. Enter @Botfather in the search tab of Telegram and choose the @Botfather bot.",
+      "step2": "Click “Start” to activate @BotFather bot or enter /newbot. \n/setjoingroup disables that the bot is allowed to join a group.\n/setprivacy disabels that the bot can read messages inside a group",
+      "step3": "Enter the Token inside the app settings",
+      "step4": "Write your bot over Telegram /start and follow the instructions\nEach user has to also send the Bot the /start command. You can share the Bot via Telegram over the profile or search for the like you searched for the BotFather bot."
+    }
   }
 }
