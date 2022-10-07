@@ -58,5 +58,8 @@
   },
   "1.2.2": {
     "en": "Beta 3 of question sysstem. Added IT translation"
+  },
+  "1.2.3": {
+    "en": "Beta 4 of the question system. Added edit mode, fix grammer"
   }
 }
