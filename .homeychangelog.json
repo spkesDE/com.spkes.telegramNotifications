@@ -61,5 +61,8 @@
   },
   "1.2.3": {
     "en": "Beta 4 of the question system. Added edit mode, fix grammer"
+  },
+  "1.2.4": {
+    "en": "Beta 5 of the question system. Made Settingspage more user friendly"
   }
 }
