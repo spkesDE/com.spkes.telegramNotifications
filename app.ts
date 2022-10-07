@@ -35,6 +35,7 @@ class TelegramNotifications extends Homey.App {
     }
 
     private async startBot() {
+        this.log('Telegram Notifications app is starting...');
         if (this.token === null || this.token === '' || this.token.length < 43) {
             this.log('Telegram Notifications has no token. Please enter a Token in the Settings!');
             this.changeBotState(false);
