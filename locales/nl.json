@@ -26,18 +26,18 @@
     "saveEditQuestion": "Vraag bewerken",
     "questionSetup": {
       "title": "Hoe gebruik je het vragensysteem",
-      "step1": "Stel een vraag in met de voeg een vraag toe voorziening.",
+      "step1": "Stel een vraag in met de \"Voeg vraag toe\" optie",
       "step1-1": "Voeg een vraag toe i.e. 'Lust je pizza?'",
       "step1-2": "Voeg hieronder een willekeurig aantal antwoorden toe",
       "step1-3": "Sla de vraag op",
-      "step2": "Verstuur deze vraag naar je Telegram via de \"Send a question\" THEN-flowcard",
-      "step3": "Voeg een \"A Question has been answered\" WHEN-flowcard toe",
+      "step2": "Verstuur deze vraag naar je Telegram via de \"Stuur een vraag\" DAN-flowcard",
+      "step3": "Voeg een \"Een vraag is beantwoord\" Als-flowcard toe",
       "step4": "Gebruik het token van de kaart om je favoriete flow te maken!"
     },
     "howToSetup": {
       "title": "Hoe werkt het instellen",
       "step1": "Creeër je eigen Telegram bot. Dit is volledig veilig en prive, sinds jij de enige bent die het berichten archief kan bereiken. Voeg @Botfather in het zoek blad van Telegram en selecteer de @Botfather bot.",
-      "step2": "Klik \"Start\", om @Botfather te activeren of gebruik /newbot. \n/setjoingroup zorgt er voor dat de bot aan een groep toegevoegd kan worden. \n/setprivacy schakelt de mogelijkheid voor de bot uit om groepsberichten te lezen",
+      "step2": "Klik \"Start\" om @Botfather te activeren of gebruik /newbot. \n/setjoingroup zorgt er voor dat de bot aan een groep toegevoegd kan worden. \n/setprivacy schakelt de mogelijkheid voor de bot uit om groepsberichten te lezen",
       "step3": "Voeg het Token toe in de app settings",
       "step4": "Schrijf /start naar je bot in Telegram en volg de instructies\nElke gebruiker moet ook een /start commando sturen naar de Bot. Je kan de Bot ook delen via Telegram via het profiel of zoek er naar zoals je naar de Botfather gezocht hebt"
     }
