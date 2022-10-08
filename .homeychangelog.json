@@ -64,5 +64,8 @@
   },
   "1.2.4": {
     "en": "Beta 5 of the question system. Made Settingspage more user friendly"
+  },
+  "2.0.0": {
+    "en": "Question System implemented. Settingspage overhaul."
   }
 }
