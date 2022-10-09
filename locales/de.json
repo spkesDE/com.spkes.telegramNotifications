@@ -24,6 +24,7 @@
     "editQuestion": "Frage bearbeiten",
     "hideEditQuestion": "Bearbeitungsmodus verstecken",
     "saveEditQuestion": "Frage bearbeiten",
+    "keepAnswers": "Antworten behalten",
     "questionSetup": {
       "title": "Wie man das Fragesystem benutzt",
       "step1": "Eine Frage mit der Funktion \"Frage hinzufügen\", hinzufügen",

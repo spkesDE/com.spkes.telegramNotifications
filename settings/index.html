@@ -76,14 +76,20 @@
             <input id="question-name" class="question-input" type="text" value=""
                    placeholder="Do you want to close the shutters?"/>
         </div>
-        <div class="row" style="margin-top: .5em; margin-bottom: .5em">
+        <div class="row" style="margin-top: .5em;margin-bottom: 0.25em;">
             <h2 data-i18n="settings.answers">Answers</h2>
-            <button class="right" onclick="createNewInputField()" class="btn-save" data-i18n="settings.addAnswerButton">
+            <button onclick="createNewInputField()" class="btn-save right" data-i18n="settings.addAnswerButton">
                 Add answer
             </button>
         </div>
+        <div class="row" style="margin-bottom: .5em">
+            <h3 data-i18n="settings.keepAnswers">Keep answers</h3>
+            <label class="switch right">
+                <input type="checkbox" id="question-answer-keep-answers">
+                <span class="slider round"></span>
+            </label>
+        </div>
         <div class="col" id="question-answer-col">
-
         </div>
         <button id="addQuestion" class="btn-save" onclick="addQuestion()" data-i18n="settings.saveQuestion"
                 style="width: 100%; margin-top: 1em">Save question
@@ -103,11 +109,18 @@
             <label for="question-name-edit" data-i18n="settings.question">Question</label>
             <input id="question-name-edit" class="question-input" type="text" value=""/>
         </div>
-        <div class="row" style="margin-top: .5em; margin-bottom: .5em">
+        <div class="row" style="margin-top: .5em;margin-bottom: 0.25em;">
             <h2 data-i18n="settings.answers">Answers</h2>
-            <button class="right" onclick="createNewInputFieldForEdit()" class="btn-save"
+            <button onclick="createNewInputFieldForEdit()" class="right btn-save"
                     data-i18n="settings.addAnswerButton">Add answer
             </button>
+        </div>
+        <div class="row" style="margin-bottom: .5em">
+            <h3 data-i18n="settings.keepAnswers">Keep answers</h3>
+            <label class="switch right">
+                <input type="checkbox" id="question-answer-edit-keep-answers">
+                <span class="slider round"></span>
+            </label>
         </div>
         <div class="col" id="question-answer-edit-col"></div>
         <button id="editQuestion" onclick="editQuestion()" data-i18n="settings.saveEditQuestion" class="btn-save"

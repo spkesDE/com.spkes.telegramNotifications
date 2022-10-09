@@ -128,6 +128,7 @@ function getQuestion(Homey, UUID) {
 function loadQuestion(Question) {
   document.getElementById('question-name-edit').value = Question.question;
   document.getElementById('question-uuid-edit').value = Question.UUID;
+  document.getElementById('question-answer-edit-keep-answers').checked = Question.keepButtons ?? false;
   document.getElementById('question-answer-edit-col').innerHTML = '';
   Question.buttons.forEach((b) => {
     createNewInputFieldForEdit(b);
@@ -137,6 +138,7 @@ function loadQuestion(Question) {
 function addQuestion() {
   let question = document.getElementById('question-name');
   let answers = document.getElementsByClassName('answer-input');
+  let keepButtons = document.getElementById('question-answer-keep-answers').checked ?? false;
   if (question.value === '' || question.value === ' ') {
     Homey.alert('Empty question field');
   }
@@ -150,7 +152,8 @@ function addQuestion() {
   let questionObj = {
     question: question.value,
     UUID: UUIDv4(),
-    buttons: answersArray
+    buttons: answersArray,
+    keepButtons: keepButtons
   };
   Homey.get('questions', (err, questionString) => {
     if (err) return Homey.alert(err);
@@ -174,6 +177,7 @@ function addQuestion() {
 function editQuestion() {
   let question = document.getElementById('question-name-edit').value;
   let uuid = document.getElementById('question-uuid-edit').value;
+  let keepButtons = document.getElementById('question-answer-edit-keep-answers').checked ?? false;
   let answers = document.getElementsByClassName('answer-edit-input');
   if (question.value === '' || question.value === ' ') {
     Homey.alert('Empty question field');
@@ -186,7 +190,8 @@ function editQuestion() {
   let questionObj = {
     question: question,
     UUID: uuid,
-    buttons: answersArray
+    buttons: answersArray,
+    keepButtons: keepButtons
   };
   Homey.get('questions', (err, questionString) => {
     if (err) return Homey.alert(err);
