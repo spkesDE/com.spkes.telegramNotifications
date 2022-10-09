@@ -67,5 +67,8 @@
   },
   "2.0.0": {
     "en": "Question System implemented. Settingspage overhaul."
+  },
+  "2.0.1": {
+    "en": "Keep selected button after usage."
   }
 }
