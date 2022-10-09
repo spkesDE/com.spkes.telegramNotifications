@@ -5,6 +5,7 @@ export class Question {
     question: string = "";
     UUID: string = "";
     buttons: string[] = [];
+    keepButtons: boolean = false;
 
     static async createMessage(q: Question, bot: Telegraf<any>, userId: number) {
         let callbackButtons: CallbackButton[] = [];

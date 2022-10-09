@@ -136,10 +136,9 @@ class TelegramNotifications extends Homey.App {
 
         //This event will trigger once an inline button is pressed
         this.bot.on('callback_query', async (ctx) => {
+            if (ctx.callbackQuery.data == 'ignore-me') return;
             await ctx.telegram.answerCbQuery(ctx.callbackQuery.id);
             await ctx.answerCbQuery();
-            await ctx.telegram.editMessageReplyMarkup(ctx.callbackQuery.message.chat.id, ctx.callbackQuery.message.message_id, []);
-            //Todo Get Question, Trigger Flow, Pizza, Remove Question
             if (ctx.callbackQuery.data == 'user-add') return;
             let questionId = ctx.callbackQuery.data.split('.')[0]
             let answerId = ctx.callbackQuery.data.split('.')[1]
@@ -147,6 +146,9 @@ class TelegramNotifications extends Homey.App {
             if (question === undefined) {
                 this.error('Question not found"')
                 throw new Error('Question with UUID ' + questionId + ' not found');
+            }
+            if(!question.keepButtons){
+                await ctx.editMessageReplyMarkup({inline_keyboard: [[Markup.callbackButton(question.buttons[answerId], "ignore-me")]]});
             }
             // https://apps.developer.homey.app/the-basics/flow/arguments#flow-state
             //Building Token
