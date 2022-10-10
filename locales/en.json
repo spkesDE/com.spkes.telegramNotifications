@@ -24,7 +24,7 @@
     "editQuestion": "Edit question",
     "hideEditQuestion": "Hide edit mode",
     "saveEditQuestion": "Edit question",
-    "keepAnswers": "Keep answers",
+    "keepAnswers": "Persistent buttons",
     "questionSetup": {
       "title": "How to use the question system",
       "step1": "Set up a question with the add a question feature.",

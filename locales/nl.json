@@ -24,7 +24,7 @@
     "editQuestion": "Vraag bewerken",
     "hideEditQuestion": "De bewerkingsmodus verbergen",
     "saveEditQuestion": "Vraag bewerken",
-    "keepAnswers": "Antwoorden bewaren",
+    "keepAnswers": "Persistente knoppen",
     "questionSetup": {
       "title": "Hoe gebruik je het vragensysteem",
       "step1": "Stel een vraag in met de \"Voeg vraag toe\" optie",
