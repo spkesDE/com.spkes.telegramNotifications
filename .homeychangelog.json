@@ -70,5 +70,8 @@
   },
   "2.0.1": {
     "en": "Keep selected button after usage."
+  },
+  "2.0.2": {
+    "en": "Added toggle for presistent buttons"
   }
 }
