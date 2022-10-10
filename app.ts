@@ -137,14 +137,13 @@ class TelegramNotifications extends Homey.App {
         //This event will trigger once an inline button is pressed
         this.bot.on('callback_query', async (ctx) => {
             if (ctx.callbackQuery.data == 'ignore-me') return;
-            await ctx.telegram.answerCbQuery(ctx.callbackQuery.id);
-            await ctx.answerCbQuery();
             if (ctx.callbackQuery.data == 'user-add') return;
             let questionId = ctx.callbackQuery.data.split('.')[0]
             let answerId = ctx.callbackQuery.data.split('.')[1]
             let question = this.getQuestion(questionId);
             if (question === undefined) {
-                this.error('Question not found"')
+                this.error('Question not found. Did the question got deleted?"');
+                await ctx.reply("ERROR: Question not found. Did the question got deleted?");
                 throw new Error('Question with UUID ' + questionId + ' not found');
             }
             if(!question.keepButtons){
@@ -163,8 +162,9 @@ class TelegramNotifications extends Homey.App {
 
             //Trigger Card with given state
             let state =  { uuid: question.UUID, answer: Question.getAnswer(question, answerId)};
-            receiveQuestionAnswerTrigger.trigger(token, state).catch(this.error).then();
-            receiveQuestionAnswerWithAnswerTrigger.trigger(token, state).catch(this.error).then();
+            await receiveQuestionAnswerTrigger.trigger(token, state).catch(this.error);
+            await receiveQuestionAnswerWithAnswerTrigger.trigger(token, state).catch(this.error);
+            await ctx.answerCbQuery();
         });
     }
 
@@ -457,6 +457,9 @@ class TelegramNotifications extends Homey.App {
     }
 
     private async writeLog(message: any) {
+        if(message instanceof Error){
+            message = message.stack;
+        }
         let oldLogs = this.homey.settings.get('logs');
         if (oldLogs === null || oldLogs === undefined || oldLogs === '') oldLogs = '[]';
         const newMessage: JSON = <JSON><unknown>{date: new Date().toLocaleString(), message};
