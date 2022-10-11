@@ -60,9 +60,6 @@ class TelegramNotifications extends Homey.App {
             this.flowsRegistered = true;
         }
         this.bot.catch(this.error);
-        await this.bot.telegram.setMyCommands([{
-            "command": "start",
-            "description": "Start using the bot."}])
         await this.bot.launch().catch(this.error);
         // eslint-disable-next-line no-return-assign
         await this.bot.telegram.getMe().catch(() => this.changeBotState(false));
@@ -70,6 +67,9 @@ class TelegramNotifications extends Homey.App {
             this.log('Failed to start. Token most likely wrong.');
         } else {
             this.log('Telegram Notifications app is initialized.');
+            await this.bot.telegram.setMyCommands([{
+                "command": "start",
+                "description": "Start using the bot."}])
             this.homey.log('Debug => Total-Users ' + this.users.length + ', Question-Size: ' + this.questions.length +
                 ', Log-Size: ' + this.getLogSize() + ' and start was ' + (this.startSuccess ? 'successful' : 'unsuccessful'));
             this.changeBotState(true);
