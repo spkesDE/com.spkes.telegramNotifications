@@ -25,6 +25,7 @@
     "hideEditQuestion": "Bearbeitungsmodus verstecken",
     "saveEditQuestion": "Frage bearbeiten",
     "keepAnswers": "Dauerhafte Buttons",
+    "silentQuestion": "Stille Frage (kein Benachrichtigungston)",
     "questionSetup": {
       "title": "Wie man das Fragesystem benutzt",
       "step1": "Eine Frage mit der Funktion \"Frage hinzufügen\", hinzufügen",

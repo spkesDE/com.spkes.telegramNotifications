@@ -5,12 +5,14 @@ export default class SendTagImageWithMessage {
     constructor(app: TelegramNotifications, card: FlowCardAction) {
         card.registerRunListener((args) => {
             if (app.bot != null) {
-                console.log(args.droptoken.cloudUrl);
                 app.bot.telegram.sendPhoto(args.user.id, {
                     filename: "",
                     url: args.droptoken.cloudUrl
                 }, {caption: args.message})
-                    .catch(app.error)
+                    .catch((r) => {
+                        app.error(r);
+                        throw new Error(r)
+                    })
                     .then();
             }
         });

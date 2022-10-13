@@ -25,6 +25,7 @@
     "hideEditQuestion": "De bewerkingsmodus verbergen",
     "saveEditQuestion": "Vraag bewerken",
     "keepAnswers": "Persistente knoppen",
+    "silentQuestion": "Stille vraag (geen meldingsgeluid)",
     "questionSetup": {
       "title": "Hoe gebruik je het vragensysteem",
       "step1": "Stel een vraag in met de \"Voeg vraag toe\" optie",

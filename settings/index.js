@@ -129,6 +129,7 @@ function loadQuestion(Question) {
   document.getElementById('question-name-edit').value = Question.question;
   document.getElementById('question-uuid-edit').value = Question.UUID;
   document.getElementById('question-answer-edit-keep-answers').checked = Question.keepButtons ?? false;
+  document.getElementById('question-silent-question-edit').checked = Question.disable_notification ?? false;
   document.getElementById('question-answer-edit-col').innerHTML = '';
   Question.buttons.forEach((b) => {
     createNewInputFieldForEdit(b);
@@ -139,6 +140,7 @@ function addQuestion() {
   let question = document.getElementById('question-name');
   let answers = document.getElementsByClassName('answer-input');
   let keepButtons = document.getElementById('question-answer-keep-answers').checked ?? false;
+  let disable_notification = document.getElementById('question-silent-question').checked ?? false;
   if (question.value === '' || question.value === ' ') {
     Homey.alert('Empty question field');
   }
@@ -153,7 +155,8 @@ function addQuestion() {
     question: question.value,
     UUID: UUIDv4(),
     buttons: answersArray,
-    keepButtons: keepButtons
+    keepButtons: keepButtons,
+    disable_notification: disable_notification
   };
   Homey.get('questions', (err, questionString) => {
     if (err) return Homey.alert(err);
@@ -178,6 +181,7 @@ function editQuestion() {
   let question = document.getElementById('question-name-edit').value;
   let uuid = document.getElementById('question-uuid-edit').value;
   let keepButtons = document.getElementById('question-answer-edit-keep-answers').checked ?? false;
+  let disable_notification = document.getElementById('question-silent-question-edit').checked ?? false;
   let answers = document.getElementsByClassName('answer-edit-input');
   if (question.value === '' || question.value === ' ') {
     Homey.alert('Empty question field');
@@ -191,7 +195,8 @@ function editQuestion() {
     question: question,
     UUID: uuid,
     buttons: answersArray,
-    keepButtons: keepButtons
+    keepButtons: keepButtons,
+    disable_notification: disable_notification
   };
   Homey.get('questions', (err, questionString) => {
     if (err) return Homey.alert(err);

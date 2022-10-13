@@ -2,7 +2,7 @@ import Homey from 'homey';
 import {Telegraf} from 'telegraf';
 import Question from "./question";
 import User from "./user";
-import SendNotification from "./flow/actions/sendNotification";
+import SendMessage from "./flow/actions/sendMessage";
 import SendImage from "./flow/actions/sendImage";
 import ReceiveMessage from "./flow/triggers/receiveMessage";
 import SendTagImage from "./flow/actions/sendTagImage";
@@ -11,6 +11,7 @@ import SendTagImageWithMessage from "./flow/actions/sendTagImageWithMessage";
 import SendQuestion from "./flow/actions/sendQuestion";
 import HandleQuestions from "./flow/triggers/handleQuestions";
 import HandleNewUsers from "./flow/triggers/handleNewUsers";
+import SendSilentMessage from "./flow/actions/sendSilentMessage";
 
 export class TelegramNotifications extends Homey.App {
 
@@ -79,7 +80,8 @@ export class TelegramNotifications extends Homey.App {
         new HandleQuestions(this);
 
         //Action Cards
-        new SendNotification(this, this.homey.flow.getActionCard('sendNotification'));
+        new SendMessage(this, this.homey.flow.getActionCard('sendNotification'));
+        new SendSilentMessage(this, this.homey.flow.getActionCard('send-message-silent'));
         new SendQuestion(this, this.homey.flow.getActionCard('send-a-question'));
 
         new SendImage(this, this.homey.flow.getActionCard('send-a-image'));

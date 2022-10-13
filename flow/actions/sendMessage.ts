@@ -1,15 +1,12 @@
 import {FlowCardAction} from 'homey';
 import {TelegramNotifications} from '../../app';
 
-export default class SendTagImage {
+export default class SendMessage {
     constructor(app: TelegramNotifications, card: FlowCardAction) {
         card.registerRunListener((args) => {
             if (app.bot != null) {
-                app.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.droptoken.cloudUrl})
-                    .catch((r) => {
-                        app.error(r);
-                        throw new Error(r)
-                    })
+                app.bot.telegram.sendMessage(args.user.id, args.message)
+                    .catch(app.error)
                     .then();
             }
         });
