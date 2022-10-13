@@ -26,6 +26,7 @@
     "saveEditQuestion": "Edit question",
     "keepAnswers": "Persistent buttons",
     "silentQuestion": "Silent Question (No Notification Sound)",
+    "debugLogs": "Show debug logs",
     "questionSetup": {
       "title": "How to use the question system",
       "step1": "Set up a question with the add a question feature.",

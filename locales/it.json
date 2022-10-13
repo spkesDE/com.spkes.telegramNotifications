@@ -26,6 +26,7 @@
     "saveEditQuestion": "Modifica domanda",
     "keepAnswers": "Pulsanti persistenti",
     "silentQuestion": "Domanda silenziosa (nessun suono di notifica)",
+    "debugLogs": "Mostra i log di debug",
     "questionSetup": {
       "title": "Come usare il sistema di domande",
       "step1": "Imposta una domanda con la funzione aggiungi una domanda.",

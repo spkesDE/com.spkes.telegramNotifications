@@ -66,14 +66,14 @@ export class TelegramNotifications extends Homey.App {
         } else {
             this.log('Telegram Notifications app is initialized.');
             await this.bot.telegram.setMyCommands([{"command": "start", "description": "Start using the bot."}])
-            this.homey.log('Debug => Total-Users ' + this.users.length + ', Question-Size: ' + this.questions.length +
+            this.debug('Debug => Total-Users ' + this.users.length + ', Question-Size: ' + this.questions.length +
                 ', Log-Size: ' + this.getLogSize() + ' and start was ' + (this.startSuccess ? 'successful' : 'unsuccessful'));
             this.changeBotState(true);
         }
     }
 
     private _initializeFlowCards(){
-        this.log('Initialize Flow cards...');
+        this.debug('Initialize Flow cards...');
         //Trigger cards
         new HandleNewUsers(this, this.homey.flow.getTriggerCard('newUser'));
         new ReceiveMessage(this, this.homey.flow.getTriggerCard('receiveMessage'));
@@ -88,7 +88,7 @@ export class TelegramNotifications extends Homey.App {
         new SendImageWithMessage(this, this.homey.flow.getActionCard('send-a-image-with-message'));
         new SendTagImage(this, this.homey.flow.getActionCard('send-a-image-with-tag'));
         new SendTagImageWithMessage(this, this.homey.flow.getActionCard('send-a-image-with-message-and-tag'));
-        this.log('Flow cards initialized');
+        this.debug('Flow cards initialized');
     }
 
     //region Logging
@@ -97,20 +97,25 @@ export class TelegramNotifications extends Homey.App {
         this.homey.log(message);
     }
 
+    public debug(message: any) {
+        this.writeLog(message, true).then();
+        this.homey.log(message);
+    }
+
     public error(message: any) {
         this.writeLog(message).then();
         this.homey.error(message);
     }
 
-    private async writeLog(message: any) {
+    private async writeLog(message: any, debug: boolean = false) {
         if(message instanceof Error){
             message = message.stack;
         }
         let oldLogs = this.homey.settings.get('logs');
         if (oldLogs === null || oldLogs === undefined || oldLogs === '') oldLogs = '[]';
-        const newMessage: JSON = <JSON><unknown>{date: new Date().toLocaleString(), message};
+        const newMessage: JSON = <JSON><unknown>{date: new Date().toLocaleString('en-GB'), debug: debug, message};
         const savedHistory = JSON.parse(oldLogs);
-        if (savedHistory.length >= 15) savedHistory.pop();
+        if (savedHistory.length >= 100) savedHistory.pop();
         savedHistory.unshift(newMessage);
         this.homey.settings.set('logs', JSON.stringify(savedHistory));
     }
@@ -130,6 +135,7 @@ export class TelegramNotifications extends Homey.App {
     }
 
     private loadSavedArrays() {
+        this.debug("Loading Data...")
         this.loadUsers();
         this.loadQuestions();
     }
@@ -139,12 +145,14 @@ export class TelegramNotifications extends Homey.App {
     }
 
     loadQuestions() {
+        this.debug("Loading Questions..")
         if (this.homey.settings.get('questions') !== null) {
             this.questions = JSON.parse(this.homey.settings.get('questions')) as Question[];
         }
     }
 
     private loadUsers() {
+        this.debug("Loading Users..")
         if (this.homey.settings.get('users') !== null) {
             this.users = JSON.parse(this.homey.settings.get('users')) as User[];
         }

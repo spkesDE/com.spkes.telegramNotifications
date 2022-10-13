@@ -26,6 +26,7 @@
     "saveEditQuestion": "Frage bearbeiten",
     "keepAnswers": "Dauerhafte Buttons",
     "silentQuestion": "Stille Frage (kein Benachrichtigungston)",
+    "debugLogs": "Erweitere Logs anzeigen",
     "questionSetup": {
       "title": "Wie man das Fragesystem benutzt",
       "step1": "Eine Frage mit der Funktion \"Frage hinzufügen\", hinzufügen",

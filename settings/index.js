@@ -1,7 +1,7 @@
 // noinspection JSUnusedGlobalSymbols,JSUnresolvedVariable
 // noinspection JSUnresolvedVariable
 
-function updateUsers(Homey) {
+function updateUsers() {
   Homey.get('users', (err, users) => {
     if (err) return Homey.alert(err);
     if (users === null) return;
@@ -36,7 +36,7 @@ function updateUsers(Homey) {
   });
 }
 
-function updateQuestions(Homey) {
+function updateQuestions() {
   Homey.get('questions', (err, questions) => {
     if (err) return Homey.alert(err);
     if (questions === null) return;
@@ -63,21 +63,23 @@ function updateQuestions(Homey) {
   });
 }
 
-function updateLogs(Homey) {
-  Homey.get('logs', (err, logs) => {
+function updateLogs() {
+  let showDebugLogs = document.getElementById('debug-logs').checked ?? false;
+  Homey.get('logs', (err, logsJson) => {
     if (err) return Homey.alert(err);
-    if (logs === null) return;
-    const json = JSON.parse(logs);
-    let html = '';
+    if (logsJson === null) return;
+    const json = JSON.parse(logsJson);
+    let logs = '';
     for (let i = 0; i < json.length; i++) {
       const obj = json[i];
-      html += `${obj.date}<br>&nbsp;&nbsp;&nbsp;&nbsp;${obj.message}<br>`;
+      if(obj.debug && !showDebugLogs) continue;
+      logs += `[${obj.date}] ${obj.message}\n`;
     }
-    document.getElementById('logs-list').innerHTML = html;
+    document.getElementById('logs-list').value = logs;
   });
 }
 
-function updateStatus(Homey) {
+function updateStatus() {
   Homey.get('bot-running', (err, status) => {
     if (err) return Homey.alert(err);
     if (status) {
@@ -114,7 +116,7 @@ function togglePassword() {
   }
 }
 
-function getQuestion(Homey, UUID) {
+function getQuestion(UUID) {
   return new Promise((resolve, reject) => {
     Homey.get('questions', (err, questionJson) => {
       if (err) reject(err);
@@ -173,9 +175,10 @@ function addQuestion() {
   clearAddQuestionForm();
   delay(1000)
     .then(() => {
-      updateQuestions(Homey);
+      updateQuestions();
     });
 }
+
 
 function editQuestion() {
   let question = document.getElementById('question-name-edit').value;
@@ -214,7 +217,7 @@ function editQuestion() {
   toggleEditField(false);
   delay(1000)
     .then(() => {
-      updateQuestions(Homey);
+      updateQuestions();
     });
 }
 
@@ -246,7 +249,7 @@ function onDeleteUser(userId){
     Homey.set('users', JSON.stringify(newUsers), (err) => {
       if (err) return Homey.alert(err);
     });
-    updateUsers(Homey);
+    updateUsers();
   });
 }
 
@@ -266,8 +269,8 @@ function onSaveToken() {
   }
   delay(1000)
     .then(() => {
-      updateStatus(Homey);
-      updateLogs(Homey);
+      updateStatus();
+      updateLogs();
     });
 }
 
@@ -297,10 +300,10 @@ function onHomeyReady(Homey) {
     togglePassword();
   });
 
-  updateStatus(Homey);
-  updateUsers(Homey);
-  updateQuestions(Homey);
-  updateLogs(Homey);
+  updateStatus();
+  updateUsers();
+  updateQuestions();
+  updateLogs();
   Homey.ready();
 }
 

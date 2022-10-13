@@ -161,7 +161,15 @@
 </div>
 
 <div id="logs" class="tab-content">
-    <p id="logs-list"></p>
+    <div class="row" style="margin-bottom: .5em">
+        <h3 data-i18n="settings.debugLogs">Enable Debug logs</h3>
+        <label class="switch right">
+            <input type="checkbox" id="debug-logs" onchange="updateLogs()">
+            <span class="slider round"></span>
+        </label>
+    </div>
+    <hr>
+    <textarea class="logs-list" id="logs-list"></textarea>
     <button id="clearLogs" onclick="clearLogs()" class="btn-delete" style="width: 100%" data-i18n="settings.clearLogs">
         Clear Logs
     </button>

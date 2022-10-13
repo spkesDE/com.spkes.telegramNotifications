@@ -182,3 +182,20 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+.logs-list {
+    width: 100%;
+    min-height: 300px;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid #e3e3e3;
+    margin: 0;
+    resize: none;
+    font-size: 12px;
+    line-height: 1.418;
+    color: #161616;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: scroll;
+    transition: background-color 0.4s;
+}
