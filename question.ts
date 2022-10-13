@@ -1,7 +1,7 @@
 import {Telegraf, Markup} from 'telegraf';
 import {CallbackButton} from "telegraf/typings/markup";
 
-export class Question {
+export default class Question {
     question: string = "";
     UUID: string = "";
     buttons: string[] = [];
@@ -19,4 +19,5 @@ export class Question {
     static getAnswer(q: Question, answerId: number) {
         return q.buttons[answerId];
     }
+
 }
