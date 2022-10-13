@@ -79,5 +79,8 @@
   },
   "2.0.4": {
     "en": "Added silent questions toggle (No Notification Sound), Added slient message flow card (No Notification Sound), Internal structure changes"
+  },
+  "2.0.5": {
+    "en": "Added debug logs filter for the settings page"
   }
 }
