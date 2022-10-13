@@ -76,5 +76,8 @@
   },
   "2.0.3": {
     "en": "Fixed some bugs"
+  },
+  "2.0.4": {
+    "en": "Added silent questions toggle (No Notification Sound), Added slient message flow card (No Notification Sound), Internal structure changes"
   }
 }
