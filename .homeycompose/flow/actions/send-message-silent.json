@@ -1,9 +1,9 @@
 {
   "title": {
-    "en": "Send a slient message",
-    "it": "Invia messaggio",
-    "de": "Eine Leise Nachricht senden",
-    "nl": "Verstuur een bericht"
+    "en": "Send a silent message",
+    "it": "Invia un messaggio silenzioso",
+    "de": "Eine Leise Nachricht versenden",
+    "nl": "Verstuur een stil bericht"
   },
   "titleFormatted": {
     "en": "Send a silent message [[message]] to [[user]]",
