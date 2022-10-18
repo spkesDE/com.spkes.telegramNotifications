@@ -73,7 +73,7 @@ export default class HandleQuestions {
                 throw new Error('Question with UUID ' + questionId + ' not found');
             }
             if(!question.keepButtons){
-                await ctx.editMessageReplyMarkup({inline_keyboard: [[Markup.callbackButton(question.buttons[answerId], "ignore-me")]]});
+                await ctx.editMessageReplyMarkup({inline_keyboard: [[Markup.callbackButton(question.buttons[answerId], "ignore-me")]]}).catch();
             }
             // https://apps.developer.homey.app/the-basics/flow/arguments#flow-state
             //Building Token

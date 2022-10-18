@@ -72,13 +72,13 @@
     "en": "Keep selected button after usage."
   },
   "2.0.2": {
-    "en": "Added toggle for presistent buttons"
+    "en": "Added toggle for persistent buttons"
   },
   "2.0.3": {
     "en": "Fixed some bugs"
   },
   "2.0.4": {
-    "en": "Added silent questions toggle (No Notification Sound), Added slient message flow card (No Notification Sound), Internal structure changes"
+    "en": "Added silent questions toggle (No Notification Sound), Added silent message flow card (No Notification Sound), Internal structure changes"
   },
   "2.0.5": {
     "en": "Added debug logs filter for the settings page"
