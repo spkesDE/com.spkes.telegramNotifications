@@ -222,7 +222,7 @@ function editQuestion() {
 }
 
 async function onEditQuestion(uuid) {
-  let question = await getQuestion(Homey, uuid);
+  let question = await getQuestion(uuid);
   loadQuestion(question);
   toggleEditField();
 }
@@ -236,7 +236,7 @@ async function onDeleteQuestion(uuid) {
     Homey.set('questions', JSON.stringify(questionFilter), (err) => {
       if (err) return Homey.alert(err);
     });
-    updateQuestions(Homey);
+    updateQuestions();
   });
 }
 
