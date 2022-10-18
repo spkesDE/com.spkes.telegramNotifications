@@ -88,5 +88,8 @@
   },
   "2.0.7": {
     "en": "Fixed 'IMAGE_PROCESS_FAILED' error"
+  },
+  "2.0.8": {
+    "en": "Fixed the edit mode"
   }
 }
