@@ -1,5 +1,4 @@
 {
-  "deprecated": true,
   "title": {
     "en": "A question has been answered",
     "it": "Una domanda ha ricevuto risposta",
@@ -11,6 +10,12 @@
     "it": "[[question]] ha ricevuto la risposta [[answer]]",
     "de": "Die Frage [[question]] wurde mit [[answer]] beantwortet",
     "nl": "De vraag [[question]] is beantwoord met [[answer]]"
+  },
+  "hint": {
+    "en": "First select the question then the answer. Both fields will autocomplete.",
+    "it": "Seleziona prima la domanda, poi la risposta. Entrambi i campi verranno completati automaticamente.",
+    "de": "Wähle zuerst die Frage und dann die Antwort aus. Beide Felder werden automatisch vervollständigt.",
+    "nl": "Selecteer eerst de vraag en daarna het antwoord. Beide velden worden automatisch ingevuld."
   },
   "args": [
     {
@@ -24,7 +29,7 @@
       }
     },
     {
-      "type": "text",
+      "type": "autocomplete",
       "name": "answer",
       "title": {
         "en": "Answer",

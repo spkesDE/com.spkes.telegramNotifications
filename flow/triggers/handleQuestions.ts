@@ -15,6 +15,7 @@ export default class HandleQuestions {
         //Getting Trigger Flows
         const receiveQuestionAnswerTrigger = app.homey.flow.getTriggerCard('receive-question-answer');
         const receiveQuestionAnswerWithAnswerTrigger = app.homey.flow.getTriggerCard('receive-question-answer-with-answer');
+        const receiveQuestionAnswerAutocomplete = app.homey.flow.getTriggerCard('receive-question-answer-autocomplete');
 
 
         //region Autocomplete
@@ -48,6 +49,40 @@ export default class HandleQuestions {
                 });
             },
         );
+
+        receiveQuestionAnswerAutocomplete.registerArgumentAutocompleteListener(
+            'question',
+            async (query) => {
+                const results: any = [];
+                app.questions.forEach((question) => {
+                    results.push({
+                        name: question.question,
+                        id: question.UUID,
+                    });
+                });
+                return results.filter((result: any) => {
+                    return result.name.toLowerCase().includes(query.toLowerCase());
+                });
+            },
+        );
+
+        receiveQuestionAnswerAutocomplete.registerArgumentAutocompleteListener(
+            'answer',
+            async (query, args) => {
+                let question = app.questions.find(question => question.UUID === args.question.id);
+                if(!question) return [];
+                let results: any = [];
+                question.buttons.forEach((answer) => {
+                    results.push({
+                        name: answer,
+                        id: question?.buttons.indexOf(answer)
+                    })
+                });
+                return results.filter((result: any) => {
+                    return result.name.toLowerCase().includes(query.toLowerCase());
+                });
+            },
+        );
         //endregion
 
         //region State checking
@@ -57,6 +92,10 @@ export default class HandleQuestions {
 
         receiveQuestionAnswerWithAnswerTrigger.registerRunListener(async (args, state) => {
             return args.question.id === state.uuid && args.answer == state.answer;
+        });
+
+        receiveQuestionAnswerAutocomplete.registerRunListener(async (args, state) => {
+            return args.question.id === state.uuid && args.answer.name == state.answer;
         });
         //endregion
 
@@ -90,6 +129,7 @@ export default class HandleQuestions {
             let state =  { uuid: question.UUID, answer: Question.getAnswer(question, answerId)};
             await receiveQuestionAnswerTrigger.trigger(token, state).catch(app.error);
             await receiveQuestionAnswerWithAnswerTrigger.trigger(token, state).catch(app.error);
+            await receiveQuestionAnswerAutocomplete.trigger(token, state).catch(app.error);
             await ctx.answerCbQuery();
         });
     }
