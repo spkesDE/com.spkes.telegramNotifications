@@ -91,5 +91,8 @@
   },
   "2.0.8": {
     "en": "Fixed the edit mode"
+  },
+  "2.1.0": {
+    "en": "Added new Question has been answered card with both fields autocompletion"
   }
 }
