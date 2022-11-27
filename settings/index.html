@@ -3,38 +3,46 @@
 <head>
     <!-- The '/homey.js' script must be included in your settings view to work -->
     <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+    <script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/homey.css">
+    <link rel="stylesheet" href="homeyExtras.css">
 </head>
 
 <body>
 <div class="tab">
-    <button class="tab-links" data-i18n="settings.settings" data-target="settings" id="defaultOpen">Settings</button>
-    <button class="tab-links" data-i18n="settings.users" data-target="users">Users</button>
-    <button class="tab-links" data-i18n="settings.questions" data-target="questions">Questions</button>
-    <button class="tab-links" data-i18n="settings.logs" data-target="logs">Logs</button>
+    <button class="tab-links hy-nostyle" data-i18n="settings.settings" data-target="settings">Settings</button>
+    <button class="tab-links hy-nostyle" data-i18n="settings.users" data-target="users">Users</button>
+    <button class="tab-links hy-nostyle" data-i18n="settings.questions" data-target="questions" id="defaultOpen">Questions</button>
+    <button class="tab-links hy-nostyle" data-i18n="settings.logs" data-target="logs">Logs</button>
 </div>
 
 <div id="settings" class="tab-content">
     <div id="running-status" class="status not-running"></div>
     <h2 data-i18n="settings.title">
-        Title
+        Enter your token
     </h2>
-    <label for="bot-token" data-i18n="settings.token">Bot Token</label>
-    <input id="bot-token" type="text" value=""/>
-    <div style="margin-top: 1em">
-        <input onclick="togglePassword()" type="checkbox" id="usePassword">
-        <label data-i18n="settings.passwordEnable" for="usePassword">Enable Password</label>
+    <div class="homey-form-group">
+        <label class="homey-form-label" for="bot-token" data-i18n="settings.token">Bot Token</label>
+        <input class="homey-form-input" id="bot-token" type="text" value=""/>
     </div>
-    <div class="hidden" id="usePasswordDiv">
+    <div style="margin-top: 1em">
+        <label class="homey-form-checkbox">
+            <input  id="usePassword" onclick="togglePassword()"  class="homey-form-checkbox-input" type="checkbox" name="checkbox-example"/>
+            <span class="homey-form-checkbox-checkmark"></span>
+            <span class="homey-form-checkbox-text" data-i18n="settings.passwordEnable" for="usePassword">Enable Password</span>
+        </label>
+    </div>
+    <div class="hidden" id="usePasswordDiv" style="margin-bottom: 10px">
         <label for="bot-password" data-i18n="settings.password">Bot Password</label>
-        <input id="bot-password" type="password" value=""/>
-        <p style="margin-bottom: 0" data-i18n="settings.userInfoPassword">To Register a user/chat now you have to
+        <input id="bot-password" class="homey-form-input" type="password" value=""/>
+        <p style="margin-bottom: 0; margin-top: 5px" data-i18n="settings.userInfoPassword">To Register a user/chat now you have to
             enter /start [yourPassword] to the bot via Telegram</p>
     </div>
-    <button id="save" class="btn-save" onclick="onSaveToken()" data-i18n="settings.save"
-            style="width: 100%; margin-top: 1em; margin-bottom: 1em">Save changes
+    <button id="save" class="homey-button-primary-shadow-full" onclick="onSaveToken()" data-i18n="settings.save">Save changes
     </button>
-    <h2><strong data-i18n="settings.howToSetup.title">How to setup</strong></h2>
+    <h2 style="margin-top: 10px"><strong data-i18n="settings.howToSetup.title">How to setup</strong></h2>
     <ol>
         <li data-i18n="settings.howToSetup.step1">Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access
             the message archive. Enter&nbsp;<strong><span class="mention">@Botfather</span></strong>&nbsp;in the search
@@ -60,7 +68,7 @@
     <p data-i18n="settings.userInfo">When you clear the users you have to re-register the
         users to the Telegram bot.
         This means you have to send the /start command again.</p>
-    <button id="clear" class="btn-delete" onclick="clearAllUsers()" data-i18n="settings.clear" style="width: 100%">Clear
+    <button id="clear" class="homey-button-danger-full" onclick="clearAllUsers()" data-i18n="settings.clear" style="width: 100%">Clear
         users
     </button>
 </div>
@@ -71,15 +79,14 @@
     </div>
     <fieldset id="question-add-field">
         <legend data-i18n="settings.addQuestion">Add question</legend>
-        <div class="col">
-            <label for="question-name" data-i18n="settings.question">Question</label>
-            <input id="question-name" class="question-input" type="text" value=""
-                   placeholder="Do you want to close the shutters?"/>
+        <div class="homey-form-group mt-0">
+            <label class="homey-form-label mt-0" for="question-name" data-i18n="settings.question">Question</label>
+            <input class="homey-form-input" id="question-name" type="text" placeholder="Do you want to close the shutters?" value=""/>
         </div>
         <div class="row" style="margin-top: .5em;margin-bottom: 0.25em;">
             <h2 data-i18n="settings.answers">Answers</h2>
-            <button onclick="createNewInputField()" class="btn-save right" data-i18n="settings.addAnswerButton">
-                Add answer
+            <button onclick="createNewInputField()" class="homey-button-small right" data-i18n="settings.addAnswerButton">
+                <i class="fas fa-plus"></i>
             </button>
         </div>
         <div class="row" style="margin-bottom: .5em">
@@ -98,28 +105,27 @@
         </div>
         <div class="col" id="question-answer-col">
         </div>
-        <button id="addQuestion" class="btn-save" onclick="addQuestion()" data-i18n="settings.saveQuestion"
-                style="width: 100%; margin-top: 1em">Save question
+        <button id="addQuestion" class="homey-button-primary-shadow-full" onclick="addQuestion()" data-i18n="settings.saveQuestion" style="margin-top: .5em">Save question
         </button>
     </fieldset>
 
     <fieldset id="question-edit-field" class="hidden">
         <legend data-i18n="settings.editQuestion">Edit question</legend>
-        <button id="hideEditQuestion" class="btn-edit" onclick="toggleEditField(false)"
+
+        <button id="hideEditQuestion" class="homey-button-small-success-full" onclick="toggleEditField(false)"
                 data-i18n="settings.hideEditQuestion" style="width: 100%;">Hide Edit mode
         </button>
-        <div class="col">
-            <label for="question-uuid-edit">UUID</label>
-            <input id="question-uuid-edit" disabled class="question-input" type="text" value=""/>
+        <div class="homey-form-group mt-0">
+            <label class="homey-form-label" for="question-uuid-edit">UUID</label>
+            <input class="homey-form-input" id="question-uuid-edit" disabled type="text" value=""/>
+            <label class="homey-form-label mt-1" for="question-name-edit" data-i18n="settings.question">Question</label>
+            <input class="homey-form-input" id="question-name-edit" type="text" placeholder="Do you want to close the shutters?" value=""/>
         </div>
-        <div class="col">
-            <label for="question-name-edit" data-i18n="settings.question">Question</label>
-            <input id="question-name-edit" class="question-input" type="text" value=""/>
-        </div>
+
         <div class="row" style="margin-top: .5em;margin-bottom: 0.25em;">
             <h2 data-i18n="settings.answers">Answers</h2>
-            <button onclick="createNewInputFieldForEdit()" class="right btn-save"
-                    data-i18n="settings.addAnswerButton">Add answer
+            <button onclick="createNewInputFieldForEdit()" class="homey-button-small right">
+                <i class="fas fa-plus"></i>
             </button>
         </div>
         <div class="row" style="margin-bottom: .5em">
@@ -137,8 +143,7 @@
             </label>
         </div>
         <div class="col" id="question-answer-edit-col"></div>
-        <button id="editQuestion" onclick="editQuestion()" data-i18n="settings.saveEditQuestion" class="btn-save"
-                style="width: 100%; margin-top: 1em">Edit question
+        <button id="editQuestion" onclick="editQuestion()" data-i18n="settings.saveEditQuestion" class="homey-button-primary-shadow-full" style="margin-top: .5em">Edit question
         </button>
     </fieldset>
 
@@ -169,9 +174,8 @@
         </label>
     </div>
     <hr>
-    <textarea class="logs-list" id="logs-list"></textarea>
-    <button id="clearLogs" onclick="clearLogs()" class="btn-delete" style="width: 100%" data-i18n="settings.clearLogs">
-        Clear Logs
+    <textarea class="logs-list homey-form-textarea" id="logs-list"></textarea>
+    <button id="clearLogs" class="homey-button-primary-shadow-full" onclick="clearLogs()" data-i18n="settings.clearLogs" style="margin-top: .5em">Clear Logs
     </button>
 </div>
 

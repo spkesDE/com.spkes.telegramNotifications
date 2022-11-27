@@ -103,8 +103,12 @@ export default class HandleQuestions {
         app.bot.on('callback_query', async (ctx) => {
             if (ctx.callbackQuery.data == 'ignore-me') return;
             if (ctx.callbackQuery.data == 'user-add') return;
-            let questionId = ctx.callbackQuery.data.split('.')[0]
-            let answerId = ctx.callbackQuery.data.split('.')[1]
+            let parts =  ctx.callbackQuery.data.split('.');
+            let questionId = parts[0]
+            let answerId = parts[1]
+            let customId = undefined;
+            if(parts.length == 3)
+                customId = parts[2]
             let question = app.getQuestion(questionId);
             if (question === undefined) {
                 app.error('Question not found. Did the question got deleted?"');

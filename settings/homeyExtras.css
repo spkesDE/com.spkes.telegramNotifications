@@ -1,0 +1,52 @@
+:root {
+    --color-gradient-red-active: #be0000;
+    --color-gradient-red-start: #ff3e3e;
+    --color-gradient-red-end: #ff5252;
+    --color-gradient-red-hover: #ff5252;
+    --interactive-gradient-red: linear-gradient(30deg,
+    var(--color-gradient-red-active), var(--color-gradient-red-start) 33%, var(--color-gradient-red-end) 66%, var(--color-gradient-red-hover));
+
+    --color-gradient-green-active: #1f7900;
+    --color-gradient-green-start: #1ea100;
+    --color-gradient-green-end: #09a200;
+    --color-gradient-green-hover: #00bd0e;
+    --interactive-gradient-green: linear-gradient(30deg,
+    var(--color-gradient-green-active), var(--color-gradient-green-start) 33%, var(--color-gradient-green-end) 66%, var(--color-gradient-green-hover));
+}
+
+[class*=homey-button][class*=danger] {
+    --homey-button-background: var(--interactive-gradient-red);
+    --homey-button-color-focus: var(--color-gradient-red-start)
+}
+
+[class*=homey-button][class*=success] {
+    --homey-button-background: var(--interactive-gradient-green);
+    --homey-button-color-focus: var(--color-gradient-green-start)
+}
+
+[class*=homey-button][class*=small] {
+    padding: 5px 15px;
+}
+
+input.homey-form-input[type="text"]:disabled,
+input.homey-form-input[type="number"]:disabled,
+input.homey-form-input[type="password"]:disabled,
+input.homey-form-input[type="url"]:disabled {
+    background-color: var(--homey-color-mono-10);
+}
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mb-1 {
+    margin-bottom: .3rem !important;
+}
+
+.mt-1 {
+    margin-top: .3rem !important;
+}

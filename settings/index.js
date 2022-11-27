@@ -155,7 +155,7 @@ function addQuestion() {
 
   let questionObj = {
     question: question.value,
-    UUID: UUIDv4(),
+    UUID: getId(),
     buttons: answersArray,
     keepButtons: keepButtons,
     disable_notification: disable_notification
@@ -208,6 +208,7 @@ function editQuestion() {
       json = JSON.parse(questionString);
     }
     json = json.filter((q) => q.UUID !== uuid);
+    if(questionObj.UUID.length > 10) questionObj.UUID = getId();
     json.push(questionObj);
     Homey.set('questions', JSON.stringify(json), (err) => {
       if (err) return Homey.alert(err);
@@ -330,7 +331,8 @@ function createNewInputField() {
   const container = document.getElementById('question-answer-col');
   const newElem = document.createElement('input');
   newElem.setAttribute('type', 'text');
-  newElem.classList.add('answer-input');
+  newElem.classList.add('homey-form-input');
+  newElem.classList.add('mb-1');
   if (container.children.length >= 25) return;
   container.appendChild(newElem);
 }
@@ -339,7 +341,8 @@ function createNewInputFieldForEdit(value = '') {
   const container = document.getElementById('question-answer-edit-col');
   const newElem = document.createElement('input');
   newElem.setAttribute('type', 'text');
-  newElem.classList.add('answer-edit-input');
+  newElem.classList.add('homey-form-input');
+  newElem.classList.add('mb-1');
   newElem.value = value;
   if (container.children.length >= 25) return;
   container.appendChild(newElem);
@@ -363,9 +366,14 @@ function toggleEditField(bool = true) {
   }
 }
 
-function UUIDv4() {
-  return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-  );
+/**
+ * NanoId https://github.com/ai/nanoid
+ *
+ * @param length
+ * @returns {string|string}
+ */
+function getId(length = 10) {
+  return crypto.getRandomValues(new Uint8Array(length))
+    .reduce(((t,e) =>t+=(e&=63)<36?e.toString(36):e<62?(e-26).toString(36).toUpperCase():e>62?"-":"_"),"");
 }
 

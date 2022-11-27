@@ -41,18 +41,31 @@
     background-color: #f1f1f1;
     display: flex;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    flex-direction: row;
 }
 
 .tab button {
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    margin-right: 0 !important;
-    margin-bottom: 0 !important;
+    --animation: 0;
+    --deg: 30deg;
+    --mask-color: var(--homey-color-white);
     display: block;
-    flex-grow: 1;
-    border-radius: 0 !important;
+    width: 100%;
+    padding: 12px 12px;
+    background: var(--homey-button-background);
+    background-position: var(--homey-interactive-gradient-position-default);
+    background-size: var(--homey-interactive-gradient-size);
+    font-size: 17px;
+    font-weight: var(--homey-font-weight-medium);
+    line-height: 24px;
+    color: var(--homey-color-black);
+    text-decoration: none !important;
+    cursor: pointer;
+    border: none !important;
+    -webkit-tap-highlight-color: transparent;
+    transform: scale(1);
+    transition: var(--homey-duration-fast) ease-in-out, var(--homey-duration-fast) var(--homey-curve-fast-in);
+    transition-property: transform, background-position, filter;
 }
 
 .tab button:hover {
@@ -60,8 +73,9 @@
 }
 
 .tab button.active {
-    background-color: #4f8fd7;
-    color: #f5f4f4;
+    color: var(--homey-color-white);
+    --homey-button-background: var(--homey-interactive-gradient-blue);
+    --homey-button-color-focus: var(--homey-color-gradient-blue-start);
 }
 
 .tab-content {
