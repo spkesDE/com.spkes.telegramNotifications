@@ -12,49 +12,52 @@
 
 <body>
 <div class="tab">
-    <button class="tab-links hy-nostyle" data-i18n="settings.settings" data-target="settings">Settings</button>
+    <button class="tab-links hy-nostyle" data-i18n="settings.settings" data-target="settings" id="defaultOpen">
+        Settings
+    </button>
     <button class="tab-links hy-nostyle" data-i18n="settings.users" data-target="users">Users</button>
-    <button class="tab-links hy-nostyle" data-i18n="settings.questions" data-target="questions" id="defaultOpen">Questions</button>
+    <button class="tab-links hy-nostyle" data-i18n="settings.questions" data-target="questions">Questions</button>
     <button class="tab-links hy-nostyle" data-i18n="settings.logs" data-target="logs">Logs</button>
 </div>
 
 <div id="settings" class="tab-content">
     <div id="running-status" class="status not-running"></div>
-    <h2 data-i18n="settings.title">
-        Enter your token
-    </h2>
-    <div class="homey-form-group">
-        <label class="homey-form-label" for="bot-token" data-i18n="settings.token">Bot Token</label>
+    <div class="homey-form-group mb-2 mt-0-5">
+        <label class="homey-form-label mt-0-5" for="bot-token" data-i18n="settings.token">Bot Token</label>
         <input class="homey-form-input" id="bot-token" type="text" value=""/>
     </div>
-    <div style="margin-top: 1em">
-        <label class="homey-form-checkbox">
-            <input  id="usePassword" onclick="togglePassword()"  class="homey-form-checkbox-input" type="checkbox" name="checkbox-example"/>
-            <span class="homey-form-checkbox-checkmark"></span>
-            <span class="homey-form-checkbox-text" data-i18n="settings.passwordEnable" for="usePassword">Enable Password</span>
-        </label>
-    </div>
-    <div class="hidden" id="usePasswordDiv" style="margin-bottom: 10px">
+    <label class="homey-form-checkbox mt-0 mb-1">
+        <input id="usePassword" onclick="togglePassword()" class="homey-form-checkbox-input" type="checkbox"
+               name="checkbox-example"/>
+        <span class="homey-form-checkbox-checkmark"></span>
+        <span class="homey-form-checkbox-text" data-i18n="settings.passwordEnable">Enable Password</span>
+    </label>
+    <div class="hidden mb-1" id="usePasswordDiv">
         <label for="bot-password" data-i18n="settings.password">Bot Password</label>
         <input id="bot-password" class="homey-form-input" type="password" value=""/>
-        <p style="margin-bottom: 0; margin-top: 5px" data-i18n="settings.userInfoPassword">To Register a user/chat now you have to
+        <p style="margin-bottom: 0; margin-top: 5px" data-i18n="settings.userInfoPassword">To Register a user/chat now
+            you have to
             enter /start [yourPassword] to the bot via Telegram</p>
     </div>
-    <button id="save" class="homey-button-primary-shadow-full" onclick="onSaveToken()" data-i18n="settings.save">Save changes
+    <button id="save" class="homey-button-primary-shadow-full" onclick="onSaveToken()" data-i18n="settings.save">Save
+        changes
     </button>
     <h2 style="margin-top: 10px"><strong data-i18n="settings.howToSetup.title">How to setup</strong></h2>
     <ol>
-        <li data-i18n="settings.howToSetup.step1">Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access
+        <li data-i18n="settings.howToSetup.step1">Set up your own Telegram bot. This is fully secure and private, since
+            you are the only one who can access
             the message archive. Enter&nbsp;<strong><span class="mention">@Botfather</span></strong>&nbsp;in the search
             tab of&nbsp;<strong>Telegram</strong>&nbsp;and choose the&nbsp;<strong><span
                     class="mention">@Botfather</span></strong>&nbsp;bot.
         </li>
-        <li data-i18n="settings.howToSetup.step2">Click &ldquo;Start&rdquo; to activate&nbsp;<strong><span class="mention">@BotFather</span></strong>&nbsp;bot
+        <li data-i18n="settings.howToSetup.step2">Click &ldquo;Start&rdquo; to activate&nbsp;<strong><span
+                class="mention">@BotFather</span></strong>&nbsp;bot
             or enter&nbsp;<code>/newbot</code>.&nbsp;<br/><code>/setjoingroup </code>disables that the bot is allowed to
             join a group.<br/><code>/setprivacy</code>&nbsp;disabels that the bot can read messages inside a group
         </li>
         <li data-i18n="settings.howToSetup.step3">Enter the Token inside the app settings</li>
-        <li data-i18n="settings.howToSetup.step4">Write your bot over Telegram&nbsp;<code>/start</code>&nbsp;and follow the instructions<br/>Each user has to
+        <li data-i18n="settings.howToSetup.step4">Write your bot over Telegram&nbsp;<code>/start</code>&nbsp;and follow
+            the instructions<br/>Each user has to
             also send the Bot the&nbsp;<code>/start</code>&nbsp;command. You can share the Bot via Telegram over the
             profile or search for the like you searched for the BotFather bot.
         </li>
@@ -68,7 +71,8 @@
     <p data-i18n="settings.userInfo">When you clear the users you have to re-register the
         users to the Telegram bot.
         This means you have to send the /start command again.</p>
-    <button id="clear" class="homey-button-danger-full" onclick="clearAllUsers()" data-i18n="settings.clear" style="width: 100%">Clear
+    <button id="clear" class="homey-button-danger-full" onclick="clearAllUsers()" data-i18n="settings.clear"
+            style="width: 100%">Clear
         users
     </button>
 </div>
@@ -77,15 +81,18 @@
     <div id="question-list">
         No questions setup :(
     </div>
+    <hr class="mt-1">
     <fieldset id="question-add-field">
-        <legend data-i18n="settings.addQuestion">Add question</legend>
+        <legend data-i18n="settings.addQuestion" class="field-legend">Add question</legend>
         <div class="homey-form-group mt-0">
             <label class="homey-form-label mt-0" for="question-name" data-i18n="settings.question">Question</label>
-            <input class="homey-form-input" id="question-name" type="text" placeholder="Do you want to close the shutters?" value=""/>
+            <input class="homey-form-input" id="question-name" type="text"
+                   placeholder="Do you want to close the shutters?" value=""/>
         </div>
         <div class="row" style="margin-top: .5em;margin-bottom: 0.25em;">
             <h2 data-i18n="settings.answers">Answers</h2>
-            <button onclick="createNewInputField()" class="homey-button-small right" data-i18n="settings.addAnswerButton">
+            <button onclick="createNewInputField()" class="homey-button-small right"
+                    data-i18n="settings.addAnswerButton">
                 <i class="fas fa-plus"></i>
             </button>
         </div>
@@ -105,13 +112,13 @@
         </div>
         <div class="col" id="question-answer-col">
         </div>
-        <button id="addQuestion" class="homey-button-primary-shadow-full" onclick="addQuestion()" data-i18n="settings.saveQuestion" style="margin-top: .5em">Save question
+        <button id="addQuestion" class="homey-button-primary-shadow-full" onclick="addQuestion()"
+                data-i18n="settings.saveQuestion" style="margin-top: .5em">Save question
         </button>
     </fieldset>
 
     <fieldset id="question-edit-field" class="hidden">
-        <legend data-i18n="settings.editQuestion">Edit question</legend>
-
+        <legend data-i18n="settings.editQuestion" class="field-legend">Edit question</legend>
         <button id="hideEditQuestion" class="homey-button-small-success-full" onclick="toggleEditField(false)"
                 data-i18n="settings.hideEditQuestion" style="width: 100%;">Hide Edit mode
         </button>
@@ -119,7 +126,8 @@
             <label class="homey-form-label" for="question-uuid-edit">UUID</label>
             <input class="homey-form-input" id="question-uuid-edit" disabled type="text" value=""/>
             <label class="homey-form-label mt-1" for="question-name-edit" data-i18n="settings.question">Question</label>
-            <input class="homey-form-input" id="question-name-edit" type="text" placeholder="Do you want to close the shutters?" value=""/>
+            <input class="homey-form-input" id="question-name-edit" type="text"
+                   placeholder="Do you want to close the shutters?" value=""/>
         </div>
 
         <div class="row" style="margin-top: .5em;margin-bottom: 0.25em;">
@@ -143,7 +151,8 @@
             </label>
         </div>
         <div class="col" id="question-answer-edit-col"></div>
-        <button id="editQuestion" onclick="editQuestion()" data-i18n="settings.saveEditQuestion" class="homey-button-primary-shadow-full" style="margin-top: .5em">Edit question
+        <button id="editQuestion" onclick="editQuestion()" data-i18n="settings.saveEditQuestion"
+                class="homey-button-primary-shadow-full" style="margin-top: .5em">Edit question
         </button>
     </fieldset>
 
@@ -175,7 +184,8 @@
     </div>
     <hr>
     <textarea class="logs-list homey-form-textarea" id="logs-list"></textarea>
-    <button id="clearLogs" class="homey-button-primary-shadow-full" onclick="clearLogs()" data-i18n="settings.clearLogs" style="margin-top: .5em">Clear Logs
+    <button id="clearLogs" class="homey-button-primary-shadow-full" onclick="clearLogs()" data-i18n="settings.clearLogs"
+            style="margin-top: .5em">Clear Logs
     </button>
 </div>
 

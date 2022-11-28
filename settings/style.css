@@ -1,3 +1,5 @@
+@import url(./tabs.css);
+
 .status {
     height: 20px;
     width: 20px;
@@ -33,57 +35,6 @@
 .hidden {
     display: none;
     visibility: hidden;
-}
-
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: nowrap;
-    flex-direction: row;
-}
-
-.tab button {
-    --animation: 0;
-    --deg: 30deg;
-    --mask-color: var(--homey-color-white);
-    display: block;
-    width: 100%;
-    padding: 12px 12px;
-    background: var(--homey-button-background);
-    background-position: var(--homey-interactive-gradient-position-default);
-    background-size: var(--homey-interactive-gradient-size);
-    font-size: 17px;
-    font-weight: var(--homey-font-weight-medium);
-    line-height: 24px;
-    color: var(--homey-color-black);
-    text-decoration: none !important;
-    cursor: pointer;
-    border: none !important;
-    -webkit-tap-highlight-color: transparent;
-    transform: scale(1);
-    transition: var(--homey-duration-fast) ease-in-out, var(--homey-duration-fast) var(--homey-curve-fast-in);
-    transition-property: transform, background-position, filter;
-}
-
-.tab button:hover {
-    background-color: #ddd;
-}
-
-.tab button.active {
-    color: var(--homey-color-white);
-    --homey-button-background: var(--homey-interactive-gradient-blue);
-    --homey-button-color-focus: var(--homey-color-gradient-blue-start);
-}
-
-.tab-content {
-    display: none;
-    padding: 8px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-    animation: fadeEffect 1s;
 }
 
 .icon {
@@ -151,52 +102,6 @@ to {opacity: 1;}
     height: 0;
 }
 
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 17px;
-    width: 17px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: #4f8fd7;
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px #4f8fd7;
-}
-
-input:checked + .slider:before {
-    -webkit-transform: translateX(19px);
-    -ms-transform: translateX(19px);
-    transform: translateX(19px);
-}
-
-.slider.round {
-    border-radius: 14px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
 .logs-list {
     width: 100%;
     min-height: 300px;
@@ -212,4 +117,11 @@ input:checked + .slider:before {
     overflow-wrap: normal;
     overflow-x: scroll;
     transition: background-color 0.4s;
+}
+
+.field-legend {
+    text-transform: none !Important;
+    color: var(--homey-color-text) !important;
+    font-size: var(--homey-font-size-default) !important;
+    font-weight: var(--homey-font-weight-medium) !important;
 }

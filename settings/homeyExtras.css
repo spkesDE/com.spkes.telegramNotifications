@@ -35,6 +35,51 @@ input.homey-form-input[type="url"]:disabled {
     background-color: var(--homey-color-mono-10);
 }
 
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--homey-interactive-gradient-blue);
+    filter: grayscale(1) opacity(0.5);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    filter: none;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #4f8fd7;
+}
+
+input:checked + .slider:before {
+    transform: translateX(19px);
+}
+
+.slider.round {
+    border-radius: 14px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
 .mt-0 {
     margin-top: 0 !important;
 }
@@ -47,6 +92,15 @@ input.homey-form-input[type="url"]:disabled {
     margin-bottom: .3rem !important;
 }
 
+.mb-2 {
+    margin-bottom: .6rem !important;
+}
+
 .mt-1 {
     margin-top: .3rem !important;
 }
+
+.mt-0-5 {
+    margin-top: .125rem !important;
+}
+
