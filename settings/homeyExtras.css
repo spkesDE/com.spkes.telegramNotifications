@@ -1,7 +1,7 @@
 :root {
-    --color-gradient-red-active: #be0000;
-    --color-gradient-red-start: #ff3e3e;
-    --color-gradient-red-end: #ff5252;
+    --color-gradient-red-active: #b40000;
+    --color-gradient-red-start: #c42424;
+    --color-gradient-red-end: #e83f3f;
     --color-gradient-red-hover: #ff5252;
     --interactive-gradient-red: linear-gradient(30deg,
     var(--color-gradient-red-active), var(--color-gradient-red-start) 33%, var(--color-gradient-red-end) 66%, var(--color-gradient-red-hover));
@@ -12,11 +12,23 @@
     --color-gradient-green-hover: #00bd0e;
     --interactive-gradient-green: linear-gradient(30deg,
     var(--color-gradient-green-active), var(--color-gradient-green-start) 33%, var(--color-gradient-green-end) 66%, var(--color-gradient-green-hover));
+
+    --color-gradient-gray-active: #757575;
+    --color-gradient-gray-start: #a1a1a1;
+    --color-gradient-gray-end: #a1a1a1;
+    --color-gradient-gray-hover: #b2b2b2;
+    --interactive-gradient-gray: linear-gradient(30deg,
+    var(--color-gradient-gray-active), var(--color-gradient-gray-start) 33%, var(--color-gradient-gray-end) 66%, var(--color-gradient-gray-hover));
 }
 
 [class*=homey-button][class*=danger] {
     --homey-button-background: var(--interactive-gradient-red);
     --homey-button-color-focus: var(--color-gradient-red-start)
+}
+
+[class*=homey-button][class*=gray] {
+    --homey-button-background: var(--interactive-gradient-gray);
+    --homey-button-color-focus: var(--color-gradient-gray-start)
 }
 
 [class*=homey-button][class*=success] {
@@ -26,7 +38,14 @@
 
 [class*=homey-button][class*=small] {
     padding: 5px 15px;
+    font-size: var(--homey-font-size-small);
 }
+
+[class*=homey-button][class*=minWidth] {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 
 input.homey-form-input[type="text"]:disabled,
 input.homey-form-input[type="number"]:disabled,
@@ -100,6 +119,13 @@ input:checked + .slider:before {
     margin-top: .3rem !important;
 }
 
+.me-1 {
+    margin-right: .3rem !important;
+}
+
+.me-0-5 {
+    margin-right: .125rem !important;
+}
 .mt-0-5 {
     margin-top: .125rem !important;
 }

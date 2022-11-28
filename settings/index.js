@@ -25,13 +25,12 @@ function updateUsers() {
         + '            <div class="col" style="margin-right: auto">'}${obj.chatName}</div>`
         + `            <div class="col" style="margin-right: 8px">${obj.userId}</div>`
         + '            <div class="col">'
-        + `                <button id="removeUser" onclick="onDeleteUser('${obj.UUID}')" class="btn-delete" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon" viewBox="0 0 16 16">
-  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-</svg></button>`
+        + `                <button id="removeUser" onclick="onDeleteUser('${obj.UUID}')" class="homey-button-danger-small-minWidth" ><i class="fas fa-user-slash"></i></button>`
         + '            </div>'
         + '        </div>'
         + '        <hr style="margin-top: 0.5em; margin-bottom: 0.5em"/>';
     }
+    if(json.length === 0) html += "<hr>"
     document.getElementById('users-list').innerHTML = html;
   });
 }
@@ -48,17 +47,13 @@ function updateQuestions() {
       html += `${'<div class="row">'
         + '            <div class="col" style="padding-right: 8px">'}${obj.question}</div>`
         + '            <div class="col" style="flex-direction: row">'
-        + `                <button onclick="onEditQuestion('${obj.UUID}')" id="editQuestion" class="btn-edit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon" viewBox="0 0 16 16">
-  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-</svg></button>`
-        + `                <button onclick="onDeleteQuestion('${obj.UUID}')" id="deleteQuestion" class="btn-delete"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon" viewBox="0 0 16 16">
-  <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
-</svg></button>`
+        + `                <button onclick="onEditQuestion('${obj.UUID}')" id="editQuestion" class="homey-button-small-minWidth me-0-5" ><i class="fas fa-edit"></i></button>`
+        + `                <button onclick="onDeleteQuestion('${obj.UUID}')" id="deleteQuestion"  class="homey-button-danger-small-minWidth" ><i class="fas fa-trash"></i></button>`
         + '            </div>'
         + '        </div>'
         + '        <hr style="margin-top: 0.5em; margin-bottom: 0.5em"/>';
     }
+    if(json.length === 0) html += "<hr>"
     document.getElementById('question-list').innerHTML = html;
   });
 }
@@ -72,7 +67,7 @@ function updateLogs() {
     let logs = '';
     for (let i = 0; i < json.length; i++) {
       const obj = json[i];
-      if(obj.debug && !showDebugLogs) continue;
+      if (obj.debug && !showDebugLogs) continue;
       logs += `[${obj.date}] ${obj.message}\n`;
     }
     document.getElementById('logs-list').value = logs;
@@ -83,9 +78,13 @@ function updateStatus() {
   Homey.get('bot-running', (err, status) => {
     if (err) return Homey.alert(err);
     if (status) {
-      document.getElementById('running-status').classList.add('running');
+      document.getElementById('running-status')
+        .classList
+        .add('running');
     } else {
-      document.getElementById('running-status').classList.remove('running');
+      document.getElementById('running-status')
+        .classList
+        .remove('running');
     }
   });
 }
@@ -110,9 +109,13 @@ function delay(time) {
 
 function togglePassword() {
   if (document.getElementById('usePassword').checked) {
-    document.getElementById('usePasswordDiv').classList.remove('hidden');
+    document.getElementById('usePasswordDiv')
+      .classList
+      .remove('hidden');
   } else {
-    document.getElementById('usePasswordDiv').classList.add('hidden');
+    document.getElementById('usePasswordDiv')
+      .classList
+      .add('hidden');
   }
 }
 
@@ -179,7 +182,6 @@ function addQuestion() {
     });
 }
 
-
 function editQuestion() {
   let question = document.getElementById('question-name-edit').value;
   let uuid = document.getElementById('question-uuid-edit').value;
@@ -208,7 +210,7 @@ function editQuestion() {
       json = JSON.parse(questionString);
     }
     json = json.filter((q) => q.UUID !== uuid);
-    if(questionObj.UUID.length > 10) questionObj.UUID = getId();
+    if (questionObj.UUID.length > 10) questionObj.UUID = getId();
     json.push(questionObj);
     Homey.set('questions', JSON.stringify(json), (err) => {
       if (err) return Homey.alert(err);
@@ -241,7 +243,7 @@ async function onDeleteQuestion(uuid) {
   });
 }
 
-function onDeleteUser(userId){
+function onDeleteUser(userId) {
   Homey.get('users', (err, users) => {
     if (err) return Homey.alert(err);
     if (users === null) return;
@@ -256,7 +258,9 @@ function onDeleteUser(userId){
 
 function onSaveToken() {
   let usePasswordElement = document.getElementById('usePassword');
-  document.getElementById('running-status').classList.remove('running');
+  document.getElementById('running-status')
+    .classList
+    .remove('running');
   Homey.set('bot-token', document.getElementById('bot-token').value, (err) => {
     if (err) return Homey.alert(err);
   });
@@ -276,6 +280,44 @@ function onSaveToken() {
 }
 
 function onHomeyReady(Homey) {
+  if (Homey.isMock) {
+    Homey.alert('Is Mock!');
+    Homey.set('questions', JSON.stringify([
+        {
+          question: 'Mock Question 1',
+          UUID: 'fmjCEVNnqH',
+          buttons: [
+            'Yes', 'No', 'Maybe'
+          ],
+          keepButtons: false,
+          disable_notification: false
+        },
+        {
+          question: 'Mock Question 2',
+          UUID: '38xyunmfH5',
+          buttons: [
+            'Yes', 'No', 'Maybe'
+          ],
+          keepButtons: true,
+          disable_notification: false
+        }
+      ]));
+    Homey.set('bot-token', "This is mock token");
+    Homey.set('users', JSON.stringify([
+      {
+        chatName: 'Mock chatName 1',
+        userId: '321213124124',
+        UUID: "-6iAL2J3lG",
+      },
+      {
+        chatName: 'Mock chatName 1',
+        userId: '321213124124',
+        UUID: "fmjCEVNnqH",
+      }
+    ]));
+    Homey.set('logs', "[]");
+  }
+
   Array.from(document.getElementsByClassName('tab-links'))
     .forEach(function(element) {
       element.addEventListener('click', handleTab);
@@ -306,16 +348,17 @@ function onHomeyReady(Homey) {
   updateQuestions();
   updateLogs();
   Homey.ready();
+
 }
 
-function clearLogs(){
+function clearLogs() {
   Homey.set('logs', '[]', (err) => {
     if (err) return Homey.alert(err);
   });
   document.getElementById('logs-list').innerHTML = '';
 }
 
-function clearAllUsers(){
+function clearAllUsers() {
   Homey.unset('users');
   document.getElementById('users-list').innerHTML = 'Empty! :(';
 }
@@ -374,6 +417,7 @@ function toggleEditField(bool = true) {
  */
 function getId(length = 10) {
   return crypto.getRandomValues(new Uint8Array(length))
-    .reduce(((t,e) =>t+=(e&=63)<36?e.toString(36):e<62?(e-26).toString(36).toUpperCase():e>62?"-":"_"),"");
+    .reduce(((t, e) => t += (e &= 63) < 36 ? e.toString(36) : e < 62 ? (e - 26).toString(36)
+      .toUpperCase() : e > 62 ? '-' : '_'), '');
 }
 

@@ -3,7 +3,7 @@
 <head>
     <!-- The '/homey.js' script must be included in your settings view to work -->
     <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
-    <script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.4/homey-settings-mock.js'></script>
+    <script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.7/homey-settings-mock.js'></script>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/css/homey.css">
@@ -67,7 +67,6 @@
 <div id="users" class="tab-content">
     <div id="users-list" class="users">
     </div>
-    <hr>
     <p data-i18n="settings.userInfo">When you clear the users you have to re-register the
         users to the Telegram bot.
         This means you have to send the /start command again.</p>
@@ -81,7 +80,6 @@
     <div id="question-list">
         No questions setup :(
     </div>
-    <hr class="mt-1">
     <fieldset id="question-add-field">
         <legend data-i18n="settings.addQuestion" class="field-legend">Add question</legend>
         <div class="homey-form-group mt-0">
@@ -119,7 +117,7 @@
 
     <fieldset id="question-edit-field" class="hidden">
         <legend data-i18n="settings.editQuestion" class="field-legend">Edit question</legend>
-        <button id="hideEditQuestion" class="homey-button-small-success-full" onclick="toggleEditField(false)"
+        <button id="hideEditQuestion" class="homey-button-small-gray-full" onclick="toggleEditField(false)"
                 data-i18n="settings.hideEditQuestion" style="width: 100%;">Hide Edit mode
         </button>
         <div class="homey-form-group mt-0">
