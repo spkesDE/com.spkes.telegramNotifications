@@ -1,4 +1,4 @@
-import {Telegraf, Markup} from 'telegraf';
+import {Markup, Telegraf} from 'telegraf';
 import {CallbackButton} from "telegraf/typings/markup";
 
 export default class Question {
@@ -11,7 +11,6 @@ export default class Question {
     static async createMessage(q: Question, bot: Telegraf<any>, userId: number) {
         let callbackButtons: CallbackButton[] = [];
         q.buttons.forEach((value, i) => {
-            //Todo Save DateTime
             callbackButtons.push(Markup.callbackButton(value, q.UUID + '.' + i))
         })
         await bot.telegram.sendMessage(userId, q.question, Markup.inlineKeyboard(callbackButtons, {columns: 2}).extra({disable_notification: q.disable_notification ?? false}));

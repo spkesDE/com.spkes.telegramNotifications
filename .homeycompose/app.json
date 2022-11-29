@@ -20,7 +20,9 @@
   "category": [
     "internet"
   ],
-  "permissions": [],
+  "permissions": [
+    "homey:app:net.i-dev.betterlogic"
+  ],
   "images": {
     "small": "/assets/images/small.png",
     "large": "/assets/images/large.png",

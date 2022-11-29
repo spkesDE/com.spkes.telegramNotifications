@@ -12,6 +12,7 @@ import SendQuestion from "./flow/actions/sendQuestion";
 import HandleQuestions from "./flow/triggers/handleQuestions";
 import HandleNewUsers from "./flow/triggers/handleNewUsers";
 import SendSilentMessage from "./flow/actions/sendSilentMessage";
+import {BL} from "betterlogiclibrary";
 
 export class TelegramNotifications extends Homey.App {
 
@@ -40,6 +41,7 @@ export class TelegramNotifications extends Homey.App {
             if (key === 'users')
                 this.loadUsers();
         });
+        await BL.init({homey: this.homey});
         await this.startBot();
     }
 
