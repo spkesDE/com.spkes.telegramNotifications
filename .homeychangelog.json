@@ -94,5 +94,8 @@
   },
   "2.1.0": {
     "en": "Added new Question has been answered card with both fields autocompletion"
+  },
+  "2.1.1": {
+    "en": "New Settingspage design"
   }
 }
