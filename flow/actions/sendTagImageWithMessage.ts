@@ -12,10 +12,10 @@ export default class SendTagImageWithMessage {
                 throw new Error("Image source is invalid for flow card send-a-image-with-message-and-tag!");
             }
             if (app.bot == null) return;
-            app.bot.telegram.sendPhoto(args.user.id, {
+            await app.bot.telegram.sendPhoto(args.user.id, {
                 filename: "",
                 url: args.droptoken.cloudUrl
-            }, {caption: BL.decode(args.message)})
+            }, {caption: await BL.decode(args.message)})
                 .catch((r) => {
                     app.error(r);
                 })

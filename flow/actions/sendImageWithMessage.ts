@@ -5,13 +5,13 @@ import {BL} from "betterlogiclibrary";
 
 export default class SendImageWithMessage {
     constructor(app: TelegramNotifications, card: FlowCardAction) {
-        card.registerRunListener((args) => {
+        card.registerRunListener(async (args) => {
             if (app.bot != null) {
                 if (Utils.validateURL(args.url)) {
-                    app.bot.telegram.sendPhoto(args.user.id, {
+                    await app.bot.telegram.sendPhoto(args.user.id, {
                         filename: "",
                         url: args.url
-                    }, {caption: BL.decode(args.message)})
+                    }, {caption: await BL.decode(args.message)})
                         .catch(app.error)
                         .then();
                 } else {

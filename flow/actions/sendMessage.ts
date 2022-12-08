@@ -4,9 +4,9 @@ import {BL} from "betterlogiclibrary";
 
 export default class SendMessage {
     constructor(app: TelegramNotifications, card: FlowCardAction) {
-        card.registerRunListener((args) => {
+        card.registerRunListener(async (args) => {
             if (app.bot != null) {
-                app.bot.telegram.sendMessage(args.user.id, BL.decode(args.message))
+                await app.bot.telegram.sendMessage(args.user.id, await BL.decode(args.message))
                     .catch(app.error)
                     .then();
             }
