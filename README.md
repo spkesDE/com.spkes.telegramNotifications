@@ -1,4 +1,6 @@
 # Telegram Notifications
+[![wakatime](https://wakatime.com/badge/user/b1847e34-df83-4b5d-be70-c9ec2847dad3/project/08623bd7-7b6b-4af1-bbe0-c35a06dc3fb7.svg)](https://wakatime.com/badge/user/b1847e34-df83-4b5d-be70-c9ec2847dad3/project/08623bd7-7b6b-4af1-bbe0-c35a06dc3fb7)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/spkesDE/TelegramNotifications/issues)
 
 This app adds support to send Telegram messages from and to your Homey Pro.
 
