@@ -25,7 +25,7 @@ function updateUsers() {
         + '            <div class="col" style="margin-right: auto">'}${obj.chatName}</div>`
         + `            <div class="col" style="margin-right: 8px">${obj.userId}</div>`
         + '            <div class="col">'
-        + `                <button id="removeUser" onclick="onDeleteUser('${obj.UUID}')" class="homey-button-danger-small-minWidth" ><i class="fas fa-user-slash"></i></button>`
+        + `                <button id="removeUser" onclick="onDeleteUser('${obj.userId}')" class="homey-button-danger-small-minWidth" ><i class="fas fa-user-slash"></i></button>`
         + '            </div>'
         + '        </div>'
         + '        <hr style="margin-top: 0.5em; margin-bottom: 0.5em"/>';
@@ -307,12 +307,10 @@ function onHomeyReady(Homey) {
       {
         chatName: 'Mock chatName 1',
         userId: '321213124124',
-        UUID: "-6iAL2J3lG",
       },
       {
         chatName: 'Mock chatName 1',
-        userId: '321213124124',
-        UUID: "fmjCEVNnqH",
+        userId: '31245153',
       }
     ]));
     Homey.set('logs', "[]");
