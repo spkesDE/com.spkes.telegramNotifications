@@ -1,0 +1,70 @@
+{
+  "title": {
+    "en": "Send a Question with custom text",
+    "it": "Invia una domanda con testo personalizzato",
+    "de": "Sende eine Frage mit angepasste text",
+    "nl": "Dien een vraag in met aangepaste tekst"
+  },
+  "titleFormatted": {
+    "en": "Send a question [[question]] to [[user]] with custom text [[text]]",
+    "it": "Invia una domanda [[question]] a [[user]] con testo personalizzato [[text]]",
+    "de": "Sende eine Frage [[question]] zu [[user]] mit angepasste text [[text]]",
+    "nl": "Stuur een vraag [[question]] naar [[user]] met aangepaste tekst [[text]]"
+  },
+  "hint": {
+    "en": "Sends a Question to your Telegram chat.",
+    "it": "Invia una domanda nella tua chat Telegram.",
+    "de": "Sendet eine Frage an Ihren Telegram-Chat.",
+    "nl": "Stuurt een vraag naar je Telegram chat."
+  },
+  "args": [
+    {
+      "type": "text",
+      "name": "message",
+      "title": {
+        "en": "Message",
+        "it": "Messaggio",
+        "de": "Nachricht",
+        "nl": "Bericht"
+      },
+      "placeholder": {
+        "en": "Hello from Homey!",
+        "it": "Ciao da Homey!",
+        "de": "Hallo von Homey!",
+        "nl": "Hallo van Homey!"
+      }
+    },
+    {
+      "type": "autocomplete",
+      "name": "question",
+      "title": {
+        "en": "Question",
+        "it": "Domanda",
+        "de": "Frage",
+        "nl": "Vraag"
+      },
+      "placeholder": {
+        "en": "Created with <3",
+        "it": "Creato con <3",
+        "de": "Erstellt mit <3",
+        "nl": "Gemaakt met <3"
+      }
+    },
+    {
+      "type": "autocomplete",
+      "name": "user",
+      "title": {
+        "en": "User",
+        "it": "Utente",
+        "de": "Benutzer",
+        "nl": "Gebruiker"
+      },
+      "placeholder": {
+        "en": "Created with <3",
+        "it": "Creato con <3",
+        "de": "Erstellt mit <3",
+        "nl": "Gemaakt met <3"
+      }
+    }
+  ]
+}

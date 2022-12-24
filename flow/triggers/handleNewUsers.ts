@@ -21,8 +21,8 @@ export default class HandleNewUsers {
                 + '\n\n'
                 + 'Press the button below to register yourself!',
                 Markup.inlineKeyboard([
-                    Markup.callbackButton('Register this Telegram chat!', 'user-add'),
-                ], {columns: 1}).extra(),
+                    Markup.button.callback('Register this Telegram chat!', 'user-add'),
+                ], {columns: 1}),
             ).catch(app.error);
             card.trigger({
                 from: ctx.chat.type === 'private' ? ctx.chat.first_name : ctx.chat.title,
@@ -34,10 +34,11 @@ export default class HandleNewUsers {
         }).catch(app.error);
 
         app.bot.action('user-add', (ctx) => {
+            if (!("chat" in ctx)) return;
             let user: User | null = null;
-            if (ctx.chat.type === 'group' || ctx.chat.type === 'supergroup') {
+            if (ctx.chat?.type === 'group' || ctx.chat?.type === 'supergroup') {
                 user = new User(ctx.chat?.id ?? 0, ctx.chat?.title ?? 'Error');
-            } else if (ctx.chat.type === 'private') {
+            } else if (ctx.chat?.type === 'private') {
                 user = new User(ctx.chat?.id ?? 0, ctx.chat?.first_name ?? 'Error');
             }
             if (user !== null && user.userId !== 0) {

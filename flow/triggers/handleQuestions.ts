@@ -1,6 +1,7 @@
 import {TelegramNotifications} from '../../app';
 import {Markup} from "telegraf";
 import Question from "../../question";
+import {callbackQuery} from "telegraf/filters";
 
 export default class HandleQuestions {
     constructor(app: TelegramNotifications) {
@@ -70,7 +71,7 @@ export default class HandleQuestions {
             'answer',
             async (query, args) => {
                 let question = app.questions.find(question => question.UUID === args.question.id);
-                if(!question) return [];
+                if (!question) return [];
                 let results: any = [];
                 question.buttons.forEach((answer) => {
                     results.push({
@@ -100,14 +101,15 @@ export default class HandleQuestions {
         //endregion
 
         //This event will trigger once an inline button is pressed
-        app.bot.on('callback_query', async (ctx) => {
+        app.bot.on(callbackQuery("data"), async ctx => {
+            if (!("chat" in ctx)) return;
             if (ctx.callbackQuery.data == 'ignore-me') return;
             if (ctx.callbackQuery.data == 'user-add') return;
-            let parts =  ctx.callbackQuery.data.split('.');
-            let questionId = parts[0]
-            let answerId = parts[1]
-            let customId = undefined;
-            if(parts.length == 3)
+            let parts = ctx.callbackQuery.data.split('.');
+            let questionId: string = parts[0]
+            let answerId: number = Number(parts[1])
+            let customId: string = "";
+            if (parts.length == 3)
                 customId = parts[2]
             let question = app.getQuestion(questionId);
             if (question === undefined) {
@@ -115,8 +117,8 @@ export default class HandleQuestions {
                 await ctx.reply("ERROR: Question not found. Did the question got deleted?");
                 throw new Error('Question with UUID ' + questionId + ' not found');
             }
-            if(!question.keepButtons){
-                await ctx.editMessageReplyMarkup({inline_keyboard: [[Markup.callbackButton(question.buttons[answerId], "ignore-me")]]}).catch();
+            if (!question.keepButtons) {
+                await ctx.editMessageReplyMarkup({inline_keyboard: [[Markup.button.callback(question.buttons[answerId], "ignore-me")]]}).catch();
             }
             // https://apps.developer.homey.app/the-basics/flow/arguments#flow-state
             //Building Token
@@ -125,12 +127,12 @@ export default class HandleQuestions {
                 answer: Question.getAnswer(question, answerId),
                 from: ctx.callbackQuery.from.first_name !== undefined ? ctx.callbackQuery.from.first_name : 'undefined',
                 username: ctx.callbackQuery.from.username !== undefined ? ctx.callbackQuery.from.username : 'undefined',
-                chat: ctx.chat.type === 'private' ? ctx.chat.first_name : ctx.chat.title,
-                chatType: ctx.chat.type,
+                chat: ctx.chat?.type === 'private' ? ctx.chat.first_name : ctx.chat?.title,
+                chatType: ctx.chat?.type,
             };
 
             //Trigger Card with given state
-            let state =  { uuid: question.UUID, answer: Question.getAnswer(question, answerId)};
+            let state = {uuid: question.UUID, answer: Question.getAnswer(question, answerId)};
             await receiveQuestionAnswerTrigger.trigger(token, state).catch(app.error);
             await receiveQuestionAnswerWithAnswerTrigger.trigger(token, state).catch(app.error);
             await receiveQuestionAnswerAutocomplete.trigger(token, state).catch(app.error);

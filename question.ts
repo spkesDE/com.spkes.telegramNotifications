@@ -1,5 +1,4 @@
 import {Markup, Telegraf} from 'telegraf';
-import {CallbackButton} from "telegraf/typings/markup";
 
 export default class Question {
     question: string = "";
@@ -9,11 +8,15 @@ export default class Question {
     disable_notification: boolean = false;
 
     static async createMessage(q: Question, bot: Telegraf<any>, userId: number) {
-        let callbackButtons: CallbackButton[] = [];
+        let callbackButtons: any[] = [];
         q.buttons.forEach((value, i) => {
-            callbackButtons.push(Markup.callbackButton(value, q.UUID + '.' + i))
+            callbackButtons.push(Markup.button.callback(value, q.UUID + '.' + i))
         })
-        await bot.telegram.sendMessage(userId, q.question, Markup.inlineKeyboard(callbackButtons, {columns: 2}).extra({disable_notification: q.disable_notification ?? false}));
+        await bot.telegram.sendMessage(userId, q.question, {
+            ...Markup.inlineKeyboard(callbackButtons, {columns: 2}),
+            disable_notification: q.disable_notification ?? false,
+            parse_mode: "MarkdownV2"
+        });
     }
 
     static getAnswer(q: Question, answerId: number) {

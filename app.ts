@@ -13,6 +13,7 @@ import HandleQuestions from "./flow/triggers/handleQuestions";
 import HandleNewUsers from "./flow/triggers/handleNewUsers";
 import SendSilentMessage from "./flow/actions/sendSilentMessage";
 import {BL} from "betterlogiclibrary";
+import ReceiveMessageFromChat from "./flow/triggers/receiveMessageFromChat";
 
 export class TelegramNotifications extends Homey.App {
 
@@ -79,6 +80,7 @@ export class TelegramNotifications extends Homey.App {
         //Trigger cards
         new HandleNewUsers(this, this.homey.flow.getTriggerCard('newUser'));
         new ReceiveMessage(this, this.homey.flow.getTriggerCard('receiveMessage'));
+        new ReceiveMessageFromChat(this, this.homey.flow.getTriggerCard('receive-message-from-chat'));
         new HandleQuestions(this);
 
         //Action Cards

@@ -11,7 +11,7 @@ export default class SendImageWithMessage {
                     await app.bot.telegram.sendPhoto(args.user.id, {
                         filename: "",
                         url: args.url
-                    }, {caption: await BL.decode(args.message)})
+                    }, {caption: await BL.decode(args.message), parse_mode: "MarkdownV2"})
                         .catch(app.error)
                         .then();
                 } else {
