@@ -1,4 +1,5 @@
 import {Markup, Telegraf} from 'telegraf';
+import {InlineKeyboardButton} from "telegraf/src/core/types/typegram";
 
 export default class Question {
     question: string = "";
@@ -8,7 +9,7 @@ export default class Question {
     disable_notification: boolean = false;
 
     static async createMessage(q: Question, bot: Telegraf<any>, userId: number) {
-        let callbackButtons: any[] = [];
+        let callbackButtons: InlineKeyboardButton.CallbackButton[] = [];
         q.buttons.forEach((value, i) => {
             callbackButtons.push(Markup.button.callback(value, q.UUID + '.' + i))
         })

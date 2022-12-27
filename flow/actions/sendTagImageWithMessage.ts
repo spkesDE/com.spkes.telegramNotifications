@@ -22,19 +22,7 @@ export default class SendTagImageWithMessage {
                 .then();
         });
         card.registerArgumentAutocompleteListener(
-            'user',
-            async (query) => {
-                const results: any = [];
-                app.users.forEach((user) => {
-                    results.push({
-                        name: user.chatName,
-                        id: user.userId,
-                    });
-                });
-                return results.filter((result: any) => {
-                    return result.name.toLowerCase().includes(query.toLowerCase());
-                });
-            },
+            'user', async (query) => Utils.userAutocomplete(app.users, query)
         );
     }
 }

@@ -2,6 +2,7 @@ import {TelegramNotifications} from '../../app';
 import {Markup} from "telegraf";
 import Question from "../../question";
 import {callbackQuery} from "telegraf/filters";
+import Utils from "../../utils";
 
 export default class HandleQuestions {
     constructor(app: TelegramNotifications) {
@@ -21,50 +22,13 @@ export default class HandleQuestions {
 
         //region Autocomplete
         receiveQuestionAnswerTrigger.registerArgumentAutocompleteListener(
-            'question',
-            async (query) => {
-                const results: any = [];
-                app.questions.forEach((question) => {
-                    results.push({
-                        name: question.question,
-                        id: question.UUID,
-                    });
-                });
-                return results.filter((result: any) => {
-                    return result.name.toLowerCase().includes(query.toLowerCase());
-                });
-            },
+            'question', async (query) => Utils.questionAutocomplete(app.questions, query)
         );
         receiveQuestionAnswerWithAnswerTrigger.registerArgumentAutocompleteListener(
-            'question',
-            async (query) => {
-                const results: any = [];
-                app.questions.forEach((question) => {
-                    results.push({
-                        name: question.question,
-                        id: question.UUID,
-                    });
-                });
-                return results.filter((result: any) => {
-                    return result.name.toLowerCase().includes(query.toLowerCase());
-                });
-            },
+            'question', async (query) => Utils.questionAutocomplete(app.questions, query)
         );
-
         receiveQuestionAnswerAutocomplete.registerArgumentAutocompleteListener(
-            'question',
-            async (query) => {
-                const results: any = [];
-                app.questions.forEach((question) => {
-                    results.push({
-                        name: question.question,
-                        id: question.UUID,
-                    });
-                });
-                return results.filter((result: any) => {
-                    return result.name.toLowerCase().includes(query.toLowerCase());
-                });
-            },
+            'question', async (query) => Utils.questionAutocomplete(app.questions, query)
         );
 
         receiveQuestionAnswerAutocomplete.registerArgumentAutocompleteListener(
@@ -72,16 +36,7 @@ export default class HandleQuestions {
             async (query, args) => {
                 let question = app.questions.find(question => question.UUID === args.question.id);
                 if (!question) return [];
-                let results: any = [];
-                question.buttons.forEach((answer) => {
-                    results.push({
-                        name: answer,
-                        id: question?.buttons.indexOf(answer)
-                    })
-                });
-                return results.filter((result: any) => {
-                    return result.name.toLowerCase().includes(query.toLowerCase());
-                });
+                return Utils.answerAutocomplete(question, query);
             },
         );
         //endregion

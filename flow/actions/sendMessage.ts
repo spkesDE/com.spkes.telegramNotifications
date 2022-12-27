@@ -1,6 +1,7 @@
 import {FlowCardAction} from 'homey';
 import {TelegramNotifications} from '../../app';
 import {BL} from "betterlogiclibrary";
+import Utils from "../../utils";
 
 export default class SendMessage {
     constructor(app: TelegramNotifications, card: FlowCardAction) {
@@ -13,19 +14,7 @@ export default class SendMessage {
             }
         });
         card.registerArgumentAutocompleteListener(
-            'user',
-            async (query) => {
-                const results: any = [];
-                app.users.forEach((user) => {
-                    results.push({
-                        name: user.chatName,
-                        id: user.userId,
-                    });
-                });
-                return results.filter((result: any) => {
-                    return result.name.toLowerCase().includes(query.toLowerCase());
-                });
-            },
+            'user', async (query) => Utils.userAutocomplete(app.users, query)
         );
     }
 }

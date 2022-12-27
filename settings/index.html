@@ -39,7 +39,7 @@
             you have to
             enter /start [yourPassword] to the bot via Telegram</p>
     </div>
-    <button id="save" class="homey-button-primary-shadow-full" onclick="onSaveToken()" data-i18n="settings.save">Save
+    <button class="homey-button-primary-full" data-i18n="settings.save" id="save" onclick="onSaveToken()">Save
         changes
     </button>
     <h2 style="margin-top: 10px"><strong data-i18n="settings.howToSetup.title">How to setup</strong></h2>
@@ -110,7 +110,7 @@
         </div>
         <div class="col" id="question-answer-col">
         </div>
-        <button id="addQuestion" class="homey-button-primary-shadow-full" onclick="addQuestion()"
+        <button class="homey-button-primary-full" id="addQuestion" onclick="addQuestion()"
                 data-i18n="settings.saveQuestion" style="margin-top: .5em">Save question
         </button>
     </fieldset>
@@ -150,7 +150,7 @@
         </div>
         <div class="col" id="question-answer-edit-col"></div>
         <button id="editQuestion" onclick="editQuestion()" data-i18n="settings.saveEditQuestion"
-                class="homey-button-primary-shadow-full" style="margin-top: .5em">Edit question
+                class="homey-button-primary-full" style="margin-top: .5em">Edit question
         </button>
     </fieldset>
 
@@ -182,7 +182,7 @@
     </div>
     <hr>
     <textarea class="logs-list homey-form-textarea" id="logs-list"></textarea>
-    <button id="clearLogs" class="homey-button-primary-shadow-full" onclick="clearLogs()" data-i18n="settings.clearLogs"
+    <button class="homey-button-primary-full" data-i18n="settings.clearLogs" id="clearLogs" onclick="clearLogs()"
             style="margin-top: .5em">Clear Logs
     </button>
 </div>

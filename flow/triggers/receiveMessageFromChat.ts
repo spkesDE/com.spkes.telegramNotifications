@@ -1,28 +1,18 @@
 import {FlowCardTrigger} from 'homey';
 import {TelegramNotifications} from '../../app';
 import {message} from "telegraf/filters";
+import Utils from "../../utils";
 
 export default class ReceiveMessageFromChat {
     constructor(app: TelegramNotifications, card: FlowCardTrigger) {
         if (app.bot == null) return;
-        card.registerRunListener(async (args: any, state: any) => {
+        card.registerRunListener(async (args, state) => {
             return args.chat.id == state.id;
         });
 
         card.registerArgumentAutocompleteListener(
             'chat',
-            async (query) => {
-                const results: any = [];
-                app.users.forEach((user) => {
-                    results.push({
-                        name: user.chatName,
-                        id: user.userId,
-                    });
-                });
-                return results.filter((result: any) => {
-                    return result.name.toLowerCase().includes(query.toLowerCase());
-                });
-            }
+            async (query) => Utils.userAutocomplete(app.users, query)
         );
 
         app.bot.on(message("text"), (ctx) => {
