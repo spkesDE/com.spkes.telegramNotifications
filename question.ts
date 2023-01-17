@@ -7,6 +7,7 @@ export default class Question {
     buttons: string[] = [];
     keepButtons: boolean = false;
     disable_notification: boolean = false;
+    columns: number = 2;
 
     static async createMessage(q: Question, bot: Telegraf<any>, userId: number) {
         let callbackButtons: InlineKeyboardButton.CallbackButton[] = [];
@@ -14,7 +15,7 @@ export default class Question {
             callbackButtons.push(Markup.button.callback(value, q.UUID + '.' + i))
         })
         await bot.telegram.sendMessage(userId, q.question, {
-            ...Markup.inlineKeyboard(callbackButtons, {columns: 2}),
+            ...Markup.inlineKeyboard(callbackButtons, {columns: q.columns ?? 2}),
             disable_notification: q.disable_notification ?? false,
             parse_mode: "MarkdownV2"
         });

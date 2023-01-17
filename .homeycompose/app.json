@@ -8,14 +8,15 @@
     "local"
   ],
   "name": {
-    "en": "Telegram Notifications",
-    "it": "Telegram Notifications",
-    "de": "Telegram Notifications"
+    "en": "Telegram",
+    "it": "Telegram",
+    "de": "Telegram"
   },
   "description": {
-    "en": "Send Telegram Messages to your favourite chat!",
-    "it": "Invia Messaggi Telegram nella tua chat preferita!",
-    "de": "Sende Telegram-Nachrichten an deinen Lieblings-Chat!"
+    "en": "Control your smart home anytime, anywhere with the ultimate smart home hub companion",
+    "it": "Controlla la tua casa intelligente in qualsiasi momento e ovunque con il compagno definitivo dell'hub per la casa intelligente",
+    "de": "Steuere dein Smart-Zuhause jederzeit und überall mit dem ultimativen Smart-Home-Hub-Begleiter",
+    "nl": "Bedien uw slimme huis op elk moment en overal met de ultieme slimme huis hub companion"
   },
   "category": [
     "internet"

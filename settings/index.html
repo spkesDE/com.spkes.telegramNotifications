@@ -108,6 +108,13 @@
                 <span class="slider round"></span>
             </label>
         </div>
+        <div class="row" style="margin-bottom: .5em">
+            <h3 data-i18n="settings.columns" style="width: 90%">Buttons per Row</h3>
+            <span id="columnSizeDisplay" style="padding-right: 5px">2</span>
+            <input id="columnSize" max="4" min="1" oninput="let onInput = () =>  {
+              document.getElementById('columnSizeDisplay').innerHTML = document.getElementById('columnSize').value;
+            }; onInput()" type="range" value="2">
+        </div>
         <div class="col" id="question-answer-col">
         </div>
         <button class="homey-button-primary-full" id="addQuestion" onclick="addQuestion()"
@@ -147,6 +154,13 @@
                 <input type="checkbox" id="question-silent-question-edit">
                 <span class="slider round"></span>
             </label>
+        </div>
+        <div class="row" style="margin-bottom: .5em">
+            <h3 data-i18n="settings.columns" style="width: 90%">Buttons per Row</h3>
+            <span id="columnSizeDisplayEdit" style="padding-right: 5px">2</span>
+            <input id="columnSizeEdit" max="4" min="1" oninput="let onInput = () =>  {
+              document.getElementById('columnSizeDisplayEdit').innerHTML = document.getElementById('columnSizeEdit').value;
+            }; onInput()" type="range" value="2">
         </div>
         <div class="col" id="question-answer-edit-col"></div>
         <button id="editQuestion" onclick="editQuestion()" data-i18n="settings.saveEditQuestion"

@@ -136,6 +136,8 @@ function loadQuestion(Question) {
   document.getElementById('question-answer-edit-keep-answers').checked = Question.keepButtons ?? false;
   document.getElementById('question-silent-question-edit').checked = Question.disable_notification ?? false;
   document.getElementById('question-answer-edit-col').innerHTML = '';
+  document.getElementById('columnSizeDisplayEdit').innerHTML = Question.columns ?? '2';
+  document.getElementById('columnSizeEdit').value = Question.columns ?? 2;
   Question.buttons.forEach((b) => {
     createNewInputFieldForEdit(b);
   });
@@ -146,6 +148,7 @@ function addQuestion() {
   let answers = document.getElementsByClassName('answer-input');
   let keepButtons = document.getElementById('question-answer-keep-answers').checked ?? false;
   let disable_notification = document.getElementById('question-silent-question').checked ?? false;
+  let columns = document.getElementById('columnSize').value ?? 2;
   if (question.value === '' || question.value === ' ') {
     Homey.alert('Empty question field');
   }
@@ -161,7 +164,8 @@ function addQuestion() {
     UUID: getId(),
     buttons: answersArray,
     keepButtons: keepButtons,
-    disable_notification: disable_notification
+    disable_notification: disable_notification,
+    columns: columns,
   };
   Homey.get('questions', (err, questionString) => {
     if (err) return Homey.alert(err);
@@ -188,6 +192,7 @@ function editQuestion() {
   let keepButtons = document.getElementById('question-answer-edit-keep-answers').checked ?? false;
   let disable_notification = document.getElementById('question-silent-question-edit').checked ?? false;
   let answers = document.getElementsByClassName('answer-edit-input');
+  let columns = document.getElementById('columnSizeEdit').value ?? 2;
   if (question.value === '' || question.value === ' ') {
     Homey.alert('Empty question field');
   }
@@ -201,7 +206,8 @@ function editQuestion() {
     UUID: uuid,
     buttons: answersArray,
     keepButtons: keepButtons,
-    disable_notification: disable_notification
+    disable_notification: disable_notification,
+    columns: columns,
   };
   Homey.get('questions', (err, questionString) => {
     if (err) return Homey.alert(err);
@@ -283,24 +289,26 @@ function onHomeyReady(Homey) {
   if (Homey.isMock) {
     Homey.alert('Is Mock!');
     Homey.set('questions', JSON.stringify([
-        {
-          question: 'Mock Question 1',
-          UUID: 'fmjCEVNnqH',
-          buttons: [
-            'Yes', 'No', 'Maybe'
-          ],
-          keepButtons: false,
-          disable_notification: false
-        },
-        {
-          question: 'Mock Question 2',
-          UUID: '38xyunmfH5',
-          buttons: [
-            'Yes', 'No', 'Maybe'
-          ],
-          keepButtons: true,
-          disable_notification: false
-        }
+      {
+        question: 'Mock Question 1',
+        UUID: 'fmjCEVNnqH',
+        buttons: [
+          'Yes', 'No', 'Maybe'
+        ],
+        keepButtons: false,
+        disable_notification: false,
+        columns: 1
+      },
+      {
+        question: 'Mock Question 2',
+        UUID: '38xyunmfH5',
+        buttons: [
+          'Yes', 'No', 'Maybe'
+        ],
+        keepButtons: true,
+        disable_notification: false,
+        columns: 2
+      }
       ]));
     Homey.set('bot-token', "This is mock token");
     Homey.set('users', JSON.stringify([
@@ -364,6 +372,8 @@ function clearAllUsers() {
 function clearAddQuestionForm() {
   document.getElementById('question-answer-col').innerHTML = '';
   document.getElementById('question-name').value = '';
+  document.getElementById('columnSize').value = 2;
+  document.getElementById('columnSizeDisplay').innerHTML = '2';
   createNewInputField();
   createNewInputField();
 }
@@ -418,4 +428,3 @@ function getId(length = 10) {
     .reduce(((t, e) => t += (e &= 63) < 36 ? e.toString(36) : e < 62 ? (e - 26).toString(36)
       .toUpperCase() : e > 62 ? '-' : '_'), '');
 }
-

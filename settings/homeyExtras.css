@@ -99,6 +99,10 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
+.row-frist-flex:first-child {
+    flex: 1;
+}
+
 .mt-0 {
     margin-top: 0 !important;
 }

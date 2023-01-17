@@ -1,17 +1,16 @@
-This app adds support to send Telegram messages from and to your Homey Pro.
+Introducing the Telegram Bot for Homey Pro - the ultimate smart home hub companion. With this bot, you can control your smart home devices right from your Telegram chat. The bot supports sending and receiving messages, making it easy to stay connected with your home.
 
-How to setup
+One of the most exciting features of this bot is the Question system. With this system, you can use Telegram Inline Buttons to trigger actions on your smart home hub, such as turning on the lights or adjusting the thermostat. This makes it incredibly easy to control your home from anywhere in the world.
 
-STEP 1
-    Install the app
-STEP 2
-    Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access the message archive. Enter @Botfather in the search tab of Telegram and choose the @Botfather bot.
-STEP 3
-    Click “Start” to activate @BotFather bot or enter /newbot. I recommend to set the bot to private (aka /setjoingroup to DISABLED) and to set the privacy to DISABLED (Send /setprivacy to @BotFather)
-STEP 4
-    Enter the Token inside the app settings
-STEP 5
-    Write your bot over Telegram /start and follow the instructions
-    Each user has to also send the Bot the /start command. You can share the Bot via Telegram over the profile or search for the like u searched for the BotFather bot.
-STEP 6
-    Enjoy! :)
+In addition, the Telegram Bot for Homey Pro supports multiple users and chats, as well as groups, making it perfect for families or roommates who want to control their smart home together. With this bot, your smart home has never been more accessible or convenient. Download now and experience the convenience of controlling your smart home from Telegram.
+
+
+To set up the Telegram Bot for Homey Pro:
+
+1. Install the app on your smart home hub.
+2. Create a Telegram bot by searching for @Botfather in the Telegram search bar and selecting the @Botfather bot.
+3. Start the @Botfather bot by clicking the "Start" button or by sending the /newbot command to create a new bot.
+4. (Optional) To ensure privacy, set the bot to private by entering /setjoingroup DISABLED and set the privacy to DISABLED by entering /setprivacy.
+5. Enter the token in the app settings.
+6. Start the bot by sending the /start command in Telegram, and follow the instructions. Each user must also send the bot the /start command. You can share the bot with others by searching for it in Telegram or by sharing the profile link.
+7. Enjoy controlling your smart home from Telegram!
