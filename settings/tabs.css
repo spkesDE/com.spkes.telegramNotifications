@@ -44,9 +44,23 @@
 
 .tab-content {
     display: none;
+}
+
+.tab-container {
     padding: 8px 12px;
     border: 1px solid var(--homey-color-line);
     margin-top: .5rem;
     animation: fadeEffect 1s;
     border-radius: var(--homey-border-radius);
+}
+
+.tab-container .homey-header {
+    margin-left: calc(var(--homey-su) * -1);
+    margin-right: calc(var(--homey-su) * -1);
+    padding-left: var(--homey-su-1);
+    padding-right: var(--homey-su-1);
+}
+
+.tab-container .homey-header .homey-title {
+    font-size: var(--homey-font-size-default);
 }

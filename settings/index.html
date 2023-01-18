@@ -21,67 +21,105 @@
 </div>
 
 <div id="settings" class="tab-content">
-    <div id="running-status" class="status not-running"></div>
-    <div class="homey-form-group mb-2 mt-0-5">
-        <label class="homey-form-label mt-0-5" for="bot-token" data-i18n="settings.token">Bot Token</label>
-        <input class="homey-form-input" id="bot-token" type="text" value=""/>
+    <div class="tab-container">
+        <div class="status not-running" id="running-status"></div>
+        <div class="homey-form-group mb-2 mt-0-5">
+            <label class="homey-form-label mt-0-5" data-i18n="settings.token" for="bot-token">Bot Token</label>
+            <input class="homey-form-input" id="bot-token" type="text" value=""/>
+        </div>
+        <label class="homey-form-checkbox mt-0 mb-1">
+            <input class="homey-form-checkbox-input" id="usePassword" name="checkbox-example" onclick="togglePassword()"
+                   type="checkbox"/>
+            <span class="homey-form-checkbox-checkmark"></span>
+            <span class="homey-form-checkbox-text" data-i18n="settings.passwordEnable">Enable Password</span>
+        </label>
+        <div class="hidden mb-1" id="usePasswordDiv">
+            <label class="homey-form-label mt-0-5" data-i18n="settings.password" for="bot-password">Bot Password</label>
+            <input class="homey-form-input" id="bot-password" type="password" value=""/>
+            <p data-i18n="settings.userInfoPassword" style="margin-bottom: 0; margin-top: 5px">To Register a user/chat
+                now
+                you have to
+                enter /start [yourPassword] to the bot via Telegram</p>
+        </div>
+        <button class="homey-button-primary-full" data-i18n="settings.save" id="save" onclick="onSaveToken()">Save
+            changes
+        </button>
     </div>
-    <label class="homey-form-checkbox mt-0 mb-1">
-        <input id="usePassword" onclick="togglePassword()" class="homey-form-checkbox-input" type="checkbox"
-               name="checkbox-example"/>
-        <span class="homey-form-checkbox-checkmark"></span>
-        <span class="homey-form-checkbox-text" data-i18n="settings.passwordEnable">Enable Password</span>
-    </label>
-    <div class="hidden mb-1" id="usePasswordDiv">
-        <label for="bot-password" data-i18n="settings.password">Bot Password</label>
-        <input id="bot-password" class="homey-form-input" type="password" value=""/>
-        <p style="margin-bottom: 0; margin-top: 5px" data-i18n="settings.userInfoPassword">To Register a user/chat now
-            you have to
-            enter /start [yourPassword] to the bot via Telegram</p>
+    <div class="tab-container">
+        <header class="homey-header  mb-2">
+            <p class="homey-title" data-i18n="settings.howToSetup.title">
+                How to setup
+            </p>
+        </header>
+        <ol>
+            <li data-i18n="settings.howToSetup.step1">Set up your own Telegram bot. This is fully secure and private,
+                since
+                you are the only one who can access
+                the message archive. Enter&nbsp;<strong><span class="mention"><a href="https://t.me/botfather">@Botfather</a></span></strong>&nbsp;in
+                the search
+                tab of&nbsp;<strong>Telegram</strong>&nbsp;and choose the&nbsp;<strong><span
+                        class="mention"><a href="https://t.me/botfather">@Botfather</a></span></strong>&nbsp;bot.
+            </li>
+            <li data-i18n="settings.howToSetup.step2">Click &ldquo;Start&rdquo; to activate&nbsp;<strong><span
+                    class="mention"><a href="https://t.me/botfather">@Botfather</a></span></strong>&nbsp;bot
+                or enter&nbsp;<code>/newbot</code>.&nbsp;<br/><code>/setjoingroup </code>disables that the bot is
+                allowed to
+                join a group.<br/><code>/setprivacy</code>&nbsp;disabels that the bot can read messages inside a group
+            </li>
+            <li data-i18n="settings.howToSetup.step3">Enter the Token inside the app settings</li>
+            <li data-i18n="settings.howToSetup.step4">Write your bot over Telegram&nbsp;<code>/start</code>&nbsp;and
+                follow
+                the instructions<br/>Each user has to
+                also send the Bot the&nbsp;<code>/start</code>&nbsp;command. You can share the Bot via Telegram over the
+                profile or search for the like you searched for the BotFather bot.
+            </li>
+        </ol>
     </div>
-    <button class="homey-button-primary-full" data-i18n="settings.save" id="save" onclick="onSaveToken()">Save
-        changes
-    </button>
-    <h2 style="margin-top: 10px"><strong data-i18n="settings.howToSetup.title">How to setup</strong></h2>
-    <ol>
-        <li data-i18n="settings.howToSetup.step1">Set up your own Telegram bot. This is fully secure and private, since
-            you are the only one who can access
-            the message archive. Enter&nbsp;<strong><span class="mention">@Botfather</span></strong>&nbsp;in the search
-            tab of&nbsp;<strong>Telegram</strong>&nbsp;and choose the&nbsp;<strong><span
-                    class="mention">@Botfather</span></strong>&nbsp;bot.
-        </li>
-        <li data-i18n="settings.howToSetup.step2">Click &ldquo;Start&rdquo; to activate&nbsp;<strong><span
-                class="mention">@BotFather</span></strong>&nbsp;bot
-            or enter&nbsp;<code>/newbot</code>.&nbsp;<br/><code>/setjoingroup </code>disables that the bot is allowed to
-            join a group.<br/><code>/setprivacy</code>&nbsp;disabels that the bot can read messages inside a group
-        </li>
-        <li data-i18n="settings.howToSetup.step3">Enter the Token inside the app settings</li>
-        <li data-i18n="settings.howToSetup.step4">Write your bot over Telegram&nbsp;<code>/start</code>&nbsp;and follow
-            the instructions<br/>Each user has to
-            also send the Bot the&nbsp;<code>/start</code>&nbsp;command. You can share the Bot via Telegram over the
-            profile or search for the like you searched for the BotFather bot.
-        </li>
-    </ol>
 </div>
 
 <div id="users" class="tab-content">
-    <div id="users-list" class="users">
+    <div class="tab-container">
+        <header class="homey-header  mb-2">
+            <p class="homey-title" data-i18n="settings.users">
+                Users
+            </p>
+        </header>
+        <div class="users" id="users-list">
+        </div>
     </div>
-    <p data-i18n="settings.userInfo">When you clear the users you have to re-register the
-        users to the Telegram bot.
-        This means you have to send the /start command again.</p>
-    <button id="clear" class="homey-button-danger-full" onclick="clearAllUsers()" data-i18n="settings.clear"
-            style="width: 100%">Clear
-        users
-    </button>
+    <div class="tab-container">
+        <header class="homey-header  mb-2">
+            <p class="homey-title" data-i18n="settings.clearAll">
+                Clear all users
+            </p>
+        </header>
+        <p data-i18n="settings.userInfo">When you clear the users you have to re-register the
+            users to the Telegram bot.
+            This means you have to send the /start command again.</p>
+        <button class="homey-button-danger-full" data-i18n="settings.clear" id="clear" onclick="clearAllUsers()"
+                style="width: 100%">Clear
+            users
+        </button>
+    </div>
 </div>
 
 <div id="questions" class="tab-content">
-    <div id="question-list">
-        No questions setup :(
+    <div class="tab-container">
+        <header class="homey-header  mb-2">
+            <p class="homey-title" data-i18n="settings.questions">
+                Questions
+            </p>
+        </header>
+        <div id="question-list">
+            No questions setup :(
+        </div>
     </div>
-    <fieldset id="question-add-field">
-        <legend data-i18n="settings.addQuestion" class="field-legend">Add question</legend>
+    <div class="tab-container" id="question-add-field">
+        <header class="homey-header  mb-2">
+            <p class="homey-title" data-i18n="settings.addQuestion">
+                Add question
+            </p>
+        </header>
         <div class="homey-form-group mt-0  mb-0">
             <label class="homey-form-label mt-0" for="question-name" data-i18n="settings.question">Question</label>
             <input class="homey-form-input mb-0" id="question-name" type="text"
@@ -120,10 +158,14 @@
         <button class="homey-button-primary-full" id="addQuestion" onclick="addQuestion()"
                 data-i18n="settings.saveQuestion" style="margin-top: .5em">Save question
         </button>
-    </fieldset>
+    </div>
 
-    <fieldset id="question-edit-field" class="hidden">
-        <legend data-i18n="settings.editQuestion" class="field-legend">Edit question</legend>
+    <div class="hidden tab-container" id="question-edit-field">
+        <header class="homey-header mb-2">
+            <p class="homey-title" data-i18n="settings.editQuestion">
+                Edit question
+            </p>
+        </header>
         <button id="hideEditQuestion" class="homey-button-small-gray-full" onclick="toggleEditField(false)"
                 data-i18n="settings.hideEditQuestion" style="width: 100%;">Hide Edit mode
         </button>
@@ -166,27 +208,33 @@
         <button id="editQuestion" onclick="editQuestion()" data-i18n="settings.saveEditQuestion"
                 class="homey-button-primary-full" style="margin-top: .5em">Edit question
         </button>
-    </fieldset>
+    </div>
 
-    <h2><strong data-i18n="settings.questionSetup.title">How to use the question system</strong></h2>
-    <ol>
-        <li><p style="margin-bottom: 0" data-i18n="settings.questionSetup.step1">Set up a question with the add a
-            question feature.</p>
-            <ol style="margin-bottom: 0">
-                <li data-i18n="settings.questionSetup.step1-1">Enter a question e.g. 'Do you like pizza?</li>
-                <li data-i18n="settings.questionSetup.step1-2">Enter any amount of answers below</li>
-                <li data-i18n="settings.questionSetup.step1-3">Save the question</li>
-            </ol>
-        </li>
-        <li data-i18n="settings.questionSetup.step2">Send this question to your telegram via the "Send a question"
-            THEN-flowcard
-        </li>
-        <li data-i18n="settings.questionSetup.step3">Add a "A Question has been answered" WHEN-flowcard</li>
-        <li data-i18n="settings.questionSetup.step4">Use the token of the card to make your favorite flow!</li>
-    </ol>
+    <div class="tab-container">
+        <header class="homey-header  mb-2">
+            <p class="homey-title" data-i18n="settings.questionSetup.title">
+                How to use the question system
+            </p>
+        </header>
+        <ol>
+            <li><p data-i18n="settings.questionSetup.step1" style="margin-bottom: 0">Set up a question with the add a
+                question feature.</p>
+                <ol style="margin-bottom: 0">
+                    <li data-i18n="settings.questionSetup.step1-1">Enter a question e.g. 'Do you like pizza?</li>
+                    <li data-i18n="settings.questionSetup.step1-2">Enter any amount of answers below</li>
+                    <li data-i18n="settings.questionSetup.step1-3">Save the question</li>
+                </ol>
+            </li>
+            <li data-i18n="settings.questionSetup.step2">Send this question to your telegram via the "Send a question"
+                THEN-flowcard
+            </li>
+            <li data-i18n="settings.questionSetup.step3">Add a "A Question has been answered" WHEN-flowcard</li>
+            <li data-i18n="settings.questionSetup.step4">Use the token of the card to make your favorite flow!</li>
+        </ol>
+    </div>
 </div>
 
-<div id="logs" class="tab-content">
+<div class="tab-content tab-container" id="logs">
     <div class="row" style="margin-bottom: .5em">
         <h3 data-i18n="settings.debugLogs">Enable Debug logs</h3>
         <label class="switch right">

@@ -2,7 +2,7 @@ Introducing the Telegram Bot for Homey Pro - the ultimate smart home hub compani
 
 One of the most exciting features of this bot is the Question system. With this system, you can use Telegram Inline Buttons to trigger actions on your smart home hub, such as turning on the lights or adjusting the thermostat. This makes it incredibly easy to control your home from anywhere in the world.
 
-In addition, the Telegram Bot for Homey Pro supports multiple users and chats, as well as groups, making it perfect for families or roommates who want to control their smart home together. With this bot, your smart home has never been more accessible or convenient. Download now and experience the convenience of controlling your smart home from Telegram.
+In addition, the Telegram Bot for Homey Pro supports multiple users and chats, as well as groups, making it perfect for families or roommates who want to control their smart home together. With this bot, your smart home has never been more accessible or convenient. Install now and experience the convenience of controlling your smart home from Telegram.
 
 
 To set up the Telegram Bot for Homey Pro:

@@ -10,13 +10,14 @@
   "name": {
     "en": "Telegram",
     "it": "Telegram",
-    "de": "Telegram"
+    "de": "Telegram",
+    "nl": "Telegram"
   },
   "description": {
-    "en": "Control your smart home anytime, anywhere with the ultimate smart home hub companion",
-    "it": "Controlla la tua casa intelligente in qualsiasi momento e ovunque con il compagno definitivo dell'hub per la casa intelligente",
-    "de": "Steuere dein Smart-Zuhause jederzeit und überall mit dem ultimativen Smart-Home-Hub-Begleiter",
-    "nl": "Bedien uw slimme huis op elk moment en overal met de ultieme slimme huis hub companion"
+    "en": "Effortlessly control your smart home with Telegram",
+    "it": "Controlla facilmente la tua casa intelligente con Telegram",
+    "de": "Steuere mühelos dein Smart-Zuhause mit Telegramm",
+    "nl": "Bedien uw slimme huis gemakkelijk met Telegram"
   },
   "category": [
     "internet"

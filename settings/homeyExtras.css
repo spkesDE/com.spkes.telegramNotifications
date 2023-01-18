@@ -111,6 +111,10 @@ input:checked + .slider:before {
     margin-bottom: 0 !important;
 }
 
+.mb-0-5 {
+    margin-bottom: .125rem !important;
+}
+
 .mb-1 {
     margin-bottom: .3rem !important;
 }
