@@ -136,6 +136,7 @@ export class TelegramNotifications extends Homey.App {
     private changeBotState(bool: boolean) {
         this.startSuccess = bool;
         this.homey.settings.set('bot-running', bool);
+        this.homey.api.realtime('com.spkes.telegram.state', {state: bool});
     }
 
     private loadSavedArrays() {

@@ -72,12 +72,24 @@ function updateLogs() {
     }
     document.getElementById('logs-list').value = logs;
   });
+  // Realtime logging?
 }
 
 function updateStatus() {
   Homey.get('bot-running', (err, status) => {
     if (err) return Homey.alert(err);
     if (status) {
+      document.getElementById('running-status')
+        .classList
+        .add('running');
+    } else {
+      document.getElementById('running-status')
+        .classList
+        .remove('running');
+    }
+  });
+  Homey.on('com.spkes.telegram.state', function(data) {
+    if (data.state) {
       document.getElementById('running-status')
         .classList
         .add('running');
@@ -280,14 +292,29 @@ function onSaveToken() {
   }
   delay(1000)
     .then(() => {
-      updateStatus();
       updateLogs();
     });
 }
 
+function createWarningBox(text) {
+  let warningBox = document.createElement('div');
+  warningBox.style.position = 'fixed';
+  warningBox.style.bottom = '1%';
+  warningBox.style.left = '50%';
+  warningBox.style.width = '25%';
+  warningBox.style.padding = '5px';
+  warningBox.style.fontWeight = 'bold';
+  warningBox.style.transform = 'translateX(-50%)';
+  warningBox.style.border = '1px solid black';
+  warningBox.style.backgroundColor = 'rgba(200, 0, 0, 0.75)';
+  warningBox.style.textAlign = 'center';
+  warningBox.innerHTML = text;
+  document.body.appendChild(warningBox);
+}
+
 function onHomeyReady(Homey) {
   if (Homey.isMock) {
-    Homey.alert('Is Mock!');
+    createWarningBox('Homey is Mock');
     Homey.set('questions', JSON.stringify([
       {
         question: 'Mock Question 1',

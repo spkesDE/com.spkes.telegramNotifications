@@ -27,12 +27,13 @@
             <label class="homey-form-label mt-0-5" data-i18n="settings.token" for="bot-token">Bot Token</label>
             <input class="homey-form-input" id="bot-token" type="text" value=""/>
         </div>
-        <label class="homey-form-checkbox mt-0 mb-1">
-            <input class="homey-form-checkbox-input" id="usePassword" name="checkbox-example" onclick="togglePassword()"
-                   type="checkbox"/>
-            <span class="homey-form-checkbox-checkmark"></span>
-            <span class="homey-form-checkbox-text" data-i18n="settings.passwordEnable">Enable Password</span>
-        </label>
+        <div class="row mb-2">
+            <h3 data-i18n="settings.passwordEnable">Enable Password</h3>
+            <label class="switch right">
+                <input id="usePassword" onclick="togglePassword()" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
         <div class="hidden mb-1" id="usePasswordDiv">
             <label class="homey-form-label mt-0-5" data-i18n="settings.password" for="bot-password">Bot Password</label>
             <input class="homey-form-input" id="bot-password" type="password" value=""/>

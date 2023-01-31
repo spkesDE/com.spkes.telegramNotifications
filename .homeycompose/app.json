@@ -34,6 +34,52 @@
     "name": "Julian Suhl",
     "email": "julian@suhl.de"
   },
+  "tags": {
+    "en": [
+      "Telegram",
+      "Messenger",
+      "Bot",
+      "Questions",
+      "Notifications",
+      "Topics",
+      "Groups",
+      "better logic library",
+      "BLL"
+    ],
+    "de": [
+      "Telegram",
+      "Messenger",
+      "Bot",
+      "Fragen",
+      "Benachrichtigungen",
+      "Themen",
+      "Gruppen",
+      "better logic library",
+      "BLL"
+    ],
+    "it": [
+      "Telegram",
+      "Messenger",
+      "Bot",
+      "Domande",
+      "Notifiche",
+      "Argomenti",
+      "Gruppi",
+      "better logic library",
+      "BLL"
+    ],
+    "nl": [
+      "Telegram",
+      "Messenger",
+      "Bot",
+      "Vragen",
+      "Notificaties",
+      "Onderwerpen",
+      "Groepen",
+      "better logic library",
+      "BLL"
+    ]
+  },
   "contributors": {
     "developers": [
       {
@@ -41,7 +87,7 @@
         "email": "spkes@spkes.de"
       },
       {
-        "name": "telegraf.js - v.4.8.5",
+        "name": "telegraf.js - v4.11.2",
         "email": ""
       }
     ],
