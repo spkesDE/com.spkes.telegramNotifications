@@ -126,14 +126,7 @@
             <input class="homey-form-input mb-0" id="question-name" type="text"
                    placeholder="Do you want to close the shutters?" value=""/>
         </div>
-        <div class="row" style="margin-top: .5em;margin-bottom: 0.25em;">
-            <h2 data-i18n="settings.answers">Answers</h2>
-            <button onclick="createNewInputField()" class="homey-button-small right"
-                    data-i18n="settings.addAnswerButton">
-                <i class="fas fa-plus"></i>
-            </button>
-        </div>
-        <div class="row" style="margin-bottom: .5em">
+        <div class="row" style="margin-bottom: .5em; margin-top: 0.5em">
             <h3 data-i18n="settings.keepAnswers">Keep answers</h3>
             <label class="switch right">
                 <input type="checkbox" id="question-answer-keep-answers">
@@ -153,6 +146,13 @@
             <input id="columnSize" max="4" min="1" oninput="let onInput = () =>  {
               document.getElementById('columnSizeDisplay').innerHTML = document.getElementById('columnSize').value;
             }; onInput()" type="range" value="2">
+        </div>
+        <div class="row" style="margin-top: .25em;margin-bottom: .5em;">
+            <h3 data-i18n="settings.answers">Add Answers</h3>
+            <button class="homey-button-small right" data-i18n="settings.addAnswerButton"
+                    onclick="createNewInputField()">
+                <i class="fas fa-plus"></i>
+            </button>
         </div>
         <div class="col" id="question-answer-col">
         </div>
@@ -177,14 +177,7 @@
             <input class="homey-form-input" id="question-name-edit" type="text"
                    placeholder="Do you want to close the shutters?" value=""/>
         </div>
-
-        <div class="row" style="margin-top: .5em;margin-bottom: 0.25em;">
-            <h2 data-i18n="settings.answers">Answers</h2>
-            <button onclick="createNewInputFieldForEdit()" class="homey-button-small right">
-                <i class="fas fa-plus"></i>
-            </button>
-        </div>
-        <div class="row" style="margin-bottom: .5em">
+        <div class="row" style="margin-bottom: .5em; margin-top: 0.5em">
             <h3 data-i18n="settings.keepAnswers">Keep answers</h3>
             <label class="switch right">
                 <input type="checkbox" id="question-answer-edit-keep-answers">
@@ -198,12 +191,19 @@
                 <span class="slider round"></span>
             </label>
         </div>
+
         <div class="row" style="margin-bottom: .5em">
             <h3 data-i18n="settings.columns" style="width: 90%">Buttons per Row</h3>
             <span id="columnSizeDisplayEdit" style="padding-right: 5px">2</span>
             <input id="columnSizeEdit" max="4" min="1" oninput="let onInput = () =>  {
               document.getElementById('columnSizeDisplayEdit').innerHTML = document.getElementById('columnSizeEdit').value;
             }; onInput()" type="range" value="2">
+        </div>
+        <div class="row" style="margin-top: .25em;margin-bottom: 0.5em;">
+            <h3 data-i18n="settings.answers">Add Answers</h3>
+            <button class="homey-button-small right" onclick="createNewInputFieldForEdit()">
+                <i class="fas fa-plus"></i>
+            </button>
         </div>
         <div class="col" id="question-answer-edit-col"></div>
         <button id="editQuestion" onclick="editQuestion()" data-i18n="settings.saveEditQuestion"

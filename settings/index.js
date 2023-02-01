@@ -401,6 +401,8 @@ function clearAddQuestionForm() {
   document.getElementById('question-name').value = '';
   document.getElementById('columnSize').value = 2;
   document.getElementById('columnSizeDisplay').innerHTML = '2';
+  document.getElementById('question-silent-question').checked = false;
+  document.getElementById('question-answer-keep-answers').checked = false;
   createNewInputField();
   createNewInputField();
 }
@@ -411,6 +413,7 @@ function createNewInputField() {
   newElem.setAttribute('type', 'text');
   newElem.classList.add('homey-form-input');
   newElem.classList.add('mb-1');
+  newElem.placeholder = 'your answer...';
   if (container.children.length >= 25) return;
   container.appendChild(newElem);
 }
@@ -422,6 +425,7 @@ function createNewInputFieldForEdit(value = '') {
   newElem.classList.add('homey-form-input');
   newElem.classList.add('mb-1');
   newElem.value = value;
+  newElem.placeholder = 'your answer...';
   if (container.children.length >= 25) return;
   container.appendChild(newElem);
 }
@@ -438,6 +442,8 @@ function toggleEditField(bool = true) {
     document.getElementById('question-add-field')
       .classList
       .remove('hidden');
+    // Reset to default
+    clearAddQuestionForm();
     document.getElementById('question-edit-field')
       .classList
       .add('hidden');
