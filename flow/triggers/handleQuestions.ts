@@ -1,7 +1,6 @@
 import {TelegramNotifications} from '../../app';
 import {Markup} from "telegraf";
 import Question from "../../question";
-import {callbackQuery} from "telegraf/filters";
 import Utils from "../../utils";
 
 export default class HandleQuestions {
@@ -56,8 +55,7 @@ export default class HandleQuestions {
         //endregion
 
         //This event will trigger once an inline button is pressed
-        app.bot.on(callbackQuery("data"), async ctx => {
-            if (!("chat" in ctx)) return;
+        app.bot.on("callback_query", async ctx => {
             if (ctx.callbackQuery.data == 'ignore-me') return;
             if (ctx.callbackQuery.data == 'user-add') return;
             let parts = ctx.callbackQuery.data.split('.');
@@ -73,7 +71,7 @@ export default class HandleQuestions {
                 throw new Error('Question with UUID ' + questionId + ' not found');
             }
             if (!question.keepButtons) {
-                await ctx.editMessageReplyMarkup({inline_keyboard: [[Markup.button.callback(question.buttons[answerId], "ignore-me")]]}).catch();
+                await ctx.editMessageReplyMarkup({inline_keyboard: [[Markup.callbackButton(question.buttons[answerId], "ignore-me")]]}).catch();
             }
             // https://apps.developer.homey.app/the-basics/flow/arguments#flow-state
             //Building Token

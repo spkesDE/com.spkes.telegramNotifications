@@ -19,7 +19,7 @@ export class TelegramNotifications extends Homey.App {
 
     public users: User[] = [];
     public questions: Question[] = [];
-    public bot: Telegraf | null = null;
+    public bot: Telegraf<any> | null = null;
     private token: string | null = null;
     private startSuccess: boolean = true;
     private registerFlowHandler: boolean = false;
