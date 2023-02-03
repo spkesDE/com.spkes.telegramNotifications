@@ -6,10 +6,10 @@
     "nl": "Dien een vraag in met aangepaste tekst"
   },
   "titleFormatted": {
-    "en": "Send a question [[question]] to [[user]] with custom text [[text]]",
-    "it": "Invia una domanda [[question]] a [[user]] con testo personalizzato [[text]]",
-    "de": "Sende eine Frage [[question]] zu [[user]] mit angepasste text [[text]]",
-    "nl": "Stuur een vraag [[question]] naar [[user]] met aangepaste tekst [[text]]"
+    "en": "Send a question [[question]] to [[user]] with custom text [[message]]",
+    "it": "Invia una domanda [[question]] a [[user]] con testo personalizzato [[message]]",
+    "de": "Sende eine Frage [[question]] zu [[user]] mit angepasste text [[message]]",
+    "nl": "Stuur een vraag [[question]] naar [[user]] met aangepaste tekst [[message]]"
   },
   "hint": {
     "en": "Sends a Question to your Telegram chat.",

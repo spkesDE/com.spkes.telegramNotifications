@@ -13,35 +13,16 @@
   },
   "args": [
     {
-      "type": "id",
-      "name": "url",
+      "type": "number",
+      "name": "id",
       "title": {
-        "en": "URL",
-        "it": "URL",
-        "de": "URL",
-        "nl": "URL"
+        "en": "ID",
+        "it": "ID",
+        "de": "ID",
+        "nl": "ID"
       },
       "placeholder": {
-        "en": "http://url/image.png",
-        "it": "http://url/image.png",
-        "de": "http://url/image.png",
-        "nl": "http://url/image.png"
-      }
-    },
-    {
-      "type": "autocomplete",
-      "name": "user",
-      "title": {
-        "en": "User",
-        "it": "Utente",
-        "de": "Benutzer",
-        "nl": "Gebruiker"
-      },
-      "placeholder": {
-        "en": "Created with <3",
-        "it": "Creato con <3",
-        "de": "Erstellt mit <3",
-        "nl": "Gemaakt met <3"
+        "en": "TODO"
       }
     }
   ]
