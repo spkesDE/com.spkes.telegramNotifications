@@ -1,5 +1,5 @@
 import {Markup, Telegraf} from 'telegraf';
-import {CallbackButton} from "telegraf/typings/markup";
+import {InlineKeyboardButton} from 'telegraf/typings/core/types/typegram';
 
 export default class Question {
     question: string = "";
@@ -10,9 +10,9 @@ export default class Question {
     columns: number = 2;
 
     static async createMessage(q: Question, bot: Telegraf<any>, userId: number) {
-        let callbackButtons: CallbackButton[] = [];
+        let callbackButtons: InlineKeyboardButton.CallbackButton[] = [];
         q.buttons.forEach((value, i) => {
-            callbackButtons.push(Markup.callbackButton(value, q.UUID + '.' + i))
+            callbackButtons.push(Markup.button.callback(value, q.UUID + '.' + i))
         })
         await bot.telegram.sendMessage(userId, q.question, {
             ...Markup.inlineKeyboard(callbackButtons, {columns: q.columns ?? 2}),
