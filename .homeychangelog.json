@@ -103,5 +103,8 @@
   },
   "2.1.3": {
     "en": "Updated settings page, editble colums for questions, custom id questions, delete messages"
+  },
+  "2.1.4": {
+    "en": "New assets"
   }
 }
