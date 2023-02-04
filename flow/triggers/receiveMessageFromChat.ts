@@ -1,5 +1,6 @@
 import {FlowCardTrigger} from 'homey';
 import {TelegramNotifications} from '../../app';
+import {message} from "telegraf/filters";
 import Utils from "../../utils";
 
 export default class ReceiveMessageFromChat {
@@ -14,7 +15,7 @@ export default class ReceiveMessageFromChat {
             async (query) => Utils.userAutocomplete(app.users, query)
         );
 
-        app.bot.on("text", (ctx) => {
+        app.bot.on(message("text"), (ctx) => {
             if (ctx.message.text === undefined) return;
             const token = {
                 message: ctx.message.text,
