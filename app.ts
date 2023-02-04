@@ -87,6 +87,7 @@ export class TelegramNotifications extends Homey.App {
         new SendMessage(this, this.homey.flow.getActionCard('sendNotification'));
         new SendSilentMessage(this, this.homey.flow.getActionCard('send-message-silent'));
         new SendQuestion(this, this.homey.flow.getActionCard('send-a-question'));
+        new SendQuestion(this, this.homey.flow.getActionCard('send-a-question-with-custom-text'));
 
         new SendImage(this, this.homey.flow.getActionCard('send-a-image'));
         new SendImageWithMessage(this, this.homey.flow.getActionCard('send-a-image-with-message'));

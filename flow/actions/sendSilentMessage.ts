@@ -9,7 +9,6 @@ export default class SendSilentMessage {
             if (app.bot != null) {
                 await app.bot.telegram.sendMessage(args.user.id, await BL.decode(args.message), {
                     disable_notification: true,
-                    parse_mode: "MarkdownV2"
                 })
                     .catch(app.error)
                     .then();

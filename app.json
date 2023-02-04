@@ -202,10 +202,10 @@
             "type": "autocomplete",
             "name": "chat",
             "title": {
-              "en": "User",
-              "it": "Utente",
-              "de": "Benutzer",
-              "nl": "Gebruiker"
+              "en": "Chat",
+              "it": "Chat",
+              "de": "Chat",
+              "nl": "Chat"
             },
             "placeholder": {
               "en": "Created with <3",
@@ -294,6 +294,38 @@
               "it": "Gruppo",
               "de": "Gruppe",
               "nl": "Group"
+            }
+          },
+          {
+            "name": "date",
+            "type": "number",
+            "title": {
+              "en": "Date",
+              "it": "Data",
+              "de": "Datum",
+              "nl": "Datum"
+            },
+            "example": {
+              "en": "1675508634",
+              "it": "1675508634",
+              "de": "1675508634",
+              "nl": "1675508634"
+            }
+          },
+          {
+            "name": "id",
+            "type": "number",
+            "title": {
+              "en": "ID",
+              "it": "ID",
+              "de": "ID",
+              "nl": "ID"
+            },
+            "example": {
+              "en": "79",
+              "it": "79",
+              "de": "79",
+              "nl": "79"
             }
           }
         ],
@@ -806,6 +838,38 @@
               "de": "Gruppe",
               "nl": "Group"
             }
+          },
+          {
+            "name": "date",
+            "type": "number",
+            "title": {
+              "en": "Date",
+              "it": "Data",
+              "de": "Datum",
+              "nl": "Datum"
+            },
+            "example": {
+              "en": "1675508634",
+              "it": "1675508634",
+              "de": "1675508634",
+              "nl": "1675508634"
+            }
+          },
+          {
+            "name": "id",
+            "type": "number",
+            "title": {
+              "en": "ID",
+              "it": "ID",
+              "de": "ID",
+              "nl": "ID"
+            },
+            "example": {
+              "en": "79",
+              "it": "79",
+              "de": "79",
+              "nl": "79"
+            }
           }
         ],
         "id": "receiveMessage"
@@ -1133,7 +1197,7 @@
         "titleFormatted": {
           "en": "Send a question [[question]] to [[user]] with custom text [[message]]",
           "it": "Invia una domanda [[question]] a [[user]] con testo personalizzato [[message]]",
-          "de": "Sende eine Frage [[question]] zu [[user]] mit angepasste text [[message]]",
+          "de": "Sende eine Frage [[question]] zu [[user]] mit angepasster Nachricht [[message]]",
           "nl": "Stuur een vraag [[question]] naar [[user]] met aangepaste tekst [[message]]"
         },
         "hint": {

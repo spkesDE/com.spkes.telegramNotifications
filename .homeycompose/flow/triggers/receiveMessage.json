@@ -91,6 +91,38 @@
         "de": "Gruppe",
         "nl": "Group"
       }
+    },
+    {
+      "name": "date",
+      "type": "number",
+      "title": {
+        "en": "Date",
+        "it": "Data",
+        "de": "Datum",
+        "nl": "Datum"
+      },
+      "example": {
+        "en": "1675508634",
+        "it": "1675508634",
+        "de": "1675508634",
+        "nl": "1675508634"
+      }
+    },
+    {
+      "name": "id",
+      "type": "number",
+      "title": {
+        "en": "ID",
+        "it": "ID",
+        "de": "ID",
+        "nl": "ID"
+      },
+      "example": {
+        "en": "79",
+        "it": "79",
+        "de": "79",
+        "nl": "79"
+      }
     }
   ]
 }

@@ -8,7 +8,7 @@
   "titleFormatted": {
     "en": "Send a question [[question]] to [[user]] with custom text [[message]]",
     "it": "Invia una domanda [[question]] a [[user]] con testo personalizzato [[message]]",
-    "de": "Sende eine Frage [[question]] zu [[user]] mit angepasste text [[message]]",
+    "de": "Sende eine Frage [[question]] zu [[user]] mit angepasster Nachricht [[message]]",
     "nl": "Stuur een vraag [[question]] naar [[user]] met aangepaste tekst [[message]]"
   },
   "hint": {

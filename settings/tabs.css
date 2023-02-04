@@ -20,7 +20,7 @@
     background-position: var(--homey-interactive-gradient-position-default);
     background-size: var(--homey-interactive-gradient-size);
     font-size: 17px;
-    font-weight: var(--homey-font-weight-medium);
+    font-weight: var(--homey-font-weight-normal);
     line-height: 24px;
     color: var(--homey-color-black);
     text-decoration: none !important;

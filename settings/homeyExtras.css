@@ -21,10 +21,12 @@
     var(--color-gradient-gray-active), var(--color-gradient-gray-start) 33%, var(--color-gradient-gray-end) 66%, var(--color-gradient-gray-hover));
 }
 
-[class*=homey-button][class*=danger] {
+[class*=homey-button][class*=red] {
     --homey-button-background: var(--interactive-gradient-red);
-    --homey-button-color-focus: var(--color-gradient-red-start)
+    --homey-button-color-focus: var(--color-gradient-red-start);
 }
+
+
 
 [class*=homey-button][class*=gray] {
     --homey-button-background: var(--interactive-gradient-gray);

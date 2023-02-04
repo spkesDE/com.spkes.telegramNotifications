@@ -15,7 +15,7 @@ export default class SendTagImageWithMessage {
             await app.bot.telegram.sendPhoto(args.user.id, {
                 filename: "",
                 url: args.droptoken.cloudUrl
-            }, {caption: await BL.decode(args.message), parse_mode: "MarkdownV2"})
+            }, {caption: await BL.decode(args.message)})
                 .catch((r) => {
                     app.error(r);
                 })

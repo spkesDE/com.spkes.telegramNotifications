@@ -9,15 +9,14 @@ export default class Question {
     disable_notification: boolean = false;
     columns: number = 2;
 
-    static async createMessage(q: Question, bot: Telegraf<any>, userId: number) {
+    static async createMessage(q: Question, bot: Telegraf<any>, userId: number, messageOverride: string = "") {
         let callbackButtons: InlineKeyboardButton.CallbackButton[] = [];
         q.buttons.forEach((value, i) => {
             callbackButtons.push(Markup.button.callback(value, q.UUID + '.' + i))
         })
-        await bot.telegram.sendMessage(userId, q.question, {
-            ...Markup.inlineKeyboard(callbackButtons, {columns: q.columns ?? 2}),
+        await bot.telegram.sendMessage(userId, messageOverride == "" ? q.question : messageOverride, {
             disable_notification: q.disable_notification ?? false,
-            parse_mode: "MarkdownV2"
+            ...Markup.inlineKeyboard(callbackButtons, {columns: q.columns ?? 2}),
         });
     }
 

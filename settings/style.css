@@ -64,20 +64,6 @@
     background-color: #198754 !important;
 }
 
-.question-input, .answer-input, .answer-edit-input {
-    display: block;
-    width: 94% !important;
-    padding: 0.275rem 0.5rem !important;
-    font-size: 1rem !important;
-    line-height: 1.5;
-    color: #495057 !important;
-    background-color: #f7f7f7;
-    background-clip: padding-box;
-    border: 1px solid #ced4da !important;
-    border-radius: 0.25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    margin-bottom: .2em;
-}
 
 .question-input:disabled, .answer-input:disabled, .answer-edit-input:disabled {
     background-color: #cfcfcf;

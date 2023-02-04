@@ -25,7 +25,7 @@ function updateUsers() {
         + '            <div class="col" style="margin-right: auto">'}${obj.chatName}</div>`
         + `            <div class="col" style="margin-right: 8px">${obj.userId}</div>`
         + '            <div class="col">'
-        + `                <button id="removeUser" onclick="onDeleteUser('${obj.userId}')" class="homey-button-danger-small-minWidth" ><i class="fas fa-user-slash"></i></button>`
+        + `                <button id="removeUser" onclick="onDeleteUser('${obj.userId}')" class="homey-button-red-small-minWidth" ><i class="fas fa-user-slash"></i></button>`
         + '            </div>'
         + '        </div>'
         + '        <hr style="margin-top: 0.5em; margin-bottom: 0.5em"/>';
@@ -48,7 +48,7 @@ function updateQuestions() {
         + '            <div class="col" style="padding-right: 8px">'}${obj.question}</div>`
         + '            <div class="col" style="flex-direction: row">'
         + `                <button onclick="onEditQuestion('${obj.UUID}')" id="editQuestion" class="homey-button-small-minWidth me-0-5" ><i class="fas fa-edit"></i></button>`
-        + `                <button onclick="onDeleteQuestion('${obj.UUID}')" id="deleteQuestion"  class="homey-button-danger-small-minWidth" ><i class="fas fa-trash"></i></button>`
+        + `                <button onclick="onDeleteQuestion('${obj.UUID}')" id="deleteQuestion"  class="homey-button-red-small-minWidth" ><i class="fas fa-trash"></i></button>`
         + '            </div>'
         + '        </div>'
         + '        <hr style="margin-top: 0.5em; margin-bottom: 0.5em"/>';
@@ -70,7 +70,9 @@ function updateLogs() {
       if (obj.debug && !showDebugLogs) continue;
       logs += `[${obj.date}] ${obj.message}\n`;
     }
-    document.getElementById('logs-list').value = logs;
+    let logList = document.getElementById('logs-list');
+    logList.value = logs;
+    logList.style.height = (10 + logList.scrollHeight) + 'px';
   });
   // Realtime logging?
 }
@@ -412,6 +414,7 @@ function createNewInputField() {
   const newElem = document.createElement('input');
   newElem.setAttribute('type', 'text');
   newElem.classList.add('homey-form-input');
+  newElem.classList.add('answer-input'); //Selector to get answers
   newElem.classList.add('mb-1');
   newElem.placeholder = 'your answer...';
   if (container.children.length >= 25) return;
@@ -422,7 +425,9 @@ function createNewInputFieldForEdit(value = '') {
   const container = document.getElementById('question-answer-edit-col');
   const newElem = document.createElement('input');
   newElem.setAttribute('type', 'text');
+  newElem.classList.add('answer-');
   newElem.classList.add('homey-form-input');
+  newElem.classList.add('answer-edit-input'); //Selector to get answers!
   newElem.classList.add('mb-1');
   newElem.value = value;
   newElem.placeholder = 'your answer...';
