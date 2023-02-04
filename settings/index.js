@@ -65,14 +65,16 @@ function updateLogs() {
     if (logsJson === null) return;
     const json = JSON.parse(logsJson);
     let logs = '';
+    let count = 0;
     for (let i = 0; i < json.length; i++) {
       const obj = json[i];
       if (obj.debug && !showDebugLogs) continue;
       logs += `[${obj.date}] ${obj.message}\n`;
+      count++;
     }
     let logList = document.getElementById('logs-list');
     logList.value = logs;
-    logList.style.height = (10 + logList.scrollHeight) + 'px';
+    logList.style.height = (15 + (count * 14)) + 'px';
   });
   // Realtime logging?
 }
