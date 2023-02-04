@@ -17,7 +17,7 @@ export default class SendQuestion {
                 app.error('Bot has failed to initialize');
                 throw new Error('Bot has failed to initialize');
             }
-            await Question.createMessage(question, app.bot, args.user.id, args.message ?? undefined)
+            await Question.createMessage(question, app.bot, args.user.id, args.message ?? undefined, args.id ?? undefined)
         });
         card.registerArgumentAutocompleteListener(
             'user', async (query) => Utils.userAutocomplete(app.users, query)

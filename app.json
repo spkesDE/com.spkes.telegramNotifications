@@ -604,6 +604,169 @@
         "id": "receive-question-answer-autocomplete"
       },
       {
+        "title": {
+          "en": "A question has been answered",
+          "it": "Una domanda ha ricevuto risposta",
+          "de": "Eine Frage wurde beantwortet",
+          "nl": "Een vraag is beantwoord"
+        },
+        "titleFormatted": {
+          "en": "The question [[question]] with custom id [[id]] has been answered with [[answer]]",
+          "it": "[[question]] con ID personalizzato [[id]] ha ricevuto la risposta [[answer]]",
+          "de": "Die Frage [[question]] mit angepasster ID [[id]] wurde mit [[answer]] beantwortet",
+          "nl": "De vraag [[question]] met aangepaste ID [[id]] is beantwoord met [[answer]]"
+        },
+        "hint": {
+          "en": "First select the question then the answer. Both fields will autocomplete.",
+          "it": "Seleziona prima la domanda, poi la risposta. Entrambi i campi verranno completati automaticamente.",
+          "de": "Wähle zuerst die Frage und dann die Antwort aus. Beide Felder werden automatisch vervollständigt.",
+          "nl": "Selecteer eerst de vraag en daarna het antwoord. Beide velden worden automatisch ingevuld."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "question",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "answer",
+            "title": {
+              "en": "Answer",
+              "it": "Risposta",
+              "de": "Antwort",
+              "nl": "Antwoord"
+            },
+            "placeholder": {
+              "en": "Yes, of course. Is that even a question?",
+              "it": "Sì, certamente. È una domanda?",
+              "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
+              "nl": "Ja, natuurlijk. Is dit echt een vraag?"
+            }
+          },
+          {
+            "type": "text",
+            "name": "id",
+            "title": {
+              "en": "Custom ID",
+              "it": "ID personalizzato",
+              "de": "Angepasste ID",
+              "nl": "Aangepaste ID"
+            },
+            "placeholder": {
+              "en": "MyId",
+              "it": "MYId",
+              "de": "MyId",
+              "nl": "MyId"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "question",
+            "type": "string",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            },
+            "example": {
+              "en": "Do you like pizza?",
+              "it": "Ti piace la pizza?",
+              "de": "Magst du Pizza?",
+              "nl": "Lust je pizza?"
+            }
+          },
+          {
+            "name": "answer",
+            "type": "string",
+            "title": {
+              "en": "Answer",
+              "it": "Risposta",
+              "de": "Antwort",
+              "nl": "Antwoord"
+            },
+            "example": {
+              "en": "Yes, of course. Is that even a question?",
+              "it": "Sì, certamente. È una domanda?",
+              "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
+              "nl": "Ja, natuurlijk. Is dit echt een vraag?"
+            }
+          },
+          {
+            "name": "from",
+            "type": "string",
+            "title": {
+              "en": "First Name",
+              "it": "Nome",
+              "de": "Vorname",
+              "nl": "Voornaam"
+            },
+            "example": {
+              "en": "Julian",
+              "it": "Julian",
+              "de": "Julian",
+              "nl": "Julian"
+            }
+          },
+          {
+            "name": "username",
+            "type": "string",
+            "title": {
+              "en": "Username",
+              "it": "Nome Utente",
+              "de": "Benutzername",
+              "nl": "Gebruikersnaam"
+            },
+            "example": {
+              "en": "spkesDE",
+              "it": "spkesDE",
+              "de": "spkesDE",
+              "nl": "spkesDE"
+            }
+          },
+          {
+            "name": "chat",
+            "type": "string",
+            "title": {
+              "en": "Chatname",
+              "it": "Nome Chat",
+              "de": "Chatname",
+              "nl": "Chatnaam"
+            },
+            "example": {
+              "en": "Family Group",
+              "it": "Gruppo Famiglia",
+              "de": "Familiengruppe",
+              "nl": "Familie Groep"
+            }
+          },
+          {
+            "name": "chatType",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "it": "Tipo",
+              "de": "Typ",
+              "nl": "Type"
+            },
+            "example": {
+              "en": "Group",
+              "it": "Gruppo",
+              "de": "Gruppe",
+              "nl": "Group"
+            }
+          }
+        ],
+        "id": "receive-question-answer-autocomplete-customId"
+      },
+      {
         "deprecated": true,
         "title": {
           "en": "A question has been answered",
@@ -1202,6 +1365,77 @@
           }
         ],
         "id": "send-a-question"
+      },
+      {
+        "title": {
+          "en": "Send a Question",
+          "it": "Invia una domanda",
+          "de": "Sende eine Frage",
+          "nl": "Stuur een vraag"
+        },
+        "titleFormatted": {
+          "en": "Send a question [[question]] to [[user]] with custom id [[id]]",
+          "it": "Invia domanda [[question]] a [[user]] con id personalizzato [[id]]",
+          "de": "Sende eine Frage [[question]] zu [[user]] mit angepasster ID [[id]]",
+          "nl": "Stuur de vraag [[question]] naar [[user]] met aangepaste id [[id]]"
+        },
+        "hint": {
+          "en": "Sends a Question to your Telegram chat. The custom id must be free of whitespace and no more than 20 characters long.",
+          "it": "Invia una domanda nella tua chat Telegram. L'id personalizzato deve essere privo di spazi bianchi e non deve superare i 20 caratteri.",
+          "de": "Sendet eine Frage an Ihren Telegram-Chat. Die benutzerdefinierte ID muss frei von Leerzeichen sein und darf nicht länger als 20 Zeichen sein.",
+          "nl": "Stuurt een vraag naar je Telegram chat. De aangepaste id moet vrij zijn van spaties en mag niet meer dan 20 tekens lang zijn."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "question",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "it": "Utente",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          },
+          {
+            "type": "text",
+            "name": "id",
+            "title": {
+              "en": "Custom ID",
+              "it": "ID personalizzato",
+              "de": "Angepasste ID",
+              "nl": "Aangepaste ID"
+            },
+            "placeholder": {
+              "en": "MyId",
+              "it": "MYId",
+              "de": "MyId",
+              "nl": "MyId"
+            }
+          }
+        ],
+        "id": "send-a-question-with-custom-id"
       },
       {
         "title": {
