@@ -14,6 +14,7 @@ import HandleNewUsers from "./flow/triggers/handleNewUsers";
 import SendSilentMessage from "./flow/actions/sendSilentMessage";
 import {BL} from "betterlogiclibrary";
 import ReceiveMessageFromChat from "./flow/triggers/receiveMessageFromChat";
+import DeleteById from "./flow/actions/deleteById";
 
 export class TelegramNotifications extends Homey.App {
 
@@ -88,6 +89,8 @@ export class TelegramNotifications extends Homey.App {
         new SendSilentMessage(this, this.homey.flow.getActionCard('send-message-silent'));
         new SendQuestion(this, this.homey.flow.getActionCard('send-a-question'));
         new SendQuestion(this, this.homey.flow.getActionCard('send-a-question-with-custom-text'));
+
+        new DeleteById(this, this.homey.flow.getActionCard('delete-message-with-id'))
 
         new SendImage(this, this.homey.flow.getActionCard('send-a-image'));
         new SendImageWithMessage(this, this.homey.flow.getActionCard('send-a-image-with-message'));

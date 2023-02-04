@@ -6,10 +6,10 @@
     "nl": "Verwijder bericht"
   },
   "titleFormatted": {
-    "en": "Delete message with [[id]].",
-    "it": "Elimina messaggio con [[id]].",
-    "de": "Nachricht mit [[id]] löschen.",
-    "nl": "Verwijder bericht met [[id]]."
+    "en": "Delete message with [[id]] in [[user]].",
+    "it": "Elimina messaggio con [[id]] in [[user]].",
+    "de": "Nachricht mit [[id]] löschen in [[user]].",
+    "nl": "Verwijder bericht met [[id]] in [[user]]."
   },
   "args": [
     {
@@ -23,6 +23,22 @@
       },
       "placeholder": {
         "en": "TODO"
+      }
+    },
+    {
+      "type": "autocomplete",
+      "name": "user",
+      "title": {
+        "en": "Chat",
+        "it": "Chat",
+        "de": "Chat",
+        "nl": "Chat"
+      },
+      "placeholder": {
+        "en": "Created with <3",
+        "it": "Creato con <3",
+        "de": "Erstellt mit <3",
+        "nl": "Gemaakt met <3"
       }
     }
   ]
