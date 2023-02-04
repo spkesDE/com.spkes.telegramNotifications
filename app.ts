@@ -62,7 +62,7 @@ export class TelegramNotifications extends Homey.App {
         }
 
         this.bot.catch(this.error);
-        await this.bot.launch().catch(this.error);
+        this.bot.launch().then();
         await this.bot.telegram.getMe().catch(() => this.changeBotState(false));
         if (!this.startSuccess) {
             this.log('Failed to start. Token most likely wrong.');
