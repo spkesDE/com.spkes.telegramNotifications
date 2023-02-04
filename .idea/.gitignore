@@ -5,3 +5,6 @@
 /httpRequests/
 /vcs.xml
 /discord.xml
+/easy-i18n.xml
+/i18nSettings.xml
+.idea/*
