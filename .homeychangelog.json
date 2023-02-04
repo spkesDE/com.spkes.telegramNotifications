@@ -100,5 +100,8 @@
   },
   "2.1.2": {
     "en": "Fixed BLL support"
+  },
+  "2.1.3": {
+    "en": "Updated settings page, editble colums for questions, custom id questions, delete messages"
   }
 }
