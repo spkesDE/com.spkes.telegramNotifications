@@ -9,13 +9,13 @@
     "en": "Send a question [[question]] to [[user]] with custom id [[id]]",
     "it": "Invia domanda [[question]] a [[user]] con id personalizzato [[id]]",
     "de": "Sende eine Frage [[question]] zu [[user]] mit angepasster ID [[id]]",
-    "nl": "Stuur de vraag [[question]] naar [[user]] met aangepaste id [[id]]"
+    "nl": "Stuur de vraag [[question]] naar [[user]] met aangepast id [[id]]"
   },
   "hint": {
     "en": "Sends a Question to your Telegram chat. The custom id must be free of whitespace and no more than 20 characters long.",
     "it": "Invia una domanda nella tua chat Telegram. L'id personalizzato deve essere privo di spazi bianchi e non deve superare i 20 caratteri.",
     "de": "Sendet eine Frage an Ihren Telegram-Chat. Die benutzerdefinierte ID muss frei von Leerzeichen sein und darf nicht länger als 20 Zeichen sein.",
-    "nl": "Stuurt een vraag naar je Telegram chat. De aangepaste id moet vrij zijn van spaties en mag niet meer dan 20 tekens lang zijn."
+    "nl": "Stuurt een vraag naar je Telegram chat. Het aangepaste id moet vrij zijn van spaties en mag niet meer dan 20 tekens lang zijn."
   },
   "args": [
     {

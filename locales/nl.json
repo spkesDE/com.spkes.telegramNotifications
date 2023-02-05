@@ -19,7 +19,7 @@
       "step4": "Schrijf /start naar je bot in Telegram en volg de instructies\nElke gebruiker moet ook een /start commando sturen naar de Bot. Je kan de Bot ook delen via Telegram via het profiel of zoek er naar zoals je naar de Botfather gezocht hebt",
       "title": "Hoe werkt het instellen"
     },
-    "keepAnswers": "Persistente knoppen",
+    "keepAnswers": "Permanente knoppen",
     "logs": "Logboeken",
     "password": "Bot Wachtwoord",
     "passwordEnable": "Wachtwoord inschakelen",

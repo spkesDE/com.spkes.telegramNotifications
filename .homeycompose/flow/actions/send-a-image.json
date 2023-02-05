@@ -15,7 +15,7 @@
     "en": "Sends a Image to your Telegram chat. Only HTTPS is supported.",
     "it": "Invia una Immagine nella tua chat Telegram. Only HTTPS is supported.",
     "de": "Sendet ein Bild an deinen Telegram-Chat. Nur HTTPS protokoll ist unterstützt.",
-    "nl": "Verstuur een afbeelding naar uw Telegram chat. Only HTTPS is supported."
+    "nl": "Verstuur een afbeelding naar uw Telegram chat. Alleen HTTPS wordt ondersteund."
   },
   "args": [
     {
@@ -28,10 +28,10 @@
         "nl": "URL"
       },
       "placeholder": {
-        "en": "http://url/image.png",
-        "it": "http://url/image.png",
-        "de": "http://url/image.png",
-        "nl": "http://url/image.png"
+        "en": "https://url/image.png",
+        "it": "https://url/image.png",
+        "de": "https://url/image.png",
+        "nl": "https://url/image.png"
       }
     },
     {

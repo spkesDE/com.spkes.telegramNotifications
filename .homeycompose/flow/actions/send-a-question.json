@@ -9,7 +9,7 @@
     "en": "Send a question [[question]] to [[user]]",
     "it": "Invia domanda [[question]] a [[user]]",
     "de": "Sende eine Frage [[question]] zu [[user]]",
-    "nl": "Stuur de vraag [[question]] naar [[user]]"
+    "nl": "Stuur een vraag [[question]] naar [[user]]"
   },
   "hint": {
     "en": "Sends a Question to your Telegram chat.",
