@@ -106,5 +106,8 @@
   },
   "2.1.4": {
     "en": "New assets"
+  },
+  "2.1.5": {
+    "en": "Updated Translation. BLL support disabeld (causing issues)"
   }
 }
