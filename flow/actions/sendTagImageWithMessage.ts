@@ -1,7 +1,6 @@
 import {FlowCardAction} from 'homey';
 import {TelegramNotifications} from '../../app';
 import Utils from "../../utils";
-import {BL} from "betterlogiclibrary";
 
 export default class SendTagImageWithMessage {
     constructor(app: TelegramNotifications, card: FlowCardAction) {
@@ -15,7 +14,7 @@ export default class SendTagImageWithMessage {
             await app.bot.telegram.sendPhoto(args.user.id, {
                 filename: "",
                 url: args.droptoken.cloudUrl
-            }, {caption: await BL.decode(args.message)})
+            }, {caption: args.message})
                 .catch((r) => {
                     app.error(r);
                 })
