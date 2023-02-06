@@ -101,6 +101,8 @@ export default class HandleQuestions {
                 username: ctx.callbackQuery.from.username !== undefined ? ctx.callbackQuery.from.username : 'undefined',
                 chat: ctx.chat?.type === 'private' ? ctx.chat.first_name : ctx.chat?.title,
                 chatType: ctx.chat?.type,
+                chatId: ctx.chat?.id,
+                id: ctx.callbackQuery.message?.message_id ?? 0,
             };
 
             //Trigger Card with given state

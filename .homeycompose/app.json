@@ -83,23 +83,19 @@
   "contributors": {
     "developers": [
       {
-        "name": "spkesDE",
-        "email": "spkes@spkes.de"
-      },
-      {
         "name": "telegraf.js - v4.11.2",
         "email": ""
       }
     ],
     "translators": [
       {
-        "name": "spkesDE"
+        "name": "\uD83C\uDDEC\uD83C\uDDE7 \uD83C\uDDE9\uD83C\uDDEA - spkesDE"
       },
       {
-        "name": "Twan_Veugelers"
+        "name": "\uD83C\uDDEC\uD83C\uDDE7 \uD83C\uDDF3\uD83C\uDDF1 - Twan_Veugelers"
       },
       {
-        "name": "ilpaolino"
+        "name": "\uD83C\uDDEE\uD83C\uDDF9 - ilpaolino"
       }
     ]
   },

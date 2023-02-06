@@ -136,6 +136,38 @@
         "de": "Gruppe",
         "nl": "Group"
       }
+    },
+    {
+      "name": "id",
+      "type": "number",
+      "title": {
+        "en": "ID",
+        "it": "ID",
+        "de": "ID",
+        "nl": "ID"
+      },
+      "example": {
+        "en": "79",
+        "it": "79",
+        "de": "79",
+        "nl": "79"
+      }
+    },
+    {
+      "type": "number",
+      "name": "chatId",
+      "title": {
+        "en": "Chat ID",
+        "it": "Chat ID",
+        "de": "Chat ID",
+        "nl": "Chat ID"
+      },
+      "placeholder": {
+        "en": "-100183616945",
+        "it": "-100183616945",
+        "de": "-100183616945",
+        "nl": "-100183616945"
+      }
     }
   ]
 }

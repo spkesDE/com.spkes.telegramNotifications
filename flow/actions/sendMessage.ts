@@ -6,7 +6,6 @@ export default class SendMessage {
     constructor(app: TelegramNotifications, card: FlowCardAction) {
         card.registerRunListener(async (args) => {
             if (app.bot != null) {
-                console.log(args)
                 await app.bot.telegram.sendMessage(args.user.id, args.message)
                     .catch(app.error)
                     .then();

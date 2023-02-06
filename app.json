@@ -1,0 +1,1787 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.spkes.telegramNotifications",
+  "version": "2.1.5",
+  "compatibility": ">=8.1.0",
+  "sdk": 3,
+  "brandColor": "#229ED9",
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Telegram",
+    "it": "Telegram",
+    "de": "Telegram",
+    "nl": "Telegram"
+  },
+  "description": {
+    "en": "Effortlessly control your smart home with Telegram",
+    "it": "Controlla facilmente la tua casa intelligente con Telegram",
+    "de": "Steuere mühelos dein Smart-Zuhause mit Telegram",
+    "nl": "Bedien uw slimme huis gemakkelijk met Telegram"
+  },
+  "category": [
+    "internet"
+  ],
+  "permissions": [
+    "homey:app:net.i-dev.betterlogic"
+  ],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Julian Suhl",
+    "email": "julian@suhl.de"
+  },
+  "tags": {
+    "en": [
+      "Telegram",
+      "Messenger",
+      "Bot",
+      "Questions",
+      "Notifications",
+      "Topics",
+      "Groups",
+      "better logic library",
+      "BLL"
+    ],
+    "de": [
+      "Telegram",
+      "Messenger",
+      "Bot",
+      "Fragen",
+      "Benachrichtigungen",
+      "Themen",
+      "Gruppen",
+      "better logic library",
+      "BLL"
+    ],
+    "it": [
+      "Telegram",
+      "Messenger",
+      "Bot",
+      "Domande",
+      "Notifiche",
+      "Argomenti",
+      "Gruppi",
+      "better logic library",
+      "BLL"
+    ],
+    "nl": [
+      "Telegram",
+      "Messenger",
+      "Bot",
+      "Vragen",
+      "Notificaties",
+      "Onderwerpen",
+      "Groepen",
+      "better logic library",
+      "BLL"
+    ]
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "telegraf.js - v4.11.2",
+        "email": ""
+      }
+    ],
+    "translators": [
+      {
+        "name": "🇬🇧 🇩🇪 - spkesDE"
+      },
+      {
+        "name": "🇬🇧 🇳🇱 - Twan_Veugelers"
+      },
+      {
+        "name": "🇮🇹 - ilpaolino"
+      }
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "spikes022"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/spkesDE/TelegramNotifications/issues"
+  },
+  "source": "https://github.com/spkesDE/TelegramNotifications",
+  "support": "https://github.com/spkesDE",
+  "homeyCommunityTopicId": 66622,
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "A new user/chat has been discovered",
+          "it": "Un nuovo utente/chat è stato trovato",
+          "de": "Ein neuer Benutzer/Chat wurde entdeckt",
+          "nl": "Er is een nieuwe gebruiker/chat ontdekt"
+        },
+        "titleFormatted": {
+          "en": "A new user/chat has been discovered",
+          "it": "Un nuovo utente/chat è stato trovato",
+          "de": "Ein neuer Benutzer/Chat wurde entdeckt",
+          "nl": "Er is een nieuwe gebruiker/chat ontdekt"
+        },
+        "tokens": [
+          {
+            "name": "from",
+            "type": "string",
+            "title": {
+              "en": "First Name",
+              "it": "Nome",
+              "de": "Vorname",
+              "nl": "Voornaam"
+            },
+            "example": {
+              "en": "Julian",
+              "it": "Julian",
+              "de": "Julian",
+              "nl": "Julian"
+            }
+          },
+          {
+            "name": "username",
+            "type": "string",
+            "title": {
+              "en": "Username",
+              "it": "Nome Utente",
+              "de": "Benutzername",
+              "nl": "Gebruikersnaam"
+            },
+            "example": {
+              "en": "spkesDE",
+              "it": "spkesDE",
+              "de": "spkesDE",
+              "nl": "spkesDE"
+            }
+          },
+          {
+            "name": "chatType",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "it": "Tipo",
+              "de": "Typ",
+              "nl": "Type"
+            },
+            "example": {
+              "en": "Group",
+              "it": "Gruppo",
+              "de": "Gruppe",
+              "nl": "Group"
+            }
+          }
+        ],
+        "id": "newUser"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "When a message is received from a chat",
+          "it": "Quando si riceve un messaggio da una chat",
+          "de": "Eine Nachricht aus einen Chat empfangen wird",
+          "nl": "Er wordt een bericht van een chat ontvangen"
+        },
+        "titleFormatted": {
+          "en": "A message from [[chat]] is received",
+          "it": "È stato ricevuto un messaggio da [[chat]].",
+          "de": "Eine Nachricht von [[chat]] wird empfangen",
+          "nl": "Er is een bericht van [[chat]] ontvangen"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "chat",
+            "title": {
+              "en": "Chat",
+              "it": "Chat",
+              "de": "Chat",
+              "nl": "Chat"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "message",
+            "type": "string",
+            "title": {
+              "en": "Message",
+              "it": "Messaggio",
+              "de": "Nachricht",
+              "nl": "Bericht"
+            },
+            "example": {
+              "en": "Hello from Telegram!",
+              "it": "Ciao da Telegram!",
+              "de": "Hallo von Telegram!",
+              "nl": "Hallo van Telegram!"
+            }
+          },
+          {
+            "name": "from",
+            "type": "string",
+            "title": {
+              "en": "First Name",
+              "it": "Nome",
+              "de": "Vorname",
+              "nl": "Voornaam"
+            },
+            "example": {
+              "en": "Julian",
+              "it": "Julian",
+              "de": "Julian",
+              "nl": "Julian"
+            }
+          },
+          {
+            "name": "username",
+            "type": "string",
+            "title": {
+              "en": "Username",
+              "it": "Nome Utente",
+              "de": "Benutzername",
+              "nl": "Gebruikersnaam"
+            },
+            "example": {
+              "en": "spkesDE",
+              "it": "spkesDE",
+              "de": "spkesDE",
+              "nl": "spkesDE"
+            }
+          },
+          {
+            "name": "chat",
+            "type": "string",
+            "title": {
+              "en": "Chatname",
+              "it": "Nome Chat",
+              "de": "Chatname",
+              "nl": "Chatnaam"
+            },
+            "example": {
+              "en": "Family Group",
+              "it": "Gruppo Famiglia",
+              "de": "Familiengruppe",
+              "nl": "Familie Groep"
+            }
+          },
+          {
+            "name": "chatType",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "it": "Tipo",
+              "de": "Typ",
+              "nl": "Type"
+            },
+            "example": {
+              "en": "Group",
+              "it": "Gruppo",
+              "de": "Gruppe",
+              "nl": "Group"
+            }
+          },
+          {
+            "name": "date",
+            "type": "number",
+            "title": {
+              "en": "Date",
+              "it": "Data",
+              "de": "Datum",
+              "nl": "Datum"
+            },
+            "example": {
+              "en": "1675508634",
+              "it": "1675508634",
+              "de": "1675508634",
+              "nl": "1675508634"
+            }
+          },
+          {
+            "name": "id",
+            "type": "number",
+            "title": {
+              "en": "ID",
+              "it": "ID",
+              "de": "ID",
+              "nl": "ID"
+            },
+            "example": {
+              "en": "79",
+              "it": "79",
+              "de": "79",
+              "nl": "79"
+            }
+          }
+        ],
+        "id": "receive-message-from-chat"
+      },
+      {
+        "title": {
+          "en": "A question has been answered",
+          "it": "Una domanda ha ricevuto risposta",
+          "de": "Eine Frage wurde beantwortet",
+          "nl": "Een vraag is beantwoord"
+        },
+        "titleFormatted": {
+          "en": "The question [[question]] has been answered",
+          "it": "[[question]] ha ricevuto risposta",
+          "de": "Die Frage [[question]] wurde beantwortet",
+          "nl": "De vraag [[question]] is beantwoord"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "question",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "question",
+            "type": "string",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            },
+            "example": {
+              "en": "Do you like pizza?",
+              "it": "Ti piace la pizza?",
+              "de": "Magst du Pizza?",
+              "nl": "Lust je pizza?"
+            }
+          },
+          {
+            "name": "answer",
+            "type": "string",
+            "title": {
+              "en": "Answer",
+              "it": "Risposta",
+              "de": "Antwort",
+              "nl": "Antwoord"
+            },
+            "example": {
+              "en": "Yes, of course. Is that even a question?",
+              "it": "Sì, certametne. È una domanda?",
+              "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
+              "nl": "Ja, natuurlijk. Is dit echt een vraag?"
+            }
+          },
+          {
+            "name": "from",
+            "type": "string",
+            "title": {
+              "en": "First Name",
+              "it": "Nome",
+              "de": "Vorname",
+              "nl": "Voornaam"
+            },
+            "example": {
+              "en": "Julian",
+              "it": "Julian",
+              "de": "Julian",
+              "nl": "Julian"
+            }
+          },
+          {
+            "name": "username",
+            "type": "string",
+            "title": {
+              "en": "Username",
+              "it": "Nome Utente",
+              "de": "Benutzername",
+              "nl": "Gebruikersnaam"
+            },
+            "example": {
+              "en": "spkesDE",
+              "it": "spkesDE",
+              "de": "spkesDE",
+              "nl": "spkesDE"
+            }
+          },
+          {
+            "name": "chat",
+            "type": "string",
+            "title": {
+              "en": "Chatname",
+              "it": "Nome Chat",
+              "de": "Chatname",
+              "nl": "Chatnaam"
+            },
+            "example": {
+              "en": "Family Group",
+              "it": "Gruppo Famiglia",
+              "de": "Familiengruppe",
+              "nl": "Familie Groep"
+            }
+          },
+          {
+            "name": "chatType",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "it": "Tipo",
+              "de": "Typ",
+              "nl": "Type"
+            },
+            "example": {
+              "en": "Group",
+              "it": "Gruppo",
+              "de": "Gruppe",
+              "nl": "Group"
+            }
+          },
+          {
+            "name": "id",
+            "type": "number",
+            "title": {
+              "en": "ID",
+              "it": "ID",
+              "de": "ID",
+              "nl": "ID"
+            },
+            "example": {
+              "en": "79",
+              "it": "79",
+              "de": "79",
+              "nl": "79"
+            }
+          },
+          {
+            "type": "number",
+            "name": "chatId",
+            "title": {
+              "en": "Chat ID",
+              "it": "Chat ID",
+              "de": "Chat ID",
+              "nl": "Chat ID"
+            },
+            "placeholder": {
+              "en": "-100183616945",
+              "it": "-100183616945",
+              "de": "-100183616945",
+              "nl": "-100183616945"
+            }
+          }
+        ],
+        "id": "receive-question-answer"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "A question has been answered",
+          "it": "Una domanda ha ricevuto risposta",
+          "de": "Eine Frage wurde beantwortet",
+          "nl": "Een vraag is beantwoord"
+        },
+        "titleFormatted": {
+          "en": "The question [[question]] has been answered with [[answer]]",
+          "it": "[[question]] ha ricevuto la risposta [[answer]]",
+          "de": "Die Frage [[question]] wurde mit [[answer]] beantwortet",
+          "nl": "De vraag [[question]] is beantwoord met [[answer]]"
+        },
+        "hint": {
+          "en": "First select the question then the answer. Both fields will autocomplete.",
+          "it": "Seleziona prima la domanda, poi la risposta. Entrambi i campi verranno completati automaticamente.",
+          "de": "Wähle zuerst die Frage und dann die Antwort aus. Beide Felder werden automatisch vervollständigt.",
+          "nl": "Selecteer eerst de vraag en daarna het antwoord. Beide velden worden automatisch ingevuld."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "question",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "answer",
+            "title": {
+              "en": "Answer",
+              "it": "Risposta",
+              "de": "Antwort",
+              "nl": "Antwoord"
+            },
+            "placeholder": {
+              "en": "Yes, of course. Is that even a question?",
+              "it": "Sì, certamente. È una domanda?",
+              "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
+              "nl": "Ja, natuurlijk. Is dit echt een vraag?"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "question",
+            "type": "string",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            },
+            "example": {
+              "en": "Do you like pizza?",
+              "it": "Ti piace la pizza?",
+              "de": "Magst du Pizza?",
+              "nl": "Lust je pizza?"
+            }
+          },
+          {
+            "name": "answer",
+            "type": "string",
+            "title": {
+              "en": "Answer",
+              "it": "Risposta",
+              "de": "Antwort",
+              "nl": "Antwoord"
+            },
+            "example": {
+              "en": "Yes, of course. Is that even a question?",
+              "it": "Sì, certamente. È una domanda?",
+              "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
+              "nl": "Ja, natuurlijk. Is dit echt een vraag?"
+            }
+          },
+          {
+            "name": "from",
+            "type": "string",
+            "title": {
+              "en": "First Name",
+              "it": "Nome",
+              "de": "Vorname",
+              "nl": "Voornaam"
+            },
+            "example": {
+              "en": "Julian",
+              "it": "Julian",
+              "de": "Julian",
+              "nl": "Julian"
+            }
+          },
+          {
+            "name": "username",
+            "type": "string",
+            "title": {
+              "en": "Username",
+              "it": "Nome Utente",
+              "de": "Benutzername",
+              "nl": "Gebruikersnaam"
+            },
+            "example": {
+              "en": "spkesDE",
+              "it": "spkesDE",
+              "de": "spkesDE",
+              "nl": "spkesDE"
+            }
+          },
+          {
+            "name": "chat",
+            "type": "string",
+            "title": {
+              "en": "Chatname",
+              "it": "Nome Chat",
+              "de": "Chatname",
+              "nl": "Chatnaam"
+            },
+            "example": {
+              "en": "Family Group",
+              "it": "Gruppo Famiglia",
+              "de": "Familiengruppe",
+              "nl": "Familie Groep"
+            }
+          },
+          {
+            "name": "chatType",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "it": "Tipo",
+              "de": "Typ",
+              "nl": "Type"
+            },
+            "example": {
+              "en": "Group",
+              "it": "Gruppo",
+              "de": "Gruppe",
+              "nl": "Group"
+            }
+          },
+          {
+            "name": "id",
+            "type": "number",
+            "title": {
+              "en": "ID",
+              "it": "ID",
+              "de": "ID",
+              "nl": "ID"
+            },
+            "example": {
+              "en": "79",
+              "it": "79",
+              "de": "79",
+              "nl": "79"
+            }
+          },
+          {
+            "type": "number",
+            "name": "chatId",
+            "title": {
+              "en": "Chat ID",
+              "it": "Chat ID",
+              "de": "Chat ID",
+              "nl": "Chat ID"
+            },
+            "placeholder": {
+              "en": "-100183616945",
+              "it": "-100183616945",
+              "de": "-100183616945",
+              "nl": "-100183616945"
+            }
+          }
+        ],
+        "id": "receive-question-answer-autocomplete"
+      },
+      {
+        "title": {
+          "en": "A question has been answered",
+          "it": "Una domanda ha ricevuto risposta",
+          "de": "Eine Frage wurde beantwortet",
+          "nl": "Een vraag is beantwoord"
+        },
+        "titleFormatted": {
+          "en": "The question [[question]] with custom id [[id]] has been answered with [[answer]]",
+          "it": "[[question]] con ID personalizzato [[id]] ha ricevuto la risposta [[answer]]",
+          "de": "Die Frage [[question]] mit angepasster ID [[id]] wurde mit [[answer]] beantwortet",
+          "nl": "De vraag [[question]] met aangepaste ID [[id]] is beantwoord met [[answer]]"
+        },
+        "hint": {
+          "en": "First select the question then the answer. Both fields will autocomplete.",
+          "it": "Seleziona prima la domanda, poi la risposta. Entrambi i campi verranno completati automaticamente.",
+          "de": "Wähle zuerst die Frage und dann die Antwort aus. Beide Felder werden automatisch vervollständigt.",
+          "nl": "Selecteer eerst de vraag en daarna het antwoord. Beide velden worden automatisch ingevuld."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "question",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "answer",
+            "title": {
+              "en": "Answer",
+              "it": "Risposta",
+              "de": "Antwort",
+              "nl": "Antwoord"
+            },
+            "placeholder": {
+              "en": "Yes, of course. Is that even a question?",
+              "it": "Sì, certamente. È una domanda?",
+              "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
+              "nl": "Ja, natuurlijk. Is dit echt een vraag?"
+            }
+          },
+          {
+            "type": "text",
+            "name": "id",
+            "title": {
+              "en": "Custom ID",
+              "it": "ID personalizzato",
+              "de": "Angepasste ID",
+              "nl": "Aangepaste ID"
+            },
+            "placeholder": {
+              "en": "MyId",
+              "it": "MYId",
+              "de": "MyId",
+              "nl": "MyId"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "question",
+            "type": "string",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            },
+            "example": {
+              "en": "Do you like pizza?",
+              "it": "Ti piace la pizza?",
+              "de": "Magst du Pizza?",
+              "nl": "Lust je pizza?"
+            }
+          },
+          {
+            "name": "answer",
+            "type": "string",
+            "title": {
+              "en": "Answer",
+              "it": "Risposta",
+              "de": "Antwort",
+              "nl": "Antwoord"
+            },
+            "example": {
+              "en": "Yes, of course. Is that even a question?",
+              "it": "Sì, certamente. È una domanda?",
+              "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
+              "nl": "Ja, natuurlijk. Is dit echt een vraag?"
+            }
+          },
+          {
+            "name": "from",
+            "type": "string",
+            "title": {
+              "en": "First Name",
+              "it": "Nome",
+              "de": "Vorname",
+              "nl": "Voornaam"
+            },
+            "example": {
+              "en": "Julian",
+              "it": "Julian",
+              "de": "Julian",
+              "nl": "Julian"
+            }
+          },
+          {
+            "name": "username",
+            "type": "string",
+            "title": {
+              "en": "Username",
+              "it": "Nome Utente",
+              "de": "Benutzername",
+              "nl": "Gebruikersnaam"
+            },
+            "example": {
+              "en": "spkesDE",
+              "it": "spkesDE",
+              "de": "spkesDE",
+              "nl": "spkesDE"
+            }
+          },
+          {
+            "name": "chat",
+            "type": "string",
+            "title": {
+              "en": "Chatname",
+              "it": "Nome Chat",
+              "de": "Chatname",
+              "nl": "Chatnaam"
+            },
+            "example": {
+              "en": "Family Group",
+              "it": "Gruppo Famiglia",
+              "de": "Familiengruppe",
+              "nl": "Familie Groep"
+            }
+          },
+          {
+            "name": "chatType",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "it": "Tipo",
+              "de": "Typ",
+              "nl": "Type"
+            },
+            "example": {
+              "en": "Group",
+              "it": "Gruppo",
+              "de": "Gruppe",
+              "nl": "Group"
+            }
+          },
+          {
+            "name": "id",
+            "type": "number",
+            "title": {
+              "en": "ID",
+              "it": "ID",
+              "de": "ID",
+              "nl": "ID"
+            },
+            "example": {
+              "en": "79",
+              "it": "79",
+              "de": "79",
+              "nl": "79"
+            }
+          },
+          {
+            "type": "number",
+            "name": "chatId",
+            "title": {
+              "en": "Chat ID",
+              "it": "Chat ID",
+              "de": "Chat ID",
+              "nl": "Chat ID"
+            },
+            "placeholder": {
+              "en": "-100183616945",
+              "it": "-100183616945",
+              "de": "-100183616945",
+              "nl": "-100183616945"
+            }
+          }
+        ],
+        "id": "receive-question-answer-autocomplete-customId"
+      },
+      {
+        "deprecated": true,
+        "title": {
+          "en": "A question has been answered",
+          "it": "Una domanda ha ricevuto risposta",
+          "de": "Eine Frage wurde beantwortet",
+          "nl": "Een vraag is beantwoord"
+        },
+        "titleFormatted": {
+          "en": "The question [[question]] has been answered with [[answer]]",
+          "it": "[[question]] ha ricevuto la risposta [[answer]]",
+          "de": "Die Frage [[question]] wurde mit [[answer]] beantwortet",
+          "nl": "De vraag [[question]] is beantwoord met [[answer]]"
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "question",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            }
+          },
+          {
+            "type": "text",
+            "name": "answer",
+            "title": {
+              "en": "Answer",
+              "it": "Risposta",
+              "de": "Antwort",
+              "nl": "Antwoord"
+            },
+            "placeholder": {
+              "en": "Yes, of course. Is that even a question?",
+              "it": "Sì, certamente. È una domanda?",
+              "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
+              "nl": "Ja, natuurlijk. Is dit echt een vraag?"
+            }
+          }
+        ],
+        "tokens": [
+          {
+            "name": "question",
+            "type": "string",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            },
+            "example": {
+              "en": "Do you like pizza?",
+              "it": "Ti piace la pizza?",
+              "de": "Magst du Pizza?",
+              "nl": "Lust je pizza?"
+            }
+          },
+          {
+            "name": "answer",
+            "type": "string",
+            "title": {
+              "en": "Answer",
+              "it": "Risposta",
+              "de": "Antwort",
+              "nl": "Antwoord"
+            },
+            "example": {
+              "en": "Yes, of course. Is that even a question?",
+              "it": "Sì, certamente. È una domanda?",
+              "de": "Ja, natürlich. Ist das überhaupt eine Frage?",
+              "nl": "Ja, natuurlijk. Is dit echt een vraag?"
+            }
+          },
+          {
+            "name": "from",
+            "type": "string",
+            "title": {
+              "en": "First Name",
+              "it": "Nome",
+              "de": "Vorname",
+              "nl": "Voornaam"
+            },
+            "example": {
+              "en": "Julian",
+              "it": "Julian",
+              "de": "Julian",
+              "nl": "Julian"
+            }
+          },
+          {
+            "name": "username",
+            "type": "string",
+            "title": {
+              "en": "Username",
+              "it": "Nome Utente",
+              "de": "Benutzername",
+              "nl": "Gebruikersnaam"
+            },
+            "example": {
+              "en": "spkesDE",
+              "it": "spkesDE",
+              "de": "spkesDE",
+              "nl": "spkesDE"
+            }
+          },
+          {
+            "name": "chat",
+            "type": "string",
+            "title": {
+              "en": "Chatname",
+              "it": "Nome Chat",
+              "de": "Chatname",
+              "nl": "Chatnaam"
+            },
+            "example": {
+              "en": "Family Group",
+              "it": "Gruppo Famiglia",
+              "de": "Familiengruppe",
+              "nl": "Familie Groep"
+            }
+          },
+          {
+            "name": "chatType",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "it": "Tipo",
+              "de": "Typ",
+              "nl": "Type"
+            },
+            "example": {
+              "en": "Group",
+              "it": "Gruppo",
+              "de": "Gruppe",
+              "nl": "Group"
+            }
+          },
+          {
+            "name": "id",
+            "type": "number",
+            "title": {
+              "en": "ID",
+              "it": "ID",
+              "de": "ID",
+              "nl": "ID"
+            },
+            "example": {
+              "en": "79",
+              "it": "79",
+              "de": "79",
+              "nl": "79"
+            }
+          },
+          {
+            "type": "number",
+            "name": "chatId",
+            "title": {
+              "en": "Chat ID",
+              "it": "Chat ID",
+              "de": "Chat ID",
+              "nl": "Chat ID"
+            },
+            "placeholder": {
+              "en": "-100183616945",
+              "it": "-100183616945",
+              "de": "-100183616945",
+              "nl": "-100183616945"
+            }
+          }
+        ],
+        "id": "receive-question-answer-with-answer"
+      },
+      {
+        "title": {
+          "en": "When a message is received",
+          "it": "Quando un messaggio è stato ricevuto",
+          "de": "Eine Nachricht wird empfangen",
+          "nl": "Als een bericht is ontvangen"
+        },
+        "titleFormatted": {
+          "en": "A message is received",
+          "it": "Un  messaggio è stato ricevuto",
+          "de": "Eine Nachricht wird empfangen",
+          "nl": "Een bericht is ontvangen"
+        },
+        "tokens": [
+          {
+            "name": "message",
+            "type": "string",
+            "title": {
+              "en": "Message",
+              "it": "Messaggio",
+              "de": "Nachricht",
+              "nl": "Bericht"
+            },
+            "example": {
+              "en": "Hello from Telegram!",
+              "it": "Ciao da Telegram!",
+              "de": "Hallo von Telegram!",
+              "nl": "Hallo van Telegram!"
+            }
+          },
+          {
+            "name": "from",
+            "type": "string",
+            "title": {
+              "en": "First Name",
+              "it": "Nome",
+              "de": "Vorname",
+              "nl": "Voornaam"
+            },
+            "example": {
+              "en": "Julian",
+              "it": "Julian",
+              "de": "Julian",
+              "nl": "Julian"
+            }
+          },
+          {
+            "name": "username",
+            "type": "string",
+            "title": {
+              "en": "Username",
+              "it": "Nome Utente",
+              "de": "Benutzername",
+              "nl": "Gebruikersnaam"
+            },
+            "example": {
+              "en": "spkesDE",
+              "it": "spkesDE",
+              "de": "spkesDE",
+              "nl": "spkesDE"
+            }
+          },
+          {
+            "name": "chat",
+            "type": "string",
+            "title": {
+              "en": "Chatname",
+              "it": "Nome Chat",
+              "de": "Chatname",
+              "nl": "Chatnaam"
+            },
+            "example": {
+              "en": "Family Group",
+              "it": "Gruppo Famiglia",
+              "de": "Familiengruppe",
+              "nl": "Familie Groep"
+            }
+          },
+          {
+            "name": "chatType",
+            "type": "string",
+            "title": {
+              "en": "Type",
+              "it": "Tipo",
+              "de": "Typ",
+              "nl": "Type"
+            },
+            "example": {
+              "en": "Group",
+              "it": "Gruppo",
+              "de": "Gruppe",
+              "nl": "Group"
+            }
+          },
+          {
+            "name": "date",
+            "type": "number",
+            "title": {
+              "en": "Date",
+              "it": "Data",
+              "de": "Datum",
+              "nl": "Datum"
+            },
+            "example": {
+              "en": "1675508634",
+              "it": "1675508634",
+              "de": "1675508634",
+              "nl": "1675508634"
+            }
+          },
+          {
+            "name": "id",
+            "type": "number",
+            "title": {
+              "en": "ID",
+              "it": "ID",
+              "de": "ID",
+              "nl": "ID"
+            },
+            "example": {
+              "en": "79",
+              "it": "79",
+              "de": "79",
+              "nl": "79"
+            }
+          }
+        ],
+        "id": "receiveMessage"
+      }
+    ],
+    "actions": [
+      {
+        "title": {
+          "en": "Delete message",
+          "it": "Cancella il messaggio",
+          "de": "Nachricht löschen",
+          "nl": "Verwijder bericht"
+        },
+        "advanced": true,
+        "titleFormatted": {
+          "en": "Delete message with [[id]] in [[user]]",
+          "it": "Elimina messaggio con [[id]] in [[user]]",
+          "de": "Nachricht mit [[id]] löschen in [[user]]",
+          "nl": "Verwijder bericht met [[id]] in [[user]]"
+        },
+        "args": [
+          {
+            "type": "number",
+            "name": "id",
+            "title": {
+              "en": "ID",
+              "it": "ID",
+              "de": "ID",
+              "nl": "ID"
+            },
+            "placeholder": {
+              "en": "123"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "Chat",
+              "it": "Chat",
+              "de": "Chat",
+              "nl": "Chat"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "delete-message-with-id"
+      },
+      {
+        "title": {
+          "en": "Delete message",
+          "it": "Cancella il messaggio",
+          "de": "Nachricht löschen",
+          "nl": "Verwijder bericht"
+        },
+        "advanced": true,
+        "titleFormatted": {
+          "en": "Delete message with [[id]] in [[chatId]]",
+          "it": "Elimina messaggio con [[id]] in [[chatId]]",
+          "de": "Nachricht mit [[id]] löschen in [[chatId]]",
+          "nl": "Verwijder bericht met [[id]] in [[chatId]]"
+        },
+        "args": [
+          {
+            "type": "number",
+            "name": "id",
+            "title": {
+              "en": "ID",
+              "it": "ID",
+              "de": "ID",
+              "nl": "ID"
+            },
+            "placeholder": {
+              "en": "123"
+            }
+          },
+          {
+            "type": "number",
+            "name": "chatId",
+            "title": {
+              "en": "Chat ID",
+              "it": "Chat ID",
+              "de": "Chat ID",
+              "nl": "Chat ID"
+            },
+            "placeholder": {
+              "en": "-100183616945",
+              "it": "-100183616945",
+              "de": "-100183616945",
+              "nl": "-100183616945"
+            }
+          }
+        ],
+        "id": "delete-message-with-id-and-chatId"
+      },
+      {
+        "title": {
+          "en": "Send an Image",
+          "it": "Invia una Immagine",
+          "de": "Ein Bild senden",
+          "nl": "Verstuur een afbeelding"
+        },
+        "titleFormatted": {
+          "en": "Send an image [[url]] to [[user]]",
+          "it": "Invia una Immagine [[url]] a [[user]]",
+          "de": "Bild [[url]] an [[user]] senden",
+          "nl": "Afbeelding [[url]] naar [[user]] versturen"
+        },
+        "hint": {
+          "en": "Sends a Image to your Telegram chat. Only HTTPS is supported.",
+          "it": "Invia una Immagine nella tua chat Telegram. Only HTTPS is supported.",
+          "de": "Sendet ein Bild an deinen Telegram-Chat. Nur HTTPS protokoll ist unterstützt.",
+          "nl": "Verstuur een afbeelding naar uw Telegram chat. Alleen HTTPS wordt ondersteund."
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "url",
+            "title": {
+              "en": "URL",
+              "it": "URL",
+              "de": "URL",
+              "nl": "URL"
+            },
+            "placeholder": {
+              "en": "https://url/image.png",
+              "it": "https://url/image.png",
+              "de": "https://url/image.png",
+              "nl": "https://url/image.png"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "it": "Utente",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-a-image"
+      },
+      {
+        "title": {
+          "en": "Send an image with a message",
+          "it": "Invia una Immagine con un messaggio",
+          "de": "Ein Bild mit einer Nachricht senden",
+          "nl": "Verstuur een afbeelding met een bericht"
+        },
+        "titleFormatted": {
+          "en": "Send image [[url]] to [[user]] with the message [[message]]",
+          "it": "Invia immagine [[url]] a [[user]] con il messaggio [[message]]",
+          "de": "Bild [[url]] mit Nachricht [[message]] an [[user]] senden",
+          "nl": "Stuur afbeelding [[url]] naar [[user]] met het bericht [[message]]"
+        },
+        "hint": {
+          "en": "Sends a Image to your Telegram chat. Only HTTPS is supported.",
+          "it": "Invia una Immagine nella tua chat Telegram. Only HTTPS is supported.",
+          "de": "Sendet ein Bild an deinen Telegram-Chat. Nur HTTPS protokoll ist unterstützt.",
+          "nl": "Verstuur een afbeelding naar uw Telegram chat. Alleen HTTPS wordt ondersteund."
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "Message",
+              "it": "Messaggio",
+              "de": "Nachricht",
+              "nl": "Bericht"
+            },
+            "placeholder": {
+              "en": "Hello from Homey!",
+              "it": "Ciao da Homey!",
+              "de": "Hallo von Homey!",
+              "nl": "Hallo van Homey!"
+            }
+          },
+          {
+            "type": "text",
+            "name": "url",
+            "title": {
+              "en": "URL",
+              "it": "URL",
+              "de": "URL",
+              "nl": "URL"
+            },
+            "placeholder": {
+              "en": "https://url/image.png",
+              "it": "https://url/image.png",
+              "de": "https://url/image.png",
+              "nl": "https://url/image.png"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "it": "Utente",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-a-image-with-message"
+      },
+      {
+        "title": {
+          "en": "Send an image with a message",
+          "it": "Invia immagine con un messaggio",
+          "de": "Ein Bild mit einer Nachricht senden",
+          "nl": "Verstuur een afbeelding met een bericht"
+        },
+        "titleFormatted": {
+          "en": "Send image [[droptoken]] to [[user]] with the message [[message]]",
+          "it": "Invia immagine [[droptoken]] a [[user]] con il messaggio [[message]]",
+          "de": "Bild [[droptoken]] mit Nachricht [[message]] an [[user]] senden",
+          "nl": "Stuur afbeelding [[droptoken]] naar [[user]] met het bericht [[message]]"
+        },
+        "hint": {
+          "en": "Sends a Image to your Telegram chat",
+          "it": "Invia una Immagine nella tua chat Telegram",
+          "de": "Sendet ein Bild an deinen Telegram-Chat",
+          "nl": "Verstuurt een afbeelding naar uw Telegram chat"
+        },
+        "droptoken": [
+          "image"
+        ],
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "Message",
+              "it": "Messaggio",
+              "de": "Nachricht",
+              "nl": "Bericht"
+            },
+            "placeholder": {
+              "en": "Hello from Homey!",
+              "it": "Ciao da Homey!",
+              "de": "Hallo von Homey!",
+              "nl": "Hallo van Homey!"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "it": "Utente",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-a-image-with-message-and-tag"
+      },
+      {
+        "title": {
+          "en": "Send an Image",
+          "it": "Invia una Immagine",
+          "de": "Ein Bild senden",
+          "nl": "Verstuur een afbeelding"
+        },
+        "titleFormatted": {
+          "en": "Send an image [[droptoken]] to [[user]]",
+          "it": "Invia una immagine [[droptoken]] a [[user]]",
+          "de": "Bild [[droptoken]] an [[user]] senden",
+          "nl": "Afbeelding [[droptoken]] naar [[user]] versturen"
+        },
+        "hint": {
+          "en": "Sends a Image to your Telegram chat",
+          "it": "Invia una Immagine nella tua chat Telegram",
+          "de": "Sendet ein Bild an deinen Telegram-Chat",
+          "nl": "Verstuur een afbeelding naar uw Telegram chat"
+        },
+        "droptoken": [
+          "image"
+        ],
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "it": "Utente",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-a-image-with-tag"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "Send a Question",
+          "it": "Invia una domanda",
+          "de": "Sende eine Frage",
+          "nl": "Stuur een vraag"
+        },
+        "titleFormatted": {
+          "en": "Send a question [[question]] to [[user]]",
+          "it": "Invia domanda [[question]] a [[user]]",
+          "de": "Sende eine Frage [[question]] zu [[user]]",
+          "nl": "Stuur een vraag [[question]] naar [[user]]"
+        },
+        "hint": {
+          "en": "Sends a Question to your Telegram chat.",
+          "it": "Invia una domanda nella tua chat Telegram.",
+          "de": "Sendet eine Frage an Ihren Telegram-Chat.",
+          "nl": "Stuurt een vraag naar je Telegram chat."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "question",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "it": "Utente",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-a-question"
+      },
+      {
+        "title": {
+          "en": "Send a Question",
+          "it": "Invia una domanda",
+          "de": "Sende eine Frage",
+          "nl": "Stuur een vraag"
+        },
+        "titleFormatted": {
+          "en": "Send a question [[question]] to [[user]] with custom id [[id]]",
+          "it": "Invia domanda [[question]] a [[user]] con id personalizzato [[id]]",
+          "de": "Sende eine Frage [[question]] zu [[user]] mit angepasster ID [[id]]",
+          "nl": "Stuur de vraag [[question]] naar [[user]] met aangepast id [[id]]"
+        },
+        "hint": {
+          "en": "Sends a Question to your Telegram chat. The custom id must be free of whitespace and no more than 20 characters long.",
+          "it": "Invia una domanda nella tua chat Telegram. L'id personalizzato deve essere privo di spazi bianchi e non deve superare i 20 caratteri.",
+          "de": "Sendet eine Frage an Ihren Telegram-Chat. Die benutzerdefinierte ID muss frei von Leerzeichen sein und darf nicht länger als 20 Zeichen sein.",
+          "nl": "Stuurt een vraag naar je Telegram chat. Het aangepaste id moet vrij zijn van spaties en mag niet meer dan 20 tekens lang zijn."
+        },
+        "args": [
+          {
+            "type": "autocomplete",
+            "name": "question",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "it": "Utente",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          },
+          {
+            "type": "text",
+            "name": "id",
+            "title": {
+              "en": "Custom ID",
+              "it": "ID personalizzato",
+              "de": "Angepasste ID",
+              "nl": "Aangepaste ID"
+            },
+            "placeholder": {
+              "en": "MyId",
+              "it": "MYId",
+              "de": "MyId",
+              "nl": "MyId"
+            }
+          }
+        ],
+        "id": "send-a-question-with-custom-id"
+      },
+      {
+        "title": {
+          "en": "Send a Question with custom text",
+          "it": "Invia una domanda con testo personalizzato",
+          "de": "Sende eine Frage mit angepasste text",
+          "nl": "Dien een vraag in met aangepaste tekst"
+        },
+        "titleFormatted": {
+          "en": "Send a question [[question]] to [[user]] with custom text [[message]]",
+          "it": "Invia una domanda [[question]] a [[user]] con testo personalizzato [[message]]",
+          "de": "Sende eine Frage [[question]] zu [[user]] mit angepasster Nachricht [[message]]",
+          "nl": "Stuur een vraag [[question]] naar [[user]] met aangepaste tekst [[message]]"
+        },
+        "hint": {
+          "en": "Sends a Question to your Telegram chat.",
+          "it": "Invia una domanda nella tua chat Telegram.",
+          "de": "Sendet eine Frage an Ihren Telegram-Chat.",
+          "nl": "Stuurt een vraag naar je Telegram chat."
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "Message",
+              "it": "Messaggio",
+              "de": "Nachricht",
+              "nl": "Bericht"
+            },
+            "placeholder": {
+              "en": "Hello from Homey!",
+              "it": "Ciao da Homey!",
+              "de": "Hallo von Homey!",
+              "nl": "Hallo van Homey!"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "question",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "it": "Utente",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-a-question-with-custom-text"
+      },
+      {
+        "title": {
+          "en": "Send a silent message",
+          "it": "Invia un messaggio silenzioso",
+          "de": "Eine Leise Nachricht versenden",
+          "nl": "Verstuur een stil bericht"
+        },
+        "titleFormatted": {
+          "en": "Send a silent message [[message]] to [[user]]",
+          "it": "Inviare un messaggio silenzioso [[message]] all'[[user]]",
+          "de": "Leise Nachricht [[message]] an [[user]] senden",
+          "nl": "Stil bericht [[message]] naar [[user]] versturen"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "Message",
+              "it": "Messaggio",
+              "de": "Nachricht",
+              "nl": "Bericht"
+            },
+            "placeholder": {
+              "en": "Hello from Homey!",
+              "it": "Ciao da Homey!",
+              "de": "Hallo von Homey!",
+              "nl": "Hallo van Homey!"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "it": "Utente",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-message-silent"
+      },
+      {
+        "highlight": true,
+        "title": {
+          "en": "Send a message",
+          "it": "Invia messaggio",
+          "de": "Eine Nachricht senden",
+          "nl": "Verstuur een bericht"
+        },
+        "titleFormatted": {
+          "en": "Send message [[message]] to [[user]]",
+          "it": "Invia [[message]] a [[user]]",
+          "de": "Nachricht [[message]] an [[user]] senden",
+          "nl": "Bericht [[message]] naar [[user]] versturen"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "Message",
+              "it": "Messaggio",
+              "de": "Nachricht",
+              "nl": "Bericht"
+            },
+            "placeholder": {
+              "en": "Hello from Homey!",
+              "it": "Ciao da Homey!",
+              "de": "Hallo von Homey!",
+              "nl": "Hallo van Homey!"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "it": "Utente",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "sendNotification"
+      }
+    ]
+  }
+}

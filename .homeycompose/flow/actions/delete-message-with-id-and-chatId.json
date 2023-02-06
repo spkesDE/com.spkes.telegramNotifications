@@ -7,10 +7,10 @@
   },
   "advanced": true,
   "titleFormatted": {
-    "en": "Delete message with [[id]] in [[user]]",
-    "it": "Elimina messaggio con [[id]] in [[user]]",
-    "de": "Nachricht mit [[id]] löschen in [[user]]",
-    "nl": "Verwijder bericht met [[id]] in [[user]]"
+    "en": "Delete message with [[id]] in [[chatId]]",
+    "it": "Elimina messaggio con [[id]] in [[chatId]]",
+    "de": "Nachricht mit [[id]] löschen in [[chatId]]",
+    "nl": "Verwijder bericht met [[id]] in [[chatId]]"
   },
   "args": [
     {
@@ -27,19 +27,19 @@
       }
     },
     {
-      "type": "autocomplete",
-      "name": "user",
+      "type": "number",
+      "name": "chatId",
       "title": {
-        "en": "Chat",
-        "it": "Chat",
-        "de": "Chat",
-        "nl": "Chat"
+        "en": "Chat ID",
+        "it": "Chat ID",
+        "de": "Chat ID",
+        "nl": "Chat ID"
       },
       "placeholder": {
-        "en": "Created with <3",
-        "it": "Creato con <3",
-        "de": "Erstellt mit <3",
-        "nl": "Gemaakt met <3"
+        "en": "-100183616945",
+        "it": "-100183616945",
+        "de": "-100183616945",
+        "nl": "-100183616945"
       }
     }
   ]
