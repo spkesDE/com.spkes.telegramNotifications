@@ -109,5 +109,8 @@
   },
   "2.1.5": {
     "en": "Updated Translation. BLL support disabeld (causing issues)"
+  },
+  "2.1.6": {
+    "en": "Added Delete by Id & ChatId, Added to the Question when cards ChatId & MessageId"
   }
 }

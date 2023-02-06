@@ -1,6 +1,6 @@
 {
   "id": "com.spkes.telegramNotifications",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "compatibility": ">=8.1.0",
   "sdk": 3,
   "brandColor": "#229ED9",
@@ -89,13 +89,13 @@
     ],
     "translators": [
       {
-        "name": "\uD83C\uDDEC\uD83C\uDDE7 \uD83C\uDDE9\uD83C\uDDEA - spkesDE"
+        "name": "🇬🇧 🇩🇪 - spkesDE"
       },
       {
-        "name": "\uD83C\uDDEC\uD83C\uDDE7 \uD83C\uDDF3\uD83C\uDDF1 - Twan_Veugelers"
+        "name": "🇬🇧 🇳🇱 - Twan_Veugelers"
       },
       {
-        "name": "\uD83C\uDDEE\uD83C\uDDF9 - ilpaolino"
+        "name": "🇮🇹 - ilpaolino"
       }
     ]
   },
