@@ -14,7 +14,7 @@
   "hint": {
     "en": "Sends a Question to your Telegram chat. The custom id must be free of whitespace and no more than 20 characters long.",
     "it": "Invia una domanda nella tua chat Telegram. L'id personalizzato deve essere privo di spazi bianchi e non deve superare i 20 caratteri.",
-    "de": "Sendet eine Frage an Ihren Telegram-Chat. Die benutzerdefinierte ID muss frei von Leerzeichen sein und darf nicht länger als 20 Zeichen sein.",
+    "de": "Sendet eine Frage an deinen Telegram-Chat. Die benutzerdefinierte ID muss frei von Leerzeichen sein und darf nicht länger als 20 Zeichen sein.",
     "nl": "Stuurt een vraag naar je Telegram chat. Het aangepaste id moet vrij zijn van spaties en mag niet meer dan 20 tekens lang zijn."
   },
   "args": [

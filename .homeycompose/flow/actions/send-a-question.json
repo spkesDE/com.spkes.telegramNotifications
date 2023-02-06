@@ -15,7 +15,7 @@
   "hint": {
     "en": "Sends a Question to your Telegram chat.",
     "it": "Invia una domanda nella tua chat Telegram.",
-    "de": "Sendet eine Frage an Ihren Telegram-Chat.",
+    "de": "Sendet eine Frage an deinen Telegram-Chat.",
     "nl": "Stuurt een vraag naar je Telegram chat."
   },
   "args": [
