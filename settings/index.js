@@ -392,7 +392,7 @@ function clearLogs() {
   Homey.set('logs', '[]', (err) => {
     if (err) return Homey.alert(err);
   });
-  document.getElementById('logs-list').innerHTML = '';
+  document.getElementById('logs-list').value = '';
 }
 
 function clearAllUsers() {
