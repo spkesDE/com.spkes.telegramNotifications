@@ -112,5 +112,8 @@
   },
   "2.1.6": {
     "en": "Added Delete by Id & ChatId, Added to the Question when cards ChatId & MessageId"
+  },
+  "2.1.7": {
+    "en": "Add delete by custom Id"
   }
 }
