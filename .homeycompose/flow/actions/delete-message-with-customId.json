@@ -1,0 +1,30 @@
+{
+  "title": {
+    "en": "Delete message with custom Id",
+    "it": "Elimina messaggio con ID personalizzato",
+    "de": "Nachricht löschen mit angepasster Id",
+    "nl": "Verwijder bericht met aangepaste id"
+  },
+  "advanced": true,
+  "titleFormatted": {
+    "en": "Delete message with [[id]]",
+    "it": "Elimina messaggio con [[id]]",
+    "de": "Nachricht mit [[id]]",
+    "nl": "Verwijder bericht met [[id]]"
+  },
+  "args": [
+    {
+      "type": "text",
+      "name": "id",
+      "title": {
+        "en": "Custom ID",
+        "it": "Custom ID",
+        "de": "Custom ID",
+        "nl": "Custom ID"
+      },
+      "placeholder": {
+        "en": "myCustomID"
+      }
+    }
+  ]
+}

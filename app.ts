@@ -16,6 +16,7 @@ import {BL} from "betterlogiclibrary";
 import ReceiveMessageFromChat from "./flow/triggers/receiveMessageFromChat";
 import DeleteById from "./flow/actions/deleteById";
 import DeleteByIdAndChatId from "./flow/actions/deleteByIdAndChatId";
+import DeleteByCustomId from "./flow/actions/deleteByCustomId";
 
 export class TelegramNotifications extends Homey.App {
 
@@ -25,6 +26,7 @@ export class TelegramNotifications extends Homey.App {
     private token: string | null = null;
     private startSuccess: boolean = true;
     private registerFlowHandler: boolean = false;
+    customIdMessages: { message_id: number; chat_id: number; customId: string; }[] = [];
 
     async onInit() {
         this.token = await this.homey.settings.get('bot-token');
@@ -94,6 +96,7 @@ export class TelegramNotifications extends Homey.App {
 
         new DeleteById(this, this.homey.flow.getActionCard('delete-message-with-id'))
         new DeleteByIdAndChatId(this, this.homey.flow.getActionCard('delete-message-with-id-and-chatId'))
+        new DeleteByCustomId(this, this.homey.flow.getActionCard('delete-message-with-customId'))
 
         new SendImage(this, this.homey.flow.getActionCard('send-a-image'));
         new SendImageWithMessage(this, this.homey.flow.getActionCard('send-a-image-with-message'));

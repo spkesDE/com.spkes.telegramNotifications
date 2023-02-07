@@ -1167,6 +1167,37 @@
     "actions": [
       {
         "title": {
+          "en": "Delete message with custom Id",
+          "it": "Elimina messaggio con ID personalizzato",
+          "de": "Nachricht löschen mit angepasster Id",
+          "nl": "Verwijder bericht met aangepaste id"
+        },
+        "advanced": true,
+        "titleFormatted": {
+          "en": "Delete message with [[id]]",
+          "it": "Elimina messaggio con [[id]]",
+          "de": "Nachricht mit [[id]]",
+          "nl": "Verwijder bericht met [[id]]"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "id",
+            "title": {
+              "en": "Custom ID",
+              "it": "Custom ID",
+              "de": "Custom ID",
+              "nl": "Custom ID"
+            },
+            "placeholder": {
+              "en": "myCustomID"
+            }
+          }
+        ],
+        "id": "delete-message-with-customId"
+      },
+      {
+        "title": {
           "en": "Delete message",
           "it": "Cancella il messaggio",
           "de": "Nachricht löschen",
@@ -1502,7 +1533,7 @@
         "hint": {
           "en": "Sends a Question to your Telegram chat.",
           "it": "Invia una domanda nella tua chat Telegram.",
-          "de": "Sendet eine Frage an Ihren Telegram-Chat.",
+          "de": "Sendet eine Frage an deinen Telegram-Chat.",
           "nl": "Stuurt een vraag naar je Telegram chat."
         },
         "args": [
@@ -1557,7 +1588,7 @@
         "hint": {
           "en": "Sends a Question to your Telegram chat. The custom id must be free of whitespace and no more than 20 characters long.",
           "it": "Invia una domanda nella tua chat Telegram. L'id personalizzato deve essere privo di spazi bianchi e non deve superare i 20 caratteri.",
-          "de": "Sendet eine Frage an Ihren Telegram-Chat. Die benutzerdefinierte ID muss frei von Leerzeichen sein und darf nicht länger als 20 Zeichen sein.",
+          "de": "Sendet eine Frage an deinen Telegram-Chat. Die benutzerdefinierte ID muss frei von Leerzeichen sein und darf nicht länger als 20 Zeichen sein.",
           "nl": "Stuurt een vraag naar je Telegram chat. Het aangepaste id moet vrij zijn van spaties en mag niet meer dan 20 tekens lang zijn."
         },
         "args": [
@@ -1628,7 +1659,7 @@
         "hint": {
           "en": "Sends a Question to your Telegram chat.",
           "it": "Invia una domanda nella tua chat Telegram.",
-          "de": "Sendet eine Frage an Ihren Telegram-Chat.",
+          "de": "Sendet eine Frage an deinen Telegram-Chat.",
           "nl": "Stuurt een vraag naar je Telegram chat."
         },
         "args": [
