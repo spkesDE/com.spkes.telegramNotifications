@@ -57,10 +57,10 @@
     "en": "Beta 2 of the question system. Adding Translations, little bug fixes"
   },
   "1.2.2": {
-    "en": "Beta 3 of question sysstem. Added IT translation"
+    "en": "Beta 3 of question system. Added IT translation"
   },
   "1.2.3": {
-    "en": "Beta 4 of the question system. Added edit mode, fix grammer"
+    "en": "Beta 4 of the question system. Added edit mode, fix grammar"
   },
   "1.2.4": {
     "en": "Beta 5 of the question system. Made Settingspage more user friendly"
@@ -102,18 +102,21 @@
     "en": "Fixed BLL support"
   },
   "2.1.3": {
-    "en": "Updated settings page, editble colums for questions, custom id questions, delete messages"
+    "en": "Updated settings page, editable columns for questions, custom id questions, delete messages"
   },
   "2.1.4": {
     "en": "New assets"
   },
   "2.1.5": {
-    "en": "Updated Translation. BLL support disabeld (causing issues)"
+    "en": "Updated Translation. BLL support disabled (causing issues)"
   },
   "2.1.6": {
     "en": "Added Delete by Id & ChatId, Added to the Question when cards ChatId & MessageId"
   },
   "2.1.7": {
     "en": "Add delete by custom Id"
+  },
+  "2.2.0": {
+    "en": "Homey Pro 2023 support. Updated Settings. Multiple new Cards. New Design & Name"
   }
 }
