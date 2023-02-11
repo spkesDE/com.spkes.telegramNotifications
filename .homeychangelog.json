@@ -118,5 +118,8 @@
   },
   "2.2.0": {
     "en": "Homey Pro 2023 support. Updated Settings. Multiple new Cards. New Design & Name"
+  },
+  "2.2.1": {
+    "en": "Added debugging for Image Flow Card"
   }
 }
