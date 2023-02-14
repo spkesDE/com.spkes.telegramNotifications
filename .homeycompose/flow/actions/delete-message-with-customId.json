@@ -9,7 +9,7 @@
   "titleFormatted": {
     "en": "Delete message with [[id]]",
     "it": "Elimina messaggio con [[id]]",
-    "de": "Nachricht mit [[id]]",
+    "de": "Nachricht mit [[id]] löschen",
     "nl": "Verwijder bericht met [[id]]"
   },
   "args": [
