@@ -121,5 +121,8 @@
   },
   "2.2.1": {
     "en": "Added debugging for Image Flow Card"
+  },
+  "2.2.2": {
+    "en": "Fixed DE translation"
   }
 }
