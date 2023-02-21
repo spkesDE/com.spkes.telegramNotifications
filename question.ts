@@ -10,7 +10,7 @@ export default class Question {
     disable_notification: boolean = false;
     columns: number = 2;
 
-    static async createMessage(q: Question, app: TelegramNotifications, userId: number, messageOverride?: string, customId?: string) {
+    static async createMessage(q: Question, app: TelegramNotifications, userId: number, messageOverride?: string, customId?: string, image?: string) {
         let callbackButtons: InlineKeyboardButton.CallbackButton[] = [];
         q.buttons.forEach((value, i) => {
             let id = q.UUID + '.' + i;
@@ -18,18 +18,34 @@ export default class Question {
                 id += "." + customId
             callbackButtons.push(Markup.button.callback(value, id))
         })
-        app.bot?.telegram.sendMessage(userId, messageOverride == undefined ? q.question : messageOverride, {
-            disable_notification: q.disable_notification ?? false,
-            ...Markup.inlineKeyboard(callbackButtons, {columns: q.columns ?? 2}),
-        }).then((response) => {
-            if (customId != undefined && customId.length < 21) {
-                app.customIdMessages.push({
-                    message_id: response.message_id,
-                    chat_id: response.chat.id,
-                    customId: customId,
-                });
-            }
-        });
+        if(image != undefined){
+            app.bot?.telegram.sendPhoto(userId, {filename: "", url: image}, {
+                caption: messageOverride == undefined ? q.question : messageOverride,
+                disable_notification: q.disable_notification ?? false,
+                ...Markup.inlineKeyboard(callbackButtons, {columns: q.columns ?? 2}),
+            }).then((response) => {
+                if (customId != undefined && customId.length < 21) {
+                    app.customIdMessages.push({
+                        message_id: response.message_id,
+                        chat_id: response.chat.id,
+                        customId: customId,
+                    });
+                }
+            }).catch(app.error);
+        } else {
+            app.bot?.telegram.sendMessage(userId, messageOverride == undefined ? q.question : messageOverride, {
+                disable_notification: q.disable_notification ?? false,
+                ...Markup.inlineKeyboard(callbackButtons, {columns: q.columns ?? 2}),
+            }).then((response) => {
+                if (customId != undefined && customId.length < 21) {
+                    app.customIdMessages.push({
+                        message_id: response.message_id,
+                        chat_id: response.chat.id,
+                        customId: customId,
+                    });
+                }
+            }).catch(app.error);
+        }
     }
 
     static getAnswer(q: Question, answerId: number) {

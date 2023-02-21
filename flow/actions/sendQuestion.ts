@@ -5,7 +5,6 @@ import Utils from "../../utils";
 
 export default class SendQuestion {
 
-
     constructor(app: TelegramNotifications, card: FlowCardAction) {
         card.registerRunListener(async (args) => {
             let question = app.getQuestion(args.question.id);
@@ -17,7 +16,14 @@ export default class SendQuestion {
                 app.error('Bot has failed to initialize');
                 throw new Error('Bot has failed to initialize');
             }
-            await Question.createMessage(question, app, args.user.id, args.message ?? undefined, args.id ?? undefined)
+            await Question.createMessage(
+                question,
+                app,
+                args.user.id,
+                args.message == undefined || args.message == "" ? undefined : args.message ?? undefined,
+                args.id ?? undefined,
+                args.imageUrl ?? undefined,
+            ).catch(app.error);
         });
         card.registerArgumentAutocompleteListener(
             'user', async (query) => Utils.userAutocomplete(app.users, query)

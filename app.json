@@ -1715,6 +1715,113 @@
         "id": "send-a-question-with-custom-text"
       },
       {
+        "highlight": true,
+        "title": {
+          "en": "Send a Question",
+          "it": "Invia una domanda",
+          "de": "Sende eine Frage",
+          "nl": "Stuur een vraag"
+        },
+        "titleFormatted": {
+          "en": "Send a question [[question]] to [[user]] with optional [[message]] [[id]] [[imageUrl]]",
+          "it": "Invia domanda [[question]] a [[user]] con opzione [[message]] [[id]] [[imageUrl]]",
+          "de": "Sende eine Frage [[question]] zu [[user]] mit optionalen [[message]] [[id]] [[imageUrl]]",
+          "nl": "Stuur een vraag [[question]] naar [[user]] met optionele [[message]] [[id]] [[imageUrl]]"
+        },
+        "hint": {
+          "en": "Sends a Question to your Telegram chat.",
+          "it": "Invia una domanda nella tua chat Telegram.",
+          "de": "Sendet eine Frage an deinen Telegram-Chat.",
+          "nl": "Stuurt een vraag naar je Telegram chat."
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "required": false,
+            "title": {
+              "en": "Custom Text",
+              "it": "Testo personalizzato",
+              "de": "Angepasste Nachricht",
+              "nl": "Bericht op maat"
+            },
+            "placeholder": {
+              "en": "Hello from Homey!",
+              "it": "Ciao da Homey!",
+              "de": "Hallo von Homey!",
+              "nl": "Hallo van Homey!"
+            }
+          },
+          {
+            "type": "text",
+            "name": "imageUrl",
+            "required": false,
+            "title": {
+              "en": "URL",
+              "it": "URL",
+              "de": "URL",
+              "nl": "URL"
+            },
+            "placeholder": {
+              "en": "https://url/image.png",
+              "it": "https://url/image.png",
+              "de": "https://url/image.png",
+              "nl": "https://url/image.png"
+            }
+          },
+          {
+            "type": "text",
+            "name": "id",
+            "required": false,
+            "title": {
+              "en": "Custom ID",
+              "it": "ID personalizzato",
+              "de": "Angepasste ID",
+              "nl": "Aangepaste ID"
+            },
+            "placeholder": {
+              "en": "MyId",
+              "it": "MYId",
+              "de": "MyId",
+              "nl": "MyId"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "question",
+            "title": {
+              "en": "Question",
+              "it": "Domanda",
+              "de": "Frage",
+              "nl": "Vraag"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "User",
+              "it": "Utente",
+              "de": "Benutzer",
+              "nl": "Gebruiker"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-a-question-with-optionals"
+      },
+      {
         "title": {
           "en": "Send a silent message",
           "it": "Invia un messaggio silenzioso",
