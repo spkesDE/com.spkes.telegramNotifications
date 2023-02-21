@@ -2,6 +2,7 @@ import {FlowCardAction} from 'homey';
 import {TelegramNotifications} from '../../app';
 import Question from "../../question";
 import Utils from "../../utils";
+import {BL} from "betterlogiclibrary";
 
 export default class SendQuestion {
 
@@ -20,7 +21,7 @@ export default class SendQuestion {
                 question,
                 app,
                 args.user.id,
-                args.message == undefined || args.message == "" ? undefined : args.message ?? undefined,
+                args.message == undefined || args.message == "" ? undefined : await BL.decode(args.message) ?? undefined,
                 args.id ?? undefined,
                 args.imageUrl ?? undefined,
             ).catch(app.error);
