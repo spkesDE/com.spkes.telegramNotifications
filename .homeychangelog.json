@@ -124,5 +124,8 @@
   },
   "2.2.2": {
     "en": "Fixed DE translation"
+  },
+  "2.2.3": {
+    "en": "Fixed an issue with Image Tags on the Homey Pro 2023."
   }
 }
