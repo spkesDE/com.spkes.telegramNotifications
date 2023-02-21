@@ -5,16 +5,16 @@ import Utils from "../../utils";
 export default class SendTagImageWithMessage {
     constructor(app: TelegramNotifications, card: FlowCardAction) {
         card.registerRunListener(async (args) => {
-            let imageExists = await Utils.isImageValid(args.droptoken.cloudUrl);
+            let url = args.droptoken.cloudUrl ??
+                "https://" + await app.homey.cloud.getHomeyId() + ".connect.athom.com/api/image/" + args.droptoken.id;
+            let imageExists = await Utils.isImageValid(url);
             if (!imageExists) {
-                app.error("Image source is invalid for flow card send-a-image-with-message-and-tag!");
-                throw new Error("Image source is invalid for flow card send-a-image-with-message-and-tag!");
+                app.error("Image source is invalid for flow card send-a-image-with-tag!");
+                throw new Error("Image source is invalid for flow card send-a-image-with-tag!");
             }
             if (app.bot == null) return;
-            await app.bot.telegram.sendPhoto(args.user.id, {
-                filename: "",
-                url: args.droptoken.cloudUrl
-            }, {caption: args.message})
+            await app.bot.telegram
+                .sendPhoto(args.user.id, {filename: "", url: url}, {caption: args.message})
                 .catch((r) => {
                     app.error(r);
                 })
