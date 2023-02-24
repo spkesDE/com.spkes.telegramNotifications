@@ -127,5 +127,8 @@
   },
   "2.2.3": {
     "en": "Fixed an issue with Image Tags on the Homey Pro 2023."
+  },
+  "2.2.4": {
+    "en": "Added BLL support back."
   }
 }
