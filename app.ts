@@ -47,10 +47,10 @@ export class TelegramNotifications extends Homey.App {
                 this.loadUsers();
         });
         await BL.init({homey: this.homey});
-        await this.startBot();
+        this.startBot();
     }
 
-    private async startBot() {
+    private startBot() {
         this.log('Telegram Notifications app is starting...');
         if (this.token === null || this.token === '' || this.token.length < 43) {
             this.log('Telegram Notifications has no token. Please enter a Token in the Settings!');
@@ -67,12 +67,12 @@ export class TelegramNotifications extends Homey.App {
 
         this.bot.catch(this.error);
         this.bot.launch().then();
-        await this.bot.telegram.getMe().catch(() => this.changeBotState(false));
+        this.bot.telegram.getMe().catch(() => this.changeBotState(false));
         if (!this.startSuccess) {
             this.log('Failed to start. Token most likely wrong.');
         } else {
             this.log('Telegram Notifications app is initialized.');
-            await this.bot.telegram.setMyCommands([{"command": "start", "description": "Start using the bot."}])
+            this.bot.telegram.setMyCommands([{"command": "start", "description": "Start using the bot."}]).catch(this.error);
             this.debug('Debug => Total-Users ' + this.users.length + ', Question-Size: ' + this.questions.length +
                 ', Log-Size: ' + this.getLogSize() + ' and start was ' + (this.startSuccess ? 'successful' : 'unsuccessful'));
             this.changeBotState(true);
