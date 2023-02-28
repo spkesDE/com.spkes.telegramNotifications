@@ -7,10 +7,6 @@ export default class SendTagImage {
         card.registerRunListener(async (args) => {
             let url = args.droptoken.cloudUrl ??
                 "https://" + await app.homey.cloud.getHomeyId() + ".connect.athom.com/api/image/" + args.droptoken.id;
-            app.error(url);
-            app.error(args.droptoken.cloudUrl);
-            app.error(args.droptoken.localUrl);
-            app.error(args.droptoken.id);
             let imageExists = await Utils.isImageValid(url);
             if (!imageExists) {
                 app.error("Image source is invalid for flow card send-a-image-with-tag!");
