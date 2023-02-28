@@ -130,5 +130,8 @@
   },
   "2.2.4": {
     "en": "Added BLL support back."
+  },
+  "2.2.5": {
+    "en": "Send a question with optional. Re-added BLL support"
   }
 }
