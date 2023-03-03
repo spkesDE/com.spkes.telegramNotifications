@@ -133,5 +133,8 @@
   },
   "2.2.5": {
     "en": "Send a question with optional. Re-added BLL support"
+  },
+  "2.2.6": {
+    "en": "Updated Dependencies"
   }
 }
