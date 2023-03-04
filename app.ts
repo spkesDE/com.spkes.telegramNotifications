@@ -46,7 +46,7 @@ export class TelegramNotifications extends Homey.App {
             if (key === 'users')
                 this.loadUsers();
         });
-        await BL.init({homey: this.homey});
+        await BL.init({homey: this.homey}).catch(this.error);
         this.startBot();
     }
 
