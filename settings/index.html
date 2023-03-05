@@ -3,10 +3,7 @@
 <head>
     <!-- The '/homey.js' script must be included in your settings view to work -->
     <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
-    <script src='https://cdn.staticaly.com/gh/robertklep/homey-mocks/v0.0.7/homey-settings-mock.js'></script>
 
-    <!--<link href="https://63c568c5e1c0180b8a2acafe.connect.athom.com/manager/webserver/assets/css/homey.css"
-          rel="stylesheet" type="text/css">-->
     <link href="style.css" rel="stylesheet" type="text/css">
     <link href="homeyExtras.css" rel="stylesheet" type="text/css">
 </head>
@@ -29,7 +26,7 @@
             <input class="homey-form-input" id="bot-token" type="text" value=""/>
         </div>
         <div class="row mb-2">
-            <h3 data-i18n="settings.passwordEnable">Enable Password</h3>
+            <h2 data-i18n="settings.passwordEnable">Enable Password</h2>
             <label class="switch right">
                 <input class="hy-nostyle" id="usePassword" onclick="togglePassword()" type="checkbox">
                 <span class="slider round"></span>
@@ -43,10 +40,24 @@
                 you have to
                 enter /start [yourPassword] to the bot via Telegram</p>
         </div>
-        <button class="homey-button-primary-full" data-i18n="settings.save" id="save" onclick="onSaveToken()">Save
-            changes
-        </button>
     </div>
+    <div class="tab-container">
+        <header class="homey-header  mb-2">
+            <p class="homey-title" data-i18n="settings.miscSettings">
+                Miscellaneous Settings
+            </p>
+        </header>
+        <div class="row mb-2">
+            <h2 data-i18n="settings.useBll">Enable Better Logic Library Support</h2>
+            <label class="switch right">
+                <input class="hy-nostyle" id="useBll" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+    <button class="homey-button-primary-full mt-2" data-i18n="settings.save" id="save" onclick="onSaveToken()">Save
+        changes
+    </button>
     <div class="tab-container">
         <header class="homey-header  mb-2">
             <p class="homey-title" data-i18n="settings.howToSetup.title">

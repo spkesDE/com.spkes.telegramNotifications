@@ -45,9 +45,11 @@ export class TelegramNotifications extends Homey.App {
             }
             if (key === 'users')
                 this.loadUsers();
+            if (key === 'useBll')
+                this.startBll();
         });
-        await BL.init({homey: this.homey}).catch(this.error);
         this.startBot();
+        this.startBll().then();
     }
 
     private startBot() {
@@ -60,7 +62,7 @@ export class TelegramNotifications extends Homey.App {
         this.bot = new Telegraf(this.token);
         this.loadSavedArrays();
 
-        if(!this.registerFlowHandler){
+        if (!this.registerFlowHandler) {
             this._initializeFlowCards();
             this.registerFlowHandler = true;
         }
@@ -72,14 +74,17 @@ export class TelegramNotifications extends Homey.App {
             this.log('Failed to start. Token most likely wrong.');
         } else {
             this.log('Telegram Notifications app is initialized.');
-            this.bot.telegram.setMyCommands([{"command": "start", "description": "Start using the bot."}]).catch(this.error);
+            this.bot.telegram.setMyCommands([{
+                "command": "start",
+                "description": "Start using the bot."
+            }]).catch(this.error);
             this.debug('Debug => Total-Users ' + this.users.length + ', Question-Size: ' + this.questions.length +
                 ', Log-Size: ' + this.getLogSize() + ' and start was ' + (this.startSuccess ? 'successful' : 'unsuccessful'));
             this.changeBotState(true);
         }
     }
 
-    private _initializeFlowCards(){
+    private _initializeFlowCards() {
         this.debug('Initialize Flow cards...');
         //Trigger cards
         new HandleNewUsers(this, this.homey.flow.getTriggerCard('newUser'));
@@ -123,7 +128,7 @@ export class TelegramNotifications extends Homey.App {
     }
 
     private async writeLog(message: any, debug: boolean = false) {
-        if(message instanceof Error){
+        if (message instanceof Error) {
             message = message.stack;
         }
         let oldLogs = this.homey.settings.get('logs');
@@ -173,8 +178,17 @@ export class TelegramNotifications extends Homey.App {
             this.users = JSON.parse(this.homey.settings.get('users')) as User[];
         }
     }
+
     //endregion
 
+    private async startBll() {
+        if (await this.homey.settings.get('useBll') ?? false) {
+            this.log("Using BLL, starting initialization");
+            await BL.init({homey: this.homey}).catch(this.error);
+        } else {
+            this.log("BLL NOT used");
+        }
+    }
 }
 
 module.exports = TelegramNotifications;

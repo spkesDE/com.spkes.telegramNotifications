@@ -129,6 +129,11 @@ input:checked + .slider:before {
     margin-top: .3rem !important;
 }
 
+.mt-2 {
+    margin-top: .6rem !important;
+}
+
+
 .me-1 {
     margin-right: .3rem !important;
 }

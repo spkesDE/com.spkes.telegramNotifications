@@ -21,6 +21,7 @@
     },
     "keepAnswers": "Permanente knoppen",
     "logs": "Logboeken",
+    "miscSettings": "Overige instellingen",
     "password": "Bot Wachtwoord",
     "passwordEnable": "Wachtwoord inschakelen",
     "question": "Vraag",
@@ -43,6 +44,7 @@
     "silentQuestion": "Stille vraag (geen meldingsgeluid)",
     "title": "Voer uw token in alstublieft",
     "token": "Token",
+    "useBll": "Ondersteuning voor Better Logic Library inschakelen",
     "userInfo": "Als u de gebruikers verwijderd, moet u de gebruikers her-registreren in uw eigen Telegram Bot. Dit betekend dat u opnieuw het commando /start moet versturen.",
     "userInfoPassword": "Om nu een gebruiker/chat te registreren moet je /start [jouwPaswoord] invoeren bij de bot via Telegram.",
     "users": "Gebruikers / Groep Chats"

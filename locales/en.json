@@ -21,6 +21,7 @@
     },
     "keepAnswers": "Persistent buttons",
     "logs": "Logs",
+    "miscSettings": "Miscellaneous Settings",
     "password": "Bot Password",
     "passwordEnable": "Enable password",
     "question": "Question",
@@ -43,6 +44,7 @@
     "silentQuestion": "Silent Question (No Notification Sound)",
     "title": "Enter your token",
     "token": "Token",
+    "useBll": "Enable Better Logic Library support",
     "userInfo": "When you clear the users you have to re-register the users to the Telegram bot. This means you have to send the /start command again.",
     "userInfoPassword": "To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram",
     "users": "Users / Group Chats"

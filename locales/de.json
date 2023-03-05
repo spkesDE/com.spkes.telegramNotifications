@@ -21,6 +21,7 @@
     },
     "keepAnswers": "Dauerhafte Buttons",
     "logs": "Logs",
+    "miscSettings": "Sonstige Einstellungen",
     "password": "Bot-Passwort",
     "passwordEnable": "Password aktivieren",
     "question": "Frage",
@@ -43,6 +44,7 @@
     "silentQuestion": "Stille Frage (kein Benachrichtigungston)",
     "title": "Bitte den Token eingeben",
     "token": "Token",
+    "useBll": "Aktiviere Better Logic Library support",
     "userInfo": "Wenn Sie die Benutzer leeren, müssen Sie die Benutzer erneut beim Telegram-Bot registrieren. Das bedeutet, dass Sie den Befehl /start erneut senden müssen.",
     "userInfoPassword": "Um nun einen Chatraum zu registieren muss man nun /start [dein Password] eingeben",
     "users": "Benutzer"

@@ -21,6 +21,7 @@
     },
     "keepAnswers": "Pulsanti persistenti",
     "logs": "Logs",
+    "miscSettings": "Impostazioni varie",
     "password": "Password Bot",
     "passwordEnable": "Abilita password",
     "question": "Domanda",
@@ -43,6 +44,7 @@
     "silentQuestion": "Domanda silenziosa (nessun suono di notifica)",
     "title": "Inserisci il tuo token",
     "token": "Token",
+    "useBll": "Abilitare il supporto di Better Logic Library",
     "userInfo": "Quando svuoti gli utenti ydevi ri-registrarli sul bot Telegram. Questo significa che devi inviare nuovamente il comando /start .",
     "userInfoPassword": "Per registrare un utente/chat devi scrivere /start [yourPassword] al bot tramite Telegram",
     "users": "Utenti / Gruppi di Chat"

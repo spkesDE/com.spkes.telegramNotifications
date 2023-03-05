@@ -286,6 +286,9 @@ function onSaveToken() {
   Homey.set('bot-token', document.getElementById('bot-token').value, (err) => {
     if (err) return Homey.alert(err);
   });
+  Homey.set('useBll', document.getElementById('useBll').checked ?? false, (err) => {
+    if (err) return Homey.alert(err);
+  });
   Homey.set('use-password', usePasswordElement.checked, (err) => {
     if (err) return Homey.alert(err);
   });
@@ -378,6 +381,11 @@ function onHomeyReady(Homey) {
     if (err) return Homey.alert(err);
     document.getElementById('usePassword').checked = bool ?? false;
     togglePassword();
+  });
+
+  Homey.get('useBll', (err, bool) => {
+    if (err) return Homey.alert(err);
+    document.getElementById('useBll').checked = bool ?? false;
   });
 
   updateStatus();
