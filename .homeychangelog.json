@@ -145,5 +145,20 @@
   },
   "2.2.9": {
     "en": "Updated dependencies"
+  },
+  "2.3.1": {
+    "en": "Updated deps. Error catching"
+  },
+  "2.3.2": {
+    "en": "More debugging"
+  },
+  "2.3.3": {
+    "en": "Fixed \"isReady\" error"
+  },
+  "2.3.4": {
+    "en": "Possible fix for 'isReady' error"
+  },
+  "2.3.5": {
+    "en": "Rollback to 2.3.0"
   }
 }
