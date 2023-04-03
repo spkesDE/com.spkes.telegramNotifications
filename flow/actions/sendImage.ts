@@ -8,8 +8,7 @@ export default class SendImage {
             if (app.bot != null) {
                 if (Utils.validateURL(args.url)) {
                     app.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url})
-                        .catch(app.error)
-                        .then();
+                        .catch(app.error);
                 } else {
                     app.error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')
                     throw new Error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')

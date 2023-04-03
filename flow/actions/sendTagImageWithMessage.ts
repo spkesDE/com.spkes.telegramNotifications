@@ -10,16 +10,15 @@ export default class SendTagImageWithMessage {
                 "https://" + await app.homey.cloud.getHomeyId() + ".connect.athom.com/api/image/" + args.droptoken.id;
             let imageExists = await Utils.isImageValid(url);
             if (!imageExists) {
-                app.error("Image source is invalid for flow card send-a-image-with-tag!");
-                throw new Error("Image source is invalid for flow card send-a-image-with-tag!");
+                app.error("Image source is invalid for flow card send-a-image-with-tag-message! URL: " + url);
+                throw new Error("Image source is invalid for flow card send-a-image-with-tag-message!");
             }
             if (app.bot == null) return;
             await app.bot.telegram
                 .sendPhoto(args.user.id, {filename: "", url: url}, {caption: await BL.decode(args.message)})
                 .catch((r) => {
                     app.error(r);
-                })
-                .then();
+                });
         });
         card.registerArgumentAutocompleteListener(
             'user', async (query) => Utils.userAutocomplete(app.users, query)

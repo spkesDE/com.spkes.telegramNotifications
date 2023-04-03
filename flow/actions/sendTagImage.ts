@@ -13,12 +13,11 @@ export default class SendTagImage {
                 throw new Error("Image source is invalid for flow card send-a-image-with-tag!");
             }
             if (app.bot == null) return;
-            app.bot.telegram
+            await app.bot.telegram
                 .sendPhoto(args.user.id, {filename: "", url: url})
                 .catch((r) => {
                     app.error(r);
-                })
-                .then();
+                });
         });
         card.registerArgumentAutocompleteListener(
             'user', async (query) => Utils.userAutocomplete(app.users, query)

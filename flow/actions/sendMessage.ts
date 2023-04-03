@@ -8,8 +8,7 @@ export default class SendMessage {
         card.registerRunListener(async (args) => {
             if (app.bot != null) {
                 await app.bot.telegram.sendMessage(args.user.id, await BL.decode(args.message))
-                    .catch(app.error)
-                    .then();
+                    .catch(app.error);
             }
         });
         card.registerArgumentAutocompleteListener(

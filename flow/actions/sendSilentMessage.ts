@@ -9,8 +9,7 @@ export default class SendSilentMessage {
             if (app.bot != null) {
                 await app.bot.telegram
                     .sendMessage(args.user.id, await BL.decode(args.message), {disable_notification: true})
-                    .catch(app.error)
-                    .then();
+                    .catch(app.error);
             }
         });
         card.registerArgumentAutocompleteListener(

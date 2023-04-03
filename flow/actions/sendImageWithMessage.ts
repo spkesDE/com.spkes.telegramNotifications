@@ -12,8 +12,7 @@ export default class SendImageWithMessage {
                         filename: "",
                         url: args.url
                     }, {caption: await BL.decode(args.message)})
-                        .catch(app.error)
-                        .then();
+                        .catch(app.error);
                 } else {
                     app.error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')
                     throw new Error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')
