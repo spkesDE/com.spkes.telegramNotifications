@@ -1,3 +1,5 @@
 /env.json
 /node_modules/
 /.homeybuild/
+/telegram-settings/node_modules/
+/telegram-settings/build/

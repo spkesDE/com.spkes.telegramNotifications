@@ -112,28 +112,29 @@ export class TelegramNotifications extends Homey.App {
     }
 
     //region Logging
+    //0 Info, 1 Error, 2 Debug
     public log(message: any) {
-        this.writeLog(message).then();
+        this.writeLog(message, 0).then();
         this.homey.log(message);
     }
 
     public debug(message: any) {
-        this.writeLog(message, true).then();
+        this.writeLog(message, 2).then();
         this.homey.log(message);
     }
 
     public error(message: any) {
-        this.writeLog(message).then();
+        this.writeLog(message, 1).then();
         this.homey.error(message);
     }
 
-    private async writeLog(message: any, debug: boolean = false) {
+    private async writeLog(message: any, type: number = 0) {
         if (message instanceof Error) {
             message = message.stack;
         }
         let oldLogs = this.homey.settings.get('logs');
         if (oldLogs === null || oldLogs === undefined || oldLogs === '') oldLogs = '[]';
-        const newMessage: JSON = <JSON><unknown>{date: new Date().toLocaleString('en-GB'), debug: debug, message};
+        const newMessage: JSON = <JSON><unknown>{date: new Date().toLocaleString('en-GB'), type: type, message};
         const savedHistory = JSON.parse(oldLogs);
         if (savedHistory.length >= 100) savedHistory.pop();
         savedHistory.unshift(newMessage);
