@@ -5,6 +5,9 @@ import MenuItemWrapper from "../components/UIComps/MenuItemWrapper";
 import Switch from "../components/UIComps/Switch";
 import Question from "../../../question";
 import {Views} from "../statics/Views";
+import Badge from "../components/UIComps/Badge";
+import {BadgeColor} from "../statics/Colors";
+import Popup from "../components/UIComps/Popup";
 
 interface Props {
     question?: Question
@@ -20,6 +23,7 @@ interface State {
     disable_notification: boolean;
     columns: number;
     gotData: boolean;
+    showDeletePopup: boolean;
 }
 
 export default class QuestionMenu extends React.Component<Props, State> {
@@ -35,7 +39,8 @@ export default class QuestionMenu extends React.Component<Props, State> {
             keepButtons: props.question?.keepButtons ?? false,
             disable_notification: props.question?.disable_notification ?? false,
             columns: props.question?.columns ?? 2,
-            gotData: true
+            gotData: true,
+            showDeletePopup: false
         }
     }
 
@@ -123,11 +128,14 @@ export default class QuestionMenu extends React.Component<Props, State> {
                 </MenuItemWrapper>
                 <MenuItemWrapper>
                     <h2>Buttons per Row</h2>
-                    <input id="columnSize" max="4" min="1" type="range"
-                           onChange={(e) => {
-                               this.setState({columns: Number(e.currentTarget.value)});
-                           }}
-                           defaultValue={this.state.columns}/>
+                    <div style={{display: "flex"}}>
+                        <input id="columnSize" max="4" min="1" type="range"
+                               onChange={(e) => {
+                                   this.setState({columns: Number(e.currentTarget.value)});
+                               }}
+                               defaultValue={this.state.columns}/>&nbsp;
+                        <Badge color={BadgeColor.GRAY}>{this.state.columns}</Badge>
+                    </div>
                 </MenuItemWrapper>
             </MenuItemGroup>
             <MenuItemGroup>
@@ -153,6 +161,35 @@ export default class QuestionMenu extends React.Component<Props, State> {
                     </button>
                 </MenuItemWrapper>
             </MenuItemGroup>
+
+            <MenuItemGroup>
+                <MenuItemWrapper className={"noPadding"}>
+                    <button
+                        className={"menuItem-button-danger hy-nostyle"}
+                        onClick={() => this.setState({showDeletePopup: !this.state.showDeletePopup})}>
+                        Delete Question
+                    </button>
+                </MenuItemWrapper>
+            </MenuItemGroup>
+
+            <Popup title={"Warning"} icon={"fa-exclamation-triangle"} show={this.state.showDeletePopup}
+                   closeHandler={(e) => {
+                       this.setState({showDeletePopup: false})
+                   }}>
+                Are you sure you want to delete this question? This action can't be undone!
+                <br/><br/>
+                <button
+                    className={"yesButton hy-nostyle"}
+                    onClick={(e) => this.setState({showDeletePopup: false})}
+                >Yes
+                </button>
+
+                <button
+                    className={"noButton hy-nostyle"}
+                    onClick={(e) => this.setState({showDeletePopup: false})}
+                >No
+                </button>
+            </Popup>
         </>);
     }
 }

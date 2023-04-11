@@ -47,3 +47,29 @@
     flex-shrink: 0;
     cursor: pointer;
 }
+
+
+.yesButton, .noButton {
+    border: none;
+    -webkit-appearance: none;
+    border-radius: var(--border-radius-small);
+    margin-right: 1px;
+    margin-bottom: 1px;
+    padding: 6px 32px;
+    font-size: var(--font-size-default);
+    font-weight: var(--font-weight-medium);
+    height: auto !important;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.yesButton {
+    background: var(--bg-color-red) none;
+    color: var(--color-mono-10);
+}
+
+.noButton {
+    background: var(--bg-color-gray) none;
+    color: var(--color-text);
+    float: right;
+}

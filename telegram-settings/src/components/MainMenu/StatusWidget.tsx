@@ -62,7 +62,7 @@ export default class StatusWidget extends React.Component<Props, State> {
                         <div className={"data"}>
                             <div className="col">
                                 <p>Bot: {this.state.status}</p>
-                                <p>Users: {this.state.users}</p>
+                                <p>Chats: {this.state.users}</p>
                                 <p>Questions: {this.state.questions}</p>
                             </div>
                             <div className="col">
