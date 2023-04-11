@@ -31,6 +31,7 @@ export class TelegramNotifications extends Homey.App {
     async onInit() {
         this.token = await this.homey.settings.get('bot-token');
         this.homey.settings.on('set', key => {
+            if (key !== 'logs') this.debug("Updated Settings for " + key);
             if (key === 'bot-token') {
                 this.token = this.homey.settings.get('bot-token');
                 if (this.bot === null || !this.startSuccess) {

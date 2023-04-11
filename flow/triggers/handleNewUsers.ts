@@ -36,10 +36,13 @@ export default class HandleNewUsers {
         app.bot.action('user-add', (ctx) => {
             if (!("chat" in ctx)) return;
             let user: User | null = null;
-            if (ctx.chat?.type === 'group' || ctx.chat?.type === 'supergroup') {
-                user = new User(ctx.chat?.id ?? 0, ctx.chat?.title ?? 'Error');
+            //0 User, 1 Group, 3 Supergroup
+            if (ctx.chat?.type === 'group') {
+                user = new User(ctx.chat?.id ?? 0, ctx.chat?.title ?? 'Error', 1);
+            } else if (ctx.chat?.type === 'supergroup') {
+                user = new User(ctx.chat?.id ?? 0, ctx.chat?.title ?? 'Error', 2);
             } else if (ctx.chat?.type === 'private') {
-                user = new User(ctx.chat?.id ?? 0, ctx.chat?.first_name ?? 'Error');
+                user = new User(ctx.chat?.id ?? 0, ctx.chat?.first_name ?? 'Error', 0);
             }
             if (user !== null && user.userId !== 0) {
                 if (!app.users.some((u) => u.userId === user?.userId)) {
