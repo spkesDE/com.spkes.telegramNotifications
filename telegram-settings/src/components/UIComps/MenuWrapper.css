@@ -1,0 +1,58 @@
+.topBar {
+    background-color: var(--white);
+    min-height: 45px;
+    display: inline-grid;
+    align-items: center;
+    grid-auto-flow: column;
+    box-shadow: var(--box-shadow-light);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.topBar div:last-child, .topBar button:last-child {
+    float: right;
+    margin-left: auto;
+}
+
+.topBar .leftControl {
+    background: none;
+    border: none;
+    font-size: var(--font-size-default);
+    padding-left: var(--su-2);
+    text-align: start;
+    color: var(--blue);
+}
+
+.topBar button, .topBar div:not(.title) {
+    min-height: 40px;
+    width: 15vw;
+}
+
+.topBar button:hover {
+    background-color: var(--background-color);
+    cursor: pointer;
+}
+
+.topBar .title {
+    font-size: var(--font-size-medium);
+    height: 40px;
+    line-height: 35px;
+    min-width: 5%;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.topBar .rightControl {
+    background: none;
+    border: none;
+    font-size: var(--font-size-default);
+    color: var(--blue);
+    text-align: right;
+    padding-right: var(--su-2);
+}
+
+.menuWrapperContent {
+    padding-top: 45px;
+}
+

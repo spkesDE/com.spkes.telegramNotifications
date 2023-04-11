@@ -1,0 +1,126 @@
+:root {
+    --background-color: #f3f5f7;
+    --blue: #3a7cf3;
+    --secondary-text-color: #99989d;
+    --white: #fff;
+    --color-mono-0: #ffffff;
+    --color-mono-01: #fafbfd;
+    --color-mono-02: #f1f2f6;
+    --color-mono-05: #e9eaee;
+    --color-mono-10: #dddee2;
+    --color-mono-15: #d1d2d5;
+    --color-mono-20: #c4c5c8;
+    --color-mono-30: #acadb0;
+    --color-mono-40: #939496;
+    --color-mono-50: #7a7b7d;
+    --color-mono-60: #626264;
+    --color-mono-70: #49494a;
+    --color-mono-80: #313132;
+    --color-mono-90: #242424;
+    --color-mono-95: #0c0c0c;
+    --color-mono-100: #000000;
+    --color-white: #ffffff;
+    --color-white-o-0: rgba(255, 255, 255, 0);
+    --color-white-o-50: rgba(255, 255, 255, .50);
+    --color-black: #000000;
+    --color-ice-white: #f6f7fb;
+    --color-blue: rgba(0, 130, 250, 1.00);
+    --color-blue-hover: rgba(31, 147, 255, 0.1);
+    --color-green-hover: rgba(63, 199, 0, 0.1);
+    --color-blue-active: #0075E0;
+    --color-blue-o-05: rgba(0, 130, 250, 0.05);
+    --color-green: #3fc700;
+    --color-red: rgba(216, 28, 29, 1.00);
+    --color-red-hover: #EA2425;
+    --color-red-active: #C2191A;
+    --color-gradient-blue-active: #005cd5;
+    --color-gradient-blue-start: #367cff;
+    --color-gradient-blue-end: #52baff;
+    --color-gradient-blue-hover: #52deff;
+    --color-body: var(--color-ice-white);
+    --color-component: var(--color-white);
+    --color-highlight: var(--color-blue);
+    --color-highlight-hover: var(--color-blue-hover);
+    --color-highlight-active: var(--color-blue-active);
+    --color-line: var(--color-mono-10);
+    --color-line-hover: var(--color-mono-20);
+    --color-line-active: var(--color-mono-20);
+    --color-text: var(--color-mono-90);
+    --color-text-light: var(--color-mono-40);
+    --color-text-placeholder: var(--color-mono-20);
+    --color-text-placeholder-hover: var(--color-mono-30);
+    --color-text-placeholder-active: var(--color-mono-30);
+    --color-text-danger: var(--color-red);
+    --color-text-danger-hover: var(--color-red-hover);
+    --color-danger-hover: rgba(234, 36, 37, 0.1);
+    --color-text-danger-active: var(--color-red-active);
+    --font-size-xlarge: 32px;
+    --font-size-large: 24px;
+    --font-size-medium: 20px;
+    --font-size-default: 17px;
+    --font-size-small: 14px;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --duration-fast: 200ms;
+    --duration-normal: 350ms;
+    --duration-slow: 500ms;
+    --curve-fast-in: cubic-bezier(.25, 0, .5, 1);
+    --icon-size-regular: 17px;
+    --icon-color-current: currentColor;
+    --icon-color-white: var(--color-white);
+    --icon-color-dark: var(--color-mono-80);
+    --interactive-gradient-position-default: 33% top;
+    --interactive-gradient-position-hover: 66% top;
+    --interactive-gradient-position-active: 15% top;
+    --interactive-gradient-size: 200% 100%;
+    --interactive-gradient-blue: linear-gradient(30deg, var(--color-gradient-blue-active), var(--color-gradient-blue-start) 33%, var(--color-gradient-blue-end) 66%, var(--color-gradient-blue-hover));
+    --box-shadow: 0 10px 44px 0 rgba(0, 0, 0, 0.07), 0 2px 12px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+    --box-shadow-light: 0 5px 22px 0 rgba(0, 0, 0, 0.04), 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.02);
+    --box-shadow-selected: 0 5px 22px 0 rgba(0, 0, 0, 0.04), 0 2px 6px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.02);
+    --border-radius: 10px;
+    --border-radius-small: 5px;
+    --su: 8px;
+    --su-1: var(--su);
+    --su-2: calc(var(--su) * 2);
+    --su-3: calc(var(--su) * 3);
+    --su-4: calc(var(--su) * 4);
+    --su-5: calc(var(--su) * 5);
+    --su-6: calc(var(--su) * 6);
+
+    --bg-color-blue: var(--color-blue);
+    --bg-color-red: var(--color-red);
+    --bg-color-orange: #f79405;
+    --bg-color-green: #30c35d;
+    --bg-color-magenta: #ec3a51;
+    --bg-color-purple: #5655dc;
+    --bg-color-gray: #8f8f91;
+}
+
+html > body {
+    padding: 0 !important;
+}
+
+body {
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0;
+    color: var(--color-text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+#root {
+    background-color: var(--background-color) !important;
+    min-height: 100vh;
+    max-width: 100vw;
+}

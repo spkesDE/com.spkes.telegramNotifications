@@ -1,0 +1,19 @@
+.menuItemGroup {
+    margin: var(--su-2);
+}
+
+.itemGroupTitle, .itemGroupHint {
+    margin-bottom: 0;
+    padding-left: var(--su-2);
+    text-transform: uppercase;
+    color: var(--secondary-text-color)
+}
+
+.itemGroupHint {
+    text-transform: none;
+    padding-top: var(--su);
+}
+
+.itemGroupHint > i {
+    padding-right: var(--su);
+}

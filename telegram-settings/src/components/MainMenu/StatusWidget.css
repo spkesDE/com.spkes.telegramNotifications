@@ -1,0 +1,35 @@
+.statusWidget {
+    min-height: 100px;
+    margin: var(--su-2);
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+    border: none;
+    padding: 1em;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+.statusWidget h1 {
+    margin-bottom: 0;
+}
+
+.statusWidget .title {
+    color: var(--blue);
+    font-size: var(--font-size-default);
+}
+
+.statusWidget .data {
+    display: flex;
+    justify-content: space-between;
+}
+
+.statusWidget .data p {
+    margin-bottom: 0;
+}
+
+.statusWidget .data .col {
+    padding-right: 2em;
+}
+
