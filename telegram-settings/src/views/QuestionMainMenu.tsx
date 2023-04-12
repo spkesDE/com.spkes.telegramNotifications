@@ -26,50 +26,7 @@ export default class QuestionMainMenu extends React.Component<Props, State> {
         super(props);
         this.state = {
             currentView: Views.Questions_Overview,
-            questions: [
-                {
-                    "question": "[DEBUG] Run tests",
-                    "UUID": "gMTq5cbMzH",
-                    "buttons": [
-                        "Image Test",
-                        "Message Test",
-                        "Markdown Test",
-                        "Question Test"
-                    ],
-                    "keepButtons": true,
-                    "disable_notification": true,
-                    "columns": 1
-                },
-                {
-                    "question": "Hey, du bist nicht mehr Zuhause aber dein 🖥️ Computer läuft noch. Willst du ihn ausmachen?",
-                    "UUID": "GfgjYoPMi4",
-                    "buttons": [
-                        "Ja",
-                        "Nein"
-                    ],
-                    "keepButtons": false,
-                    "disable_notification": false,
-                    "columns": 1
-                },
-                {
-                    "question": "MENU",
-                    "UUID": "I_xU2WTot3",
-                    "buttons": [
-                        "⏫ 🪟 ⏫",
-                        "🔼 🪟 🔼",
-                        "⏬ 🪟 ⏬",
-                        "🔊 🏡 🔊",
-                        "🔊 🚽 🔊",
-                        "🖥️ An",
-                        "💡 An",
-                        "😴 Mode",
-                        "❌ Close"
-                    ],
-                    "keepButtons": true,
-                    "disable_notification": false,
-                    "columns": 3
-                }
-            ],
+            questions: [],
             gotData: process.env!.NODE_ENV === "development"
         }
     }

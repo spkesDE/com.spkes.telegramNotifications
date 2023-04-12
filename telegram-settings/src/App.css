@@ -70,6 +70,6 @@
 
 .noButton {
     background: var(--bg-color-gray) none;
-    color: var(--color-text);
+    color: var(--color-mono-10);
     float: right;
 }

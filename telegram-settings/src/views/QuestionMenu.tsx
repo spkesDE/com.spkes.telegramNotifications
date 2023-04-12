@@ -8,6 +8,7 @@ import {Views} from "../statics/Views";
 import Badge from "../components/UIComps/Badge";
 import {BadgeColor} from "../statics/Colors";
 import Popup from "../components/UIComps/Popup";
+import Loading from "./Loading";
 
 interface Props {
     question?: Question
@@ -60,6 +61,15 @@ export default class QuestionMenu extends React.Component<Props, State> {
         this.props.changeViewOnSave(Views.Questions_Overview);
     }
 
+    async deleteQuestion() {
+        await this.setState({gotData: false});
+        let questions: Question[] = JSON.parse(await window.Homey.get('questions') ?? "[]");
+        questions = questions.filter((q) => q.UUID !== this.state.UUID)
+        await window.Homey.set('questions', JSON.stringify(questions));
+        await this.setState({gotData: true});
+        this.props.changeViewOnSave(Views.Questions_Overview);
+    }
+
     /**
      * NanoId https://github.com/ai/nanoid
      *
@@ -94,7 +104,8 @@ export default class QuestionMenu extends React.Component<Props, State> {
     }
 
     render() {
-        return (<>
+        if (!this.state.gotData) return <Loading fullscreen={true}/>
+        else return (<>
             <MenuItemGroup>
                 <MenuItemWrapper>
                     <label className={"menuItem-label hy-nostyle"}>Question</label>
@@ -180,7 +191,8 @@ export default class QuestionMenu extends React.Component<Props, State> {
                 <br/><br/>
                 <button
                     className={"yesButton hy-nostyle"}
-                    onClick={(e) => this.setState({showDeletePopup: false})}
+                    onClick={(e) =>
+                        this.deleteQuestion()}
                 >Yes
                 </button>
 
