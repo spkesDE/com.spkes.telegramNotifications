@@ -10,7 +10,7 @@ export default class Question {
     disable_notification: boolean = false;
     columns: number = 2;
 
-    static async createMessage(q: Question, app: TelegramNotifications, userId: number, messageOverride?: string, customId?: string, image?: string) {
+    static async createMessage(q: Question, app: TelegramNotifications, userId: number, messageOverride?: string, customId?: string, image?: string, topic?: number) {
         let callbackButtons: InlineKeyboardButton.CallbackButton[] = [];
         q.buttons.forEach((value, i) => {
             let id = q.UUID + '.' + i;
@@ -18,10 +18,11 @@ export default class Question {
                 id += "." + customId
             callbackButtons.push(Markup.button.callback(value, id))
         })
-        if(image != undefined){
+        if (image != undefined) {
             app.bot?.telegram.sendPhoto(userId, {filename: "", url: image}, {
                 caption: messageOverride == undefined ? q.question : messageOverride,
                 disable_notification: q.disable_notification ?? false,
+                message_thread_id: topic ?? undefined,
                 ...Markup.inlineKeyboard(callbackButtons, {columns: q.columns ?? 2}),
             }).then((response) => {
                 if (customId != undefined && customId.length < 21) {

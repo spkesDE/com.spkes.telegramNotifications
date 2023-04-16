@@ -4,10 +4,11 @@ import {Views} from "./statics/Views";
 import MainMenu from "./views/MainMenu";
 import SettingsMenu from "./views/SettingsMenu";
 import QuestionMainMenu from "./views/QuestionMainMenu";
-import UserMenu from "./views/UserMenu";
+import ChatMenu from "./views/ChatMenu";
 import LogsMenu from "./views/LogMenu";
 import Loading from "./views/Loading";
 import DebugMenu from "./views/DebugMenu";
+import TopicsMenu from "./views/TopicsMenu";
 
 
 interface Props {
@@ -53,6 +54,8 @@ class App extends React.Component<Props, State> {
 
     render() {
         switch (this.state.currentView) {
+            case Views.Topics:
+                return <TopicsMenu changeView={this.changeView.bind(this)}/>;
             case Views.Debug:
                 return <DebugMenu changeView={this.changeView.bind(this)}/>;
             case Views.Settings:
@@ -60,7 +63,7 @@ class App extends React.Component<Props, State> {
             case Views.Questions:
                 return <QuestionMainMenu changeView={this.changeView.bind(this)}/>;
             case Views.Users:
-                return <UserMenu changeView={this.changeView.bind(this)}/>;
+                return <ChatMenu changeView={this.changeView.bind(this)}/>;
             case Views.Logs:
                 return <LogsMenu changeView={this.changeView.bind(this)}/>;
             case Views.MainMenu:

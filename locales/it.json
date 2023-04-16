@@ -62,6 +62,9 @@
       "debug": "Debug",
       "copy": "Copia"
     },
+    "topicsMenu": {
+      "topicsMenu": "Argomenti"
+    },
     "debugMenu": {
       "debugMenu": "Menu Debug",
       "status": "Stato",

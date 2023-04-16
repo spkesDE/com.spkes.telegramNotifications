@@ -53,6 +53,9 @@
       "unknown": "Unknown",
       "legend": "Legend"
     },
+    "topicsMenu": {
+      "topicsMenu": "Topics"
+    },
     "logMenu": {
       "logs": "Logs",
       "showInfoLogs": "Show Information logs",

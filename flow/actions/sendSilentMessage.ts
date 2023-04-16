@@ -8,12 +8,15 @@ export default class SendSilentMessage {
         card.registerRunListener(async (args) => {
             if (app.bot != null) {
                 await app.bot.telegram
-                    .sendMessage(args.user.id, await BL.decode(args.message), {disable_notification: true})
+                    .sendMessage(args.user.id, await BL.decode(args.message), {
+                        disable_notification: true,
+                        message_thread_id: args.user.topic
+                    })
                     .catch(app.error);
             }
         });
         card.registerArgumentAutocompleteListener(
-            'user', async (query) => Utils.userAutocomplete(app.users, query)
+            'user', async (query) => Utils.userAutocomplete(app.chats, query)
         );
     }
 }

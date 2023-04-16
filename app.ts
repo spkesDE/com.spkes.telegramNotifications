@@ -1,7 +1,7 @@
 import Homey from 'homey';
 import {Telegraf} from 'telegraf';
 import Question from "./question";
-import User from "./user";
+import Chat from "./chat";
 import SendMessage from "./flow/actions/sendMessage";
 import SendImage from "./flow/actions/sendImage";
 import ReceiveMessage from "./flow/triggers/receiveMessage";
@@ -17,10 +17,11 @@ import ReceiveMessageFromChat from "./flow/triggers/receiveMessageFromChat";
 import DeleteById from "./flow/actions/deleteById";
 import DeleteByIdAndChatId from "./flow/actions/deleteByIdAndChatId";
 import DeleteByCustomId from "./flow/actions/deleteByCustomId";
+import HandleTopics from "./flow/triggers/handleTopics";
 
 export class TelegramNotifications extends Homey.App {
 
-    public users: User[] = [];
+    public chats: Chat[] = [];
     public questions: Question[] = [];
     public bot: Telegraf<any> | null = null;
     private token: string | null = null;
@@ -78,8 +79,11 @@ export class TelegramNotifications extends Homey.App {
             this.bot.telegram.setMyCommands([{
                 "command": "start",
                 "description": "Start using the bot."
+            }, {
+                "command": "registertopic",
+                "description": "Register a topic."
             }]).catch(this.error);
-            this.debug('Debug => Total-Users ' + this.users.length + ', Question-Size: ' + this.questions.length +
+            this.debug('Debug => Total-Users ' + this.chats.length + ', Question-Size: ' + this.questions.length +
                 ', Log-Size: ' + this.getLogSize() + ' and start was ' + (this.startSuccess ? 'successful' : 'unsuccessful'));
             this.changeBotState(true);
         }
@@ -92,6 +96,7 @@ export class TelegramNotifications extends Homey.App {
         new ReceiveMessage(this, this.homey.flow.getTriggerCard('receiveMessage'));
         new ReceiveMessageFromChat(this, this.homey.flow.getTriggerCard('receive-message-from-chat'));
         new HandleQuestions(this);
+        new HandleTopics(this);
 
         //Action Cards
         new SendMessage(this, this.homey.flow.getActionCard('sendNotification'));
@@ -177,7 +182,8 @@ export class TelegramNotifications extends Homey.App {
     private loadUsers() {
         this.debug("Loading Users..")
         if (this.homey.settings.get('users') !== null) {
-            this.users = JSON.parse(this.homey.settings.get('users')) as User[];
+            let jsonString: string = this.homey.settings.get('users').replaceAll(/userId/g, 'chatId');
+            this.chats = JSON.parse(jsonString) as Chat[];
         }
     }
 

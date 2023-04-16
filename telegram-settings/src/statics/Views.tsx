@@ -9,5 +9,6 @@ export enum Views {
     Logs,
     Loading,
     Debug,
+    Topics
 }
 

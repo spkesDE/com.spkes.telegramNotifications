@@ -5,8 +5,8 @@ import {Views} from "../statics/Views";
 import MenuItemWrapper from "../components/UIComps/MenuItemWrapper";
 import MenuItemGroup from "../components/UIComps/MenuItemGroup";
 import Badge from "../components/UIComps/Badge";
-import {BadgeColor, BadgeSize} from "../statics/Colors";
-import {User} from "../statics/User";
+import {BadgeColor, BadgeSize, BadgeType} from "../statics/Colors";
+import {Chat} from "../statics/Chat";
 import Loading from "./Loading";
 import Homey from "../Homey";
 
@@ -15,51 +15,54 @@ interface Props {
 }
 
 interface State {
-    users: User[]
+    chats: Chat[]
     gotData: boolean
 }
 
-export default class UserMenu extends React.Component<Props, State> {
+export default class ChatMenu extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            users: [
-                {userId: 42112415, chatName: "Test", type: 1},
-                {userId: 46453645, chatName: "Test", type: 1},
-                {userId: 64537878, chatName: "Test", type: 1}
-            ],
+            chats: [],
             gotData: process.env!.NODE_ENV === "development"
         }
     }
 
     async componentDidMount() {
         this.setState({
-            users: JSON.parse(await Homey.get("users") ?? "{}"),
+            chats: JSON.parse(await Homey.get("users") ?? "[]"),
             gotData: true,
         })
     }
 
-    getType(user: User) {
+    getType(user: Chat) {
         if (user.type === 0) return <Badge color={BadgeColor.BLUE} size={BadgeSize.SMALL}><i
-            className="fas fa-id-badge"></i> {user.userId}</Badge>
+            className="fas fa-id-badge"></i> {user.chatId}</Badge>
         if (user.type === 1) return <Badge color={BadgeColor.PURPLE} size={BadgeSize.SMALL}><i
-            className="fas fa-id-badge"></i> {user.userId}</Badge>
+            className="fas fa-id-badge"></i> {user.chatId}</Badge>
         if (user.type === 2) return <Badge color={BadgeColor.ORANGE} size={BadgeSize.SMALL}><i
-            className="fas fa-id-badge"></i> {user.userId}</Badge>
+            className="fas fa-id-badge"></i> {user.chatId}</Badge>
         if (!user.type) return <Badge color={BadgeColor.GRAY} size={BadgeSize.SMALL}><i
-            className="fas fa-id-badge"></i> {user.userId}</Badge>
+            className="fas fa-id-badge"></i> {user.chatId}</Badge>
     }
 
-    getUserComponents() {
+    getChatComponents() {
         let result: any[] = [];
-        this.state.users.forEach((u) => {
+        this.state.chats.forEach((u) => {
             result.push(
                 <MenuItemGroup>
                     <MenuItemWrapper>
                     <span>{u.chatName}&nbsp;
                         {this.getType(u)}
+                        {u.topics && u.topics.length > 0 &&
+                          <>&nbsp; <Badge color={BadgeColor.GRAY}
+                                          type={BadgeType.PILL}
+                                          size={BadgeSize.SMALL}>
+                            <i className="fas fa-folder"></i> {u.topics?.length}
+                          </Badge></>
+                        }
                     </span>
-                        <button className="removeButton hy-nostyle" onClick={() => this.deleteUser(u.userId)}><i
+                        <button className="removeButton hy-nostyle" onClick={() => this.deleteChat(u.chatId)}><i
                             className="fas fa-user-slash"></i></button>
                     </MenuItemWrapper>
                 </MenuItemGroup>
@@ -73,7 +76,7 @@ export default class UserMenu extends React.Component<Props, State> {
         else return (
             <MenuWrapper title={Homey.__("settings.userMenu.users")}
                          onBack={() => this.props.changeView(Views.MainMenu)}>
-                {this.getUserComponents()}
+                {this.getChatComponents()}
                 <MenuItemGroup>
                     <span className={"itemGroupHint"}>{Homey.__("settings.userMenu.legend")}: </span>
                     <Badge color={BadgeColor.BLUE}
@@ -89,13 +92,13 @@ export default class UserMenu extends React.Component<Props, State> {
         );
     }
 
-    private deleteUser(userId: number) {
-        let users = this.state.users.filter((u: User) => u.userId !== userId);
+    private deleteChat(chatId: number) {
+        let chats = this.state.chats.filter((u: Chat) => u.chatId !== chatId);
         this.setState({
             gotData: false,
-            users: users
+            chats: chats
         });
-        Homey.set('users', JSON.stringify(users))?.then(() =>
+        Homey.set('users', JSON.stringify(chats))?.then(() =>
             this.setState({
                 gotData: true,
             })

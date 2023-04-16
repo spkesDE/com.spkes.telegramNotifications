@@ -1,5 +1,5 @@
 import {IncomingMessage} from "http";
-import User from "./user";
+import Chat from "./chat";
 import Question from "./question";
 
 export default class Utils {
@@ -33,15 +33,33 @@ export default class Utils {
         });
     }
 
-    public static userAutocomplete(users: User[], query: string) {
-        const results: { name: string, id: number }[] = [];
-        users.forEach((user) => {
+
+    public static userAutocomplete(users: Chat[], query: string) {
+        const results: any[] = [];
+        users.forEach((chat) => {
+            let type = "Unknown";
+            //0 Chat, 1 Group, 2 Supergroup
+            if (chat.type != undefined) {
+                if (chat.type == 0) type = "User";
+                else if (chat.type == 1) type = "Group";
+                else if (chat.type == 2) type = "Supergroup";
+            }
             results.push({
-                name: user.chatName,
-                id: user.userId,
+                name: chat.chatName,
+                description: type,
+                id: chat.chatId,
             });
+            if (chat.topics && chat.topics.length > 0)
+                chat.topics.forEach((topic) => {
+                    results.push({
+                        name: topic.topicName,
+                        description: chat.chatName + " - " + type,
+                        id: chat.chatId,
+                        topic: topic.topicId
+                    });
+                })
         });
-        return results.filter((result: { name: string, id: number }) => {
+        return results.filter((result: any) => {
             return result.name.toLowerCase().includes(query.toLowerCase());
         });
     }

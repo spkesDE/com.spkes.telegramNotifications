@@ -39,7 +39,7 @@ export default class MainMenu extends React.Component<Props> {
                         title={Homey.__('settings.mainMenu.topics')}
                         icon={"fa-folder"}
                         className={"bg-color-green"}
-                        disabled={true}
+                        onClick={() => this.props.changeView(Views.Topics)}
                     />
                 </MenuItemGroup>
                 <MenuItemGroup>

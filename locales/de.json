@@ -27,7 +27,7 @@
         "step3": "Geben Sie den Token in den App-Einstellungen ein",
         "step4": "Schreiben Sie Ihren Bot über Telegram /start und folgen Sie den Anweisungen.",
         "step4-1": "Jeder Benutzer muss dem Bot auch den Befehl /start senden. Sie können den Bot über das Profil oder die Suche in Telegram teilen, wie Sie nach dem BotFather-Bot gesucht haben.",
-        "title": "So richten Sie ein"
+        "title": "So richten Sie den Bot ein"
       }
     },
     "questionMenu": {
@@ -52,6 +52,9 @@
       "supergroup": "Supergroup",
       "unknown": "Unbekannt",
       "legend": "Legende"
+    },
+    "topicsMenu": {
+      "topicsMenu": "Topics"
     },
     "logMenu": {
       "logs": "Logs",
