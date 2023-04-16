@@ -73,3 +73,8 @@
     color: var(--color-mono-10);
     float: right;
 }
+
+.defaultFont {
+    font-size: var(--font-size-default);
+    font-weight: var(--font-weight-regular);
+}

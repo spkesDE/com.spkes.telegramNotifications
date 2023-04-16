@@ -1,52 +1,105 @@
 {
   "settings": {
-    "addAnswerButton": "Antwort hinzufügen",
-    "addQuestion": "Frage hinzufügen",
-    "answers": "Antworten",
-    "clear": "Alle Benutzer leeren",
-    "clearAll": "Alle Benutzer leeren",
-    "clearLogs": "Logs leeren",
-    "clearQuestions": "Alle Fragen löschen",
-    "columns": "Knöfpe pro reihe",
-    "debugLogs": "Erweitere Logs anzeigen",
-    "editQuestion": "Frage bearbeiten",
-    "empty": "Leer :(",
-    "hideEditQuestion": "Bearbeitungsmodus verstecken",
-    "howToSetup": {
-      "step1": "Richten Sie Ihren eigenen Telegram-Bot ein. Dieser ist vollkommen sicher und privat, da nur Sie auf das Nachrichtenarchiv zugreifen können. Geben Sie @Botfather in die Suchleiste von Telegram ein und wählen Sie den @Botfather-Bot aus.",
-      "step2": "Klicke auf \"Start\", um den @BotFather-Bot zu aktivieren oder gib /newbot ein. \n/setjoingroup deaktiviert, dass der Bot einer Gruppe beitreten darf.\n/setprivacy deaktiviert, dass der Bot Nachrichten innerhalb einer Gruppe lesen kann",
-      "step3": "Geben Sie den Token in den App-Einstellungen ein",
-      "step4": "Schreibe deinen Bot über Telegram /start und folge den Anweisungen\nJeder Benutzer muss dem Bot auch den Befehl /start senden. Du kannst den Bot über Telegram über das Profil teilen oder wie beim BotFather-Bot danach suchen.",
-      "title": "Wie man den Bot einrichtet"
+    "mainMenu": {
+      "questions": "Frage",
+      "settings": "Bot-Einstellungen",
+      "users": "Benutzer / Gruppenchats",
+      "debugMenu": "Debug-Menü",
+      "topics": "Themen",
+      "logs": "App-Protokolle"
     },
-    "keepAnswers": "Dauerhafte Buttons",
-    "logs": "Logs",
-    "miscSettings": "Sonstige Einstellungen",
-    "password": "Bot-Passwort",
-    "passwordEnable": "Password aktivieren",
-    "question": "Frage",
-    "questionInfo": "Ein Bearbeitungsmodus der Fragen ist geplant.",
-    "questionSetup": {
-      "step1": "Eine Frage mit der Funktion \"Frage hinzufügen\", hinzufügen",
-      "step1-1": "Geben Sie eine Frage ein wie z.B. 'Mögen Sie Pizza?'",
-      "step1-2": "Geben Sie darunter eine beliebige Anzahl von Antworten ein",
-      "step1-3": "Speichern Sie diese Frage",
-      "step2": "Senden Sie diese Frage über die \"Frage senden\" DANN-Flowkarte an Ihr Telegramm Chat",
-      "step3": "Fügen Sie eine \"Eine Frage wurde beantwortet\" WENN-Flowkarte hinzu",
-      "step4": "Verwende die \"Token\" der Karte, um deinen Lieblingsflow zu erstellen!",
-      "title": "Wie man das Fragesystem benutzt"
+    "botSettings": {
+      "botSettings": "Bot-Einstellungen",
+      "botToken": "Bot-Token",
+      "botTokenPlaceholder": "Geben Sie hier Ihren Token ein!",
+      "usePassword": "Passwort verwenden",
+      "password": "Passwort",
+      "passwordPlaceholder": "Geben Sie hier Ihr Passwort ein!",
+      "passwordHint": "Um einen Benutzer / Chat zu registrieren, müssen Sie jetzt /start [IhrPasswort] an den Bot über Telegramm senden",
+      "miscSettings": "Verschiedene Einstellungen",
+      "useBll": "Unterstützung der besseren Logikbibliothek aktivieren",
+      "saveChanges": "Änderungen speichern",
+      "setup": {
+        "step1": "Richten Sie Ihren eigenen Telegramm-Bot ein. Dies ist vollständig sicher und privat, da Sie der einzige sind, der auf das Nachrichtenarchiv zugreifen kann. Geben Sie in Telegramm @Botfather in das Suchfeld ein und wählen Sie den Bot @Botfather.",
+        "step2": "Klicken Sie auf \"Start\", um den @BotFather-Bot zu aktivieren, oder geben Sie /newbot ein.",
+        "step2-1": "/setjoingroup deaktiviert, dass der Bot einer Gruppe beitreten darf.",
+        "step2-2": "/setprivacy deaktiviert, dass der Bot Nachrichten in einer Gruppe lesen kann",
+        "step3": "Geben Sie den Token in den App-Einstellungen ein",
+        "step4": "Schreiben Sie Ihren Bot über Telegramm /start und folgen Sie den Anweisungen.",
+        "step4-1": "Jeder Benutzer muss dem Bot auch den Befehl /start senden. Sie können den Bot über das Profil oder die Suche in Telegramm teilen, wie Sie nach dem BotFather-Bot gesucht haben.",
+        "title": "So richten Sie ein"
+      }
     },
-    "questions": "Fragen",
-    "save": "Speichern",
-    "saveEditQuestion": "Frage bearbeiten",
-    "saveQuestion": "Frage speichern",
-    "settings": "Einstellungen",
-    "silentQuestion": "Stille Frage (kein Benachrichtigungston)",
-    "title": "Bitte den Token eingeben",
-    "token": "Token",
-    "useBll": "Aktiviere Better Logic Library support",
-    "userInfo": "Wenn Sie die Benutzer leeren, müssen Sie die Benutzer erneut beim Telegram-Bot registrieren. Das bedeutet, dass Sie den Befehl /start erneut senden müssen.",
-    "userInfoPassword": "Um nun einen Chatraum zu registieren muss man nun /start [dein Password] eingeben",
-    "users": "Benutzer"
+    "questionMenu": {
+      "addQuestion": "Frage hinzufügen",
+      "editQuestion": "Frage bearbeiten",
+      "questions": "Fragen",
+      "question": "Frage",
+      "questionPlaceholder": "Geben Sie eine Frage ein...",
+      "keepButton": "Schaltflächen beibehalten",
+      "disableNotifications": "Benachrichtigungen deaktivieren",
+      "btnPerRow": "Schaltflächen pro Zeile",
+      "addAnswer": "Antwort hinzufügen",
+      "answerPlaceholder": "Geben Sie Ihre Antwort ein...",
+      "saveQuestion": "Frage speichern",
+      "deleteQuestion": "Frage löschen",
+      "questionPopup": "Sind Sie sicher, dass Sie diese Frage löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden!"
+    },
+    "userMenu": {
+      "users": "Benutzer",
+      "user": "Benutzer",
+      "group": "Gruppe",
+      "supergroup": "Supergroup",
+      "unknown": "Unbekannt",
+      "legend": "Legende"
+    },
+    "logMenu": {
+      "logs": "Logs",
+      "showInfoLogs": "Information-Logs anzeigen",
+      "showDebugLogs": "Debug-Logs anzeigen",
+      "info": "Information",
+      "error": "Fehler",
+      "debug": "Debug",
+      "copy": "Kopieren"
+    },
+    "debugMenu": {
+      "debugMenu": "Debug-Menü",
+      "status": "Status",
+      "users": "Benutzer",
+      "useBll": "Better Logic Library verwendet",
+      "questions": "Fragen",
+      "token": "Token",
+      "usePassword": "Passwort verwenden",
+      "password": "Passwort",
+      "logs": "Logs",
+      "fuckedUpMenu": "Ich hab's verbockt, Mann! - Menü",
+      "resetUsers": "Benutzer zurücksetzen",
+      "resetQuestions": "Fragen zurücksetzen",
+      "resetLogs": "Logs zurücksetzen",
+      "resetPassword": "Passwort zurücksetzen",
+      "resetEverything": "Alles zurücksetzen",
+      "fuckedUpWarning": "Sind Sie sicher, dass Sie die Aktion __action__ ausführen möchten? Diese Aktion kann nicht rückgängig gemacht werden!"
+    },
+    "status": {
+      "bot": "Bot",
+      "chats": "Chats",
+      "questions": "Fragen",
+      "logSize": "Log-Größe: __value__ (maximal: 100)",
+      "errors": "Fehler",
+      "state": {
+        "on": "Online",
+        "off": "Offline",
+        "unknown": "Unbekannt"
+      }
+    },
+    "misc": {
+      "loading": "Laden",
+      "soon": "Demnächst verfügbar",
+      "back": "Zurück",
+      "edit": "Bearbeiten",
+      "yes": "Ja",
+      "no": "Nein",
+      "warning": "Warnung"
+    }
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../App.css';
 import './MenuWrapper.css'
+import Homey from "../../Homey";
 
 interface Props {
     children: React.ReactNode,
@@ -27,7 +28,7 @@ export default class MenuWrapper extends React.Component<Props, any> {
                 <div className="topBar hy-nostyle">
                     {this.props.onBack !== undefined ? (
                         <button className="leftControl hy-nostyle" onClick={(e) => this.onBack(e)}>
-                            <i className="fa fa-chevron-left"></i> Back
+                            <i className="fa fa-chevron-left"></i> {Homey.__("settings.misc.back")}
                         </button>
                     ) : (
                         <div></div>

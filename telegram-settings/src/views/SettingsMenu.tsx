@@ -6,6 +6,7 @@ import Switch from "../components/UIComps/Switch";
 import MenuItemWrapper from "../components/UIComps/MenuItemWrapper";
 import MenuItemGroup from "../components/UIComps/MenuItemGroup";
 import Loading from "./Loading";
+import Homey from "../Homey";
 
 interface Props {
     changeView: Function
@@ -34,10 +35,10 @@ class SettingsMenu extends React.Component<Props, State> {
     async componentDidMount() {
         console.log("componentDidMount Settings....")
         this.setState({
-            usePassword: await window.Homey.get('use-password') ?? false,
-            useBLL: await window.Homey.get('useBll') ?? false,
-            password: await window.Homey.get('password') ?? undefined,
-            token: await window.Homey.get('bot-token') ?? undefined,
+            usePassword: await Homey.get('use-password') ?? false,
+            useBLL: await Homey.get('useBll') ?? false,
+            password: await Homey.get('password') ?? undefined,
+            token: await Homey.get('bot-token') ?? undefined,
             gotData: true
         })
     }
@@ -45,95 +46,79 @@ class SettingsMenu extends React.Component<Props, State> {
     render() {
         if (!this.state.gotData) return <Loading fullscreen={true}/>
         else return (
-            <MenuWrapper title={"Settings"} onBack={() => this.props.changeView(Views.MainMenu)}>
+            <MenuWrapper title={Homey.__('settings.botSettings.botSettings')}
+                         onBack={() => this.props.changeView(Views.MainMenu)}>
                 <MenuItemGroup>
-                    <p className="itemGroupTitle" data-i18n="settings.miscSettings">
-                        Bot Settings
+                    <p className="itemGroupTitle">
+                        {Homey.__('settings.botSettings.botSettings')}
                     </p>
                     <MenuItemWrapper>
-                        <label className={"menuItem-label hy-nostyle"} data-i18n="settings.token">Bot Token</label>
-                        <input className="menuItem-input hy-nostyle" id="bot-token" type="text"
+                        <label
+                            className={"menuItem-label hy-nostyle"}>{Homey.__('settings.botSettings.botToken')}</label>
+                        <input className="menuItem-input hy-nostyle" type="text"
                                defaultValue={this.state.token}
-                               placeholder="Enter your token here!"
+                               placeholder={Homey.__('settings.botSettings.botTokenPlaceholder')}
                                onChange={(e) => {
                                    this.setState({token: e.currentTarget.value})
                                }}/>
                     </MenuItemWrapper>
                     <MenuItemWrapper>
-                        <h2 data-i18n="settings.passwordEnable">Enable Password</h2>
+                        <h2>{Homey.__('settings.botSettings.usePassword')}</h2>
                         <Switch id={"usePassword"} onChange={(e) => this.handleShowPassword(e.currentTarget.checked)}
                                 value={this.state.usePassword}/>
                     </MenuItemWrapper>
                     {this.state.usePassword && <>
                       <MenuItemWrapper>
-                        <label className={"menuItem-label hy-nostyle"} data-i18n="settings.password">Bot
-                          Password</label>
-                        <input className="menuItem-input hy-nostyle" id="bot-password" type="password"
+                        <label
+                          className={"menuItem-label hy-nostyle"}>{Homey.__('settings.botSettings.password')}</label>
+                        <input className="menuItem-input hy-nostyle" type="password"
                                defaultValue={this.state.password}
-                               placeholder={"Enter your password"}
+                               placeholder={Homey.__('settings.botSettings.passwordPlaceholder')}
                                onChange={(e) => {
                                    this.setState({password: e.currentTarget.value})
                                }}/>
                       </MenuItemWrapper>
-                      <p className={"itemGroupHint"} data-i18n="settings.userInfoPassword">
+                      <p className={"itemGroupHint"}>
                         <i className="fas fa-info-circle"></i>
-                        To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram
+                          {Homey.__('settings.botSettings.passwordHint')}
                       </p>
                     </>
                     }
                 </MenuItemGroup>
                 <MenuItemGroup>
-                    <p className="itemGroupTitle" data-i18n="settings.miscSettings">
-                        Miscellaneous Settings
+                    <p className="itemGroupTitle">
+                        {Homey.__('settings.botSettings.micsSettings')}
                     </p>
                     <MenuItemWrapper>
-                        <h2 data-i18n="settings.useBll">Enable Better Logic Library Support</h2>
+                        <h2>{Homey.__('settings.botSettings.useBll')}</h2>
                         <Switch id={"useBll"} onChange={(e) => this.handleUseBll(e.currentTarget.checked)}
                                 value={this.state.useBLL}/>
                     </MenuItemWrapper>
                 </MenuItemGroup>
                 <MenuItemGroup>
                     <MenuItemWrapper className={"noPadding"}>
-                        <button className={"menuItem-button-danger hy-nostyle"} data-i18n="settings.save"
+                        <button className={"menuItem-button-danger hy-nostyle"}
                                 onClick={() => this.onSave()}>
-                            Save changes
+                            {Homey.__('settings.botSettings.saveChanges')}
                         </button>
                     </MenuItemWrapper>
                 </MenuItemGroup>
                 <MenuItemGroup>
-                    <p className="itemGroupTitle" data-i18n="settings.howToSetup.title">
-                        How to setup
+                    <p className="itemGroupTitle">
+                        {Homey.__('settings.botSettings.setup.title')}
                     </p>
                     <MenuItemWrapper className={"flexCol flexStart fullPadding"}>
                         <ol>
-                            <li data-i18n="settings.howToSetup.step1">Set up your own Telegram bot. This is fully secure
-                                and private,
-                                since
-                                you are the only one who can access
-                                the message archive. Enter&nbsp;<strong><span className="mention"><a
-                                    href="https://t.me/botfather">@Botfather</a></span></strong>&nbsp;in
-                                the search
-                                tab of&nbsp;<strong>Telegram</strong>&nbsp;and choose the&nbsp;<strong><span
-                                    className="mention"><a
-                                    href="https://t.me/botfather">@Botfather</a></span></strong>&nbsp;bot.
+                            <li className={"defaultFont"}>{Homey.__('settings.botSettings.setup.step1')}</li>
+                            <li className={"defaultFont"}>
+                                {Homey.__('settings.botSettings.setup.step2')}<br/>
+                                {Homey.__('settings.botSettings.setup.step2-1')}<br/>
+                                {Homey.__('settings.botSettings.setup.step2-2')}
                             </li>
-                            <li data-i18n="settings.howToSetup.step2">Click “Start” to activate&nbsp;<strong><span
-                                className="mention"><a
-                                href="https://t.me/botfather">@Botfather</a></span></strong>&nbsp;bot
-                                or enter&nbsp;<code>/newbot</code>.&nbsp;<br/><code>/setjoingroup </code>disables that
-                                the bot is
-                                allowed to
-                                join a group.<br/><code>/setprivacy</code>&nbsp;disabels that the bot can read
-                                messages inside a group
-                            </li>
-                            <li data-i18n="settings.howToSetup.step3">Enter the Token inside the app settings</li>
-                            <li data-i18n="settings.howToSetup.step4">Write your bot over Telegram&nbsp;
-                                <code>/start</code>&nbsp;and
-                                follow
-                                the instructions<br/>Each user has to
-                                also send the Bot the&nbsp;<code>/start</code>&nbsp;command. You can share the Bot
-                                via Telegram over the
-                                profile or search for the like you searched for the BotFather bot.
+                            <li className={"defaultFont"}>{Homey.__('settings.botSettings.setup.step3')}</li>
+                            <li className={"defaultFont"}>
+                                {Homey.__('settings.botSettings.setup.step4')}<br/>
+                                {Homey.__('settings.botSettings.setup.step4-1')}
                             </li>
                         </ol>
                     </MenuItemWrapper>
@@ -145,10 +130,10 @@ class SettingsMenu extends React.Component<Props, State> {
     async onSave(): Promise<void> {
         console.log("Saving Settings....")
         this.setState({gotData: false})
-        await window.Homey.set('use-password', this.state.usePassword);
-        await window.Homey.set('useBll', this.state.useBLL);
-        await window.Homey.set('password', this.state.password);
-        await window.Homey.set('bot-token', this.state.token);
+        await Homey.set('use-password', this.state.usePassword);
+        await Homey.set('useBll', this.state.useBLL);
+        await Homey.set('password', this.state.password);
+        await Homey.set('bot-token', this.state.token);
         this.setState({gotData: true})
         console.log("Saved Settings")
     }

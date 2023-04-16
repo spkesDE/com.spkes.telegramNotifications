@@ -1,52 +1,105 @@
 {
   "settings": {
-    "addAnswerButton": "Add answer",
-    "addQuestion": "Add question",
-    "answers": "Answers",
-    "clear": "Clear all users",
-    "clearAll": "Clear all users",
-    "clearLogs": "Clear logs",
-    "clearQuestions": "Clear all questions",
-    "columns": "Buttons per row",
-    "debugLogs": "Show debug logs",
-    "editQuestion": "Edit question",
-    "empty": "Empty :(",
-    "hideEditQuestion": "Hide edit mode",
-    "howToSetup": {
-      "step1": "Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access the message archive. Enter @Botfather in the search tab of Telegram and choose the @Botfather bot.",
-      "step2": "Click “Start” to activate @BotFather bot or enter /newbot. \n/setjoingroup disables that the bot is allowed to join a group.\n/setprivacy disabels that the bot can read messages inside a group",
-      "step3": "Enter the Token inside the app settings",
-      "step4": "Write your bot over Telegram /start and follow the instructions\nEach user has to also send the Bot the /start command. You can share the Bot via Telegram over the profile or search for the like you searched for the BotFather bot.",
-      "title": "How to setup"
+    "mainMenu": {
+      "questions": "Question",
+      "settings": "Bot Settings",
+      "users": "Users / Group Chats",
+      "debugMenu": "Debug Menu",
+      "topics": "Topics",
+      "logs": "App Logs"
     },
-    "keepAnswers": "Persistent buttons",
-    "logs": "Logs",
-    "miscSettings": "Miscellaneous Settings",
-    "password": "Bot Password",
-    "passwordEnable": "Enable password",
-    "question": "Question",
-    "questionInfo": "An edit mode of the question is planned.",
-    "questionSetup": {
-      "step1": "Set up a question with the add a question feature.",
-      "step1-1": "Enter a question e.g. 'Do you like pizza?'",
-      "step1-2": "Enter any amount of answers below",
-      "step1-3": "Save the question",
-      "step2": "Send this question to your telegram via the \"Send a question\" THEN-flowcard",
-      "step3": "Add a \"A Question has been answered\" WHEN-flowcard",
-      "step4": "Use the token of the card to make your favorite flow!",
-      "title": "How to use the question system"
+    "botSettings": {
+      "botSettings": "Bot Settings",
+      "botToken": "Bot Token",
+      "botTokenPlaceholder": "Enter your token here!",
+      "usePassword": "Use Password",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password here!",
+      "passwordHint": "To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram",
+      "miscSettings": "Miscellaneous Settings",
+      "useBll": "Enable Better Logic Library Support",
+      "saveChanges": "Save Changes",
+      "setup": {
+        "step1": "Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access the message archive. Enter @Botfather in the search tab of Telegram and choose the @Botfather bot.",
+        "step2": "Click “Start” to activate @BotFather bot or enter /newbot.",
+        "step2-1": "/setjoingroup disables that the bot is allowed to join a group.",
+        "step2-2": "/setprivacy disabels that the bot can read messages inside a group",
+        "step3": "Enter the Token inside the app settings",
+        "step4": "Write your bot over Telegram /start and follow the instructions.",
+        "step4-1": "Each user has to also send the Bot the /start command. You can share the Bot via Telegram over the profile or search for the like you searched for the BotFather bot.",
+        "title": "How to setup"
+      }
     },
-    "questions": "Question",
-    "save": "Save changes",
-    "saveEditQuestion": "Edit question",
-    "saveQuestion": "Save question",
-    "settings": "Settings",
-    "silentQuestion": "Silent Question (No Notification Sound)",
-    "title": "Enter your token",
-    "token": "Token",
-    "useBll": "Enable Better Logic Library support",
-    "userInfo": "When you clear the users you have to re-register the users to the Telegram bot. This means you have to send the /start command again.",
-    "userInfoPassword": "To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram",
-    "users": "Users / Group Chats"
+    "questionMenu": {
+      "addQuestion": "Add a Question",
+      "editQuestion": "Edit a Question",
+      "questions": "Questions",
+      "question": "Question",
+      "questionPlaceholder": "Enter a Question...",
+      "keepButton": "Keep the Buttons",
+      "disableNotifications": "Disable notifications",
+      "btnPerRow": "Buttons per row",
+      "addAnswer": "Add Answer",
+      "answerPlaceholder": "Enter your answer...",
+      "saveQuestion": "Save the Question",
+      "deleteQuestion": "Delete the Question",
+      "questionPopup": "Are you sure you want to delete this question? This action can't be undone!"
+    },
+    "userMenu": {
+      "users": "Users",
+      "user": "User",
+      "group": "Group",
+      "supergroup": "Supergroup",
+      "unknown": "Unknown",
+      "legend": "Legend"
+    },
+    "logMenu": {
+      "logs": "Logs",
+      "showInfoLogs": "Show Information logs",
+      "showDebugLogs": "Show Debug logs",
+      "info": "Info",
+      "error": "Error",
+      "debug": "Debug",
+      "copy": "Copy"
+    },
+    "debugMenu": {
+      "debugMenu": "Debug Menu",
+      "status": "Status",
+      "users": "Users",
+      "useBll": "Use Better Logic Library",
+      "questions": "Questions",
+      "token": "Token",
+      "usePassword": "Use password",
+      "password": "Password",
+      "logs": "Logs",
+      "fuckedUpMenu": "I fucked up, man! - Menu",
+      "resetUsers": "Reset users",
+      "resetQuestions": "Reset Questions",
+      "resetLogs": "Reset Users",
+      "resetPassword": "Reset Password",
+      "resetEverything": "Reset Everything",
+      "fuckedUpWarning": "Are you sure you want to run the action __action__ This action can't be undone!"
+    },
+    "status": {
+      "bot": "Bot",
+      "chats": "Chats",
+      "questions": "Questions",
+      "logSize": "Log Size: __value__ (Max: 100)",
+      "errors": "Errors",
+      "state": {
+        "on": "Online",
+        "off": "Offline",
+        "unknown": "Unknown"
+      }
+    },
+    "misc": {
+      "loading": "Loading",
+      "soon": "Coming soon",
+      "back": "Back",
+      "edit": "Edit",
+      "yes": "Yes",
+      "no": "No",
+      "warning": "Warning"
+    }
   }
 }

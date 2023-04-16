@@ -8,6 +8,7 @@ import Badge from "../components/UIComps/Badge";
 import {BadgeColor, BadgeSize} from "../statics/Colors";
 import {User} from "../statics/User";
 import Loading from "./Loading";
+import Homey from "../Homey";
 
 interface Props {
     changeView: Function
@@ -23,9 +24,9 @@ export default class UserMenu extends React.Component<Props, State> {
         super(props);
         this.state = {
             users: [
-                /*{userId: 42112415, chatName: "Test", type: 1},
+                {userId: 42112415, chatName: "Test", type: 1},
                 {userId: 46453645, chatName: "Test", type: 1},
-                {userId: 64537878, chatName: "Test", type: 1}*/
+                {userId: 64537878, chatName: "Test", type: 1}
             ],
             gotData: process.env!.NODE_ENV === "development"
         }
@@ -33,7 +34,7 @@ export default class UserMenu extends React.Component<Props, State> {
 
     async componentDidMount() {
         this.setState({
-            users: JSON.parse(await window.Homey.get("users") ?? "{}"),
+            users: JSON.parse(await Homey.get("users") ?? "{}"),
             gotData: true,
         })
     }
@@ -70,14 +71,19 @@ export default class UserMenu extends React.Component<Props, State> {
     render() {
         if (!this.state.gotData) return <Loading fullscreen={true}/>
         else return (
-            <MenuWrapper title={"Users"} onBack={() => this.props.changeView(Views.MainMenu)}>
+            <MenuWrapper title={Homey.__("settings.userMenu.users")}
+                         onBack={() => this.props.changeView(Views.MainMenu)}>
                 {this.getUserComponents()}
                 <MenuItemGroup>
-                    <span className={"itemGroupHint"}>Legend: </span>
-                    <Badge color={BadgeColor.BLUE} size={BadgeSize.SMALL}>User</Badge>&nbsp;
-                    <Badge color={BadgeColor.PURPLE} size={BadgeSize.SMALL}>Group</Badge>&nbsp;
-                    <Badge color={BadgeColor.ORANGE} size={BadgeSize.SMALL}>Supergroup</Badge>&nbsp;
-                    <Badge color={BadgeColor.GRAY} size={BadgeSize.SMALL}>Unknown</Badge>
+                    <span className={"itemGroupHint"}>{Homey.__("settings.userMenu.legend")}: </span>
+                    <Badge color={BadgeColor.BLUE}
+                           size={BadgeSize.SMALL}>{Homey.__("settings.userMenu.user")}</Badge>&nbsp;
+                    <Badge color={BadgeColor.PURPLE}
+                           size={BadgeSize.SMALL}>{Homey.__("settings.userMenu.group")}</Badge>&nbsp;
+                    <Badge color={BadgeColor.ORANGE}
+                           size={BadgeSize.SMALL}>{Homey.__("settings.userMenu.supergroup")}</Badge>&nbsp;
+                    <Badge color={BadgeColor.GRAY}
+                           size={BadgeSize.SMALL}>{Homey.__("settings.userMenu.unknown")}</Badge>
                 </MenuItemGroup>
             </MenuWrapper>
         );
@@ -89,7 +95,7 @@ export default class UserMenu extends React.Component<Props, State> {
             gotData: false,
             users: users
         });
-        window.Homey.set('users', JSON.stringify(users)).then(() =>
+        Homey.set('users', JSON.stringify(users))?.then(() =>
             this.setState({
                 gotData: true,
             })

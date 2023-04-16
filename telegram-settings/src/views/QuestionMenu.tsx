@@ -9,6 +9,7 @@ import Badge from "../components/UIComps/Badge";
 import {BadgeColor} from "../statics/Colors";
 import Popup from "../components/UIComps/Popup";
 import Loading from "./Loading";
+import Homey from "../Homey";
 
 interface Props {
     question?: Question
@@ -48,14 +49,14 @@ export default class QuestionMenu extends React.Component<Props, State> {
     async onSave() {
         console.log("Saving question...")
         await this.setState({gotData: false});
-        let questions: Question[] = JSON.parse(await window.Homey.get('questions') ?? "[]");
+        let questions: Question[] = JSON.parse(await Homey.get('questions') ?? "[]");
         questions = questions.filter((q) => q.UUID !== this.state.UUID)
         questions.push({
             UUID: this.state.UUID, buttons: this.state.buttons,
             columns: this.state.columns, disable_notification: this.state.disable_notification,
             keepButtons: this.state.keepButtons, question: this.state.question
         })
-        await window.Homey.set('questions', JSON.stringify(questions));
+        await Homey.set('questions', JSON.stringify(questions));
         await this.setState({gotData: true});
         console.log("Question saved.")
         this.props.changeViewOnSave(Views.Questions_Overview);
@@ -63,9 +64,9 @@ export default class QuestionMenu extends React.Component<Props, State> {
 
     async deleteQuestion() {
         await this.setState({gotData: false});
-        let questions: Question[] = JSON.parse(await window.Homey.get('questions') ?? "[]");
+        let questions: Question[] = JSON.parse(await Homey.get('questions') ?? "[]");
         questions = questions.filter((q) => q.UUID !== this.state.UUID)
-        await window.Homey.set('questions', JSON.stringify(questions));
+        await Homey.set('questions', JSON.stringify(questions));
         await this.setState({gotData: true});
         this.props.changeViewOnSave(Views.Questions_Overview);
     }
@@ -90,7 +91,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
                        type="text"
                        key={"answer-" + i}
                        required={i === 0}
-                       placeholder="enter your answer..."
+                       placeholder={Homey.__("settings.questionMenu.answerPlaceholder")}
                        onChange={(e) => {
                            if (e.currentTarget.value == "") return;
                            let buttons = this.state.buttons
@@ -108,11 +109,11 @@ export default class QuestionMenu extends React.Component<Props, State> {
         else return (<>
             <MenuItemGroup>
                 <MenuItemWrapper>
-                    <label className={"menuItem-label hy-nostyle"}>Question</label>
+                    <label className={"menuItem-label hy-nostyle"}>{Homey.__("settings.questionMenu.question")}</label>
                     <input className="menuItem-input hy-nostyle"
                            type="text"
                            required={true}
-                           placeholder="Enter your question!"
+                           placeholder={Homey.__("settings.questionMenu.questionPlaceholder")}
                            onChange={(e) => {
                                this.setState({question: e.currentTarget.value})
                            }}
@@ -121,7 +122,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
             </MenuItemGroup>
             <MenuItemGroup>
                 <MenuItemWrapper>
-                    <h2>Keep Buttons</h2>
+                    <h2>{Homey.__("settings.questionMenu.keepButton")}</h2>
                     <Switch
                         onChange={(e) => {
                             this.setState({keepButtons: e.currentTarget.checked})
@@ -130,7 +131,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
                     />
                 </MenuItemWrapper>
                 <MenuItemWrapper>
-                    <h2>Disable Notification</h2>
+                    <h2>{Homey.__("settings.questionMenu.disableNotifications")}</h2>
                     <Switch
                         onChange={(e) => {
                             this.setState({disable_notification: e.currentTarget.checked})
@@ -138,7 +139,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
                         value={this.state.disable_notification}/>
                 </MenuItemWrapper>
                 <MenuItemWrapper>
-                    <h2>Buttons per Row</h2>
+                    <h2>{Homey.__("settings.questionMenu.btnPerRow")}</h2>
                     <div style={{display: "flex"}}>
                         <input id="columnSize" max="4" min="1" type="range"
                                onChange={(e) => {
@@ -157,7 +158,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
                         onClick={() => {
                             this.setState({answers: this.state.answers + 1})
                         }}>
-                        <i className="fa fa-plus"></i> Add Answer
+                        <i className="fa fa-plus"></i> {Homey.__("settings.questionMenu.addAnswer")}
                     </button>
                 </MenuItemWrapper>
             </MenuItemGroup>
@@ -168,7 +169,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
                         className={"menuItem-button-green hy-nostyle"}
                         onClick={() => this.onSave()}
                     >
-                        Save Question
+                        {Homey.__("settings.questionMenu.saveQuestion")}
                     </button>
                 </MenuItemWrapper>
             </MenuItemGroup>
@@ -178,28 +179,29 @@ export default class QuestionMenu extends React.Component<Props, State> {
                     <button
                         className={"menuItem-button-danger hy-nostyle"}
                         onClick={() => this.setState({showDeletePopup: !this.state.showDeletePopup})}>
-                        Delete Question
+                        {Homey.__("settings.questionMenu.deleteQuestion")}
                     </button>
                 </MenuItemWrapper>
             </MenuItemGroup>
 
-            <Popup title={"Warning"} icon={"fa-exclamation-triangle"} show={this.state.showDeletePopup}
-                   closeHandler={(e) => {
+            <Popup title={Homey.__("settings.misc.warning")} icon={"fa-exclamation-triangle"}
+                   show={this.state.showDeletePopup}
+                   closeHandler={() => {
                        this.setState({showDeletePopup: false})
                    }}>
-                Are you sure you want to delete this question? This action can't be undone!
+                {Homey.__("settings.questionMenu.questionPopup")}
                 <br/><br/>
                 <button
                     className={"yesButton hy-nostyle"}
-                    onClick={(e) =>
-                        this.deleteQuestion()}
-                >Yes
+                    onClick={() =>
+                        this.deleteQuestion()}>
+                    {Homey.__("settings.misc.yes")}
                 </button>
 
                 <button
                     className={"noButton hy-nostyle"}
-                    onClick={(e) => this.setState({showDeletePopup: false})}
-                >No
+                    onClick={() => this.setState({showDeletePopup: false})}>
+                    {Homey.__("settings.misc.no")}
                 </button>
             </Popup>
         </>);

@@ -1,52 +1,105 @@
 {
   "settings": {
-    "addAnswerButton": "Aggiungi risposta",
-    "addQuestion": "Aggiungi domanda",
-    "answers": "Risposte",
-    "clear": "Svuota tutti gli utenti",
-    "clearAll": "Svuota tutti gli utenti",
-    "clearLogs": "Svuota log",
-    "clearQuestions": "Rimuovi tutte le domande",
-    "columns": "Pulsanti per riga",
-    "debugLogs": "Mostra i log di debug",
-    "editQuestion": "Modifica domanda",
-    "empty": "Vuoto :(",
-    "hideEditQuestion": "Nascondi modalità di modifica",
-    "howToSetup": {
-      "step1": "Configura il tuo bot Telegram. Questo è completamente sicuro e privato, dato che sei l'unico che può accedere all'archivio dei messaggi. Inserisci @Botfather nella scheda di ricerca di Telegram e scegli il bot @Botfather.",
-      "step2": "Premi “Start” per attivare il bot @BotFather oppure scrivi /newbot. \nL'impostazione /setjoingroup aggiunge o toglie la possibilità che il bot possa unirsi a un gruppo.\nL'impostazione /setprivacy aggiunge o toglie la possibilità che il bot possa leggere i messaggi all'interno di un gruppo.",
-      "step3": "Inserisci il token nelle impostazioni dell'app",
-      "step4": "Scrivi nel tuo bot su Telegram /start e segui le istruzioni\nOgni utente ceh deve interagire con il Bot deve inviare il comando /start. Puoi condividere il Bot tramite Telegram sul profilo o cercare il bot BotFather.",
-      "title": "Come installare"
+    "mainMenu": {
+      "questions": "Domande",
+      "settings": "Impostazioni Bot",
+      "users": "Utenti / Chat di gruppo",
+      "debugMenu": "Menu di Debug",
+      "topics": "Argomenti",
+      "logs": "Log dell'app"
     },
-    "keepAnswers": "Pulsanti persistenti",
-    "logs": "Logs",
-    "miscSettings": "Impostazioni varie",
-    "password": "Password Bot",
-    "passwordEnable": "Abilita password",
-    "question": "Domanda",
-    "questionInfo": "Modalità modifica domande pianificate.",
-    "questionSetup": {
-      "step1": "Imposta una domanda con la funzione aggiungi una domanda.",
-      "step1-1": "Inserisci una domanda es. 'Ti piace la pizza?'",
-      "step1-2": "Inserisci un numero qualsiasi di risposte di seguito",
-      "step1-3": "Salva la domanda",
-      "step2": "Invia questa domanda a Telegram tramite il flusso \"Invia una domanda\" POI-flowcard",
-      "step3": "Aggiungi una \"Una domanda ha ricevuto risposta\" QUANDO-flowcard",
-      "step4": "Usa il token della card per creare il tuo flow!",
-      "title": "Come usare il sistema di domande"
+    "botSettings": {
+      "botSettings": "Impostazioni Bot",
+      "botToken": "Token Bot",
+      "botTokenPlaceholder": "Inserisci qui il tuo token!",
+      "usePassword": "Usa Password",
+      "password": "Password",
+      "passwordPlaceholder": "Inserisci qui la tua password!",
+      "passwordHint": "Per registrare un utente/chat ora devi inserire /start [tuaPassword] al bot tramite Telegram",
+      "miscSettings": "Impostazioni Varie",
+      "useBll": "Abilita il supporto alla Better Logic Library",
+      "saveChanges": "Salva Modifiche",
+      "setup": {
+        "step1": "Configura il tuo bot Telegram personale. Questo è completamente sicuro e privato, poiché sei l'unico che può accedere all'archivio dei messaggi. Digita @Botfather nella barra di ricerca di Telegram e scegli il bot @Botfather.",
+        "step2": "Clicca su “Start” per attivare il bot @BotFather o digita /newbot.",
+        "step2-1": "/setjoingroup disabilita l'abilitazione del bot a unirsi a un gruppo.",
+        "step2-2": "/setprivacy disabilita la possibilità del bot di leggere i messaggi all'interno di un gruppo",
+        "step3": "Inserisci il Token nelle impostazioni dell'app",
+        "step4": "Scrivi al tuo bot su Telegram /start e segui le istruzioni.",
+        "step4-1": "Ogni utente deve inviare anche il comando /start al Bot. Puoi condividere il Bot su Telegram dal profilo o cercarlo come hai cercato il bot BotFather.",
+        "title": "Come Configurare"
+      }
     },
-    "questions": "Domande",
-    "save": "Salva modifiche",
-    "saveEditQuestion": "Modifica domanda",
-    "saveQuestion": "Salva domanda",
-    "settings": "Impostazioni",
-    "silentQuestion": "Domanda silenziosa (nessun suono di notifica)",
-    "title": "Inserisci il tuo token",
-    "token": "Token",
-    "useBll": "Abilitare il supporto di Better Logic Library",
-    "userInfo": "Quando svuoti gli utenti ydevi ri-registrarli sul bot Telegram. Questo significa che devi inviare nuovamente il comando /start .",
-    "userInfoPassword": "Per registrare un utente/chat devi scrivere /start [yourPassword] al bot tramite Telegram",
-    "users": "Utenti / Gruppi di Chat"
+    "questionMenu": {
+      "addQuestion": "Aggiungi una Domanda",
+      "editQuestion": "Modifica una Domanda",
+      "questions": "Domande",
+      "question": "Domanda",
+      "questionPlaceholder": "Inserisci una Domanda...",
+      "keepButton": "Mantieni i Pulsanti",
+      "disableNotifications": "Disabilita le notifiche",
+      "btnPerRow": "Pulsanti per riga",
+      "addAnswer": "Aggiungi Risposta",
+      "answerPlaceholder": "Inserisci la tua risposta...",
+      "saveQuestion": "Salva la Domanda",
+      "deleteQuestion": "Elimina la Domanda",
+      "questionPopup": "Sei sicuro di voler eliminare questa domanda? Questa azione non può essere annullata!"
+    },
+    "userMenu": {
+      "users": "Utenti",
+      "user": "Utente",
+      "group": "Gruppo",
+      "supergroup": "Supergruppo",
+      "unknown": "Sconosciuto",
+      "legend": "Legenda"
+    },
+    "logMenu": {
+      "logs": "Registri",
+      "showInfoLogs": "Mostra registri delle informazioni",
+      "showDebugLogs": "Mostra registri di debug",
+      "info": "Informazioni",
+      "error": "Errore",
+      "debug": "Debug",
+      "copy": "Copia"
+    },
+    "debugMenu": {
+      "debugMenu": "Menu Debug",
+      "status": "Stato",
+      "users": "Utenti",
+      "useBll": "Usa Better Logic Library",
+      "questions": "Domande",
+      "token": "Token",
+      "usePassword": "Usa password",
+      "password": "Password",
+      "logs": "Registri",
+      "fuckedUpMenu": "Ho fatto un casino, man! - Menu",
+      "resetUsers": "Reset utenti",
+      "resetQuestions": "Reset Domande",
+      "resetLogs": "Reset Registri",
+      "resetPassword": "Reset Password",
+      "resetEverything": "Reset Tutto",
+      "fuckedUpWarning": "Sei sicuro di voler eseguire l'azione action Questa azione non può essere annullata!"
+    },
+    "status": {
+      "bot": "Bot",
+      "chats": "Chat",
+      "questions": "Domande",
+      "logSize": "Dimensione Registro: value (Max: 100)",
+      "errors": "Errori",
+      "state": {
+        "on": "Online",
+        "off": "Offline",
+        "unknown": "Sconosciuto"
+      }
+    },
+    "misc": {
+      "loading": "Caricamento",
+      "soon": "Prossimamente",
+      "back": "Indietro",
+      "edit": "Modifica",
+      "yes": "Sì",
+      "no": "No",
+      "warning": "Attenzione"
+    }
   }
 }

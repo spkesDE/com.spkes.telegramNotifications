@@ -9,6 +9,7 @@ import {BadgeColor, BadgeSize, BadgeType} from "../statics/Colors";
 import {Question} from "../statics/Question";
 import Loading from "./Loading";
 import QuestionMenu from "./QuestionMenu";
+import Homey from "../Homey";
 
 interface Props {
     changeView: Function
@@ -33,7 +34,7 @@ export default class QuestionMainMenu extends React.Component<Props, State> {
 
     async componentDidMount() {
         this.setState({
-            questions: JSON.parse(await window.Homey.get("questions") ?? "[]"),
+            questions: JSON.parse(await Homey.get("questions") ?? "[]"),
             gotData: true,
         })
     }
@@ -43,7 +44,7 @@ export default class QuestionMainMenu extends React.Component<Props, State> {
         this.state.questions.forEach((q) => {
             result.push(
                 <MenuItemGroup>
-                    <MenuItemWrapper>
+                    <MenuItemWrapper onClick={() => this.changeView(Views.Questions_Edit, q)}>
                         <span style={{paddingBottom: "var(--su)", paddingTop: "var(--su)"}}>
                             {q.question}&nbsp;
                             <Badge color={BadgeColor.GRAY}
@@ -57,11 +58,10 @@ export default class QuestionMainMenu extends React.Component<Props, State> {
                                 <i className="fas fa-keyboard"></i> {q.buttons.length}
                             </Badge>
                         </span>
-                        <button
-                            className={"editButton hy-nostyle"}
-                            onClick={() => this.changeView(Views.Questions_Edit, q)}>
-                            Edit <i className="fa fa-chevron-right"></i>
-                        </button>
+                        <span
+                            className={"editButton hy-nostyle"}>
+                            {Homey.__("settings.misc.edit")} <i className="fa fa-chevron-right"></i>
+                        </span>
                     </MenuItemWrapper>
                 </MenuItemGroup>
             )
@@ -83,14 +83,14 @@ export default class QuestionMainMenu extends React.Component<Props, State> {
                 this.componentDidMount().then();
                 return {
                     comp: this.getQuestionsComponents(),
-                    title: "Questions",
+                    title: Homey.__("settings.questionMenu.questions"),
                     backView: Views.MainMenu,
                     addView: Views.Questions_Add
                 };
             case Views.Questions_Add:
                 return {
                     comp: <QuestionMenu changeViewOnSave={this.changeView.bind(this)}/>,
-                    title: "Add Question",
+                    title: Homey.__("settings.questionMenu.addQuestion"),
                     backView: Views.Questions_Overview,
                     addView: undefined
                 };
@@ -98,7 +98,7 @@ export default class QuestionMainMenu extends React.Component<Props, State> {
                 return {
                     comp: <QuestionMenu changeViewOnSave={this.changeView.bind(this)}
                                         question={this.state.targetQuestion}/>,
-                    title: "Edit Questions",
+                    title: Homey.__("settings.questionMenu.editQuestion"),
                     backView: Views.Questions_Overview,
                     addView: undefined
                 };
@@ -106,7 +106,7 @@ export default class QuestionMainMenu extends React.Component<Props, State> {
                 this.props.changeView(Views.MainMenu);
                 return {
                     comp: this.getQuestionsComponents(),
-                    title: "Questions",
+                    title: Homey.__("settings.questionMenu.questions"),
                     backView: Views.MainMenu,
                     addView: undefined
                 };

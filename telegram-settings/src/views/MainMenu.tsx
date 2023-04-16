@@ -4,6 +4,7 @@ import MenuItem from "../components/UIComps/MenuItem";
 import {Views} from "../statics/Views";
 import MenuItemGroup from "../components/UIComps/MenuItemGroup";
 import StatusWidget from "../components/MainMenu/StatusWidget";
+import Homey from "../Homey";
 
 interface Props {
     changeView: Function
@@ -17,25 +18,25 @@ export default class MainMenu extends React.Component<Props> {
                 <StatusWidget/>
                 <MenuItemGroup>
                     <MenuItem
-                        title={"Bot Settings"}
+                        title={Homey.__('settings.mainMenu.settings')}
                         icon={"fa-cog"}
                         className={"bg-color-orange"}
                         onClick={() => this.props.changeView(Views.Settings)}
                     />
                     <MenuItem
-                        title={"Questions"}
+                        title={Homey.__('settings.mainMenu.questions')}
                         icon={"fa-question"}
                         className={"bg-color-blue"}
                         onClick={() => this.props.changeView(Views.Questions)}
                     />
                     <MenuItem
-                        title={"Users"}
+                        title={Homey.__('settings.mainMenu.users')}
                         icon={"fa-users"}
                         className={"bg-color-magenta"}
                         onClick={() => this.props.changeView(Views.Users)}
                     />
                     <MenuItem
-                        title={"Topics"}
+                        title={Homey.__('settings.mainMenu.topics')}
                         icon={"fa-folder"}
                         className={"bg-color-green"}
                         disabled={true}
@@ -43,13 +44,13 @@ export default class MainMenu extends React.Component<Props> {
                 </MenuItemGroup>
                 <MenuItemGroup>
                     <MenuItem
-                        title={"Logs"}
+                        title={Homey.__('settings.mainMenu.logs')}
                         icon={"fa-bars"}
                         className={"bg-color-gray"}
                         onClick={() => this.props.changeView(Views.Logs)}
                     />
                     <MenuItem
-                        title={"Debug Menu"}
+                        title={Homey.__('settings.mainMenu.debugMenu')}
                         icon={"fa-bug"}
                         className={"bg-color-red"}
                         onClick={() => this.props.changeView(Views.Debug)}

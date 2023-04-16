@@ -1,52 +1,105 @@
 {
   "settings": {
-    "addAnswerButton": "Voeg antwoord toe",
-    "addQuestion": "Voeg vraag toe",
-    "answers": "Antwoorden",
-    "clear": "Verwijder alle gebruikers",
-    "clearAll": "Verwijder alle gebruikers",
-    "clearLogs": "Logboeken leegmaken",
-    "clearQuestions": "Wis alle vragen",
-    "columns": "Knoppen per regel",
-    "debugLogs": "Foutopsporingslogboeken weergeven",
-    "editQuestion": "Vraag bewerken",
-    "empty": "Leeg :(",
-    "hideEditQuestion": "De bewerkingsmodus verbergen",
-    "howToSetup": {
-      "step1": "Creeër je eigen Telegram bot. Dit is volledig veilig en prive, sinds jij de enige bent die het berichten archief kan bereiken. Voeg @Botfather in het zoek blad van Telegram en selecteer de @Botfather bot.",
-      "step2": "Klik \"Start\" om @Botfather te activeren of gebruik /newbot. \n/setjoingroup zorgt er voor dat de bot aan een groep toegevoegd kan worden. \n/setprivacy schakelt de mogelijkheid voor de bot uit om groepsberichten te lezen",
-      "step3": "Voeg het Token toe in de app settings",
-      "step4": "Schrijf /start naar je bot in Telegram en volg de instructies\nElke gebruiker moet ook een /start commando sturen naar de Bot. Je kan de Bot ook delen via Telegram via het profiel of zoek er naar zoals je naar de Botfather gezocht hebt",
-      "title": "Hoe werkt het instellen"
+    "mainMenu": {
+      "questions": "Vragen",
+      "settings": "Bot-instellingen",
+      "users": "Gebruikers / Groepschats",
+      "debugMenu": "Debug-menu",
+      "topics": "Onderwerpen",
+      "logs": "App-logs"
     },
-    "keepAnswers": "Permanente knoppen",
-    "logs": "Logboeken",
-    "miscSettings": "Overige instellingen",
-    "password": "Bot Wachtwoord",
-    "passwordEnable": "Wachtwoord inschakelen",
-    "question": "Vraag",
-    "questionInfo": "Een bewerk modus van de vraag is gepland",
-    "questionSetup": {
-      "step1": "Stel een vraag in met de \"Voeg vraag toe\" optie",
-      "step1-1": "Voeg een vraag toe i.e. 'Lust je pizza?'",
-      "step1-2": "Voeg hieronder een willekeurig aantal antwoorden toe",
-      "step1-3": "Sla de vraag op",
-      "step2": "Verstuur deze vraag naar je Telegram via de \"Stuur een vraag\" DAN-flowcard",
-      "step3": "Voeg een \"Een vraag is beantwoord\" Als-flowcard toe",
-      "step4": "Gebruik het token van de kaart om je favoriete flow te maken!",
-      "title": "Hoe gebruik je het vragensysteem"
+    "botSettings": {
+      "botSettings": "Bot-instellingen",
+      "botToken": "Bot-token",
+      "botTokenPlaceholder": "Voer hier uw token in!",
+      "usePassword": "Wachtwoord gebruiken",
+      "password": "Wachtwoord",
+      "passwordPlaceholder": "Voer hier uw wachtwoord in!",
+      "passwordHint": "Om een gebruiker / chat te registreren, moet u nu /start [uw wachtwoord] naar de bot sturen via Telegram",
+      "miscSettings": "Diverse instellingen",
+      "useBll": "Beter Logica Bibliotheek ondersteuning inschakelen",
+      "saveChanges": "Wijzigingen opslaan",
+      "setup": {
+        "step1": "Stel je eigen Telegram-bot in. Dit is volledig veilig en privé, omdat jij de enige bent die toegang heeft tot het berichtenarchief. Zoek @Botfather in Telegram en kies de @Botfather-bot.",
+        "step2": "Klik op \"Start\" om de @BotFather-bot te activeren of voer /newbot in.",
+        "step2-1": "/setjoingroup schakelt uit dat de bot lid mag worden van een groep.",
+        "step2-2": "/setprivacy schakelt uit dat de bot berichten in een groep kan lezen",
+        "step3": "Voer de token in de app-instellingen in",
+        "step4": "Schrijf naar je bot via Telegram /start en volg de instructies.",
+        "step4-1": "Elke gebruiker moet ook de /start-opdracht naar de bot sturen. U kunt de bot delen via het profiel of de zoekfunctie in Telegram, zoals u hebt gezocht naar de BotFather-bot.",
+        "title": "Hoe te installeren"
+      }
     },
-    "questions": "Vragen",
-    "save": "Wijzigingen opslaan",
-    "saveEditQuestion": "Vraag bewerken",
-    "saveQuestion": "Sla vraag op",
-    "settings": "Instellingen",
-    "silentQuestion": "Stille vraag (geen meldingsgeluid)",
-    "title": "Voer uw token in alstublieft",
-    "token": "Token",
-    "useBll": "Ondersteuning voor Better Logic Library inschakelen",
-    "userInfo": "Als u de gebruikers verwijderd, moet u de gebruikers her-registreren in uw eigen Telegram Bot. Dit betekend dat u opnieuw het commando /start moet versturen.",
-    "userInfoPassword": "Om nu een gebruiker/chat te registreren moet je /start [jouwPaswoord] invoeren bij de bot via Telegram.",
-    "users": "Gebruikers / Groep Chats"
+    "questionMenu": {
+      "addQuestion": "Vraag toevoegen",
+      "editQuestion": "Vraag bewerken",
+      "questions": "Vragen",
+      "question": "Vraag",
+      "questionPlaceholder": "Voer een vraag in...",
+      "keepButton": "Knoppen behouden",
+      "disableNotifications": "Notificaties uitschakelen",
+      "btnPerRow": "Knoppen per rij",
+      "addAnswer": "Antwoord toevoegen",
+      "answerPlaceholder": "Voer uw antwoord in...",
+      "saveQuestion": "Vraag opslaan",
+      "deleteQuestion": "Vraag verwijderen",
+      "questionPopup": "Weet u zeker dat u deze vraag wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt!"
+    },
+    "userMenu": {
+      "users": "Gebruikers",
+      "user": "Gebruiker",
+      "group": "Groep",
+      "supergroup": "Supergroep",
+      "unknown": "Onbekend",
+      "legend": "Legenda"
+    },
+    "logMenu": {
+      "logs": "Logs",
+      "showInfoLogs": "Toon informatielogs",
+      "showDebugLogs": "Toon debuglogs",
+      "info": "Info",
+      "error": "Fout",
+      "debug": "Debug",
+      "copy": "Kopiëren"
+    },
+    "debugMenu": {
+      "debugMenu": "Debugmenu",
+      "status": "Status",
+      "users": "Gebruikers",
+      "useBll": "Gebruik Better Logic Library",
+      "questions": "Vragen",
+      "token": "Token",
+      "usePassword": "Gebruik wachtwoord",
+      "password": "Wachtwoord",
+      "logs": "Logs",
+      "fuckedUpMenu": "Ik heb het verkloot, man! - Menu",
+      "resetUsers": "Reset gebruikers",
+      "resetQuestions": "Reset vragen",
+      "resetLogs": "Reset Logs",
+      "resetPassword": "Wachtwoord resetten",
+      "resetEverything": "Reset alles",
+      "fuckedUpWarning": "Weet u zeker dat u de actie __action__ wilt uitvoeren? Deze actie kan niet ongedaan worden gemaakt!"
+    },
+    "status": {
+      "bot": "Bot",
+      "chats": "Chats",
+      "questions": "Vragen",
+      "logSize": "Loggrootte: __value__ (Max: 100)",
+      "errors": "Fouten",
+      "state": {
+        "on": "Online",
+        "off": "Offline",
+        "unknown": "Onbekend"
+      }
+    },
+    "misc": {
+      "loading": "Laden",
+      "soon": "Binnenkort beschikbaar",
+      "back": "Terug",
+      "edit": "Bewerken",
+      "yes": "Ja",
+      "no": "Nee",
+      "warning": "Waarschuwing"
+    }
   }
 }

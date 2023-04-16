@@ -3,6 +3,7 @@ import '../../App.css';
 import './MenuItem.css'
 import Badge from "./Badge";
 import {BadgeColor, BadgeSize, BadgeType} from "../../statics/Colors";
+import Homey from "../../Homey";
 
 interface Props {
     title: string;
@@ -30,7 +31,7 @@ export default class MenuItem extends React.Component<Props, any> {
                   style={{marginLeft: "1em"}}
                   type={BadgeType.PILL}
                   color={BadgeColor.GRAY}
-                  size={BadgeSize.SMALL}>Coming soon</Badge>}
+                  size={BadgeSize.SMALL}>{Homey.__("settings.misc.soon")}</Badge>}
             </button>
         );
     }

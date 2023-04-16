@@ -3,6 +3,7 @@ import '../../App.css';
 import './LogWidget.css'
 import Badge from "../UIComps/Badge";
 import {BadgeColor, BadgeFloat, BadgeSize, BadgeType} from "../../statics/Colors";
+import Homey from "../../Homey";
 
 enum Types {
     Info,
@@ -27,7 +28,7 @@ export default class LogWidget extends React.Component<Props, any> {
                 {this.props.type === Types.Error && this.props.showExport &&
                   <Badge color={BadgeColor.GRAY} style={{marginLeft: ".2em"}}
                          onClick={() => navigator.clipboard.writeText(this.props.message)}>
-                    <i className={"fa fa-copy"}></i> Copy
+                    <i className={"fa fa-copy"}></i> {Homey.__("settings.logMenu.copy")};
                   </Badge>
                 }
                 {this.props.date &&
@@ -44,11 +45,11 @@ export default class LogWidget extends React.Component<Props, any> {
     getLogType() {
         switch (this.props.type) {
             case Types.Info:
-                return "Info";
+                return Homey.__("settings.logMenu.info");
             case Types.Error:
-                return "Error";
+                return Homey.__("settings.logMenu.error");
             case Types.Debug:
-                return "Debug";
+                return Homey.__("settings.logMenu.debug");
         }
     }
 

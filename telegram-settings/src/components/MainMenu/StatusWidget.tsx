@@ -5,6 +5,7 @@ import Loading from "../../views/Loading";
 import Badge from "../UIComps/Badge";
 import {BadgeColor, BadgeSize} from "../../statics/Colors";
 import {LogEntry} from "../../statics/LogEntry";
+import Homey from "../../Homey";
 
 interface Props {
 
@@ -34,19 +35,25 @@ export default class StatusWidget extends React.Component<Props, State> {
     }
 
     getStatusBadge(bool: boolean | undefined) {
-        if (process.env!.NODE_ENV === "development") return <Badge color={BadgeColor.ORANGE}
-                                                                   size={BadgeSize.SMALL}>DEVELOPMENT</Badge>;
-        if (bool === undefined) return <Badge color={BadgeColor.GRAY} size={BadgeSize.SMALL}>Unknown</Badge>;
-        if (bool) return <Badge color={BadgeColor.GREEN} size={BadgeSize.SMALL}>Online</Badge>;
-        return <Badge color={BadgeColor.RED} size={BadgeSize.SMALL}>Offline</Badge>;
+        if (process.env!.NODE_ENV === "development")
+            return <Badge color={BadgeColor.ORANGE}
+                          size={BadgeSize.SMALL}>DEVELOPMENT</Badge>;
+        if (bool === undefined)
+            return <Badge color={BadgeColor.GRAY}
+                          size={BadgeSize.SMALL}>{Homey.__("settings.status.state.unknown")}</Badge>;
+        if (bool)
+            return <Badge color={BadgeColor.GREEN}
+                          size={BadgeSize.SMALL}>{Homey.__("settings.status.state.on")}</Badge>;
+        return <Badge color={BadgeColor.RED}
+                      size={BadgeSize.SMALL}>{Homey.__("settings.status.state.off")}</Badge>;
     }
 
     async componentDidMount() {
-        let logs = JSON.parse(await window.Homey.get('logs') ?? "[]") ?? [];
+        let logs = JSON.parse(await Homey.get('logs') ?? "[]") ?? [];
         this.setState({
-            status: this.getStatusBadge(await window.Homey.get('bot-running')),
-            users: (JSON.parse(await window.Homey.get('users') ?? "[]")).length ?? "0",
-            questions: (JSON.parse(await window.Homey.get('questions') ?? "[]")).length ?? "0",
+            status: this.getStatusBadge(await Homey.get('bot-running')),
+            users: (JSON.parse(await Homey.get('users') ?? "[]")).length ?? "0",
+            questions: (JSON.parse(await Homey.get('questions') ?? "[]")).length ?? "0",
             logSize: logs.length ?? "0",
             errors: logs.filter((e: LogEntry) => e.type === 1).length ?? "0",
             gotData: true
@@ -64,13 +71,13 @@ export default class StatusWidget extends React.Component<Props, State> {
                     <div className="data">
                         <div className={"data"}>
                             <div className="col">
-                                <p>Bot: {this.state.status}</p>
-                                <p>Chats: {this.state.users}</p>
-                                <p>Questions: {this.state.questions}</p>
+                                <p>{Homey.__("settings.status.bot")}: {this.state.status}</p>
+                                <p>{Homey.__("settings.status.chats")}: {this.state.users}</p>
+                                <p>{Homey.__("settings.status.questions")}: {this.state.questions}</p>
                             </div>
                             <div className="col">
-                                <p>Log Size: {this.state.logSize} (Max: 100)</p>
-                                <p>Errors: {this.state.errors}</p>
+                                <p>{Homey.__("settings.status.logSize", {value: this.state.logSize})}</p>
+                                <p>{Homey.__("settings.status.errors")}: {this.state.errors}</p>
                                 <p></p>
                             </div>
                         </div>

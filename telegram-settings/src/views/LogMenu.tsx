@@ -7,6 +7,7 @@ import {LogEntry} from "../statics/LogEntry";
 import MenuItemWrapper from "../components/UIComps/MenuItemWrapper";
 import Switch from "../components/UIComps/Switch";
 import MenuItemGroup from "../components/UIComps/MenuItemGroup";
+import Homey from "../Homey";
 
 interface Props {
     changeView: Function
@@ -32,7 +33,7 @@ export default class LogsMenu extends React.Component<Props, State> {
 
     async componentDidMount() {
         this.setState({
-            logs: JSON.parse(await window.Homey.get("logs"))
+            logs: JSON.parse(await Homey.get("logs"))
         })
     }
 
@@ -65,6 +66,7 @@ export default class LogsMenu extends React.Component<Props, State> {
                              customOnAddText={<>Copy <i className="fas fa-clone"></i></>}
                              onAdd={() => (navigator.clipboard.writeText(JSON.stringify(this.state.logs)))}
                 >
+                    {this.getLogMenuComponents()}
                     {this.getLogComponents()}
                 </MenuWrapper>
             );
@@ -74,7 +76,7 @@ export default class LogsMenu extends React.Component<Props, State> {
         return <>
             <MenuItemGroup>
                 <MenuItemWrapper>
-                    <h2>Show Info Logs</h2>
+                    <h2>{Homey.__("settings.logMenu.showInfoLogs")}</h2>
                     <Switch
                         onChange={(e) => {
                             this.setState({hideInfo: !e.currentTarget.checked})
@@ -83,7 +85,7 @@ export default class LogsMenu extends React.Component<Props, State> {
                     />
                 </MenuItemWrapper>
                 <MenuItemWrapper>
-                    <h2>Show Debug Logs</h2>
+                    <h2>{Homey.__("settings.logMenu.showDebugLogs")}</h2>
                     <Switch
                         onChange={(e) => {
                             this.setState({hideDebug: !e.currentTarget.checked})
