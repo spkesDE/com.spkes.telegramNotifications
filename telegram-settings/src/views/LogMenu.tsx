@@ -8,6 +8,7 @@ import MenuItemWrapper from "../components/UIComps/MenuItemWrapper";
 import Switch from "../components/UIComps/Switch";
 import MenuItemGroup from "../components/UIComps/MenuItemGroup";
 import Homey from "../Homey";
+import EmptyWidget from "../components/UIComps/EmptyWidget";
 
 interface Props {
     changeView: Function
@@ -40,12 +41,14 @@ export default class LogsMenu extends React.Component<Props, State> {
     //0 Info, 1 Error, 2 Debug
     getLogComponents() {
         let result: any[] = [];
+        if (this.state.logs.length === 0) return <EmptyWidget/>
         this.state.logs.forEach((l) => {
             if (l.type == 0 && this.state.hideInfo) return;
             if (l.type == 2 && this.state.hideDebug) return;
             result.push(<LogWidget showExport={!this.state.hideExports} date={l.date} type={l.type ?? 0}
                                    message={l.message}/>)
         });
+        if (result.length === 0) return <EmptyWidget happy={true}/>
         return result;
     }
 

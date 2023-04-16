@@ -9,6 +9,7 @@ import {BadgeColor, BadgeSize, BadgeType} from "../statics/Colors";
 import {Chat} from "../statics/Chat";
 import Loading from "./Loading";
 import Homey from "../Homey";
+import EmptyWidget from "../components/UIComps/EmptyWidget";
 
 interface Props {
     changeView: Function
@@ -48,6 +49,7 @@ export default class ChatMenu extends React.Component<Props, State> {
 
     getChatComponents() {
         let result: any[] = [];
+        if (this.state.chats.length === 0) return <EmptyWidget/>
         this.state.chats.forEach((u) => {
             result.push(
                 <MenuItemGroup>

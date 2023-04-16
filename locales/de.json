@@ -54,7 +54,7 @@
       "legend": "Legende"
     },
     "topicsMenu": {
-      "topicsMenu": "Topics"
+      "topicsMenu": "Themen"
     },
     "logMenu": {
       "logs": "Logs",
@@ -102,7 +102,8 @@
       "edit": "Bearbeiten",
       "yes": "Ja",
       "no": "Nein",
-      "warning": "Warnung"
+      "warning": "Warnung",
+      "empty": "Leer"
     }
   }
 }

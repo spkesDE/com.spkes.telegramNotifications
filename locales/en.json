@@ -102,7 +102,8 @@
       "edit": "Edit",
       "yes": "Yes",
       "no": "No",
-      "warning": "Warning"
+      "warning": "Warning",
+      "empty": "Empty"
     }
   }
 }

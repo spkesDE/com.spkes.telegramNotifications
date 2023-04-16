@@ -8,6 +8,7 @@ import {BadgeColor, BadgeSize, BadgeType} from "../statics/Colors";
 import {Question} from "../statics/Question";
 import Loading from "./Loading";
 import Homey from "../Homey";
+import EmptyWidget from "../components/UIComps/EmptyWidget";
 
 interface Props {
     changeView: Function
@@ -66,6 +67,7 @@ export default class QuestionOverview extends React.Component<Props, State> {
 
     render() {
         if (!this.state.gotData) return <Loading fullscreen={true}/>
+        if (this.state.questions.length === 0) return <EmptyWidget/>
         else return (<>{this.getQuestionsComponents()}</>);
     }
 }

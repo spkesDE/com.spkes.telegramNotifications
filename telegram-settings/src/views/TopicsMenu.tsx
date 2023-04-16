@@ -9,6 +9,7 @@ import {BadgeColor} from "../statics/Colors";
 import {Chat} from "../statics/Chat";
 import Loading from "./Loading";
 import Homey from "../Homey";
+import EmptyWidget from "../components/UIComps/EmptyWidget";
 
 interface Props {
     changeView: Function
@@ -35,8 +36,9 @@ export default class TopicsMenu extends React.Component<Props, State> {
         })
     }
 
-    getChatComponents() {
+    getTopicComponents() {
         let result: any[] = [];
+        if (this.getTopicCount() === 0) return <EmptyWidget/>
         this.state.chats.forEach((u) => {
             if (u.topics && u.topics.length > 0)
                 result.push(
@@ -64,12 +66,20 @@ export default class TopicsMenu extends React.Component<Props, State> {
         return result;
     }
 
+    getTopicCount() {
+        let count = 0;
+        this.state.chats.forEach((u) => {
+            if (u.topics) count += u.topics.length;
+        });
+        return count;
+    }
+
     render() {
         if (!this.state.gotData) return <Loading fullscreen={true}/>
         else return (
             <MenuWrapper title={Homey.__("settings.topicsMenu.topicsMenu")}
                          onBack={() => this.props.changeView(Views.MainMenu)}>
-                {this.getChatComponents()}
+                {this.getTopicComponents()}
             </MenuWrapper>
         );
     }
