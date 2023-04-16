@@ -87,7 +87,7 @@ class SettingsMenu extends React.Component<Props, State> {
                 </MenuItemGroup>
                 <MenuItemGroup>
                     <p className="itemGroupTitle">
-                        {Homey.__('settings.botSettings.micsSettings')}
+                        {Homey.__('settings.botSettings.miscSettings')}
                     </p>
                     <MenuItemWrapper>
                         <h2>{Homey.__('settings.botSettings.useBll')}</h2>

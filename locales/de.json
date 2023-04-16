@@ -15,18 +15,18 @@
       "usePassword": "Passwort verwenden",
       "password": "Passwort",
       "passwordPlaceholder": "Geben Sie hier Ihr Passwort ein!",
-      "passwordHint": "Um einen Benutzer / Chat zu registrieren, müssen Sie jetzt /start [IhrPasswort] an den Bot über Telegramm senden",
+      "passwordHint": "Um einen Benutzer / Chat zu registrieren, müssen Sie jetzt /start [IhrPasswort] an den Bot über Telegram senden",
       "miscSettings": "Verschiedene Einstellungen",
-      "useBll": "Unterstützung der besseren Logikbibliothek aktivieren",
+      "useBll": "Better Logic Library-Unterstützung aktivieren",
       "saveChanges": "Änderungen speichern",
       "setup": {
-        "step1": "Richten Sie Ihren eigenen Telegramm-Bot ein. Dies ist vollständig sicher und privat, da Sie der einzige sind, der auf das Nachrichtenarchiv zugreifen kann. Geben Sie in Telegramm @Botfather in das Suchfeld ein und wählen Sie den Bot @Botfather.",
+        "step1": "Richten Sie Ihren eigenen Telegram-Bot ein. Dies ist vollständig sicher und privat, da Sie der einzige sind, der auf das Nachrichtenarchiv zugreifen kann. Geben Sie in Telegram @Botfather in das Suchfeld ein und wählen Sie den Bot @Botfather.",
         "step2": "Klicken Sie auf \"Start\", um den @BotFather-Bot zu aktivieren, oder geben Sie /newbot ein.",
         "step2-1": "/setjoingroup deaktiviert, dass der Bot einer Gruppe beitreten darf.",
         "step2-2": "/setprivacy deaktiviert, dass der Bot Nachrichten in einer Gruppe lesen kann",
         "step3": "Geben Sie den Token in den App-Einstellungen ein",
-        "step4": "Schreiben Sie Ihren Bot über Telegramm /start und folgen Sie den Anweisungen.",
-        "step4-1": "Jeder Benutzer muss dem Bot auch den Befehl /start senden. Sie können den Bot über das Profil oder die Suche in Telegramm teilen, wie Sie nach dem BotFather-Bot gesucht haben.",
+        "step4": "Schreiben Sie Ihren Bot über Telegram /start und folgen Sie den Anweisungen.",
+        "step4-1": "Jeder Benutzer muss dem Bot auch den Befehl /start senden. Sie können den Bot über das Profil oder die Suche in Telegram teilen, wie Sie nach dem BotFather-Bot gesucht haben.",
         "title": "So richten Sie ein"
       }
     },
