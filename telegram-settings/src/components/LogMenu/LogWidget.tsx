@@ -14,6 +14,7 @@ interface Props {
     date?: string
     message: string
     type: Types
+    showExport: boolean
 }
 
 export default class LogWidget extends React.Component<Props, any> {
@@ -23,7 +24,7 @@ export default class LogWidget extends React.Component<Props, any> {
                 <Badge color={this.getLogTypeColor()}>
                     {this.getLogType()}
                 </Badge>
-                {this.props.type === Types.Error &&
+                {this.props.type === Types.Error && this.props.showExport &&
                   <Badge color={BadgeColor.GRAY} style={{marginLeft: ".2em"}}
                          onClick={() => navigator.clipboard.writeText(this.props.message)}>
                     <i className={"fa fa-copy"}></i> Copy

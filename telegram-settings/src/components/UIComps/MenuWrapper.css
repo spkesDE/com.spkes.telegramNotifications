@@ -8,25 +8,23 @@
     position: fixed;
     top: 0;
     width: 100%;
+    white-space: nowrap;
 }
 
-.topBar div:last-child, .topBar button:last-child {
-    float: right;
-    margin-left: auto;
-}
 
 .topBar .leftControl {
+    position: absolute;
     background: none;
     border: none;
     font-size: var(--font-size-default);
-    padding-left: var(--su-2);
     text-align: start;
     color: var(--blue);
 }
 
 .topBar button, .topBar div:not(.title) {
     min-height: 40px;
-    width: 15vw;
+    padding-right: var(--su-2);
+    padding-left: var(--su-2);
 }
 
 .topBar button:hover {
@@ -35,21 +33,29 @@
 }
 
 .topBar .title {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
     font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
     height: 40px;
     line-height: 35px;
     min-width: 5%;
     vertical-align: middle;
-    text-align: center;
+    z-index: -9999;
 }
 
 .topBar .rightControl {
+    position: absolute;
+    right: 0;
     background: none;
     border: none;
     font-size: var(--font-size-default);
     color: var(--blue);
     text-align: right;
-    padding-right: var(--su-2);
 }
 
 .menuWrapperContent {

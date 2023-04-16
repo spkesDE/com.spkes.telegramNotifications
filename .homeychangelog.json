@@ -166,5 +166,8 @@
   },
   "2.5.0": {
     "en": "New Settings page"
+  },
+  "2.5.1": {
+    "en": "New Settings Page now with delete function."
   }
 }

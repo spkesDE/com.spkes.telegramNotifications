@@ -44,7 +44,8 @@ export default class QuestionMainMenu extends React.Component<Props, State> {
             result.push(
                 <MenuItemGroup>
                     <MenuItemWrapper>
-                        <span>{q.question}&nbsp;
+                        <span style={{paddingBottom: "var(--su)", paddingTop: "var(--su)"}}>
+                            {q.question}&nbsp;
                             <Badge color={BadgeColor.GRAY}
                                    type={BadgeType.PILL}
                                    size={BadgeSize.SMALL}>

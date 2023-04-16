@@ -34,18 +34,21 @@ export default class StatusWidget extends React.Component<Props, State> {
     }
 
     getStatusBadge(bool: boolean | undefined) {
+        if (process.env!.NODE_ENV === "development") return <Badge color={BadgeColor.ORANGE}
+                                                                   size={BadgeSize.SMALL}>DEVELOPMENT</Badge>;
         if (bool === undefined) return <Badge color={BadgeColor.GRAY} size={BadgeSize.SMALL}>Unknown</Badge>;
         if (bool) return <Badge color={BadgeColor.GREEN} size={BadgeSize.SMALL}>Online</Badge>;
         return <Badge color={BadgeColor.RED} size={BadgeSize.SMALL}>Offline</Badge>;
     }
 
     async componentDidMount() {
+        let logs = JSON.parse(await window.Homey.get('logs') ?? "[]") ?? [];
         this.setState({
             status: this.getStatusBadge(await window.Homey.get('bot-running')),
             users: (JSON.parse(await window.Homey.get('users') ?? "[]")).length ?? "0",
             questions: (JSON.parse(await window.Homey.get('questions') ?? "[]")).length ?? "0",
-            logSize: (JSON.parse(await window.Homey.get('logs') ?? "[]")).length ?? "0",
-            errors: JSON.parse(await window.Homey.get('logs') ?? "{}").filter((e: LogEntry) => e.type === 1).length ?? "0",
+            logSize: logs.length ?? "0",
+            errors: logs.filter((e: LogEntry) => e.type === 1).length ?? "0",
             gotData: true
         })
     }
