@@ -11,6 +11,10 @@
     flex-direction: column;
 }
 
+.telegramColorFilter {
+    filter: invert(56%) sepia(20%) saturate(2144%) hue-rotate(159deg) brightness(91%) contrast(85%);
+}
+
 .statusWidget h1 {
     margin-bottom: 0;
 }

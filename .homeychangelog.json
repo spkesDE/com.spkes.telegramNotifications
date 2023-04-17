@@ -178,5 +178,8 @@
   },
   "2.6.0": {
     "en": "Topic support"
+  },
+  "2.6.1": {
+    "en": "Added topics support"
   }
 }

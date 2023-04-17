@@ -6,7 +6,7 @@
       "users": "Gebruikers / Groepschats",
       "debugMenu": "Debug-menu",
       "topics": "Onderwerpen",
-      "logs": "App-logs"
+      "logs": "App-logboek"
     },
     "botSettings": {
       "botSettings": "Bot-instellingen",
@@ -17,7 +17,7 @@
       "passwordPlaceholder": "Voer hier uw wachtwoord in!",
       "passwordHint": "Om een gebruiker / chat te registreren, moet u nu /start [uw wachtwoord] naar de bot sturen via Telegram",
       "miscSettings": "Diverse instellingen",
-      "useBll": "Beter Logica Bibliotheek ondersteuning inschakelen",
+      "useBll": "Better Logic Library ondersteuning inschakelen",
       "saveChanges": "Wijzigingen opslaan",
       "setup": {
         "step1": "Stel je eigen Telegram-bot in. Dit is volledig veilig en privé, omdat jij de enige bent die toegang heeft tot het berichtenarchief. Zoek @Botfather in Telegram en kies de @Botfather-bot.",
@@ -87,7 +87,7 @@
       "bot": "Bot",
       "chats": "Chats",
       "questions": "Vragen",
-      "logSize": "Loggrootte: __value__ (Max: 100)",
+      "logSize": "Logboekgrootte: __value__ (Max: 100)",
       "errors": "Fouten",
       "state": {
         "on": "Online",

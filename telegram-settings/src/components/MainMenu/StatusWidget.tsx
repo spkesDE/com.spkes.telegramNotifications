@@ -81,7 +81,7 @@ export default class StatusWidget extends React.Component<Props, State> {
                                 <p></p>
                             </div>
                         </div>
-                        <img src={"./img/icon.svg"} height={60} width={60} className={"logo"}
+                        <img src={"./img/icon.svg"} height={60} width={60} className={"logo telegramColorFilter"}
                              alt={"Telegram Logo"}/>
                     </div>
                 </div>
