@@ -1,0 +1,166 @@
+.menuItem {
+    width: 100%;
+    min-height: 45px;
+    padding: var(--su);
+    background: var(--white);
+    border: none;
+    font-size: var(--font-size-default);
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: var(--box-shadow-light);
+}
+
+.menuItem.disabled {
+    background-color: var(--color-mono-02);
+}
+
+.menuItem.disabled:hover {
+    cursor: not-allowed;
+}
+
+.menuItem:first-of-type {
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.menuItem:last-of-type {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+.menuItem .iconSpan {
+    display: inline-block;
+    padding: 0.35em;
+    font-size: .75em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: 0.25rem;
+    width: 20px;
+    height: 20px;
+    margin-right: var(--su);
+}
+
+.menuItem .iconSpan > i {
+    line-height: 20px;
+}
+
+.menuItem > i:last-of-type {
+    margin-left: auto;
+    padding-right: 15px;
+    color: var(--color-mono-50)
+}
+
+.menuItem:hover {
+    background: var(--color-mono-02);
+    cursor: pointer;
+}
+
+.menuItem-label {
+    white-space: nowrap;
+    padding-right: var(--su-6);
+}
+
+.menuItem-input[type="text"], .menuItem-input[type="password"] {
+    width: 80%;
+    border: none;
+    color: var(--color-mono-60);
+    padding: 5px;
+    text-align: right;
+    border-radius: var(--border-radius);
+}
+
+.menuItem-input-full[type="text"] {
+    width: 100%;
+    border: none;
+    color: var(--color-mono-60);
+    padding: 5px;
+    text-align: center;
+    border-radius: var(--border-radius);
+}
+
+.menuItem-input-full[type="text"]:hover, .menuItem-input-full[type="password"]:hover,
+.menuItem-input-full[type="text"]:focus, .menuItem-input-full[type="password"]:focus {
+    background-color: var(--background-color);
+}
+
+.menuItem-input[type="text"]:hover, .menuItem-input[type="password"]:hover,
+.menuItem-input[type="text"]:focus, .menuItem-input[type="password"]:focus {
+    background-color: var(--background-color);
+}
+
+.menuItem-input[type="text"]:focus, .menuItem-input[type="password"]:focus {
+    background-color: var(--background-color);
+    text-align: left;
+}
+
+.menuItem-input[type="text"]::placeholder, .menuItem-input[type="password"]::placeholder,
+.menuItem-input-full[type="text"]::placeholder, .menuItem-input-full[type="password"]::placeholder {
+    color: var(--color-mono-20);
+}
+
+[class*=menuItem-button] {
+    width: 100%;
+    height: 45px;
+    overflow: hidden;
+    background: none;
+    font-size: var(--font-size-default);
+    font-weight: var(--font-weight-medium);
+    border: none;
+    border-radius: var(--border-radius);
+}
+
+[class*=menuItem-button][class*=-danger] {
+    color: var(--color-text-danger);
+}
+
+[class*=menuItem-button][class*=-danger]:hover {
+    transition: 0.3s;
+    background-color: var(--color-danger-hover);
+}
+
+[class*=menuItem-button][class*=-danger]:not(:hover) {
+    transition: 0.3s;
+}
+
+[class*=menuItem-button][class*=-noRadiusTop] {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+[class*=menuItem-button][class*=-blue] {
+    color: var(--blue);
+    font-size: var(--font-size-default);
+    font-weight: var(--font-weight-regular);
+}
+
+[class*=menuItem-button][class*=-blue]:hover {
+    transition: 0.3s;
+    background-color: var(--color-blue-hover);
+}
+
+[class*=menuItem-button][class*=-blue]:not(:hover) {
+    transition: 0.3s;
+}
+
+
+[class*=menuItem-button][class*=-green] {
+    color: var(--color-green);
+    font-size: var(--font-size-default);
+    font-weight: var(--font-weight-regular);
+}
+
+[class*=menuItem-button][class*=-green]:hover {
+    transition: 0.3s;
+    background-color: var(--color-green-hover);
+}
+
+[class*=menuItem-button][class*=-green]:not(:hover) {
+    transition: 0.3s;
+}

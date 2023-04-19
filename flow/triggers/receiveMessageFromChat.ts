@@ -12,10 +12,10 @@ export default class ReceiveMessageFromChat {
 
         card.registerArgumentAutocompleteListener(
             'chat',
-            async (query) => Utils.userAutocomplete(app.users, query)
+            async (query) => Utils.userAutocomplete(app.chats, query)
         );
 
-        app.bot.on(message("text"), (ctx) => {
+        app.bot.on(message("text"), (ctx, next) => {
             const token = {
                 message: ctx.message.text,
                 from: ctx.message.from.first_name !== undefined ? ctx.message.from.first_name : 'undefined',
@@ -31,6 +31,7 @@ export default class ReceiveMessageFromChat {
             card.trigger(token, state)
                 .catch(app.error)
                 .then();
+            next();
         }).catch(app.error);
     }
 }

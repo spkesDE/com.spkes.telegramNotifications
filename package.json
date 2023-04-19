@@ -8,14 +8,14 @@
   },
   "devDependencies": {
     "@tsconfig/node12": "^1.0.11",
-    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.1",
+    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.4",
     "@types/node": "^18.11.17",
     "eslint": "^7.32.0",
     "eslint-config-athom": "^3.1.1",
     "typescript": "^4.9.4"
   },
   "dependencies": {
-    "betterlogiclibrary": "^0.6.11",
-    "telegraf": "^4.11.2"
+    "betterlogiclibrary": "^0.9.18",
+    "telegraf": "^4.12.2"
   }
 }
