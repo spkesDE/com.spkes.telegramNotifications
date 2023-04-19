@@ -6,7 +6,6 @@ export default class ReceiveMessage {
     constructor(app: TelegramNotifications, card: FlowCardTrigger) {
         if (app.bot == null) return;
         app.bot.on(message("text"), (ctx, next) => {
-            console.log(ctx.message, ctx.chat)
             if (ctx.message.text === undefined) return;
             const token = {
                 message: ctx.message.text,

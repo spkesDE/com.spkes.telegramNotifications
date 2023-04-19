@@ -1,0 +1,6 @@
+.widget {
+    text-align: center;
+    font-size: calc(var(--font-size-large) * 1.2);
+    font-weight: var(--font-weight-medium);
+    padding-top: var(--su-2);
+}

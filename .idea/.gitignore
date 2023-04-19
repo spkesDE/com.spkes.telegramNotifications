@@ -8,3 +8,5 @@
 /easy-i18n.xml
 /i18nSettings.xml
 .idea/*
+/telegram-settings/node_modules/
+/telegram-settings/build/

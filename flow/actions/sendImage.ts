@@ -7,7 +7,8 @@ export default class SendImage {
         card.registerRunListener((args) => {
             if (app.bot != null) {
                 if (Utils.validateURL(args.url)) {
-                    app.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url})
+                    app.bot.telegram.sendPhoto(args.user.id, {filename: "", url: args.url},
+                        {message_thread_id: args.user.topic})
                         .catch(app.error);
                 } else {
                     app.error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"')
@@ -19,7 +20,7 @@ export default class SendImage {
             }
         });
         card.registerArgumentAutocompleteListener(
-            'user', async (query) => Utils.userAutocomplete(app.users, query)
+            'user', async (query) => Utils.userAutocomplete(app.chats, query)
         );
     }
 }

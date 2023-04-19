@@ -24,10 +24,11 @@ export default class SendQuestion {
                 args.message == undefined || args.message == "" ? undefined : await BL.decode(args.message) ?? undefined,
                 args.id ?? undefined,
                 args.imageUrl ?? undefined,
+                args.user.topic ?? undefined,
             ).catch(app.error);
         });
         card.registerArgumentAutocompleteListener(
-            'user', async (query) => Utils.userAutocomplete(app.users, query)
+            'user', async (query) => Utils.userAutocomplete(app.chats, query)
         );
         card.registerArgumentAutocompleteListener(
             'question', async (query) => Utils.questionAutocomplete(app.questions, query)

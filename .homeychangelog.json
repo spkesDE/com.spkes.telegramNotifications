@@ -160,5 +160,26 @@
   },
   "2.3.5": {
     "en": "Rollback to 2.3.0"
+  },
+  "2.4.0": {
+    "en": "Bug fixes"
+  },
+  "2.5.0": {
+    "en": "New Settings page"
+  },
+  "2.5.1": {
+    "en": "New Settings Page now with delete function."
+  },
+  "2.5.2": {
+    "en": "Settings Menu improvements"
+  },
+  "2.5.3": {
+    "en": "First Translations of the new settings page"
+  },
+  "2.6.0": {
+    "en": "Topic support"
+  },
+  "2.6.1": {
+    "en": "Added topics support"
   }
 }

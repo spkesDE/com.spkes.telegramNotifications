@@ -15,13 +15,16 @@ export default class SendTagImageWithMessage {
             }
             if (app.bot == null) return;
             await app.bot.telegram
-                .sendPhoto(args.user.id, {filename: "", url: url}, {caption: await BL.decode(args.message)})
+                .sendPhoto(args.user.id, {filename: "", url: url}, {
+                    caption: await BL.decode(args.message),
+                    message_thread_id: args.user.topic
+                })
                 .catch((r) => {
                     app.error(r);
                 });
         });
         card.registerArgumentAutocompleteListener(
-            'user', async (query) => Utils.userAutocomplete(app.users, query)
+            'user', async (query) => Utils.userAutocomplete(app.chats, query)
         );
     }
 }

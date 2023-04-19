@@ -1,7 +1,7 @@
 import {FlowCardTrigger} from 'homey';
 import {TelegramNotifications} from '../../app';
 import {Markup} from "telegraf";
-import User from "../../user";
+import Chat from "../../chat";
 
 export default class HandleNewUsers {
     constructor(app: TelegramNotifications, card: FlowCardTrigger) {
@@ -35,23 +35,26 @@ export default class HandleNewUsers {
 
         app.bot.action('user-add', (ctx) => {
             if (!("chat" in ctx)) return;
-            let user: User | null = null;
-            if (ctx.chat?.type === 'group' || ctx.chat?.type === 'supergroup') {
-                user = new User(ctx.chat?.id ?? 0, ctx.chat?.title ?? 'Error');
+            let user: Chat | null = null;
+            //0 Chat, 1 Group, 3 Supergroup
+            if (ctx.chat?.type === 'group') {
+                user = new Chat(ctx.chat?.id ?? 0, ctx.chat?.title ?? 'Error', 1);
+            } else if (ctx.chat?.type === 'supergroup') {
+                user = new Chat(ctx.chat?.id ?? 0, ctx.chat?.title ?? 'Error', 2);
             } else if (ctx.chat?.type === 'private') {
-                user = new User(ctx.chat?.id ?? 0, ctx.chat?.first_name ?? 'Error');
+                user = new Chat(ctx.chat?.id ?? 0, ctx.chat?.first_name ?? 'Error', 0);
             }
-            if (user !== null && user.userId !== 0) {
-                if (!app.users.some((u) => u.userId === user?.userId)) {
-                    app.users.push(user);
+            if (user !== null && user.chatId !== 0) {
+                if (!app.chats.some((u) => u.chatId === user?.chatId)) {
+                    app.chats.push(user);
                     ctx.reply('👍').catch(app.error);
-                    app.homey.settings.set('users', JSON.stringify(app.users));
+                    app.homey.settings.set('users', JSON.stringify(app.chats));
                 } else {
                     ctx.reply('👎').catch(app.error);
                     ctx.reply('Already in the user list!').catch(app.error);
                 }
             } else {
-                ctx.reply('Something went wrong! Can\'t get the User Id').catch(app.error);
+                ctx.reply('Something went wrong! Can\'t get the Chat Id').catch(app.error);
             }
         }).catch(app.error);
     }
