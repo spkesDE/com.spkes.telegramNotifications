@@ -130,10 +130,10 @@ class SettingsMenu extends React.Component<Props, State> {
     async onSave(): Promise<void> {
         console.log("Saving Settings....")
         this.setState({gotData: false})
-        await Homey.set('use-password', this.state.usePassword);
-        await Homey.set('useBll', this.state.useBLL);
-        await Homey.set('password', this.state.password);
         await Homey.set('bot-token', this.state.token);
+        await Homey.set('use-password', this.state.usePassword ?? false);
+        await Homey.set('useBll', this.state.useBLL ?? false);
+        await Homey.set('password', this.state.password);
         this.setState({gotData: true})
         console.log("Saved Settings")
     }
