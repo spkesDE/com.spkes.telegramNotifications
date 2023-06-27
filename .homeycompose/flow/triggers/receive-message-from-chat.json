@@ -112,6 +112,22 @@
       }
     },
     {
+      "name": "topic",
+      "type": "string",
+      "title": {
+        "en": "Topicname",
+        "it": "Nome Argomento",
+        "de": "Topicname",
+        "nl": "Onderwerp Naam"
+      },
+      "example": {
+        "en": "Livingroom",
+        "it": "Soggiorno",
+        "de": "Wohnzimmer",
+        "nl": "Woonkamer"
+      }
+    },
+    {
       "name": "date",
       "type": "number",
       "title": {
