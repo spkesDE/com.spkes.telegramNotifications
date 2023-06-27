@@ -74,7 +74,7 @@ export default class HandleQuestions {
 
         //This event will trigger once an inline button is pressed
         app.bot.on(callbackQuery("data"), async ctx => {
-            if (!("chat" in ctx)) return;
+            if (!ctx.chat) return;
             if (ctx.callbackQuery.data == 'ignore-me') return;
             if (ctx.callbackQuery.data == 'user-add') return;
             let parts = ctx.callbackQuery.data.split('.');
@@ -99,9 +99,9 @@ export default class HandleQuestions {
                 answer: Question.getAnswer(question, answerId),
                 from: ctx.callbackQuery.from.first_name !== undefined ? ctx.callbackQuery.from.first_name : 'undefined',
                 username: ctx.callbackQuery.from.username !== undefined ? ctx.callbackQuery.from.username : 'undefined',
-                chat: ctx.chat?.type === 'private' ? ctx.chat.first_name : ctx.chat?.title,
-                chatType: ctx.chat?.type,
-                chatId: ctx.chat?.id,
+                chat: ctx.chat.type === 'private' ? ctx.chat.first_name : ctx.chat.title,
+                chatType: ctx.chat.type,
+                chatId: ctx.chat.id,
                 id: ctx.callbackQuery.message?.message_id ?? 0,
             };
 
