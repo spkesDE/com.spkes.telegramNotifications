@@ -34,7 +34,9 @@ export default class Utils {
     }
 
 
-    public static userAutocomplete(users: Chat[], query: string) {
+    public static userAutocomplete(users: Chat[], query: string, opts?: {
+        skipTopics?: boolean,
+    }) {
         const results: any[] = [];
         users.forEach((chat) => {
             let type = "Unknown";
@@ -49,11 +51,24 @@ export default class Utils {
                 description: type,
                 id: chat.chatId,
             });
+        });
+        if (!opts || !opts.skipTopics) {
+            const topics = this.topicAutocomplete(users, query);
+            results.push(...topics);
+        }
+        return results.filter((result: any) => {
+            return result.name.toLowerCase().includes(query.toLowerCase());
+        });
+    }
+
+    public static topicAutocomplete(users: Chat[], query: string) {
+        const results: any[] = [];
+        users.forEach((chat) => {
             if (chat.topics && chat.topics.length > 0)
                 chat.topics.forEach((topic) => {
                     results.push({
                         name: topic.topicName,
-                        description: chat.chatName + " - " + type,
+                        description: `➡️ ${chat.chatName}`,
                         id: chat.chatId,
                         topic: topic.topicId
                     });

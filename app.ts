@@ -18,6 +18,7 @@ import DeleteById from "./flow/actions/deleteById";
 import DeleteByIdAndChatId from "./flow/actions/deleteByIdAndChatId";
 import DeleteByCustomId from "./flow/actions/deleteByCustomId";
 import HandleTopics from "./flow/triggers/handleTopics";
+import ReceiveMessageFromTopic from './flow/triggers/receiveMessageFromTopic';
 
 export class TelegramNotifications extends Homey.App {
 
@@ -95,6 +96,7 @@ export class TelegramNotifications extends Homey.App {
         new HandleNewUsers(this, this.homey.flow.getTriggerCard('newUser'));
         new ReceiveMessage(this, this.homey.flow.getTriggerCard('receiveMessage'));
         new ReceiveMessageFromChat(this, this.homey.flow.getTriggerCard('receive-message-from-chat'));
+        new ReceiveMessageFromTopic(this, this.homey.flow.getTriggerCard('receive-message-from-topic'));
         new HandleQuestions(this);
         new HandleTopics(this);
 
