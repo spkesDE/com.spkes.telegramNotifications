@@ -2,7 +2,7 @@ export default class Chat {
     chatId: number
     chatName: string
     type?: number
-    topics: Topic[] = [];
+    topics?: Topic[] = [];
 
     constructor(chatId: number, chatName: string, type: number) {
         this.chatName = chatName;
