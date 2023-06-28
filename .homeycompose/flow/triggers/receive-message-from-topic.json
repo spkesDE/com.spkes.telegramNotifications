@@ -1,16 +1,16 @@
 {
   "highlight": true,
   "title": {
-    "en": "When a message is received from a topic",
-    "it": "Quando si riceve un messaggio da un argomento",
+    "en": "When a message is received from a Topic",
+    "it": "Quando si riceve un messaggio da un Argomento",
     "de": "Wenn eine Nachricht aus einem Topic empfangen wird",
-    "nl": "Er wordt een bericht van een onderwerp ontvangen"
+    "nl": "Er wordt een bericht van een Onderwerp ontvangen"
   },
   "titleFormatted": {
-    "en": "A message from [[topic]] is received",
-    "it": "È stato ricevuto un messaggio da [[topic]].",
-    "de": "Eine Nachricht von [[topic]] wird empfangen",
-    "nl": "Er is een bericht van [[topic]] ontvangen"
+    "en": "A message from Topic [[topic]] is received",
+    "it": "È stato ricevuto un messaggio da Argomento [[topic]].",
+    "de": "Eine Nachricht von Topic [[topic]] wird empfangen",
+    "nl": "Er is een bericht van Onderwerp [[topic]] ontvangen"
   },
   "args": [
     {

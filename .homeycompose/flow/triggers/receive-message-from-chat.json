@@ -7,10 +7,10 @@
     "nl": "Er wordt een bericht van een chat ontvangen"
   },
   "titleFormatted": {
-    "en": "A message from [[chat]] is received",
-    "it": "È stato ricevuto un messaggio da [[chat]].",
-    "de": "Eine Nachricht von [[chat]] wird empfangen",
-    "nl": "Er is een bericht van [[chat]] ontvangen"
+    "en": "A message from Chat [[chat]] is received",
+    "it": "È stato ricevuto un messaggio da Chat [[chat]].",
+    "de": "Eine Nachricht von Chat [[chat]] wird empfangen",
+    "nl": "Er is een bericht van Chat [[chat]] ontvangen"
   },
   "args": [
     {
