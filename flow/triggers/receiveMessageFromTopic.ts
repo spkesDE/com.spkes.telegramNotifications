@@ -1,8 +1,8 @@
-import { FlowCardTrigger } from 'homey';
-import { TelegramNotifications } from '../../app';
-import { message } from "telegraf/filters";
+import {FlowCardTrigger} from 'homey';
+import {TelegramNotifications} from '../../app';
+import {message} from "telegraf/filters";
 import Utils from "../../utils";
-import { Topic } from '../../chat';
+import {Topic} from '../../chat';
 
 export default class ReceiveMessageFromTopic {
     constructor(app: TelegramNotifications, card: FlowCardTrigger) {
@@ -28,8 +28,9 @@ export default class ReceiveMessageFromTopic {
             const messageThreadId = ctx.message.message_thread_id;
 
             if (messageThreadId && chat) {
-                topic = chat.topics.find(topic => topic.topicId === messageThreadId);
+                topic = chat.topics?.find(topic => topic.topicId === messageThreadId);
             }
+            if (topic == undefined) return next();
 
             const token = {
                 message: ctx.message.text,
