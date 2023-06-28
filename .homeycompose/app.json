@@ -1,6 +1,6 @@
 {
   "id": "com.spkes.telegramNotifications",
-  "version": "2.6.1",
+  "version": "2.7.0",
   "compatibility": ">=8.1.0",
   "sdk": 3,
   "brandColor": "#229ED9",
@@ -82,6 +82,10 @@
   },
   "contributors": {
     "developers": [
+      {
+        "name": "enyineer",
+        "email": ""
+      },
       {
         "name": "telegraf.js - v4.11.2",
         "email": ""

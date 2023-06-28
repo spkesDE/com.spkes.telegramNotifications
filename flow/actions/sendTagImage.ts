@@ -9,7 +9,7 @@ export default class SendTagImage {
                 "https://" + await app.homey.cloud.getHomeyId() + ".connect.athom.com/api/image/" + args.droptoken.id;
             let imageExists = await Utils.isImageValid(url);
             if (!imageExists) {
-                app.error("Image source is invalid for flow card send-a-image-with-tag!");
+                app.error("Image source is invalid for flow card send-a-image-with-tag!" + url + "(" + args.droptoken.cloudUrl + ")");
                 throw new Error("Image source is invalid for flow card send-a-image-with-tag!");
             }
             if (app.bot == null) return;

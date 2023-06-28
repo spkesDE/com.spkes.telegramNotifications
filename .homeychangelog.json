@@ -181,5 +181,17 @@
   },
   "2.6.1": {
     "en": "Added topics support"
+  },
+  "2.6.2": {
+    "en": "Fixed error on saving"
+  },
+  "2.6.3": {
+    "en": "Fixed an error on saving"
+  },
+  "2.6.4": {
+    "en": "Better logging for droptoken issue"
+  },
+  "2.7.0": {
+    "en": "Added \"A message from Topic is received\". Thanks to enyineer / nico for programming this!"
   }
 }
