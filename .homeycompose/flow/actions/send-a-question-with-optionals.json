@@ -90,10 +90,10 @@
       "type": "autocomplete",
       "name": "user",
       "title": {
-        "en": "User",
-        "it": "Utente",
-        "de": "Benutzer",
-        "nl": "Gebruiker"
+        "en": "Chat / Topic",
+        "it": "Chat / Argomento",
+        "de": "Chat / Topic",
+        "nl": "Chat / Onderwerp"
       },
       "placeholder": {
         "en": "Created with <3",
