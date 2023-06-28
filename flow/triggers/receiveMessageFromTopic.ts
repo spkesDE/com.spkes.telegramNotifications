@@ -8,11 +8,11 @@ export default class ReceiveMessageFromTopic {
     constructor(app: TelegramNotifications, card: FlowCardTrigger) {
         if (app.bot == null) return;
         card.registerRunListener(async (args, state) => {
-            return args.chat.id === state.id && args.chat.topic === state.topic;
+            return args.chatWithTopic.id === state.id && args.chatWithTopic.topic === state.topic;
         });
 
         card.registerArgumentAutocompleteListener(
-            'topic',
+            'chatWithTopic',
             async (query) => Utils.topicAutocomplete(app.chats, query)
         );
 

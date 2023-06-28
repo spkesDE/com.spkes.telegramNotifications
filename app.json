@@ -337,15 +337,15 @@
           "nl": "Er wordt een bericht van een Onderwerp ontvangen"
         },
         "titleFormatted": {
-          "en": "A message from Topic [[topic]] is received",
-          "it": "È stato ricevuto un messaggio da Argomento [[topic]].",
-          "de": "Eine Nachricht von Topic [[topic]] wird empfangen",
-          "nl": "Er is een bericht van Onderwerp [[topic]] ontvangen"
+          "en": "A message from Topic [[chatWithTopic]] is received",
+          "it": "È stato ricevuto un messaggio da Argomento [[chatWithTopic]].",
+          "de": "Eine Nachricht von Topic [[chatWithTopic]] wird empfangen",
+          "nl": "Er is een bericht van Onderwerp [[chatWithTopic]] ontvangen"
         },
         "args": [
           {
             "type": "autocomplete",
-            "name": "topic",
+            "name": "chatWithTopic",
             "title": {
               "en": "Topic",
               "it": "Argomento",
