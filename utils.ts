@@ -51,11 +51,11 @@ export default class Utils {
                 description: type,
                 id: chat.chatId,
             });
-            if (!opts || !opts.skipTopics) {
-                const topics = this.topicAutocomplete(users, query);
-                results.push(...topics);
-            }
         });
+        if (!opts || !opts.skipTopics) {
+            const topics = this.topicAutocomplete(users, query);
+            results.push(...topics);
+        }
         return results.filter((result: any) => {
             return result.name.toLowerCase().includes(query.toLowerCase());
         });
