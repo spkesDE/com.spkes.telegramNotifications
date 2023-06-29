@@ -1,23 +1,17 @@
 {
   "settings": {
-    "mainMenu": {
-      "questions": "Vragen",
-      "settings": "Bot-instellingen",
-      "users": "Gebruikers / Groepschats",
-      "debugMenu": "Debug-menu",
-      "topics": "Onderwerpen",
-      "logs": "App-logboek"
+    "aboutMenu": {
+      "joinTelegram": "",
+      "title": ""
     },
     "botSettings": {
       "botSettings": "Bot-instellingen",
       "botToken": "Bot-token",
       "botTokenPlaceholder": "Voer hier uw token in!",
-      "usePassword": "Wachtwoord gebruiken",
-      "password": "Wachtwoord",
-      "passwordPlaceholder": "Voer hier uw wachtwoord in!",
-      "passwordHint": "Om een gebruiker / chat te registreren, moet u nu /start [uw wachtwoord] naar de bot sturen via Telegram",
       "miscSettings": "Diverse instellingen",
-      "useBll": "Better Logic Library ondersteuning inschakelen",
+      "password": "Wachtwoord",
+      "passwordHint": "Om een gebruiker / chat te registreren, moet u nu /start [uw wachtwoord] naar de bot sturen via Telegram",
+      "passwordPlaceholder": "Voer hier uw wachtwoord in!",
       "saveChanges": "Wijzigingen opslaan",
       "setup": {
         "step1": "Stel je eigen Telegram-bot in. Dit is volledig veilig en privé, omdat jij de enige bent die toegang heeft tot het berichtenarchief. Zoek @Botfather in Telegram en kies de @Botfather-bot.",
@@ -28,82 +22,99 @@
         "step4": "Schrijf naar je bot via Telegram /start en volg de instructies.",
         "step4-1": "Elke gebruiker moet ook de /start-opdracht naar de bot sturen. U kunt de bot delen via het profiel of de zoekfunctie in Telegram, zoals u hebt gezocht naar de BotFather-bot.",
         "title": "Hoe te installeren"
-      }
+      },
+      "useBll": "Better Logic Library ondersteuning inschakelen",
+      "usePassword": "Wachtwoord gebruiken"
     },
-    "questionMenu": {
-      "addQuestion": "Vraag toevoegen",
-      "editQuestion": "Vraag bewerken",
-      "questions": "Vragen",
-      "question": "Vraag",
-      "questionPlaceholder": "Voer een vraag in...",
-      "keepButton": "Knoppen behouden",
-      "disableNotifications": "Notificaties uitschakelen",
-      "btnPerRow": "Knoppen per rij",
-      "addAnswer": "Antwoord toevoegen",
-      "answerPlaceholder": "Voer uw antwoord in...",
-      "saveQuestion": "Vraag opslaan",
-      "deleteQuestion": "Vraag verwijderen",
-      "questionPopup": "Weet u zeker dat u deze vraag wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt!"
-    },
-    "userMenu": {
-      "users": "Gebruikers",
-      "user": "Gebruiker",
-      "group": "Groep",
-      "supergroup": "Supergroep",
-      "unknown": "Onbekend",
-      "legend": "Legenda"
-    },
-    "logMenu": {
-      "logs": "Logs",
-      "showInfoLogs": "Toon informatielogs",
-      "showDebugLogs": "Toon debuglogs",
-      "info": "Info",
-      "error": "Fout",
-      "debug": "Debug",
-      "copy": "Kopiëren"
-    },
-    "topicsMenu": {
-      "topicsMenu": "Onderwerpen"
+    "chatGTPSettings": {
+      "apiKey": "",
+      "enable": "",
+      "title": "",
+      "useGtp": ""
     },
     "debugMenu": {
       "debugMenu": "Debugmenu",
-      "status": "Status",
-      "users": "Gebruikers",
-      "useBll": "Gebruik Better Logic Library",
-      "questions": "Vragen",
-      "token": "Token",
-      "usePassword": "Gebruik wachtwoord",
-      "password": "Wachtwoord",
-      "logs": "Logs",
       "fuckedUpMenu": "Ik heb het verkloot, man! - Menu",
-      "resetUsers": "Reset gebruikers",
-      "resetQuestions": "Reset vragen",
+      "fuckedUpWarning": "Weet u zeker dat u de actie __action__ wilt uitvoeren? Deze actie kan niet ongedaan worden gemaakt!",
+      "logs": "Logs",
+      "password": "Wachtwoord",
+      "questions": "Vragen",
+      "resetEverything": "Reset alles",
       "resetLogs": "Reset Logs",
       "resetPassword": "Wachtwoord resetten",
-      "resetEverything": "Reset alles",
-      "fuckedUpWarning": "Weet u zeker dat u de actie __action__ wilt uitvoeren? Deze actie kan niet ongedaan worden gemaakt!"
+      "resetQuestions": "Reset vragen",
+      "resetUsers": "Reset gebruikers",
+      "status": "Status",
+      "token": "Token",
+      "useBll": "Gebruik Better Logic Library",
+      "usePassword": "Gebruik wachtwoord",
+      "users": "Gebruikers"
+    },
+    "logMenu": {
+      "copy": "Kopiëren",
+      "debug": "Debug",
+      "error": "Fout",
+      "info": "Info",
+      "logs": "Logs",
+      "showDebugLogs": "Toon debuglogs",
+      "showInfoLogs": "Toon informatielogs"
+    },
+    "mainMenu": {
+      "about": "",
+      "debugMenu": "Debug-menu",
+      "logs": "App-logboek",
+      "questions": "Vragen",
+      "settings": "Bot-instellingen",
+      "topics": "Onderwerpen",
+      "users": "Gebruikers / Groepschats"
+    },
+    "misc": {
+      "back": "Terug",
+      "edit": "Bewerken",
+      "empty": "Leeg",
+      "loading": "Laden",
+      "no": "Nee",
+      "soon": "Binnenkort beschikbaar",
+      "warning": "Waarschuwing",
+      "yes": "Ja"
+    },
+    "questionMenu": {
+      "addAnswer": "Antwoord toevoegen",
+      "addQuestion": "Vraag toevoegen",
+      "answerPlaceholder": "Voer uw antwoord in...",
+      "btnPerRow": "Knoppen per rij",
+      "deleteQuestion": "Vraag verwijderen",
+      "disableNotifications": "Notificaties uitschakelen",
+      "editQuestion": "Vraag bewerken",
+      "keepButton": "Knoppen behouden",
+      "question": "Vraag",
+      "questionPlaceholder": "Voer een vraag in...",
+      "questionPopup": "Weet u zeker dat u deze vraag wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt!",
+      "questions": "Vragen",
+      "saveQuestion": "Vraag opslaan"
     },
     "status": {
       "bot": "Bot",
       "chats": "Chats",
-      "questions": "Vragen",
-      "logSize": "Logboekgrootte: __value__ (Max: 100)",
       "errors": "Fouten",
+      "logSize": "Logboekgrootte: __value__ (Max: 100)",
+      "questions": "Vragen",
       "state": {
-        "on": "Online",
         "off": "Offline",
+        "on": "Online",
         "unknown": "Onbekend"
       }
     },
-    "misc": {
-      "loading": "Laden",
-      "soon": "Binnenkort beschikbaar",
-      "back": "Terug",
-      "edit": "Bewerken",
-      "yes": "Ja",
-      "no": "Nee",
-      "warning": "Waarschuwing",
-      "empty": "Leeg"
+    "topicsMenu": {
+      "topicsMenu": "Onderwerpen"
+    },
+    "userMenu": {
+      "group": "Groep",
+      "legend": "Legenda",
+      "supergroup": "Supergroep",
+      "unknown": "Onbekend",
+      "user": "Gebruiker",
+      "users": "Gebruikers"
     }
   }
 }

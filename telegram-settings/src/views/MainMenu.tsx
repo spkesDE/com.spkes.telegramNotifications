@@ -41,6 +41,13 @@ export default class MainMenu extends React.Component<Props> {
                         className={"bg-color-green"}
                         onClick={() => this.props.changeView(Views.Topics)}
                     />
+                    <MenuItem
+                        title={Homey.__('settings.mainMenu.chatGtp')}
+                        icon={"fa-keyboard"}
+                        className={"bg-color-orange"}
+                        disabled={true}
+                        onClick={() => this.props.changeView(Views.ChatGTP)}
+                    />
                 </MenuItemGroup>
                 <MenuItemGroup>
                     <MenuItem
@@ -54,6 +61,20 @@ export default class MainMenu extends React.Component<Props> {
                         icon={"fa-bug"}
                         className={"bg-color-red"}
                         onClick={() => this.props.changeView(Views.Debug)}
+                    />
+                </MenuItemGroup>
+                <MenuItemGroup>
+                    <MenuItem
+                        title={Homey.__('settings.aboutMenu.joinTelegram')}
+                        icon={"fa-paper-plane"}
+                        className={"bg-color-blue"}
+                        onClick={() => Homey.popup("https://t.me/homeyCommunity")}
+                    />
+                    <MenuItem
+                        title={Homey.__('settings.mainMenu.about')}
+                        icon={"fa-address-card"}
+                        className={"bg-color-magenta"}
+                        onClick={() => this.props.changeView(Views.About)}
                     />
                 </MenuItemGroup>
             </>
