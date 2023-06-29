@@ -21,6 +21,6 @@
   "dependencies": {
     "betterlogiclibrary": "^0.9.18",
     "grammy": "^1.17.1",
-    "node-fetch": "^3.3.1"
+    "node-fetch": "^2.6.11"
   }
 }
