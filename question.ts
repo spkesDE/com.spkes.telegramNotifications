@@ -33,8 +33,10 @@ export default class Question {
       columns = 2;
     }
 
+    const rows = Math.ceil(q.buttons.length / columns);
+
     // Prefill columns
-    for (let column = 0; column < columns; column++) {
+    for (let row = 0; row < rows; row++) {
       callbackButtons.push([]);
     }
 
@@ -44,8 +46,9 @@ export default class Question {
         id += '.' + customId;
       }
 
-      const column = i % columns;
-      callbackButtons[column].push(InlineKeyboard.text(value, id));
+      const row = Math.floor(i / columns);
+
+      callbackButtons[row].push(InlineKeyboard.text(value, id));
     });
     if (image != undefined) {
       app.bot?.api.sendPhoto(userId, image,
