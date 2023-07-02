@@ -40,16 +40,15 @@ export default class Question {
       callbackButtons.push([]);
     }
 
-    q.buttons.forEach((value, i) => {
+    for (const [i, button] of q.buttons.entries()) {
       let id = q.UUID + '.' + i;
       if (customId != undefined && customId.length < 21) {
         id += '.' + customId;
       }
-
       const row = Math.floor(i / columns);
+      callbackButtons[row].push(InlineKeyboard.text(button, id));
+    }
 
-      callbackButtons[row].push(InlineKeyboard.text(value, id));
-    });
     if (image != undefined) {
       app.bot?.api.sendPhoto(userId, image,
         {
