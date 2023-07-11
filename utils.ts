@@ -16,23 +16,28 @@ export default class Utils {
     }
 
     public static async getStatusCode(url: string) {
-        return new Promise((resolve, reject) => {
-            const http = require('http');
-            const https = require('https');
-            let client = http;
-            //Switch to HTTPS
-            if (url.toString().indexOf("https") === 0)
-                client = https;
-
-            //Getting StatusCode
-            client.get(url, (res: IncomingMessage) => {
-                resolve(res.statusCode);
-            }).on("error", (err: any) => {
-                reject(err);
-            });
-        });
+        return new Promise((resolve, reject) => this.redirectFollow(url, resolve, reject));
     }
 
+    public static redirectFollow(url: string, resolve: any, reject: any) {
+        const http = require('http');
+        const https = require('https');
+        let client = http;
+        //Switch to HTTPS
+        if (url.toString().indexOf("https") === 0)
+            client = https;
+
+        client.get(url, (res: IncomingMessage) => {
+            // if url is redirecting follow the redirect else resolve statuscode
+            if(res.statusCode === 301 || res.statusCode === 302) {
+                return this.redirectFollow(res.headers.location as string, resolve, reject)
+            } else {
+                resolve(res.statusCode);
+            }
+        }).on("error", (err: any) => {
+            reject(err);
+        });
+    }
 
     public static userAutocomplete(users: Chat[], query: string, opts?: {
         skipTopics?: boolean,
