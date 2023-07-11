@@ -193,8 +193,5 @@
   },
   "2.7.0": {
     "en": "Added \"A message from Topic is received\". Thanks to enyineer / nico for programming this!"
-  },
-  "2.7.1": {
-    "en": "Fixed an error where tagged images that where created as a URL based homey image wasn't being followed on redirects"
   }
 }
