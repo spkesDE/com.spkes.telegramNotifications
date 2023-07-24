@@ -37,7 +37,7 @@ export default class AboutMenu extends React.Component<Props, State> {
                     <MenuContentWrapper>
                         <h2>This app uses the following awesome tools and languages</h2>
                         <ul>
-                            <li>Grammy.dev <Badge color={BadgeColor.ORANGE} size={BadgeSize.SMALL}>vX.X.X</Badge></li>
+                            <li>Grammy.dev <Badge color={BadgeColor.ORANGE} size={BadgeSize.SMALL}>v1.17.2</Badge></li>
                             <li>Better Logic Library <Badge color={BadgeColor.MAGENTA}
                                                             size={BadgeSize.SMALL}>v0.9.18</Badge></li>
                             <li>React</li>

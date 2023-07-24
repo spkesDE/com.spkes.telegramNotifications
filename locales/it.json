@@ -1,8 +1,8 @@
 {
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "",
-      "title": ""
+      "joinTelegram": "Unisciti al gruppo Telegram!",
+      "title": "Circa"
     },
     "botSettings": {
       "botSettings": "Impostazioni Bot",
