@@ -1,14 +1,14 @@
-import { Markup } from "telegraf";
-import { InlineKeyboardButton } from "telegraf/typings/core/types/typegram";
-import { TelegramNotifications } from "./app";
+import {InlineKeyboardButton} from 'grammy/types';
+import {TelegramNotifications} from './app';
+import {InlineKeyboard} from 'grammy';
 
 export default class Question {
-  question: string = "";
-  UUID: string = "";
+  question = '';
+  UUID = '';
   buttons: string[] = [];
-  keepButtons: boolean = false;
-  disable_notification: boolean = false;
-  columns: number = 2;
+  keepButtons = false;
+  disable_notification = false;
+  columns = 2;
 
   static async createMessage(
     q: Question,
@@ -19,27 +19,46 @@ export default class Question {
     image?: string,
     topic?: number
   ) {
-    let callbackButtons: InlineKeyboardButton.CallbackButton[] = [];
-    q.buttons.forEach((value, i) => {
-      let id = q.UUID + "." + i;
-      if (customId != undefined && customId.length < 21) id += "." + customId;
-      callbackButtons.push(Markup.button.callback(value, id));
-    });
+    const callbackButtons: InlineKeyboardButton.CallbackButton[][] = [];
+
+    let columns: number;
+    if (q.columns) {
+      if (q.columns > q.buttons.length) {
+        // Prevent having more columns than buttons
+        columns = q.buttons.length;
+      } else {
+        columns = q.columns;
+      }
+    } else {
+      columns = 2;
+    }
+
+    const rows = Math.ceil(q.buttons.length / columns);
+
+    // Prefill columns
+    for (let row = 0; row < rows; row++) {
+      callbackButtons.push([]);
+    }
+
+    for (const [i, button] of q.buttons.entries()) {
+      let id = q.UUID + '.' + i;
+      if (customId != undefined && customId.length < 21) {
+        id += '.' + customId;
+      }
+      const row = Math.floor(i / columns);
+      callbackButtons[row].push(InlineKeyboard.text(button, id));
+    }
+
     if (image != undefined) {
-      app.bot?.telegram
-        .sendPhoto(
-          userId,
-          { filename: "", url: image },
-          {
-            caption:
+      app.bot?.api.sendPhoto(userId, image,
+        {
+          caption:
               messageOverride == undefined ? q.question : messageOverride,
-            disable_notification: q.disable_notification ?? false,
-            message_thread_id: topic ?? undefined,
-            ...Markup.inlineKeyboard(callbackButtons, {
-              columns: q.columns ?? 2,
-            }),
-          }
-        )
+          disable_notification: q.disable_notification ?? false,
+          message_thread_id: topic ?? undefined,
+          reply_markup: InlineKeyboard.from(callbackButtons),
+        }
+      )
         .then((response) => {
           if (customId != undefined && customId.length < 21) {
             app.customIdMessages.push({
@@ -51,16 +70,14 @@ export default class Question {
         })
         .catch(app.error);
     } else {
-      app.bot?.telegram
+      app.bot?.api
         .sendMessage(
           userId,
           messageOverride == undefined ? q.question : messageOverride,
           {
             disable_notification: q.disable_notification ?? false,
             message_thread_id: topic ?? undefined,
-            ...Markup.inlineKeyboard(callbackButtons, {
-              columns: q.columns ?? 2,
-            }),
+            reply_markup: InlineKeyboard.from(callbackButtons),
           }
         )
         .then((response) => {

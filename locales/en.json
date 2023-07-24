@@ -1,23 +1,17 @@
 {
   "settings": {
-    "mainMenu": {
-      "questions": "Question",
-      "settings": "Bot Settings",
-      "users": "Users / Group Chats",
-      "debugMenu": "Debug Menu",
-      "topics": "Topics",
-      "logs": "App Logs"
+    "aboutMenu": {
+      "joinTelegram": "Join the Telegram Group!",
+      "title": "About"
     },
     "botSettings": {
       "botSettings": "Bot Settings",
       "botToken": "Bot Token",
       "botTokenPlaceholder": "Enter your token here!",
-      "usePassword": "Use Password",
-      "password": "Password",
-      "passwordPlaceholder": "Enter your password here!",
-      "passwordHint": "To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram",
       "miscSettings": "Miscellaneous Settings",
-      "useBll": "Enable Better Logic Library Support",
+      "password": "Password",
+      "passwordHint": "To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram",
+      "passwordPlaceholder": "Enter your password here!",
       "saveChanges": "Save Changes",
       "setup": {
         "step1": "Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access the message archive. Enter @Botfather in the search tab of Telegram and choose the @Botfather bot.",
@@ -28,82 +22,99 @@
         "step4": "Write your bot over Telegram /start and follow the instructions.",
         "step4-1": "Each user has to also send the Bot the /start command. You can share the Bot via Telegram over the profile or search for the like you searched for the BotFather bot.",
         "title": "How to setup"
-      }
+      },
+      "useBll": "Enable Better Logic Library Support",
+      "usePassword": "Use Password"
     },
-    "questionMenu": {
-      "addQuestion": "Add a Question",
-      "editQuestion": "Edit a Question",
-      "questions": "Questions",
-      "question": "Question",
-      "questionPlaceholder": "Enter a Question...",
-      "keepButton": "Keep the Buttons",
-      "disableNotifications": "Disable notifications",
-      "btnPerRow": "Buttons per row",
-      "addAnswer": "Add Answer",
-      "answerPlaceholder": "Enter your answer...",
-      "saveQuestion": "Save the Question",
-      "deleteQuestion": "Delete the Question",
-      "questionPopup": "Are you sure you want to delete this question? This action can't be undone!"
-    },
-    "userMenu": {
-      "users": "Users",
-      "user": "User",
-      "group": "Group",
-      "supergroup": "Supergroup",
-      "unknown": "Unknown",
-      "legend": "Legend"
-    },
-    "topicsMenu": {
-      "topicsMenu": "Topics"
-    },
-    "logMenu": {
-      "logs": "Logs",
-      "showInfoLogs": "Show Information logs",
-      "showDebugLogs": "Show Debug logs",
-      "info": "Info",
-      "error": "Error",
-      "debug": "Debug",
-      "copy": "Copy"
+    "chatGTPSettings": {
+      "apiKey": "API-Key",
+      "enable": "Activate",
+      "title": "Chat GTP",
+      "useGtp": "Use ChatGTP"
     },
     "debugMenu": {
       "debugMenu": "Debug Menu",
-      "status": "Status",
-      "users": "Users",
-      "useBll": "Use Better Logic Library",
-      "questions": "Questions",
-      "token": "Token",
-      "usePassword": "Use password",
-      "password": "Password",
-      "logs": "Logs",
       "fuckedUpMenu": "I fucked up, man! - Menu",
-      "resetUsers": "Reset users",
-      "resetQuestions": "Reset Questions",
+      "fuckedUpWarning": "Are you sure you want to run the action __action__ This action can't be undone!",
+      "logs": "Logs",
+      "password": "Password",
+      "questions": "Questions",
+      "resetEverything": "Reset Everything",
       "resetLogs": "Reset Users",
       "resetPassword": "Reset Password",
-      "resetEverything": "Reset Everything",
-      "fuckedUpWarning": "Are you sure you want to run the action __action__ This action can't be undone!"
+      "resetQuestions": "Reset Questions",
+      "resetUsers": "Reset users",
+      "status": "Status",
+      "token": "Token",
+      "useBll": "Use Better Logic Library",
+      "usePassword": "Use password",
+      "users": "Users"
+    },
+    "logMenu": {
+      "copy": "Copy",
+      "debug": "Debug",
+      "error": "Error",
+      "info": "Info",
+      "logs": "Logs",
+      "showDebugLogs": "Show Debug logs",
+      "showInfoLogs": "Show Information logs"
+    },
+    "mainMenu": {
+      "about": "About",
+      "debugMenu": "Debug Menu",
+      "logs": "App Logs",
+      "questions": "Question",
+      "settings": "Bot Settings",
+      "topics": "Topics",
+      "users": "Users / Group Chats"
+    },
+    "misc": {
+      "back": "Back",
+      "edit": "Edit",
+      "empty": "Empty",
+      "loading": "Loading",
+      "no": "No",
+      "soon": "Coming soon",
+      "warning": "Warning",
+      "yes": "Yes"
+    },
+    "questionMenu": {
+      "addAnswer": "Add Answer",
+      "addQuestion": "Add a Question",
+      "answerPlaceholder": "Enter your answer...",
+      "btnPerRow": "Buttons per row",
+      "deleteQuestion": "Delete the Question",
+      "disableNotifications": "Disable notifications",
+      "editQuestion": "Edit a Question",
+      "keepButton": "Keep the Buttons",
+      "question": "Question",
+      "questionPlaceholder": "Enter a Question...",
+      "questionPopup": "Are you sure you want to delete this question? This action can't be undone!",
+      "questions": "Questions",
+      "saveQuestion": "Save the Question"
     },
     "status": {
       "bot": "Bot",
       "chats": "Chats",
-      "questions": "Questions",
-      "logSize": "Log Size: __value__ (Max: 100)",
       "errors": "Errors",
+      "logSize": "Log Size: __value__ (Max: 100)",
+      "questions": "Questions",
       "state": {
-        "on": "Online",
         "off": "Offline",
+        "on": "Online",
         "unknown": "Unknown"
       }
     },
-    "misc": {
-      "loading": "Loading",
-      "soon": "Coming soon",
-      "back": "Back",
-      "edit": "Edit",
-      "yes": "Yes",
-      "no": "No",
-      "warning": "Warning",
-      "empty": "Empty"
+    "topicsMenu": {
+      "topicsMenu": "Topics"
+    },
+    "userMenu": {
+      "group": "Group",
+      "legend": "Legend",
+      "supergroup": "Supergroup",
+      "unknown": "Unknown",
+      "user": "User",
+      "users": "Users"
     }
   }
 }

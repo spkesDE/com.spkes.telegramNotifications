@@ -193,5 +193,8 @@
   },
   "2.7.0": {
     "en": "Added \"A message from Topic is received\". Thanks to enyineer / nico for programming this!"
+  },
+  "2.7.1": {
+    "en": "Bug fixes"
   }
 }
