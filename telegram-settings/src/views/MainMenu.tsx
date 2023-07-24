@@ -56,6 +56,20 @@ export default class MainMenu extends React.Component<Props> {
                         onClick={() => this.props.changeView(Views.Debug)}
                     />
                 </MenuItemGroup>
+                <MenuItemGroup>
+                    <MenuItem
+                        title={Homey.__('settings.aboutMenu.joinTelegram')}
+                        icon={"fa-paper-plane"}
+                        className={"bg-color-blue"}
+                        onClick={() => Homey.popup("https://t.me/homeyCommunity")}
+                    />
+                    <MenuItem
+                        title={Homey.__('settings.mainMenu.about')}
+                        icon={"fa-address-card"}
+                        className={"bg-color-magenta"}
+                        onClick={() => this.props.changeView(Views.About)}
+                    />
+                </MenuItemGroup>
             </>
         );
     }

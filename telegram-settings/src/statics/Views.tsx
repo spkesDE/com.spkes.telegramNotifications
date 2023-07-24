@@ -9,6 +9,8 @@ export enum Views {
     Logs,
     Loading,
     Debug,
-    Topics
+    Topics,
+    About,
+    ChatGTP,
 }
 

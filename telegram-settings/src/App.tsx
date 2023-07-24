@@ -9,6 +9,8 @@ import LogsMenu from "./views/LogMenu";
 import Loading from "./views/Loading";
 import DebugMenu from "./views/DebugMenu";
 import TopicsMenu from "./views/TopicsMenu";
+import AboutMenu from "./views/AboutMenu";
+import ChatGTPMenu from "./views/ChatGTPMenu";
 
 
 interface Props {
@@ -70,6 +72,10 @@ class App extends React.Component<Props, State> {
                 return <MainMenu changeView={this.changeView.bind(this)}/>
             case Views.Loading:
                 return <Loading fullscreen={true}/>
+            case Views.About:
+                return <AboutMenu changeView={this.changeView.bind(this)}/>
+            case Views.ChatGTP:
+                return <ChatGTPMenu changeView={this.changeView.bind(this)}/>;
             default:
                 return <MainMenu changeView={this.changeView.bind(this)}/>
         }
