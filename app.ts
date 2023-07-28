@@ -81,13 +81,22 @@ export class TelegramNotifications extends HomeyApp {
         this.log('Failed to start. Token most likely wrong.');
       } else {
         this.log('Telegram Notifications app is initialized.');
-        this.bot.api.setMyCommands([{
-          'command': 'start',
-          'description': 'Start using the bot.'
-        }, {
-          'command': 'registertopic',
-          'description': 'Register a topic.'
-        }]).catch(this.error);
+          this.bot.api.getMyCommands()
+              .then((r) => {
+                  let prevSize = r.length;
+                  if (!r.some(e => e.command === "start"))
+                      r.push({
+                          'command': 'start',
+                          'description': this.homey.__("commands.start")
+                      });
+                  if (!r.some(e => e.command === "registertopic"))
+                      r.push({
+                          'command': 'registertopic',
+                          'description': this.homey.__("commands.registertopic")
+                      });
+                  if (this.bot != null && prevSize !== r.length)
+                      this.bot.api.setMyCommands(r).catch(this.error);
+              });
         this.debug('Debug => Total-Users ' + this.chats.length + ', Question-Size: ' + this.questions.length +
                 ', Log-Size: ' + this.getLogSize() + ' and start was ' + (this.startSuccess ? 'successful' : 'unsuccessful'));
         this.changeBotState(true);
