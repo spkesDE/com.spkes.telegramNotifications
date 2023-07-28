@@ -24,6 +24,7 @@ interface State {
     useBLL: boolean,
     password: string,
     token: string,
+    markdown: string | undefined,
     showFuckedUpPopup: boolean;
     selectedFuckUpAction: FuckedUpActions | undefined
 }
@@ -50,6 +51,7 @@ export default class DebugMenu extends React.Component<Props, State> {
             useBLL: false,
             password: "",
             token: "",
+            markdown: "",
             showFuckedUpPopup: false,
             selectedFuckUpAction: undefined
         }
@@ -66,6 +68,7 @@ export default class DebugMenu extends React.Component<Props, State> {
             useBLL: await Homey.get('useBll') ?? false,
             password: await Homey.get('password') ?? undefined,
             token: await Homey.get('bot-token') ?? undefined,
+            markdown: await Homey.get('markdown') ?? undefined,
             gotData: true
         })
     }
@@ -104,6 +107,10 @@ export default class DebugMenu extends React.Component<Props, State> {
                 <div className="logWidget">
                     <Badge color={BadgeColor.GRAY}>{Homey.__("settings.debugMenu.password")}</Badge>
                     <div className="codeBlock">{this.state.password}</div>
+                </div>
+                <div className="logWidget">
+                    <Badge color={BadgeColor.GRAY}>{Homey.__("settings.debugMenu.markdown")}</Badge>
+                    <div className="codeBlock">{this.state.markdown}</div>
                 </div>
                 <div className="logWidget">
                     <Badge color={BadgeColor.GRAY}>{Homey.__("settings.debugMenu.logs")}</Badge>
@@ -215,6 +222,8 @@ export default class DebugMenu extends React.Component<Props, State> {
                 await Homey.set('logs', "[]");
                 await Homey.set('password', false);
                 await Homey.set('use-password', "");
+                await Homey.set('markdown', "none");
+                await Homey.set('token', "");
                 break;
         }
         this.setState({showFuckedUpPopup: false});
