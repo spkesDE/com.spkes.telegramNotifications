@@ -1,4 +1,8 @@
 {
+  "commands": {
+    "start": "Den Chat registrieren",
+    "registertopic": "Den Topic registrieren"
+  },
   "settings": {
     "aboutMenu": {
       "joinTelegram": "Trete der Telegram Gruppe bei!",
