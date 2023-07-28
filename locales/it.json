@@ -28,7 +28,8 @@
         "title": "Come Configurare"
       },
       "useBll": "Abilita il supporto alla Better Logic Library",
-      "usePassword": "Usa Password"
+      "usePassword": "Usa Password",
+      "useMarkdown": "Usa Ribasso"
     },
     "chatGTPSettings": {
       "apiKey": "",

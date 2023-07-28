@@ -28,7 +28,8 @@
         "title": "Hoe te installeren"
       },
       "useBll": "Better Logic Library ondersteuning inschakelen",
-      "usePassword": "Wachtwoord gebruiken"
+      "usePassword": "Wachtwoord gebruiken",
+      "useMarkdown": "Gebruik Markdown"
     },
     "chatGTPSettings": {
       "apiKey": "",

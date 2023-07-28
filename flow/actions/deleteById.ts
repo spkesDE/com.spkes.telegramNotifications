@@ -11,6 +11,7 @@ export default class DeleteById {
           await app.bot.api.deleteMessage(args.user.id ?? args.chatId, args.id);
         } catch (err) {
           app.error(err);
+          throw err;
         }
       }
     });

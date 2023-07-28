@@ -5,7 +5,7 @@
   },
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "Join the Telegram Group!",
+      "joinTelegram": "Join the community telegram group!",
       "title": "About"
     },
     "botSettings": {
@@ -28,7 +28,8 @@
         "title": "How to setup"
       },
       "useBll": "Enable Better Logic Library Support",
-      "usePassword": "Use Password"
+      "usePassword": "Use Password",
+      "useMarkdown": "Use Markdown"
     },
     "chatGTPSettings": {
       "apiKey": "API-Key",

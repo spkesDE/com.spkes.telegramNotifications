@@ -17,6 +17,7 @@ interface State {
     useBLL: boolean,
     password: string | undefined,
     token: string | undefined,
+    markdown: string | undefined,
     gotData: boolean
 }
 
@@ -28,6 +29,7 @@ class SettingsMenu extends React.Component<Props, State> {
             useBLL: false,
             password: undefined,
             token: undefined,
+            markdown: undefined,
             gotData: process.env!.NODE_ENV === "development"
         }
     }
@@ -39,8 +41,11 @@ class SettingsMenu extends React.Component<Props, State> {
             useBLL: await Homey.get('useBll') ?? false,
             password: await Homey.get('password') ?? undefined,
             token: await Homey.get('bot-token') ?? undefined,
+            markdown: await Homey.get('markdown') ?? undefined,
             gotData: true
-        })
+        });
+
+
     }
 
     render() {
@@ -94,6 +99,16 @@ class SettingsMenu extends React.Component<Props, State> {
                         <Switch id={"useBll"} onChange={(e) => this.handleUseBll(e.currentTarget.checked)}
                                 value={this.state.useBLL}/>
                     </MenuItemWrapper>
+                    <MenuItemWrapper>
+                        <h2>{Homey.__('settings.botSettings.useMarkdown')}</h2>
+                        <select className={"fancySelect"} id={"useMarkdown"}
+                                onChange={(e) => this.handleUseMarkdown(e.currentTarget.value)}>
+                            <option value="none" selected={this.state.markdown === undefined}>None</option>
+                            <option value="MarkdownV2" selected={this.state.markdown === "MarkdownV2"}>MarkdownV2
+                            </option>
+                            <option value="HTML" selected={this.state.markdown === "HTML"}>HTML</option>
+                        </select>
+                    </MenuItemWrapper>
                 </MenuItemGroup>
                 <MenuItemGroup>
                     <MenuItemWrapper className={"noPadding"}>
@@ -134,6 +149,7 @@ class SettingsMenu extends React.Component<Props, State> {
         await Homey.set('use-password', this.state.usePassword ?? false);
         await Homey.set('useBll', this.state.useBLL ?? false);
         await Homey.set('password', this.state.password);
+        await Homey.set('markdown', this.state.markdown);
         this.setState({gotData: true})
         console.log("Saved Settings")
     }
@@ -148,6 +164,12 @@ class SettingsMenu extends React.Component<Props, State> {
     private handleUseBll(value: boolean) {
         this.setState({
             useBLL: value,
+        })
+    }
+
+    private handleUseMarkdown(value: string | undefined) {
+        this.setState({
+            markdown: value
         })
     }
 }

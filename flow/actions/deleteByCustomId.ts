@@ -14,6 +14,7 @@ export default class DeleteByCustomId {
               });
             } catch (err) {
               app.error(err);
+              throw err;
             }
           }
         }
