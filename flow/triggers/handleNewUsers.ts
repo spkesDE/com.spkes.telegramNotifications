@@ -31,9 +31,9 @@ export default class HandleNewUsers {
         }
       );
       card.trigger({
-        from: ctx.chat.type === 'private' ? ctx.chat.first_name : ctx.chat.title,
-        username: ctx.chat.type === 'private' ? ctx.chat.username : ctx.chat.title,
-        chatType: ctx.chat.type,
+        from: ctx.chat.type === 'private' ? ctx.chat.first_name ?? "unknown" : ctx.chat.title ?? "unknown",
+        username: ctx.chat.type === 'private' ? ctx.chat.username ?? "unknown" : ctx.chat.title ?? "unknown",
+        chatType: ctx.chat.type ?? "unknown",
       }).catch(app.error).then();
     });
 

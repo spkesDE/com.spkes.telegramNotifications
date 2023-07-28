@@ -196,5 +196,8 @@
   },
   "2.7.1": {
     "en": "Fixed an error where tagged images that where created as a URL based homey image wasn't being followed on redirects"
+  },
+  "2.8.0": {
+    "en": "Changed Telegram API, Added Markdown support, Added about page"
   }
 }
