@@ -56,6 +56,7 @@ export default class Question {
               messageOverride == undefined ? q.question : messageOverride,
           disable_notification: q.disable_notification ?? false,
           message_thread_id: topic ?? undefined,
+          parse_mode: app.markdown,
           reply_markup: InlineKeyboard.from(callbackButtons),
         }
       )
@@ -67,8 +68,7 @@ export default class Question {
               customId: customId,
             });
           }
-        })
-        .catch(app.error);
+        });
     } else {
       app.bot?.api
         .sendMessage(
@@ -77,6 +77,7 @@ export default class Question {
           {
             disable_notification: q.disable_notification ?? false,
             message_thread_id: topic ?? undefined,
+            parse_mode: app.markdown,
             reply_markup: InlineKeyboard.from(callbackButtons),
           }
         )
@@ -88,8 +89,7 @@ export default class Question {
               customId: customId,
             });
           }
-        })
-        .catch(app.error);
+        });
     }
   }
 

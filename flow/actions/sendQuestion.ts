@@ -25,7 +25,10 @@ export default class SendQuestion {
         args.id ?? undefined,
         args.imageUrl ?? undefined,
         args.user.topic ?? undefined,
-      ).catch(app.error);
+      ).catch((e) => {
+        app.error(e);
+        throw e;
+      });
     });
     card.registerArgumentAutocompleteListener(
       'user', async (query) => Utils.userAutocomplete(app.chats, query)

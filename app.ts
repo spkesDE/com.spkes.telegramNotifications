@@ -19,6 +19,7 @@ import DeleteByIdAndChatId from './flow/actions/deleteByIdAndChatId';
 import DeleteByCustomId from './flow/actions/deleteByCustomId';
 import HandleTopics from './flow/triggers/handleTopics';
 import ReceiveMessageFromTopic from './flow/triggers/receiveMessageFromTopic';
+import {ParseMode} from 'grammy/types';
 
 export class TelegramNotifications extends HomeyApp {
 
@@ -29,6 +30,7 @@ export class TelegramNotifications extends HomeyApp {
     private startSuccess = true;
     private registerFlowHandler = false;
     customIdMessages: { message_id: number; chat_id: number; customId: string; }[] = [];
+    markdown: ParseMode | undefined = undefined;
 
     async onInit() {
       this.token = await this.homey.settings.get('bot-token');
@@ -54,7 +56,15 @@ export class TelegramNotifications extends HomeyApp {
         if (key === 'useBll') {
           this.startBll();
         }
+
+          if (key === "markdown") {
+              let markdown = this.homey.settings.get('markdown');
+              if (markdown === "none") this.markdown = undefined;
+              else this.markdown = markdown;
+          }
       });
+
+        this.loadSettings();
       this.startBot();
       this.startBll().then();
     }
@@ -212,6 +222,12 @@ export class TelegramNotifications extends HomeyApp {
       } else {
         this.log('BLL NOT used');
       }
+    }
+
+    private loadSettings() {
+        let markdown = this.homey.settings.get('markdown');
+        if (markdown === "none") this.markdown = undefined;
+        else this.markdown = markdown;
     }
 }
 

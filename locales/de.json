@@ -1,7 +1,7 @@
 {
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "Trete der Telegram Gruppe bei!",
+      "joinTelegram": "Trete der Community Telegram Gruppe bei!",
       "title": "Über"
     },
     "botSettings": {
@@ -24,7 +24,8 @@
         "title": "So richten Sie den Bot ein"
       },
       "useBll": "Better Logic Library-Unterstützung aktivieren",
-      "usePassword": "Passwort verwenden"
+      "usePassword": "Passwort verwenden",
+      "useMarkdown": "Markdown verwenden"
     },
     "chatGTPSettings": {
       "apiKey": "API-Key",
