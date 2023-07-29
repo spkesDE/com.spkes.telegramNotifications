@@ -15,8 +15,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "delete-target": "rd /s /q \"H:/HomeyProgramming/com.spkes.telegramNotifications/settings\" && mkdir \"H:/HomeyProgramming/com.spkes.telegramNotifications/settings\"",
-    "copy-files": "(robocopy ./build/ \"H:/HomeyProgramming/com.spkes.telegramNotifications/settings \" /s /e /NFL /NDL /NJH /NJS /nc /ns /np) ^& exit 0"
+    "delete-target": "rd /s /q \"H:/Homey Programming/com.spkes.telegramNotifications/settings\" && mkdir \"H:/Homey Programming/com.spkes.telegramNotifications/settings\"",
+    "copy-files": "(robocopy ./build/ \"H:/Homey Programming/com.spkes.telegramNotifications/settings \" /s /e /NFL /NDL /NJH /NJS /nc /ns /np) ^& exit 0"
   },
   "browserslist": {
     "production": [

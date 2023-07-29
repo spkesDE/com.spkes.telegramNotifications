@@ -2,7 +2,6 @@ import {FlowCardAction} from 'homey';
 import {TelegramNotifications} from '../../app';
 import Utils from '../../utils';
 import {BL} from 'betterlogiclibrary';
-import {InputFile} from "grammy";
 
 export default class SendTagImageWithMessage {
   constructor(app: TelegramNotifications, card: FlowCardAction) {
@@ -18,7 +17,7 @@ export default class SendTagImageWithMessage {
         return;
       }
       try {
-        await app.bot.api.sendPhoto(args.user.id, new InputFile({url: url}, ""),
+        await app.bot.api.sendPhoto(args.user.id, url,
           {
             caption: await BL.decode(args.message),
             parse_mode: app.markdown,
