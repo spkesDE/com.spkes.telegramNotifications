@@ -14,7 +14,7 @@ export default class Question {
 
         let keyboard = new InlineKeyboard();
         q.buttons.forEach((value, i) => {
-      let id = q.UUID + '.' + i;
+            let id = q.UUID + '.' + i;
             if (opts?.customId != undefined && opts?.customId.length < 21)
                 id += "." + opts?.customId
             keyboard.text(value, id);

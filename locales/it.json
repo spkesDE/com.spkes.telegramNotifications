@@ -1,8 +1,14 @@
 {
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "Unisciti al gruppo Telegram!",
-      "title": "Circa"
+      "joinTelegram": "Unisciti al gruppo telegram della community!",
+      "title": "Informazioni",
+      "using": "Questa app utilizza gli strumenti e i linguaggi fantastici seguenti",
+      "contributors": "Questa app non sarebbe la stessa senza queste persone fantastiche",
+      "dev": "__name__ (Sviluppatore per __app__)",
+      "contributor": "__name__ (Contributore e Sviluppatore)",
+      "translator": "__name__ (Traduzione per __lang__)",
+      "community": "Tu, la Community di Homey"
     },
     "botSettings": {
       "botSettings": "Impostazioni Bot",
@@ -13,6 +19,11 @@
       "passwordHint": "Per registrare un utente/chat ora devi inserire /start [tuaPassword] al bot tramite Telegram",
       "passwordPlaceholder": "Inserisci qui la tua password!",
       "saveChanges": "Salva Modifiche",
+      "markdown": {
+        "none": "Fuori da",
+        "markdownV2": "MarkdownV2",
+        "html": "HTML"
+      },
       "setup": {
         "step1": "Configura il tuo bot Telegram personale. Questo è completamente sicuro e privato, poiché sei l'unico che può accedere all'archivio dei messaggi. Digita @Botfather nella barra di ricerca di Telegram e scegli il bot @Botfather.",
         "step2": "Clicca su “Start” per attivare il bot @BotFather o digita /newbot.",

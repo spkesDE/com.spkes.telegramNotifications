@@ -35,7 +35,7 @@ export default class AboutMenu extends React.Component<Props, State> {
                 </MenuItemGroup>
                 <MenuItemGroup>
                     <MenuContentWrapper>
-                        <h2>This app uses the following awesome tools and languages</h2>
+                        <h2>{Homey.__("settings.aboutMenu.using")}</h2>
                         <ul>
                             <li>Grammy.dev <Badge color={BadgeColor.ORANGE} size={BadgeSize.SMALL}>v1.17.2</Badge></li>
                             <li>Better Logic Library <Badge color={BadgeColor.MAGENTA}
@@ -47,13 +47,19 @@ export default class AboutMenu extends React.Component<Props, State> {
                 </MenuItemGroup>
                 <MenuItemGroup>
                     <MenuContentWrapper>
-                        <h2>This app wouldn't be the same without these awesome people</h2>
+                        <h2>{Homey.__("settings.aboutMenu.contributors")}</h2>
                         <ul>
-                            <li>Twan_Veugelers (Translation for 🇬🇧 🇳🇱)</li>
-                            <li>ilpaolino (Translation for 🇮🇹)</li>
-                            <li>Arie J. Godschalk (Developer for Better Logic Library)</li>
-                            <li>Enyineer (Contributor and Developer)</li>
-                            <li><strong>You, the Homey Community</strong></li>
+                            <li>{Homey.__("settings.aboutMenu.translator", {
+                                name: "Twan_Veugelers",
+                                lang: "🇬🇧 🇳🇱"
+                            })}</li>
+                            <li>{Homey.__("settings.aboutMenu.translator", {name: "ilpaolino", lang: "🇮🇹"})}</li>
+                            <li>{Homey.__("settings.aboutMenu.dev", {
+                                name: "Arie J. Godschalk",
+                                app: "Better Logic Library"
+                            })}</li>
+                            <li>{Homey.__("settings.aboutMenu.contributor", {name: "Enyineer"})}</li>
+                            <li><strong>{Homey.__("settings.aboutMenu.community")}</strong></li>
                         </ul>
                     </MenuContentWrapper>
                 </MenuItemGroup>

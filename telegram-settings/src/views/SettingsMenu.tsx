@@ -103,10 +103,15 @@ class SettingsMenu extends React.Component<Props, State> {
                         <h2>{Homey.__('settings.botSettings.useMarkdown')}</h2>
                         <select className={"fancySelect"} id={"useMarkdown"}
                                 onChange={(e) => this.handleUseMarkdown(e.currentTarget.value)}>
-                            <option value="none" selected={this.state.markdown === undefined}>None</option>
-                            <option value="MarkdownV2" selected={this.state.markdown === "MarkdownV2"}>MarkdownV2
+                            <option value="none" selected={this.state.markdown === undefined}>
+                                {Homey.__("settings.botSettings.markdown.none")}
                             </option>
-                            <option value="HTML" selected={this.state.markdown === "HTML"}>HTML</option>
+                            <option value="MarkdownV2" selected={this.state.markdown === "MarkdownV2"}>
+                                {Homey.__("settings.botSettings.markdown.markdownV2")}
+                            </option>
+                            <option value="HTML" selected={this.state.markdown === "HTML"}>
+                                {Homey.__("settings.botSettings.markdown.html")}
+                            </option>
                         </select>
                     </MenuItemWrapper>
                 </MenuItemGroup>
