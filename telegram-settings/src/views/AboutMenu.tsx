@@ -54,6 +54,10 @@ export default class AboutMenu extends React.Component<Props, State> {
                                 lang: "🇬🇧 🇳🇱"
                             })}</li>
                             <li>{Homey.__("settings.aboutMenu.translator", {name: "ilpaolino", lang: "🇮🇹"})}</li>
+                            <li>{Homey.__("settings.aboutMenu.translator", {
+                                name: "ChatGTP-3",
+                                lang: "🇵🇱 🇪🇸 🇩🇰 🇸🇪 🇳🇴 🇫🇷"
+                            })}</li>
                             <li>{Homey.__("settings.aboutMenu.dev", {
                                 name: "Arie J. Godschalk",
                                 app: "Better Logic Library"
