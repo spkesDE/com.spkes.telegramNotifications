@@ -21,11 +21,16 @@ export default class SendQuestion {
         question,
         app,
         args.user.id,
-        args.message == undefined || args.message == '' ? undefined : await BL.decode(args.message) ?? undefined,
-        args.id ?? undefined,
-        args.imageUrl ?? undefined,
-        args.user.topic ?? undefined,
-      ).catch(app.error);
+          {
+            messageOverride: args.message == undefined || args.message == '' ? undefined : await BL.decode(args.message) ?? undefined,
+            customId: args.id ?? undefined,
+            image: args.imageUrl ?? undefined,
+            topic: args.user.topic ?? undefined,
+          }
+      ).catch((e) => {
+        app.error(e);
+        throw e;
+      });
     });
     card.registerArgumentAutocompleteListener(
       'user', async (query) => Utils.userAutocomplete(app.chats, query)

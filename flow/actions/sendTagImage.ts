@@ -23,6 +23,7 @@ export default class SendTagImage {
         );
       } catch (err) {
         app.error(err);
+        throw err;
       }
     });
     card.registerArgumentAutocompleteListener(

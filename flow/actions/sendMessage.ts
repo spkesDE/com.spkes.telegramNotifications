@@ -10,11 +10,13 @@ export default class SendMessage {
         try {
           await app.bot.api.sendMessage(args.user.id, await BL.decode(args.message),
             {
+              parse_mode: app.markdown,
               message_thread_id: args.user.topic
             }
           );
         } catch (err) {
           app.error(err);
+          throw err;
         }
       }
     });
