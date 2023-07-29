@@ -1,4 +1,12 @@
 {
+  "newUser": {
+    "wrongPassword": "Wrong password.",
+    "register": "Register this Telegram chat.",
+    "register2": "Press the button below to register this chat!",
+    "welcome": "Welcome to the Homey Telegram Bot!",
+    "knownChat": "Already in the user list!",
+    "error": "Something went wrong! Can't get the Chat Id"
+  },
   "settings": {
     "aboutMenu": {
       "joinTelegram": "Trete der Telegram Gruppe bei!",
