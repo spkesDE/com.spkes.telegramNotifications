@@ -1,11 +1,19 @@
 {
   "newUser": {
-    "wrongPassword": "Wrong password.",
-    "register": "Register this Telegram chat.",
-    "register2": "Press the button below to register this chat!",
-    "welcome": "Welcome to the Homey Telegram Bot!",
-    "knownChat": "Already in the user list!",
-    "error": "Something went wrong! Can't get the Chat Id"
+    "wrongPassword": "Falsches Passwort.",
+    "register": "Registriere diesen Telegram-Chat.",
+    "register2": "Drücke den untenstehenden Button, um diesen Chat zu registrieren!",
+    "welcome": "Willkommen beim Homey Telegram Bot!",
+    "knownChat": "Bereits in der Benutzerliste!",
+    "error": "Etwas ist schiefgelaufen! Die Chat-ID konnte nicht abgerufen werden."
+  },
+  "questions": {
+    "notFound": "FEHLER: Frage nicht gefunden. Wurde die Frage gelöscht?"
+  },
+  "topics": {
+    "noTopic": "Dieser Chat ist kein Forum-/Themenchat.",
+    "notRegistered": "Dieser Chat ist nicht registriert.",
+    "knownTopic": "Das Thema ist bereits registriert."
   },
   "settings": {
     "aboutMenu": {
