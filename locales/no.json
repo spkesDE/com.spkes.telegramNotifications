@@ -3,15 +3,15 @@
     "wrongPassword": "Feil passord.",
     "register": "Registrer denne Telegram-chatten.",
     "register2": "Trykk på knappen nedenfor for å registrere denne chatten!",
-    "welcome": "Velkommen til Homey Telegram Bot!",
-    "knownChat": "Allerede i brukerlisten!",
-    "error": "Noe gikk galt! Kan ikke hente chat-ID."
+    "welcome": "Velkommen til Homey Telegram-bot!",
+    "knownChat": "Allerede på brukerlisten!",
+    "error": "Noe gikk galt! Kan ikke få chat-ID-en."
   },
   "questions": {
     "notFound": "FEIL: Spørsmål ikke funnet. Ble spørsmålet slettet?"
   },
   "topics": {
-    "noTopic": "Chatten er ikke en forum-/tema-chat.",
+    "noTopic": "Denne chatten er ikke en forum-/tema-chat.",
     "notRegistered": "Chatten er ikke registrert.",
     "knownTopic": "Emnet er allerede registrert."
   },
@@ -21,7 +21,7 @@
   },
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "Bli med i Telegram-gruppen for fellesskapet!",
+      "joinTelegram": "Bli med i fellesskapets Telegram-gruppe!",
       "title": "Om",
       "using": "Denne appen bruker følgende fantastiske verktøy og språk",
       "contributors": "Denne appen ville ikke vært det samme uten disse fantastiske menneskene",
@@ -33,11 +33,11 @@
     "botSettings": {
       "botSettings": "Bot-innstillinger",
       "botToken": "Bot-token",
-      "botTokenPlaceholder": "Skriv inn ditt token her!",
+      "botTokenPlaceholder": "Skriv inn tokenet ditt her!",
       "miscSettings": "Diverse innstillinger",
       "password": "Passord",
-      "passwordHint": "For å registrere en bruker/chatt, send nå /start [DittPassord] til botten via Telegram",
-      "passwordPlaceholder": "Skriv inn ditt passord her!",
+      "passwordHint": "For å registrere en bruker/chat, send nå /start [DittPassord] til botten via Telegram",
+      "passwordPlaceholder": "Skriv inn passordet ditt her!",
       "saveChanges": "Lagre endringer",
       "markdown": {
         "none": "Ingen",
@@ -45,13 +45,13 @@
         "html": "HTML"
       },
       "setup": {
-        "step1": "Konfigurer din egen Telegram-bot. Dette er helt sikkert og privat da du er den eneste som kan få tilgang til meldingsarkivet. Søk etter @Botfather i Telegram og velg botten @Botfather.",
-        "step2": "Klikk på \"Start\" for å aktivere @BotFather-botten, eller skriv inn /newbot.",
+        "step1": "Konfigurer din egen Telegram-bot. Dette er helt trygt og privat, siden bare du har tilgang til meldingsarkivet. Søk etter @Botfather på Telegram og velg botten @Botfather.",
+        "step2": "Klikk på \"Start\" for å aktivere botten @BotFather, eller skriv inn /newbot.",
         "step2-1": "/setjoingroup deaktiverer at botten kan bli med i en gruppe.",
         "step2-2": "/setprivacy deaktiverer at botten kan lese meldinger i en gruppe",
         "step3": "Skriv inn tokenet i appens innstillinger",
-        "step4": "Skriv /start til botten din via Telegram og følg instruksjonene.",
-        "step4-1": "Hver bruker må også sende kommandoen /start til botten. Du kan dele botten via profilen eller søket i Telegram, akkurat som du gjorde med @Botfather-botten.",
+        "step4": "Send /start til botten din via Telegram og følg instruksjonene.",
+        "step4-1": "Hver bruker må også sende kommandoen /start til botten. Du kan dele botten via profilen eller søk på Telegram, akkurat som du gjorde med @Botfather.",
         "title": "Slik konfigurerer du botten"
       },
       "useBll": "Aktiver støtte for Better Logic Library",
@@ -65,8 +65,8 @@
       "useGtp": "Bruk Chat GTP"
     },
     "debugMenu": {
-      "debugMenu": "Feilsøking-meny",
-      "fuckedUpMenu": "Jeg har ødelagt alt, mann! - Meny",
+      "debugMenu": "Feilsøkingsmeny",
+      "fuckedUpMenu": "Jeg har rotet det til, mann! - Meny",
       "fuckedUpWarning": "Er du sikker på at du vil utføre handlingen __action__? Denne handlingen kan ikke angres!",
       "logs": "Logger",
       "password": "Passord",
@@ -93,7 +93,7 @@
     },
     "mainMenu": {
       "about": "Om",
-      "debugMenu": "Feilsøking-meny",
+      "debugMenu": "Feilsøkingsmeny",
       "logs": "App-logger",
       "questions": "Spørsmål",
       "settings": "Bot-innstillinger",
@@ -103,7 +103,7 @@
     "misc": {
       "back": "Tilbake",
       "edit": "Rediger",
-      "empty": "Tom",
+      "empty": "Tomt",
       "loading": "Laster",
       "no": "Nei",
       "soon": "Kommer snart",
@@ -118,7 +118,7 @@
       "deleteQuestion": "Slett spørsmål",
       "disableNotifications": "Deaktiver varsler",
       "editQuestion": "Rediger spørsmål",
-      "keepButton": "Behold knapper",
+      "keepButton": "Behold knapp",
       "question": "Spørsmål",
       "questionPlaceholder": "Skriv inn et spørsmål...",
       "questionPopup": "Er du sikker på at du vil slette dette spørsmålet? Denne handlingen kan ikke angres!",
@@ -143,7 +143,7 @@
     "userMenu": {
       "group": "Gruppe",
       "legend": "Legende",
-      "supergroup": "Supergruppe",
+      "supergroup": "Supergroup",
       "unknown": "Ukjent",
       "user": "Bruker",
       "users": "Brukere"
