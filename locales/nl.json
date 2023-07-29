@@ -3,6 +3,22 @@
     "start": "De chat registreren",
     "registertopic": "Het onderwerp registreren"
   },
+  "newUser": {
+    "wrongPassword": "Verkeerd wachtwoord.",
+    "register": "Registreer deze Telegram-chat.",
+    "register2": "Druk op de knop hieronder om deze chat te registreren!",
+    "welcome": "Welkom bij de Homey Telegram Bot!",
+    "knownChat": "Al in de gebruikerslijst!",
+    "error": "Er is iets misgegaan! Kan de Chat-ID niet ophalen."
+  },
+  "questions": {
+    "notFound": "FOUT: Vraag niet gevonden. Is de vraag verwijderd?"
+  },
+  "topics": {
+    "noTopic": "Deze chat is geen forum-/onderwerpchats.",
+    "notRegistered": "Deze chat is niet geregistreerd.",
+    "knownTopic": "Het onderwerp is al geregistreerd."
+  },
   "settings": {
     "aboutMenu": {
       "joinTelegram": "Doe mee met de community-telegramgroep!",

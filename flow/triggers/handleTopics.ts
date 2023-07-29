@@ -11,12 +11,12 @@ export default class HandleTopics {
         return next();
       }
       if (!ctx.message.is_topic_message || !ctx.message.message_thread_id) {
-        await ctx.reply('Chat is not a forum/topic chat.');
+        await ctx.reply(app.homey.__("topics.noTopic"));
         return;
       }
       const chat = app.chats.find((c) => c.chatId == ctx.chat.id);
       if (chat == null) {
-        await ctx.reply('Chat is not registered.');
+        await ctx.reply(app.homey.__("topics.notRegistered"));
         return;
       }
       if (!chat.topics) {
@@ -24,7 +24,7 @@ export default class HandleTopics {
       }
       const topic = chat.topics.find((t) => t.topicId == ctx.message.message_thread_id);
       if (topic) {
-        await ctx.reply('Topic is already registered.');
+        await ctx.reply(app.homey.__("topics.knownTopic"));
         return;
       }
 
