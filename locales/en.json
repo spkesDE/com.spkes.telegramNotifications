@@ -1,4 +1,20 @@
 {
+  "newUser": {
+    "wrongPassword": "Wrong password.",
+    "register": "Register this Telegram chat.",
+    "register2": "Press the button below to register this chat!",
+    "welcome": "Welcome to the Homey Telegram Bot!",
+    "knownChat": "Already in the user list!",
+    "error": "Something went wrong! Can't get the Chat Id"
+  },
+  "questions": {
+    "notFound": "ERROR: Question not found. Did the question get deleted?"
+  },
+  "topics": {
+    "noTopic": "Chat is not a forum/topic chat.",
+    "notRegistered": "Chat is not registered.",
+    "knownTopic": "Topic is already registered."
+  },
   "settings": {
     "aboutMenu": {
       "joinTelegram": "Join the Telegram Group!",

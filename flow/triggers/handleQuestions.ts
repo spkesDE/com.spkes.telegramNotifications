@@ -99,7 +99,7 @@ export default class HandleQuestions {
       const question = app.getQuestion(questionId);
       if (question === undefined) {
         app.error('Question not found. Did the question got deleted?"');
-        await ctx.reply('ERROR: Question not found. Did the question got deleted?');
+        await ctx.reply(app.homey.__("questions.notFound"));
         throw new Error('Question with UUID ' + questionId + ' not found');
       }
       if (!question.keepButtons) {
