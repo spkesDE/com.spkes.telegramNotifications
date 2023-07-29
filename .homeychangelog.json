@@ -202,5 +202,8 @@
   },
   "2.8.1": {
     "en": "Translations, Custom Bot commands will be not overwritten anymore"
+  },
+  "2.8.2": {
+    "en": "More Translations. Fixes an issue with Send Photo."
   }
 }
