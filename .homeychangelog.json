@@ -199,5 +199,8 @@
   },
   "2.8.0": {
     "en": "Changed Telegram API, Added Markdown support, Added about page"
+  },
+  "2.8.1": {
+    "en": "Translations, Custom Bot commands will be not overwritten anymore"
   }
 }

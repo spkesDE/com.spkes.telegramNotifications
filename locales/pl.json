@@ -1,0 +1,152 @@
+{
+  "newUser": {
+    "wrongPassword": "Złe hasło.",
+    "register": "Zarejestruj ten czat Telegram.",
+    "register2": "Naciśnij przycisk poniżej, aby zarejestrować ten czat!",
+    "welcome": "Witaj w Bocie Telegram Homey!",
+    "knownChat": "Już jest na liście użytkowników!",
+    "error": "Coś poszło nie tak! Nie można uzyskać ID czatu."
+  },
+  "questions": {
+    "notFound": "BŁĄD: Pytanie nie znalezione. Czy pytanie zostało usunięte?"
+  },
+  "topics": {
+    "noTopic": "Ten czat nie jest czatem forum/tematycznym.",
+    "notRegistered": "Ten czat nie jest zarejestrowany.",
+    "knownTopic": "Temat jest już zarejestrowany."
+  },
+  "commands": {
+    "start": "Zarejestruj czat",
+    "registertopic": "Zarejestruj temat"
+  },
+  "settings": {
+    "aboutMenu": {
+      "joinTelegram": "Dołącz do grupy społeczności na Telegramie!",
+      "title": "O aplikacji",
+      "using": "Ta aplikacja korzysta z następujących wspaniałych narzędzi i języków",
+      "contributors": "Ta aplikacja nie byłaby taka sama bez tych wspaniałych ludzi",
+      "dev": "__name__ (Deweloper dla __app__)",
+      "contributor": "__name__ (Współtwórca i Deweloper)",
+      "translator": "__name__ (Tłumaczenie dla __lang__)",
+      "community": "Ty, społeczność Homey"
+    },
+    "botSettings": {
+      "botSettings": "Ustawienia Bota",
+      "botToken": "Token Bota",
+      "botTokenPlaceholder": "Wprowadź swój token tutaj!",
+      "miscSettings": "Różne ustawienia",
+      "password": "Hasło",
+      "passwordHint": "Aby zarejestrować użytkownika/czat, wyślij teraz /start [TwojeHasło] do bota przez Telegram",
+      "passwordPlaceholder": "Wprowadź swoje hasło tutaj!",
+      "saveChanges": "Zapisz zmiany",
+      "markdown": {
+        "none": "Brak",
+        "markdownV2": "MarkdownV2",
+        "html": "HTML"
+      },
+      "setup": {
+        "step1": "Skonfiguruj swojego własnego bota na Telegramie. Jest to całkowicie bezpieczne i prywatne, ponieważ tylko ty możesz uzyskać dostęp do archiwum wiadomości. Wyszukaj @Botfather na Telegramie i wybierz bota @Botfather.",
+        "step2": "Kliknij przycisk \"Start\", aby aktywować bota @BotFather lub wpisz /newbot.",
+        "step2-1": "/setjoingroup wyłącza możliwość dołączenia bota do grupy.",
+        "step2-2": "/setprivacy wyłącza możliwość odczytu wiadomości w grupie",
+        "step3": "Wprowadź token w ustawieniach aplikacji",
+        "step4": "Wyślij /start do swojego bota przez Telegram i postępuj zgodnie z instrukcjami.",
+        "step4-1": "Każdy użytkownik musi również wysłać komendę /start do bota. Możesz udostępnić bota przez profil lub wyszukiwanie na Telegramie, tak jak zrobiłeś to z @Botfather.",
+        "title": "Jak skonfigurować bota"
+      },
+      "useBll": "Włącz obsługę biblioteki Better Logic Library",
+      "usePassword": "Użyj hasła",
+      "useMarkdown": "Użyj Markdown"
+    },
+    "chatGTPSettings": {
+      "apiKey": "Klucz API",
+      "enable": "Włącz",
+      "title": "Chat GTP",
+      "useGtp": "Użyj Chat GTP"
+    },
+    "debugMenu": {
+      "debugMenu": "Menu Debugowania",
+      "fuckedUpMenu": "Zepsułem to, człowieku! - Menu",
+      "fuckedUpWarning": "Czy na pewno chcesz wykonać akcję __action__? Ta operacja nie może zostać cofnięta!",
+      "logs": "Logi",
+      "password": "Hasło",
+      "questions": "Pytania",
+      "resetEverything": "Zresetuj wszystko",
+      "resetLogs": "Zresetuj logi",
+      "resetPassword": "Zresetuj hasło",
+      "resetQuestions": "Zresetuj pytania",
+      "resetUsers": "Zresetuj użytkowników",
+      "status": "Status",
+      "token": "Token",
+      "useBll": "Użyj Better Logic Library",
+      "usePassword": "Użyj hasła",
+      "users": "Użytkownicy"
+    },
+    "logMenu": {
+      "copy": "Kopiuj",
+      "debug": "Debugowanie",
+      "error": "Błąd",
+      "info": "Informacja",
+      "logs": "Logi",
+      "showDebugLogs": "Pokaż logi debugowania",
+      "showInfoLogs": "Pokaż logi informacji"
+    },
+    "mainMenu": {
+      "about": "O aplikacji",
+      "debugMenu": "Menu Debugowania",
+      "logs": "Logi aplikacji",
+      "questions": "Pytania",
+      "settings": "Ustawienia Bota",
+      "topics": "Tematy",
+      "users": "Użytkownicy/Czaty Grupowe"
+    },
+    "misc": {
+      "back": "Wróć",
+      "edit": "Edytuj",
+      "empty": "Puste",
+      "loading": "Ładowanie",
+      "no": "Nie",
+      "soon": "Wkrótce",
+      "warning": "Ostrzeżenie",
+      "yes": "Tak"
+    },
+    "questionMenu": {
+      "addAnswer": "Dodaj odpowiedź",
+      "addQuestion": "Dodaj pytanie",
+      "answerPlaceholder": "Wprowadź odpowiedź...",
+      "btnPerRow": "Przyciski na wiersz",
+      "deleteQuestion": "Usuń pytanie",
+      "disableNotifications": "Wyłącz powiadomienia",
+      "editQuestion": "Edytuj pytanie",
+      "keepButton": "Zachowaj przycisk",
+      "question": "Pytanie",
+      "questionPlaceholder": "Wprowadź pytanie...",
+      "questionPopup": "Czy na pewno chcesz usunąć to pytanie? Ta operacja nie może zostać cofnięta!",
+      "questions": "Pytania",
+      "saveQuestion": "Zapisz pytanie"
+    },
+    "status": {
+      "bot": "Bot",
+      "chats": "Czaty",
+      "errors": "Błędy",
+      "logSize": "Rozmiar dziennika: __value__ (maksymalnie: 100)",
+      "questions": "Pytania",
+      "state": {
+        "off": "Wyłączony",
+        "on": "Włączony",
+        "unknown": "Nieznany"
+      }
+    },
+    "topicsMenu": {
+      "topicsMenu": "Tematy"
+    },
+    "userMenu": {
+      "group": "Grupa",
+      "legend": "Legenda",
+      "supergroup": "Supergrupa",
+      "unknown": "Nieznany",
+      "user": "Użytkownik",
+      "users": "Użytkownicy"
+    }
+  }
+}

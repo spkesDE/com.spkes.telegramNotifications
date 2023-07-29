@@ -1,0 +1,152 @@
+{
+  "newUser": {
+    "wrongPassword": "Feil passord.",
+    "register": "Registrer denne Telegram-chatten.",
+    "register2": "Trykk på knappen nedenfor for å registrere denne chatten!",
+    "welcome": "Velkommen til Homey Telegram-bot!",
+    "knownChat": "Allerede på brukerlisten!",
+    "error": "Noe gikk galt! Kan ikke få chat-ID-en."
+  },
+  "questions": {
+    "notFound": "FEIL: Spørsmål ikke funnet. Ble spørsmålet slettet?"
+  },
+  "topics": {
+    "noTopic": "Denne chatten er ikke en forum-/tema-chat.",
+    "notRegistered": "Chatten er ikke registrert.",
+    "knownTopic": "Emnet er allerede registrert."
+  },
+  "commands": {
+    "start": "Registrer chatten",
+    "registertopic": "Registrer emnet"
+  },
+  "settings": {
+    "aboutMenu": {
+      "joinTelegram": "Bli med i fellesskapets Telegram-gruppe!",
+      "title": "Om",
+      "using": "Denne appen bruker følgende fantastiske verktøy og språk",
+      "contributors": "Denne appen ville ikke vært det samme uten disse fantastiske menneskene",
+      "dev": "__name__ (Utvikler for __app__)",
+      "contributor": "__name__ (Bidragsyter og Utvikler)",
+      "translator": "__name__ (Oversettelse for __lang__)",
+      "community": "Du, Homey-fellesskapet"
+    },
+    "botSettings": {
+      "botSettings": "Bot-innstillinger",
+      "botToken": "Bot-token",
+      "botTokenPlaceholder": "Skriv inn tokenet ditt her!",
+      "miscSettings": "Diverse innstillinger",
+      "password": "Passord",
+      "passwordHint": "For å registrere en bruker/chat, send nå /start [DittPassord] til botten via Telegram",
+      "passwordPlaceholder": "Skriv inn passordet ditt her!",
+      "saveChanges": "Lagre endringer",
+      "markdown": {
+        "none": "Ingen",
+        "markdownV2": "MarkdownV2",
+        "html": "HTML"
+      },
+      "setup": {
+        "step1": "Konfigurer din egen Telegram-bot. Dette er helt trygt og privat, siden bare du har tilgang til meldingsarkivet. Søk etter @Botfather på Telegram og velg botten @Botfather.",
+        "step2": "Klikk på \"Start\" for å aktivere botten @BotFather, eller skriv inn /newbot.",
+        "step2-1": "/setjoingroup deaktiverer at botten kan bli med i en gruppe.",
+        "step2-2": "/setprivacy deaktiverer at botten kan lese meldinger i en gruppe",
+        "step3": "Skriv inn tokenet i appens innstillinger",
+        "step4": "Send /start til botten din via Telegram og følg instruksjonene.",
+        "step4-1": "Hver bruker må også sende kommandoen /start til botten. Du kan dele botten via profilen eller søk på Telegram, akkurat som du gjorde med @Botfather.",
+        "title": "Slik konfigurerer du botten"
+      },
+      "useBll": "Aktiver støtte for Better Logic Library",
+      "usePassword": "Bruk passord",
+      "useMarkdown": "Bruk Markdown"
+    },
+    "chatGTPSettings": {
+      "apiKey": "API-nøkkel",
+      "enable": "Aktiver",
+      "title": "Chat GTP",
+      "useGtp": "Bruk Chat GTP"
+    },
+    "debugMenu": {
+      "debugMenu": "Feilsøkingsmeny",
+      "fuckedUpMenu": "Jeg har rotet det til, mann! - Meny",
+      "fuckedUpWarning": "Er du sikker på at du vil utføre handlingen __action__? Denne handlingen kan ikke angres!",
+      "logs": "Logger",
+      "password": "Passord",
+      "questions": "Spørsmål",
+      "resetEverything": "Tilbakestill alt",
+      "resetLogs": "Tilbakestill logger",
+      "resetPassword": "Tilbakestill passord",
+      "resetQuestions": "Tilbakestill spørsmål",
+      "resetUsers": "Tilbakestill brukere",
+      "status": "Status",
+      "token": "Token",
+      "useBll": "Bruk Better Logic Library",
+      "usePassword": "Bruk passord",
+      "users": "Brukere"
+    },
+    "logMenu": {
+      "copy": "Kopier",
+      "debug": "Feilsøking",
+      "error": "Feil",
+      "info": "Informasjon",
+      "logs": "Logger",
+      "showDebugLogs": "Vis feilsøkingslogger",
+      "showInfoLogs": "Vis informasjonslogger"
+    },
+    "mainMenu": {
+      "about": "Om",
+      "debugMenu": "Feilsøkingsmeny",
+      "logs": "App-logger",
+      "questions": "Spørsmål",
+      "settings": "Bot-innstillinger",
+      "topics": "Emner",
+      "users": "Brukere/Gruppechatter"
+    },
+    "misc": {
+      "back": "Tilbake",
+      "edit": "Rediger",
+      "empty": "Tomt",
+      "loading": "Laster",
+      "no": "Nei",
+      "soon": "Kommer snart",
+      "warning": "Advarsel",
+      "yes": "Ja"
+    },
+    "questionMenu": {
+      "addAnswer": "Legg til svar",
+      "addQuestion": "Legg til spørsmål",
+      "answerPlaceholder": "Skriv inn svaret ditt...",
+      "btnPerRow": "Knapper per rad",
+      "deleteQuestion": "Slett spørsmål",
+      "disableNotifications": "Deaktiver varsler",
+      "editQuestion": "Rediger spørsmål",
+      "keepButton": "Behold knapp",
+      "question": "Spørsmål",
+      "questionPlaceholder": "Skriv inn et spørsmål...",
+      "questionPopup": "Er du sikker på at du vil slette dette spørsmålet? Denne handlingen kan ikke angres!",
+      "questions": "Spørsmål",
+      "saveQuestion": "Lagre spørsmål"
+    },
+    "status": {
+      "bot": "Bot",
+      "chats": "Chatter",
+      "errors": "Feil",
+      "logSize": "Loggstørrelse: __value__ (maksimalt: 100)",
+      "questions": "Spørsmål",
+      "state": {
+        "off": "Av",
+        "on": "På",
+        "unknown": "Ukjent"
+      }
+    },
+    "topicsMenu": {
+      "topicsMenu": "Emner"
+    },
+    "userMenu": {
+      "group": "Gruppe",
+      "legend": "Legende",
+      "supergroup": "Supergroup",
+      "unknown": "Ukjent",
+      "user": "Bruker",
+      "users": "Brukere"
+    }
+  }
+}
