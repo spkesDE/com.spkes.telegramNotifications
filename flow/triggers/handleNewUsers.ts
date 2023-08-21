@@ -17,15 +17,15 @@ export default class HandleNewUsers {
         const enteredPassword = ctx.message.text.split(' ')[1] ?? '';
         const password = app.homey.settings.get('password');
         if (password === null || password !== enteredPassword) {
-          ctx.reply('Wrong password.');
+          ctx.reply(app.homey.__("newUser.wrongPassword"));
           return;
         }
       }
-      const keyboardRow = [InlineKeyboard.text('Register this Telegram chat!', 'user-add')];
+      const keyboardRow = [InlineKeyboard.text(app.homey.__("newUser.register"), 'user-add')];
       ctx.reply(
-        'Welcome to the Homey Telegram Bot!'
+          app.homey.__("newUser.welcome")
         + '\n\n'
-        + 'Press the button below to register yourself!',
+          + app.homey.__("newUser.register2"),
         {
           reply_markup: InlineKeyboard.from([keyboardRow]),
         }
@@ -57,10 +57,10 @@ export default class HandleNewUsers {
           app.homey.settings.set('users', JSON.stringify(app.chats));
         } else {
           await ctx.reply('👎');
-          await ctx.reply('Already in the user list!');
+          await ctx.reply(app.homey.__("newUser.knownChat"));
         }
       } else {
-        await ctx.reply('Something went wrong! Can\'t get the Chat Id');
+        await ctx.reply(app.homey.__("newUser.error"));
       }
     });
   }

@@ -3,10 +3,32 @@
     "start": "Den Chat registrieren",
     "registertopic": "Den Topic registrieren"
   },
+  "newUser": {
+    "wrongPassword": "Falsches Passwort.",
+    "register": "Registriere diesen Telegram-Chat.",
+    "register2": "Drücke den untenstehenden Button, um diesen Chat zu registrieren!",
+    "welcome": "Willkommen beim Homey Telegram Bot!",
+    "knownChat": "Bereits in der Benutzerliste!",
+    "error": "Etwas ist schiefgelaufen! Die Chat-ID konnte nicht abgerufen werden."
+  },
+  "questions": {
+    "notFound": "FEHLER: Frage nicht gefunden. Wurde die Frage gelöscht?"
+  },
+  "topics": {
+    "noTopic": "Dieser Chat ist kein Forum-/Themenchat.",
+    "notRegistered": "Dieser Chat ist nicht registriert.",
+    "knownTopic": "Das Thema ist bereits registriert."
+  },
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "Trete der Telegram Gruppe bei!",
-      "title": "Über"
+      "joinTelegram": "Trete der Community-Telegram-Gruppe bei!",
+      "title": "Über",
+      "using": "Diese App verwendet die folgenden großartigen Tools und Sprachen",
+      "contributors": "Diese App wäre ohne diese großartigen Menschen nicht dasselbe",
+      "dev": "__name__ (Entwickler für __app__)",
+      "contributor": "__name__ (Mitwirkender und Entwickler)",
+      "translator": "__name__ (Übersetzung für __lang__)",
+      "community": "Du, die Homey-Community"
     },
     "botSettings": {
       "botSettings": "Bot-Einstellungen",
@@ -17,6 +39,11 @@
       "passwordHint": "Um einen Benutzer / Chat zu registrieren, müssen Sie jetzt /start [IhrPasswort] an den Bot über Telegram senden",
       "passwordPlaceholder": "Geben Sie hier Ihr Passwort ein!",
       "saveChanges": "Änderungen speichern",
+      "markdown": {
+        "none": "Aus",
+        "markdownV2": "MarkdownV2",
+        "html": "HTML"
+      },
       "setup": {
         "step1": "Richten Sie Ihren eigenen Telegram-Bot ein. Dies ist vollständig sicher und privat, da Sie der einzige sind, der auf das Nachrichtenarchiv zugreifen kann. Geben Sie in Telegram @Botfather in das Suchfeld ein und wählen Sie den Bot @Botfather.",
         "step2": "Klicken Sie auf \"Start\", um den @BotFather-Bot zu aktivieren, oder geben Sie /newbot ein.",
@@ -28,7 +55,8 @@
         "title": "So richten Sie den Bot ein"
       },
       "useBll": "Better Logic Library-Unterstützung aktivieren",
-      "usePassword": "Passwort verwenden"
+      "usePassword": "Passwort verwenden",
+      "useMarkdown": "Markdown verwenden"
     },
     "chatGTPSettings": {
       "apiKey": "API-Key",

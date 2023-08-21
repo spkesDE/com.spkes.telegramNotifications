@@ -10,6 +10,7 @@ export default class DeleteByIdAndChatId {
           await app.bot.api.deleteMessage(args.chatId, args.id);
         } catch (err) {
           app.error(err);
+          throw err;
         }
       }
     });
