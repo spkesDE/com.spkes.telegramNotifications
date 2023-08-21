@@ -1,4 +1,8 @@
 {
+  "commands": {
+    "start": "Register the chat",
+    "registertopic": "Register the topic"
+  },
   "newUser": {
     "wrongPassword": "Wrong password.",
     "register": "Register this Telegram chat.",
