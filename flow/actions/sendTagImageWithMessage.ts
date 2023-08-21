@@ -21,11 +21,13 @@ export default class SendTagImageWithMessage {
         await app.bot.api.sendPhoto(args.user.id, new InputFile({url: url}, ""),
           {
             caption: await BL.decode(args.message),
+            parse_mode: app.markdown,
             message_thread_id: args.user.topic
           }
         );
       } catch (err) {
         app.error(err);
+        throw err;
       }
     });
     card.registerArgumentAutocompleteListener(

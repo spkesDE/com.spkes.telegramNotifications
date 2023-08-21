@@ -15,6 +15,7 @@ export default class SendImage {
             );
           } catch (err) {
             app.error(err);
+            throw err;
           }
         } else {
           app.error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"');

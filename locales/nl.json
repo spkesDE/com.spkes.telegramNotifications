@@ -17,8 +17,14 @@
   },
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "Word lid van de Telegram-groep!",
-      "title": "Over"
+      "joinTelegram": "Doe mee met de community-telegramgroep!",
+      "title": "Over",
+      "using": "Deze app maakt gebruik van de volgende geweldige tools en talen",
+      "contributors": "Deze app zou niet hetzelfde zijn zonder deze geweldige mensen",
+      "dev": "__name__ (Ontwikkelaar voor __app__)",
+      "contributor": "__name__ (Bijdrager en ontwikkelaar)",
+      "translator": "__name__ (Vertaling voor __lang__)",
+      "community": "Jij, de Homey-community"
     },
     "botSettings": {
       "botSettings": "Bot-instellingen",
@@ -29,6 +35,11 @@
       "passwordHint": "Om een gebruiker / chat te registreren, moet u nu /start [uw wachtwoord] naar de bot sturen via Telegram",
       "passwordPlaceholder": "Voer hier uw wachtwoord in!",
       "saveChanges": "Wijzigingen opslaan",
+      "markdown": {
+        "none": "Uit",
+        "markdownV2": "MarkdownV2",
+        "html": "HTML"
+      },
       "setup": {
         "step1": "Stel je eigen Telegram-bot in. Dit is volledig veilig en privé, omdat jij de enige bent die toegang heeft tot het berichtenarchief. Zoek @Botfather in Telegram en kies de @Botfather-bot.",
         "step2": "Klik op \"Start\" om de @BotFather-bot te activeren of voer /newbot in.",
@@ -40,7 +51,8 @@
         "title": "Hoe te installeren"
       },
       "useBll": "Better Logic Library ondersteuning inschakelen",
-      "usePassword": "Wachtwoord gebruiken"
+      "usePassword": "Wachtwoord gebruiken",
+      "useMarkdown": "Gebruik Markdown"
     },
     "chatGTPSettings": {
       "apiKey": "",

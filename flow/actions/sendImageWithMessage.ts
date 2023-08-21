@@ -11,11 +11,13 @@ export default class SendImageWithMessage {
           try {
             await app.bot.api.sendPhoto(args.user.id, args.url,
               {
+                parse_mode: app.markdown,
                 caption: await BL.decode(args.message), message_thread_id: args.user.topic
               }
             );
           } catch (err) {
             app.error(err);
+            throw err;
           }
         } else {
           app.error('ERR_INVALID_PROTOCOL: Protocol "http:" not supported. Expected "https:"');
