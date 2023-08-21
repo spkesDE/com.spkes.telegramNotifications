@@ -1,4 +1,8 @@
 {
+ "commands": {
+    "start": "De chat registreren",
+    "registertopic": "Het onderwerp registreren"
+ },
   "newUser": {
     "wrongPassword": "Verkeerd wachtwoord.",
     "register": "Registreer deze Telegram-chat.",
