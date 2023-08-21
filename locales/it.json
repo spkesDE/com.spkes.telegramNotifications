@@ -4,7 +4,7 @@
     "registertopic": "Registrare l'argomento"
   },
   "newUser": {
-    "wrongPassword": "Password errato.",
+    "wrongPassword": "Password errata.",
     "register": "Registra questa chat di Telegram.",
     "register2": "Premi il pulsante qui sotto per registrare questa chat!",
     "welcome": "Benvenuto nel Bot Telegram di Homey!",
