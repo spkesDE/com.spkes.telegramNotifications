@@ -1,4 +1,20 @@
 {
+  "newUser": {
+    "wrongPassword": "Password errato.",
+    "register": "Registra questa chat di Telegram.",
+    "register2": "Premi il pulsante qui sotto per registrare questa chat!",
+    "welcome": "Benvenuto nel Bot Telegram di Homey!",
+    "knownChat": "Già presente nella lista degli utenti!",
+    "error": "Qualcosa è andato storto! Impossibile ottenere l'ID della chat."
+  },
+  "questions": {
+    "notFound": "ERRORE: Domanda non trovata. La domanda è stata eliminata?"
+  },
+  "topics": {
+    "noTopic": "La chat non è una chat di un forum o di un argomento.",
+    "notRegistered": "La chat non è registrata.",
+    "knownTopic": "L'argomento è già registrato."
+  },
   "settings": {
     "aboutMenu": {
       "joinTelegram": "Unisciti al gruppo Telegram!",
