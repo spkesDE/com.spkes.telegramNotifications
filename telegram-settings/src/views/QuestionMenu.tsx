@@ -10,6 +10,8 @@ import {BadgeColor} from "../statics/Colors";
 import Popup from "../components/UIComps/Popup";
 import Loading from "./Loading";
 import Homey from "../Homey";
+import AnswerInput from "../components/QuestionComp/AnswerInput";
+import AnswerWrapper from "../components/QuestionComp/AnswerWrapper";
 
 interface Props {
     question?: Question
@@ -48,7 +50,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
 
     async onSave() {
         console.log("Saving question...")
-        await this.setState({gotData: false});
+        this.setState({gotData: false});
         let questions: Question[] = JSON.parse(await Homey.get('questions') ?? "[]");
         questions = questions.filter((q) => q.UUID !== this.state.UUID)
         questions.push({
@@ -57,17 +59,17 @@ export default class QuestionMenu extends React.Component<Props, State> {
             keepButtons: this.state.keepButtons, question: this.state.question
         })
         await Homey.set('questions', JSON.stringify(questions));
-        await this.setState({gotData: true});
+        this.setState({gotData: true});
         console.log("Question saved.")
         this.props.changeViewOnSave(Views.Questions_Overview);
     }
 
     async deleteQuestion() {
-        await this.setState({gotData: false});
+        this.setState({gotData: false});
         let questions: Question[] = JSON.parse(await Homey.get('questions') ?? "[]");
         questions = questions.filter((q) => q.UUID !== this.state.UUID)
         await Homey.set('questions', JSON.stringify(questions));
-        await this.setState({gotData: true});
+        this.setState({gotData: true});
         this.props.changeViewOnSave(Views.Questions_Overview);
     }
 
@@ -75,18 +77,34 @@ export default class QuestionMenu extends React.Component<Props, State> {
      * NanoId https://github.com/ai/nanoid
      *
      * @param length
-     * @returns {string|string}
+     * @returns {string}
      */
-    getNanoId(length = 10) {
+    getNanoId(length = 10): string {
         return crypto.getRandomValues(new Uint8Array(length))
             .reduce(((t, e) => t += (e &= 63) < 36 ? e.toString(36) : e < 62 ? (e - 26).toString(36)
                 .toUpperCase() : e > 62 ? '-' : '_'), '');
     }
 
     getAnswerFields() {
-        let result = [];
+        const result = [];
+        const totalRows: number = Math.ceil(this.state.answers / this.state.columns);
+        let currentRow = 0;
         for (let i = 0; i < this.state.answers; i++) {
-            result.push(<MenuItemWrapper key={"wrapper-" + i}>
+            const isFirstInRow = i % this.state.columns === 0;
+            const isLastInRow = (i + 1) % this.state.columns === 0 || i === this.state.answers - 1;
+            const firstRow = currentRow === 0;
+            const lastRow = currentRow === totalRows - 1;
+
+            // Apply classes for each corner.
+            let classes = "";
+            if (isFirstInRow && firstRow) classes += " cornerTopLeft"
+            if (isLastInRow && firstRow) classes += " cornerTopRight"
+            if (isFirstInRow && lastRow) classes += " cornerBottomLeft"
+            if (isLastInRow && lastRow) classes += " cornerBottomRight"
+
+
+            result.push(<AnswerInput
+                className={classes} key={"wrapper-" + i}>
                 <input className="menuItem-input-full hy-nostyle"
                        type="text"
                        key={"answer-" + i}
@@ -99,9 +117,18 @@ export default class QuestionMenu extends React.Component<Props, State> {
                            this.setState({buttons: buttons});
                        }}
                        defaultValue={this.state.buttons[i]}/>
-            </MenuItemWrapper>);
+            </AnswerInput>);
+
+            // Check if the current row is full
+            if ((i + 1) % this.state.columns === 0) {
+                result.push(<div className={"answerInputBreak"}></div>)
+                currentRow++;
+            }
         }
-        return result;
+        return (
+            <AnswerWrapper>
+                {result}
+            </AnswerWrapper>);
     }
 
     render() {
@@ -150,8 +177,12 @@ export default class QuestionMenu extends React.Component<Props, State> {
                     </div>
                 </MenuItemWrapper>
             </MenuItemGroup>
+
             <MenuItemGroup>
                 {this.getAnswerFields()}
+            </MenuItemGroup>
+
+            <MenuItemGroup>
                 <MenuItemWrapper className={"noPadding"} key={"wrapper-save"}>
                     <button
                         className={"menuItem-button-blue-noRadiusTop hy-nostyle"}
