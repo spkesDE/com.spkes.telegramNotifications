@@ -197,24 +197,25 @@ export class TelegramNotifications extends HomeyApp {
       });
     }
 
-    private loadSavedArrays() {
-      this.debug('Loading Data...');
-      this.loadUsers();
-      this.loadQuestions();
+    loadQuestions(onStart: boolean = false) {
+      this.debug('Loading Questions..');
+      if (this.homey.settings.get('questions') !== null) {
+        this.questions = JSON.parse(this.homey.settings.get('questions')) as Question[];
+          if (this.questions.length === 0 && onStart) {
+              this.questions = defaultQuestions;
+              this.homey.settings.set('questions', JSON.stringify(this.questions));
+          }
+      }
     }
 
     getQuestion(questionId: string): Question | undefined {
       return this.questions.find((q) => q.UUID === questionId);
     }
 
-    loadQuestions() {
-      this.debug('Loading Questions..');
-      if (this.homey.settings.get('questions') !== null) {
-        this.questions = JSON.parse(this.homey.settings.get('questions')) as Question[];
-          if (this.questions.length === 0) {
-              this.questions = defaultQuestions;
-          }
-      }
+    private loadSavedArrays() {
+      this.debug('Loading Data...');
+      this.loadUsers();
+        this.loadQuestions(true);
     }
 
     private loadUsers() {
