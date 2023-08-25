@@ -211,5 +211,8 @@
   },
   "2.8.5": {
     "en": "Added placeholder questions"
+  },
+  "2.8.6": {
+    "en": "Changed Default Question option to start only"
   }
 }
