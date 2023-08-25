@@ -214,5 +214,8 @@
   },
   "2.8.6": {
     "en": "Changed Default Question option to start only"
+  },
+  "2.8.7": {
+    "en": "Bug fixes"
   }
 }
