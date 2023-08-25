@@ -208,5 +208,8 @@
   },
   "2.8.4": {
     "en": "Changed Questions Menu view"
+  },
+  "2.8.5": {
+    "en": "Added placeholder questions"
   }
 }
