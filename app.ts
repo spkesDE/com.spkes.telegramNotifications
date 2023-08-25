@@ -20,11 +20,13 @@ import DeleteByCustomId from './flow/actions/deleteByCustomId';
 import HandleTopics from './flow/triggers/handleTopics';
 import ReceiveMessageFromTopic from './flow/triggers/receiveMessageFromTopic';
 import {ParseMode} from 'grammy/types';
+import {defaultQuestions} from "./assets/defaultQuestions";
+
 
 export class TelegramNotifications extends HomeyApp {
 
     public chats: Chat[] = [];
-    public questions: Question[] = [];
+    public questions: Question[] = defaultQuestions;
     public bot: Bot | null = null;
     private token: string | null = null;
     private startSuccess = true;
@@ -209,6 +211,9 @@ export class TelegramNotifications extends HomeyApp {
       this.debug('Loading Questions..');
       if (this.homey.settings.get('questions') !== null) {
         this.questions = JSON.parse(this.homey.settings.get('questions')) as Question[];
+          if (this.questions.length === 0) {
+              this.questions = defaultQuestions;
+          }
       }
     }
 
