@@ -153,8 +153,14 @@ class SettingsMenu extends React.Component<Props, State> {
         await Homey.set('bot-token', this.state.token);
         await Homey.set('use-password', this.state.usePassword ?? false);
         await Homey.set('useBll', this.state.useBLL ?? false);
-        await Homey.set('password', this.state.password);
-        await Homey.set('markdown', this.state.markdown);
+        if (this.state.usePassword && this.state.password)
+            await Homey.set('password', this.state.password).catch((r) => Homey.alert(r));
+
+        if (this.state.markdown)
+            await Homey.set('markdown', this.state.markdown);
+        else
+            await Homey.unset('markdown');
+
         this.setState({gotData: true})
         console.log("Saved Settings")
     }
