@@ -1,49 +1,44 @@
 {
   "commands": {
-    "start": "Register the chat",
-    "registertopic": "Register the topic"
+    "registertopic": "Register the topic",
+    "start": "Register the chat"
   },
   "newUser": {
-    "wrongPassword": "Wrong password.",
+    "error": "Something went wrong! Can't get the Chat Id",
+    "knownChat": "Already in the user list!",
     "register": "Register this Telegram chat.",
     "register2": "Press the button below to register this chat!",
     "welcome": "Welcome to the Homey Telegram Bot!",
-    "knownChat": "Already in the user list!",
-    "error": "Something went wrong! Can't get the Chat Id"
+    "wrongPassword": "Wrong password."
   },
   "questions": {
     "notFound": "ERROR: Question not found. Did the question get deleted?"
   },
-  "topics": {
-    "noTopic": "Chat is not a forum/topic chat.",
-    "notRegistered": "Chat is not registered.",
-    "knownTopic": "Topic is already registered."
-  },
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "Join the community telegram group!",
-      "title": "About",
-      "using": "This app uses the following awesome tools and languages",
+      "community": "You, the Homey Community",
+      "contributor": "__name__ (Contributor and Developer)",
       "contributors": "This app wouldn't be the same without these awesome people",
       "dev": "__name__ (Developer for __app__)",
-      "contributor": "__name__ (Contributor and Developer)",
+      "joinTelegram": "Join the community telegram group!",
+      "title": "About",
       "translator": "__name__ (Translation for __lang__)",
-      "community": "You, the Homey Community"
+      "using": "This app uses the following awesome tools and languages"
     },
     "botSettings": {
       "botSettings": "Bot Settings",
       "botToken": "Bot Token",
       "botTokenPlaceholder": "Enter your token here!",
+      "markdown": {
+        "html": "HTML",
+        "markdownV2": "MarkdownV2",
+        "none": "Off"
+      },
       "miscSettings": "Miscellaneous Settings",
       "password": "Password",
       "passwordHint": "To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram",
       "passwordPlaceholder": "Enter your password here!",
       "saveChanges": "Save Changes",
-      "markdown": {
-        "none": "Off",
-        "markdownV2": "MarkdownV2",
-        "html": "HTML"
-      },
       "setup": {
         "step1": "Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access the message archive. Enter @Botfather in the search tab of Telegram and choose the @Botfather bot.",
         "step2": "Click “Start” to activate @BotFather bot or enter /newbot.",
@@ -55,8 +50,8 @@
         "title": "How to setup"
       },
       "useBll": "Enable Better Logic Library Support",
-      "usePassword": "Use Password",
-      "useMarkdown": "Use Markdown"
+      "useMarkdown": "Use Markdown",
+      "usePassword": "Use Password"
     },
     "chatGTPSettings": {
       "apiKey": "API-Key",
@@ -123,7 +118,8 @@
       "questionPlaceholder": "Enter a Question...",
       "questionPopup": "Are you sure you want to delete this question? This action can't be undone!",
       "questions": "Questions",
-      "saveQuestion": "Save the Question"
+      "saveQuestion": "Save the Question",
+      "showAsGrid": "Show answers as grid"
     },
     "status": {
       "bot": "Bot",
@@ -148,5 +144,10 @@
       "user": "User",
       "users": "Users"
     }
+  },
+  "topics": {
+    "knownTopic": "Topic is already registered.",
+    "noTopic": "Chat is not a forum/topic chat.",
+    "notRegistered": "Chat is not registered."
   }
 }

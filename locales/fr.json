@@ -1,49 +1,44 @@
 {
+  "commands": {
+    "registertopic": "Enregistrer le sujet",
+    "start": "Enregistrer le chat"
+  },
   "newUser": {
-    "wrongPassword": "Mot de passe incorrect.",
+    "error": "Quelque chose s'est mal passé ! Impossible d'obtenir l'identifiant du chat.",
+    "knownChat": "Déjà dans la liste des utilisateurs !",
     "register": "Enregistrez ce chat Telegram.",
     "register2": "Appuyez sur le bouton ci-dessous pour enregistrer ce chat !",
     "welcome": "Bienvenue sur le bot Telegram de Homey !",
-    "knownChat": "Déjà dans la liste des utilisateurs !",
-    "error": "Quelque chose s'est mal passé ! Impossible d'obtenir l'identifiant du chat."
+    "wrongPassword": "Mot de passe incorrect."
   },
   "questions": {
     "notFound": "ERREUR : Question introuvable. La question a-t-elle été supprimée ?"
   },
-  "topics": {
-    "noTopic": "Le chat n'est pas un chat de forum/sujet.",
-    "notRegistered": "Le chat n'est pas enregistré.",
-    "knownTopic": "Le sujet est déjà enregistré."
-  },
-  "commands": {
-    "start": "Enregistrer le chat",
-    "registertopic": "Enregistrer le sujet"
-  },
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "Rejoignez le groupe de la communauté sur Telegram !",
-      "title": "À propos",
-      "using": "Cette application utilise les outils et langages fantastiques suivants",
+      "community": "Vous, la communauté Homey",
+      "contributor": "__name__ (Contributeur et Développeur)",
       "contributors": "Cette application ne serait pas la même sans ces personnes formidables",
       "dev": "__name__ (Développeur pour __app__)",
-      "contributor": "__name__ (Contributeur et Développeur)",
+      "joinTelegram": "Rejoignez le groupe de la communauté sur Telegram !",
+      "title": "À propos",
       "translator": "__name__ (Traduction pour __lang__)",
-      "community": "Vous, la communauté Homey"
+      "using": "Cette application utilise les outils et langages fantastiques suivants"
     },
     "botSettings": {
       "botSettings": "Paramètres du bot",
       "botToken": "Jeton du bot",
       "botTokenPlaceholder": "Entrez votre jeton ici !",
+      "markdown": {
+        "html": "HTML",
+        "markdownV2": "MarkdownV2",
+        "none": "Aucun"
+      },
       "miscSettings": "Paramètres divers",
       "password": "Mot de passe",
       "passwordHint": "Pour enregistrer un utilisateur/chat, envoyez maintenant /start [VotreMotDePasse] au bot via Telegram",
       "passwordPlaceholder": "Entrez votre mot de passe ici !",
       "saveChanges": "Enregistrer les modifications",
-      "markdown": {
-        "none": "Aucun",
-        "markdownV2": "MarkdownV2",
-        "html": "HTML"
-      },
       "setup": {
         "step1": "Configurez votre propre bot Telegram. C'est totalement sécurisé et privé car vous êtes le seul à pouvoir accéder à l'archive des messages. Recherchez @Botfather dans Telegram et sélectionnez le bot @Botfather.",
         "step2": "Cliquez sur \"Start\" pour activer le bot @BotFather, ou entrez /newbot.",
@@ -55,8 +50,8 @@
         "title": "Comment configurer le bot"
       },
       "useBll": "Activer le support de Better Logic Library",
-      "usePassword": "Utiliser un mot de passe",
-      "useMarkdown": "Utiliser le Markdown"
+      "useMarkdown": "Utiliser le Markdown",
+      "usePassword": "Utiliser un mot de passe"
     },
     "chatGTPSettings": {
       "apiKey": "Clé API",
@@ -123,7 +118,8 @@
       "questionPlaceholder": "Entrez une question...",
       "questionPopup": "Êtes-vous sûr de vouloir supprimer cette question ? Cette action est irréversible !",
       "questions": "Questions",
-      "saveQuestion": "Enregistrer la question"
+      "saveQuestion": "Enregistrer la question",
+      "showAsGrid": "Afficher les réponses sous forme de grille"
     },
     "status": {
       "bot": "Bot",
@@ -148,5 +144,10 @@
       "user": "Utilisateur",
       "users": "Utilisateurs"
     }
+  },
+  "topics": {
+    "knownTopic": "Le sujet est déjà enregistré.",
+    "noTopic": "Le chat n'est pas un chat de forum/sujet.",
+    "notRegistered": "Le chat n'est pas enregistré."
   }
 }

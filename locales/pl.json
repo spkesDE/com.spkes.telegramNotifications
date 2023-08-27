@@ -1,49 +1,44 @@
 {
+  "commands": {
+    "registertopic": "Zarejestruj temat",
+    "start": "Zarejestruj czat"
+  },
   "newUser": {
-    "wrongPassword": "Złe hasło.",
+    "error": "Coś poszło nie tak! Nie można uzyskać ID czatu.",
+    "knownChat": "Już jest na liście użytkowników!",
     "register": "Zarejestruj ten czat Telegram.",
     "register2": "Naciśnij przycisk poniżej, aby zarejestrować ten czat!",
     "welcome": "Witaj w Bocie Telegram Homey!",
-    "knownChat": "Już jest na liście użytkowników!",
-    "error": "Coś poszło nie tak! Nie można uzyskać ID czatu."
+    "wrongPassword": "Złe hasło."
   },
   "questions": {
     "notFound": "BŁĄD: Pytanie nie znalezione. Czy pytanie zostało usunięte?"
   },
-  "topics": {
-    "noTopic": "Ten czat nie jest czatem forum/tematycznym.",
-    "notRegistered": "Ten czat nie jest zarejestrowany.",
-    "knownTopic": "Temat jest już zarejestrowany."
-  },
-  "commands": {
-    "start": "Zarejestruj czat",
-    "registertopic": "Zarejestruj temat"
-  },
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "Dołącz do grupy społeczności na Telegramie!",
-      "title": "O aplikacji",
-      "using": "Ta aplikacja korzysta z następujących wspaniałych narzędzi i języków",
+      "community": "Ty, społeczność Homey",
+      "contributor": "__name__ (Współtwórca i Deweloper)",
       "contributors": "Ta aplikacja nie byłaby taka sama bez tych wspaniałych ludzi",
       "dev": "__name__ (Deweloper dla __app__)",
-      "contributor": "__name__ (Współtwórca i Deweloper)",
+      "joinTelegram": "Dołącz do grupy społeczności na Telegramie!",
+      "title": "O aplikacji",
       "translator": "__name__ (Tłumaczenie dla __lang__)",
-      "community": "Ty, społeczność Homey"
+      "using": "Ta aplikacja korzysta z następujących wspaniałych narzędzi i języków"
     },
     "botSettings": {
       "botSettings": "Ustawienia Bota",
       "botToken": "Token Bota",
       "botTokenPlaceholder": "Wprowadź swój token tutaj!",
+      "markdown": {
+        "html": "HTML",
+        "markdownV2": "MarkdownV2",
+        "none": "Brak"
+      },
       "miscSettings": "Różne ustawienia",
       "password": "Hasło",
       "passwordHint": "Aby zarejestrować użytkownika/czat, wyślij teraz /start [TwojeHasło] do bota przez Telegram",
       "passwordPlaceholder": "Wprowadź swoje hasło tutaj!",
       "saveChanges": "Zapisz zmiany",
-      "markdown": {
-        "none": "Brak",
-        "markdownV2": "MarkdownV2",
-        "html": "HTML"
-      },
       "setup": {
         "step1": "Skonfiguruj swojego własnego bota na Telegramie. Jest to całkowicie bezpieczne i prywatne, ponieważ tylko ty możesz uzyskać dostęp do archiwum wiadomości. Wyszukaj @Botfather na Telegramie i wybierz bota @Botfather.",
         "step2": "Kliknij przycisk \"Start\", aby aktywować bota @BotFather lub wpisz /newbot.",
@@ -55,8 +50,8 @@
         "title": "Jak skonfigurować bota"
       },
       "useBll": "Włącz obsługę biblioteki Better Logic Library",
-      "usePassword": "Użyj hasła",
-      "useMarkdown": "Użyj Markdown"
+      "useMarkdown": "Użyj Markdown",
+      "usePassword": "Użyj hasła"
     },
     "chatGTPSettings": {
       "apiKey": "Klucz API",
@@ -123,7 +118,8 @@
       "questionPlaceholder": "Wprowadź pytanie...",
       "questionPopup": "Czy na pewno chcesz usunąć to pytanie? Ta operacja nie może zostać cofnięta!",
       "questions": "Pytania",
-      "saveQuestion": "Zapisz pytanie"
+      "saveQuestion": "Zapisz pytanie",
+      "showAsGrid": "Pokaż odpowiedzi jako siatkę"
     },
     "status": {
       "bot": "Bot",
@@ -148,5 +144,10 @@
       "user": "Użytkownik",
       "users": "Użytkownicy"
     }
+  },
+  "topics": {
+    "knownTopic": "Temat jest już zarejestrowany.",
+    "noTopic": "Ten czat nie jest czatem forum/tematycznym.",
+    "notRegistered": "Ten czat nie jest zarejestrowany."
   }
 }

@@ -70,7 +70,7 @@ export default class Homey {
     }
 
     private static _getErrorPromise() {
-        return Promise.reject(new Error("Homey is not ready"))
+        return Promise.reject(new Error("Homey is not ready"));
     }
 }
 

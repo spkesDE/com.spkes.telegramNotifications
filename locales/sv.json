@@ -1,49 +1,44 @@
 {
+  "commands": {
+    "registertopic": "Registrera ämnet",
+    "start": "Registrera chatten"
+  },
   "newUser": {
-    "wrongPassword": "Fel lösenord.",
+    "error": "Något gick fel! Kan inte hämta chattens ID.",
+    "knownChat": "Redan i användarlistan!",
     "register": "Registrera denna Telegram-chatt.",
     "register2": "Tryck på knappen nedan för att registrera denna chatt!",
     "welcome": "Välkommen till Homey Telegram Bot!",
-    "knownChat": "Redan i användarlistan!",
-    "error": "Något gick fel! Kan inte hämta chattens ID."
+    "wrongPassword": "Fel lösenord."
   },
   "questions": {
     "notFound": "FEL: Fråga hittades inte. Har frågan tagits bort?"
   },
-  "topics": {
-    "noTopic": "Chatten är inte en forum-/ämneschatt.",
-    "notRegistered": "Chatten är inte registrerad.",
-    "knownTopic": "Ämnet är redan registrerat."
-  },
-  "commands": {
-    "start": "Registrera chatten",
-    "registertopic": "Registrera ämnet"
-  },
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "Gå med i gemenskapens Telegram-grupp!",
-      "title": "Om",
-      "using": "Denna app använder följande fantastiska verktyg och språk",
+      "community": "Du, Homey Community",
+      "contributor": "__name__ (Bidragsgivare och Utvecklare)",
       "contributors": "Denna app skulle inte vara densamma utan dessa fantastiska människor",
       "dev": "__name__ (Utvecklare för __app__)",
-      "contributor": "__name__ (Bidragsgivare och Utvecklare)",
+      "joinTelegram": "Gå med i gemenskapens Telegram-grupp!",
+      "title": "Om",
       "translator": "__name__ (Översättning för __lang__)",
-      "community": "Du, Homey Community"
+      "using": "Denna app använder följande fantastiska verktyg och språk"
     },
     "botSettings": {
       "botSettings": "Bot-inställningar",
       "botToken": "Bot-token",
       "botTokenPlaceholder": "Ange ditt token här!",
+      "markdown": {
+        "html": "HTML",
+        "markdownV2": "MarkdownV2",
+        "none": "Ingen"
+      },
       "miscSettings": "Diverse inställningar",
       "password": "Lösenord",
       "passwordHint": "För att registrera en användare/chatt, skicka /start [DittLösenord] till botten via Telegram",
       "passwordPlaceholder": "Ange ditt lösenord här!",
       "saveChanges": "Spara ändringar",
-      "markdown": {
-        "none": "Ingen",
-        "markdownV2": "MarkdownV2",
-        "html": "HTML"
-      },
       "setup": {
         "step1": "Konfigurera din egen Telegram-bot. Detta är helt säkert och privat eftersom du är den enda som kan komma åt meddelandearkivet. Sök efter @Botfather i Telegram och välj boten @Botfather.",
         "step2": "Klicka på \"Start\" för att aktivera @BotFather-boten, eller skriv /newbot.",
@@ -55,8 +50,8 @@
         "title": "Hur man konfigurerar botten"
       },
       "useBll": "Aktivera stöd för Better Logic Library",
-      "usePassword": "Använda lösenord",
-      "useMarkdown": "Använda Markdown"
+      "useMarkdown": "Använda Markdown",
+      "usePassword": "Använda lösenord"
     },
     "chatGTPSettings": {
       "apiKey": "API-nyckel",
@@ -123,7 +118,8 @@
       "questionPlaceholder": "Ange en fråga...",
       "questionPopup": "Är du säker på att du vill ta bort denna fråga? Denna åtgärd kan inte ångras!",
       "questions": "Frågor",
-      "saveQuestion": "Spara fråga"
+      "saveQuestion": "Spara fråga",
+      "showAsGrid": "Visa svar som rutnät"
     },
     "status": {
       "bot": "Bot",
@@ -148,5 +144,10 @@
       "user": "Användare",
       "users": "Användare"
     }
+  },
+  "topics": {
+    "knownTopic": "Ämnet är redan registrerat.",
+    "noTopic": "Chatten är inte en forum-/ämneschatt.",
+    "notRegistered": "Chatten är inte registrerad."
   }
 }

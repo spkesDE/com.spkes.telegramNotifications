@@ -1,49 +1,44 @@
 {
   "commands": {
-    "start": "Den Chat registrieren",
-    "registertopic": "Den Topic registrieren"
+    "registertopic": "Den Topic registrieren",
+    "start": "Den Chat registrieren"
   },
   "newUser": {
-    "wrongPassword": "Falsches Passwort.",
+    "error": "Etwas ist schiefgelaufen! Die Chat-ID konnte nicht abgerufen werden.",
+    "knownChat": "Bereits in der Benutzerliste!",
     "register": "Registriere diesen Telegram-Chat.",
     "register2": "Drücke den untenstehenden Button, um diesen Chat zu registrieren!",
     "welcome": "Willkommen beim Homey Telegram Bot!",
-    "knownChat": "Bereits in der Benutzerliste!",
-    "error": "Etwas ist schiefgelaufen! Die Chat-ID konnte nicht abgerufen werden."
+    "wrongPassword": "Falsches Passwort."
   },
   "questions": {
     "notFound": "FEHLER: Frage nicht gefunden. Wurde die Frage gelöscht?"
   },
-  "topics": {
-    "noTopic": "Dieser Chat ist kein Forum-/Themenchat.",
-    "notRegistered": "Dieser Chat ist nicht registriert.",
-    "knownTopic": "Das Thema ist bereits registriert."
-  },
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "Trete der Community-Telegram-Gruppe bei!",
-      "title": "Über",
-      "using": "Diese App verwendet die folgenden großartigen Tools und Sprachen",
+      "community": "Du, die Homey-Community",
+      "contributor": "__name__ (Mitwirkender und Entwickler)",
       "contributors": "Diese App wäre ohne diese großartigen Menschen nicht dasselbe",
       "dev": "__name__ (Entwickler für __app__)",
-      "contributor": "__name__ (Mitwirkender und Entwickler)",
+      "joinTelegram": "Trete der Community-Telegram-Gruppe bei!",
+      "title": "Über",
       "translator": "__name__ (Übersetzung für __lang__)",
-      "community": "Du, die Homey-Community"
+      "using": "Diese App verwendet die folgenden großartigen Tools und Sprachen"
     },
     "botSettings": {
       "botSettings": "Bot-Einstellungen",
       "botToken": "Bot-Token",
       "botTokenPlaceholder": "Geben Sie hier Ihren Token ein!",
+      "markdown": {
+        "html": "HTML",
+        "markdownV2": "MarkdownV2",
+        "none": "Aus"
+      },
       "miscSettings": "Verschiedene Einstellungen",
       "password": "Passwort",
       "passwordHint": "Um einen Benutzer / Chat zu registrieren, müssen Sie jetzt /start [IhrPasswort] an den Bot über Telegram senden",
       "passwordPlaceholder": "Geben Sie hier Ihr Passwort ein!",
       "saveChanges": "Änderungen speichern",
-      "markdown": {
-        "none": "Aus",
-        "markdownV2": "MarkdownV2",
-        "html": "HTML"
-      },
       "setup": {
         "step1": "Richten Sie Ihren eigenen Telegram-Bot ein. Dies ist vollständig sicher und privat, da Sie der einzige sind, der auf das Nachrichtenarchiv zugreifen kann. Geben Sie in Telegram @Botfather in das Suchfeld ein und wählen Sie den Bot @Botfather.",
         "step2": "Klicken Sie auf \"Start\", um den @BotFather-Bot zu aktivieren, oder geben Sie /newbot ein.",
@@ -55,8 +50,8 @@
         "title": "So richten Sie den Bot ein"
       },
       "useBll": "Better Logic Library-Unterstützung aktivieren",
-      "usePassword": "Passwort verwenden",
-      "useMarkdown": "Markdown verwenden"
+      "useMarkdown": "Markdown verwenden",
+      "usePassword": "Passwort verwenden"
     },
     "chatGTPSettings": {
       "apiKey": "API-Key",
@@ -123,7 +118,8 @@
       "questionPlaceholder": "Geben Sie eine Frage ein...",
       "questionPopup": "Sind Sie sicher, dass Sie diese Frage löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden!",
       "questions": "Fragen",
-      "saveQuestion": "Frage speichern"
+      "saveQuestion": "Frage speichern",
+      "showAsGrid": "Antworten als Raster anzeigen"
     },
     "status": {
       "bot": "Bot",
@@ -148,5 +144,10 @@
       "user": "Benutzer",
       "users": "Benutzer"
     }
+  },
+  "topics": {
+    "knownTopic": "Das Thema ist bereits registriert.",
+    "noTopic": "Dieser Chat ist kein Forum-/Themenchat.",
+    "notRegistered": "Dieser Chat ist nicht registriert."
   }
 }

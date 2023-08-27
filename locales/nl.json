@@ -1,49 +1,44 @@
 {
- "commands": {
-    "start": "De chat registreren",
-    "registertopic": "Het onderwerp registreren"
- },
+  "commands": {
+    "registertopic": "Het onderwerp registreren",
+    "start": "De chat registreren"
+  },
   "newUser": {
-    "wrongPassword": "Verkeerd wachtwoord.",
+    "error": "Er is iets misgegaan! Kan de Chat-ID niet ophalen.",
+    "knownChat": "Al in de gebruikerslijst!",
     "register": "Registreer deze Telegram-chat.",
     "register2": "Druk op de knop hieronder om deze chat te registreren!",
     "welcome": "Welkom bij de Homey Telegram Bot!",
-    "knownChat": "Al in de gebruikerslijst!",
-    "error": "Er is iets misgegaan! Kan de Chat-ID niet ophalen."
+    "wrongPassword": "Verkeerd wachtwoord."
   },
   "questions": {
     "notFound": "FOUT: Vraag niet gevonden. Is de vraag verwijderd?"
   },
-  "topics": {
-    "noTopic": "Deze chat is geen forum-/onderwerpchats.",
-    "notRegistered": "Deze chat is niet geregistreerd.",
-    "knownTopic": "Het onderwerp is al geregistreerd."
-  },
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "Doe mee met de community-telegramgroep!",
-      "title": "Over",
-      "using": "Deze app maakt gebruik van de volgende geweldige tools en talen",
+      "community": "Jij, de Homey-community",
+      "contributor": "__name__ (Bijdrager en ontwikkelaar)",
       "contributors": "Deze app zou niet hetzelfde zijn zonder deze geweldige mensen",
       "dev": "__name__ (Ontwikkelaar voor __app__)",
-      "contributor": "__name__ (Bijdrager en ontwikkelaar)",
+      "joinTelegram": "Doe mee met de community-telegramgroep!",
+      "title": "Over",
       "translator": "__name__ (Vertaling voor __lang__)",
-      "community": "Jij, de Homey-community"
+      "using": "Deze app maakt gebruik van de volgende geweldige tools en talen"
     },
     "botSettings": {
       "botSettings": "Bot-instellingen",
       "botToken": "Bot-token",
       "botTokenPlaceholder": "Voer hier uw token in!",
+      "markdown": {
+        "html": "HTML",
+        "markdownV2": "MarkdownV2",
+        "none": "Uit"
+      },
       "miscSettings": "Diverse instellingen",
       "password": "Wachtwoord",
       "passwordHint": "Om een gebruiker / chat te registreren, moet u nu /start [uw wachtwoord] naar de bot sturen via Telegram",
       "passwordPlaceholder": "Voer hier uw wachtwoord in!",
       "saveChanges": "Wijzigingen opslaan",
-      "markdown": {
-        "none": "Uit",
-        "markdownV2": "MarkdownV2",
-        "html": "HTML"
-      },
       "setup": {
         "step1": "Stel je eigen Telegram-bot in. Dit is volledig veilig en privé, omdat jij de enige bent die toegang heeft tot het berichtenarchief. Zoek @Botfather in Telegram en kies de @Botfather-bot.",
         "step2": "Klik op \"Start\" om de @BotFather-bot te activeren of voer /newbot in.",
@@ -55,8 +50,8 @@
         "title": "Hoe te installeren"
       },
       "useBll": "Better Logic Library ondersteuning inschakelen",
-      "usePassword": "Wachtwoord gebruiken",
-      "useMarkdown": "Gebruik Markdown"
+      "useMarkdown": "Gebruik Markdown",
+      "usePassword": "Wachtwoord gebruiken"
     },
     "chatGTPSettings": {
       "apiKey": "",
@@ -123,7 +118,8 @@
       "questionPlaceholder": "Voer een vraag in...",
       "questionPopup": "Weet u zeker dat u deze vraag wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt!",
       "questions": "Vragen",
-      "saveQuestion": "Vraag opslaan"
+      "saveQuestion": "Vraag opslaan",
+      "showAsGrid": "Toon antwoorden als rooster"
     },
     "status": {
       "bot": "Bot",
@@ -148,5 +144,10 @@
       "user": "Gebruiker",
       "users": "Gebruikers"
     }
+  },
+  "topics": {
+    "knownTopic": "Het onderwerp is al geregistreerd.",
+    "noTopic": "Deze chat is geen forum-/onderwerpchats.",
+    "notRegistered": "Deze chat is niet geregistreerd."
   }
 }

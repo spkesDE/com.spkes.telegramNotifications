@@ -28,6 +28,7 @@ interface State {
     columns: number;
     gotData: boolean;
     showDeletePopup: boolean;
+    showAsGrid: boolean;
 }
 
 export default class QuestionMenu extends React.Component<Props, State> {
@@ -44,6 +45,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
             disable_notification: props.question?.disable_notification ?? false,
             columns: props.question?.columns ?? 2,
             gotData: true,
+            showAsGrid: true,
             showDeletePopup: false
         }
     }
@@ -87,11 +89,12 @@ export default class QuestionMenu extends React.Component<Props, State> {
 
     getAnswerFields() {
         const result = [];
-        const totalRows: number = Math.ceil(this.state.answers / this.state.columns);
+        const columns = this.state.showAsGrid ? this.state.columns : 1;
+        const totalRows: number = Math.ceil(this.state.answers / columns);
         let currentRow = 0;
         for (let i = 0; i < this.state.answers; i++) {
-            const isFirstInRow = i % this.state.columns === 0;
-            const isLastInRow = (i + 1) % this.state.columns === 0 || i === this.state.answers - 1;
+            const isFirstInRow = i % columns === 0;
+            const isLastInRow = (i + 1) % columns === 0 || i === this.state.answers - 1;
             const firstRow = currentRow === 0;
             const lastRow = currentRow === totalRows - 1;
 
@@ -120,7 +123,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
             </AnswerInput>);
 
             // Check if the current row is full
-            if ((i + 1) % this.state.columns === 0) {
+            if ((i + 1) % columns === 0) {
                 result.push(<div className={"answerInputBreak"}></div>)
                 currentRow++;
             }
@@ -176,6 +179,14 @@ export default class QuestionMenu extends React.Component<Props, State> {
                         <Badge color={BadgeColor.GRAY}>{this.state.columns}</Badge>
                     </div>
                 </MenuItemWrapper>
+                <MenuItemWrapper>
+                    <h2>{Homey.__("settings.questionMenu.showAsGrid")}</h2>
+                    <Switch
+                        onChange={(e) => {
+                            this.setState({showAsGrid: e.currentTarget.checked})
+                        }}
+                        value={this.state.showAsGrid}/>
+                </MenuItemWrapper>
             </MenuItemGroup>
 
             <MenuItemGroup>
@@ -185,7 +196,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
             <MenuItemGroup>
                 <MenuItemWrapper className={"noPadding"} key={"wrapper-save"}>
                     <button
-                        className={"menuItem-button-blue-noRadiusTop hy-nostyle"}
+                        className={"menuItem-button-blue hy-nostyle"}
                         onClick={() => {
                             this.setState({answers: this.state.answers + 1})
                         }}>

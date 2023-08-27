@@ -1,49 +1,44 @@
 {
+  "commands": {
+    "registertopic": "Registrar el tema",
+    "start": "Registrar el chat"
+  },
   "newUser": {
-    "wrongPassword": "Contraseña incorrecta.",
+    "error": "¡Algo salió mal! No se pudo obtener el ID del chat.",
+    "knownChat": "¡Ya está en la lista de usuarios!",
     "register": "Registrar este chat de Telegram.",
     "register2": "¡Presiona el botón de abajo para registrar este chat!",
     "welcome": "¡Bienvenido al Bot de Telegram de Homey!",
-    "knownChat": "¡Ya está en la lista de usuarios!",
-    "error": "¡Algo salió mal! No se pudo obtener el ID del chat."
+    "wrongPassword": "Contraseña incorrecta."
   },
   "questions": {
     "notFound": "ERROR: Pregunta no encontrada. ¿Se eliminó la pregunta?"
   },
-  "topics": {
-    "noTopic": "Este chat no es un chat de foro/tema.",
-    "notRegistered": "Este chat no está registrado.",
-    "knownTopic": "El tema ya está registrado."
-  },
-  "commands": {
-    "start": "Registrar el chat",
-    "registertopic": "Registrar el tema"
-  },
   "settings": {
     "aboutMenu": {
-      "joinTelegram": "¡Únete al grupo comunitario de Telegram!",
-      "title": "Acerca de",
-      "using": "Esta aplicación utiliza las siguientes herramientas e idiomas increíbles",
+      "community": "Tú, la comunidad de Homey",
+      "contributor": "__name__ (Colaborador y Desarrollador)",
       "contributors": "Esta aplicación no sería lo mismo sin estas personas increíbles",
       "dev": "__name__ (Desarrollador de __app__)",
-      "contributor": "__name__ (Colaborador y Desarrollador)",
+      "joinTelegram": "¡Únete al grupo comunitario de Telegram!",
+      "title": "Acerca de",
       "translator": "__name__ (Traducción para __lang__)",
-      "community": "Tú, la comunidad de Homey"
+      "using": "Esta aplicación utiliza las siguientes herramientas e idiomas increíbles"
     },
     "botSettings": {
       "botSettings": "Configuración del Bot",
       "botToken": "Token del Bot",
       "botTokenPlaceholder": "Ingresa tu token aquí",
+      "markdown": {
+        "html": "HTML",
+        "markdownV2": "MarkdownV2",
+        "none": "Ninguno"
+      },
       "miscSettings": "Configuraciones Varias",
       "password": "Contraseña",
       "passwordHint": "Para registrar un usuario/chat, envía ahora /start [TuContraseña] al bot a través de Telegram",
       "passwordPlaceholder": "Ingresa tu contraseña aquí",
       "saveChanges": "Guardar cambios",
-      "markdown": {
-        "none": "Ninguno",
-        "markdownV2": "MarkdownV2",
-        "html": "HTML"
-      },
       "setup": {
         "step1": "Configura tu propio bot de Telegram. Esto es completamente seguro y privado, ya que solo tú puedes acceder al archivo de mensajes. Busca a @Botfather en Telegram y selecciona el bot @Botfather.",
         "step2": "Haz clic en \"Start\" para activar el bot @BotFather, o escribe /newbot.",
@@ -55,8 +50,8 @@
         "title": "Cómo configurar el bot"
       },
       "useBll": "Activar soporte para Better Logic Library",
-      "usePassword": "Usar contraseña",
-      "useMarkdown": "Usar Markdown"
+      "useMarkdown": "Usar Markdown",
+      "usePassword": "Usar contraseña"
     },
     "chatGTPSettings": {
       "apiKey": "Clave API",
@@ -123,7 +118,8 @@
       "questionPlaceholder": "Ingresa una pregunta...",
       "questionPopup": "¿Estás seguro de que deseas eliminar esta pregunta? ¡Esta acción no se puede deshacer!",
       "questions": "Preguntas",
-      "saveQuestion": "Guardar pregunta"
+      "saveQuestion": "Guardar pregunta",
+      "showAsGrid": "Mostrar respuestas como cuadrícula"
     },
     "status": {
       "bot": "Bot",
@@ -148,5 +144,10 @@
       "user": "Usuario",
       "users": "Usuarios"
     }
+  },
+  "topics": {
+    "knownTopic": "El tema ya está registrado.",
+    "noTopic": "Este chat no es un chat de foro/tema.",
+    "notRegistered": "Este chat no está registrado."
   }
 }
