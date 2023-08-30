@@ -80,13 +80,7 @@ export default class HandleQuestions {
 
     //This event will trigger once an inline button is pressed
     app.bot.on('callback_query:data', async (ctx, next) => {
-      if (!ctx.chat) {
-        return next();
-      }
-      if (ctx.callbackQuery.data == 'ignore-me') {
-        return next();
-      }
-      if (ctx.callbackQuery.data == 'user-add') {
+      if (!ctx.chat || ctx.callbackQuery.data == 'ignore-me' || ctx.callbackQuery.data == 'user-add') {
         return next();
       }
       const parts = ctx.callbackQuery.data.split('.');
@@ -102,12 +96,7 @@ export default class HandleQuestions {
         await ctx.reply(app.homey.__("questions.notFound"));
         throw new Error('Question with UUID ' + questionId + ' not found');
       }
-      if (!question.keepButtons) {
-        const keyboardRow = [InlineKeyboard.text(question.buttons[answerId], 'ignore-me')];
-        await ctx.editMessageReplyMarkup({
-          reply_markup: InlineKeyboard.from([keyboardRow]),
-        });
-      }
+
       // https://apps.developer.homey.app/the-basics/flow/arguments#flow-state
       //Building Token
       const token = {
@@ -129,7 +118,16 @@ export default class HandleQuestions {
       await receiveQuestionAnswerWithAnswerTrigger.trigger(token, state).catch(app.error);
       await receiveQuestionAnswerAutocomplete.trigger(token, state).catch(app.error);
       await receiveQuestionAnswerAutocompleteWithCustomId.trigger(token, state).catch(app.error);
-      await ctx.answerCallbackQuery();
+
+      if (!question.keepButtons) {
+        const keyboardRow = [InlineKeyboard.text(question.buttons[answerId], 'ignore-me')];
+        await ctx.editMessageReplyMarkup({
+          reply_markup: InlineKeyboard.from([keyboardRow]),
+        }).catch(app.error);
+      }
+      await ctx.answerCallbackQuery({
+        cache_time: 30 * 24 * 3600
+      }).catch(app.error);
     });
   }
 }
