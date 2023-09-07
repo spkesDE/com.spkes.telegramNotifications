@@ -29,6 +29,7 @@
       "botSettings": "Bot-inställningar",
       "botToken": "Bot-token",
       "botTokenPlaceholder": "Ange ditt token här!",
+      "disableWebPagePreview": "Inaktiverar länkförhandsvisningar för länkar",
       "markdown": {
         "html": "HTML",
         "markdownV2": "MarkdownV2",
@@ -61,9 +62,11 @@
     },
     "debugMenu": {
       "debugMenu": "Debug-meny",
+      "disableWebPagePreview": "Inaktivera webbsideförhandsvisning",
       "fuckedUpMenu": "Jag har förstört allt, man! - Meny",
       "fuckedUpWarning": "Är du säker på att du vill utföra handlingen __action__? Denna åtgärd kan inte ångras!",
       "logs": "Loggar",
+      "markdown": "Markdown",
       "password": "Lösenord",
       "questions": "Frågor",
       "resetEverything": "Återställ allt",

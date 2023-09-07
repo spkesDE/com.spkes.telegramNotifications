@@ -29,6 +29,7 @@
       "botSettings": "Bot-innstillinger",
       "botToken": "Bot-token",
       "botTokenPlaceholder": "Skriv inn tokenet ditt her!",
+      "disableWebPagePreview": "Deaktiverer forhåndsvisning av lenker for lenker",
       "markdown": {
         "html": "HTML",
         "markdownV2": "MarkdownV2",
@@ -61,9 +62,11 @@
     },
     "debugMenu": {
       "debugMenu": "Feilsøkingsmeny",
+      "disableWebPagePreview": "Deaktiver nettsideforhåndsvisning",
       "fuckedUpMenu": "Jeg har rotet det til, mann! - Meny",
       "fuckedUpWarning": "Er du sikker på at du vil utføre handlingen __action__? Denne handlingen kan ikke angres!",
       "logs": "Logger",
+      "markdown": "Markdown",
       "password": "Passord",
       "questions": "Spørsmål",
       "resetEverything": "Tilbakestill alt",

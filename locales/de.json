@@ -29,6 +29,7 @@
       "botSettings": "Bot-Einstellungen",
       "botToken": "Bot-Token",
       "botTokenPlaceholder": "Geben Sie hier Ihren Token ein!",
+      "disableWebPagePreview": "Deaktiviert die Linkvorschau für Links",
       "markdown": {
         "html": "HTML",
         "markdownV2": "MarkdownV2",
@@ -61,9 +62,11 @@
     },
     "debugMenu": {
       "debugMenu": "Debug-Menü",
+      "disableWebPagePreview": "Webseitenvorschau deaktivieren",
       "fuckedUpMenu": "Ich hab's verbockt, Mann! - Menü",
       "fuckedUpWarning": "Sind Sie sicher, dass Sie die Aktion __action__ ausführen möchten? Diese Aktion kann nicht rückgängig gemacht werden!",
       "logs": "Logs",
+      "markdown": "Markdown",
       "password": "Passwort",
       "questions": "Fragen",
       "resetEverything": "Alles zurücksetzen",

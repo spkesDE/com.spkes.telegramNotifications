@@ -29,6 +29,7 @@
       "botSettings": "Paramètres du bot",
       "botToken": "Jeton du bot",
       "botTokenPlaceholder": "Entrez votre jeton ici !",
+      "disableWebPagePreview": "Désactive les aperçus de lien pour les liens",
       "markdown": {
         "html": "HTML",
         "markdownV2": "MarkdownV2",
@@ -61,9 +62,11 @@
     },
     "debugMenu": {
       "debugMenu": "Menu de débogage",
+      "disableWebPagePreview": "Désactiver l'aperçu de la page Web",
       "fuckedUpMenu": "Menu J'ai tout bousillé, mec !",
       "fuckedUpWarning": "Êtes-vous sûr de vouloir effectuer l'action __action__ ? Cette action est irréversible !",
       "logs": "Journaux",
+      "markdown": "Markdown",
       "password": "Mot de passe",
       "questions": "Questions",
       "resetEverything": "Tout réinitialiser",

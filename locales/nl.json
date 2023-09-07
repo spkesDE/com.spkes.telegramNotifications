@@ -29,6 +29,7 @@
       "botSettings": "Bot-instellingen",
       "botToken": "Bot-token",
       "botTokenPlaceholder": "Voer hier uw token in!",
+      "disableWebPagePreview": "Schakelt linkvoorbeelden uit voor koppelingen",
       "markdown": {
         "html": "HTML",
         "markdownV2": "MarkdownV2",
@@ -61,9 +62,11 @@
     },
     "debugMenu": {
       "debugMenu": "Debugmenu",
+      "disableWebPagePreview": "Schakel webpagina voorbeeld uit",
       "fuckedUpMenu": "Ik heb het verkloot, man! - Menu",
       "fuckedUpWarning": "Weet u zeker dat u de actie __action__ wilt uitvoeren? Deze actie kan niet ongedaan worden gemaakt!",
       "logs": "Logs",
+      "markdown": "Markdown",
       "password": "Wachtwoord",
       "questions": "Vragen",
       "resetEverything": "Reset alles",

@@ -29,6 +29,7 @@
       "botSettings": "Bot-indstillinger",
       "botToken": "Bot-token",
       "botTokenPlaceholder": "Indtast din token her!",
+      "disableWebPagePreview": "Deaktiverer linkforsigtighed for links",
       "markdown": {
         "html": "HTML",
         "markdownV2": "MarkdownV2",
@@ -61,9 +62,11 @@
     },
     "debugMenu": {
       "debugMenu": "Fejlfinding-menu",
+      "disableWebPagePreview": "Deaktiver websideforhåndsvisning",
       "fuckedUpMenu": "Jeg har ødelagt alt, mand! - Menu",
       "fuckedUpWarning": "Er du sikker på, at du vil udføre handlingen __action__? Denne handling kan ikke fortrydes!",
       "logs": "Logs",
+      "markdown": "Markdown",
       "password": "Adgangskode",
       "questions": "Spørgsmål",
       "resetEverything": "Nulstil alt",

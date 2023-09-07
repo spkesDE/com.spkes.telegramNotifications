@@ -21,6 +21,7 @@ interface State {
     logs: string;
     gotData: boolean;
     usePassword: boolean,
+    disableWebPagePreview: boolean,
     useBLL: boolean,
     password: string,
     token: string,
@@ -49,6 +50,7 @@ export default class DebugMenu extends React.Component<Props, State> {
             gotData: process.env!.NODE_ENV === "development",
             usePassword: false,
             useBLL: false,
+            disableWebPagePreview: false,
             password: "",
             token: "",
             markdown: "",
@@ -66,6 +68,7 @@ export default class DebugMenu extends React.Component<Props, State> {
             questions: await Homey.get('questions') ?? "{}",
             usePassword: await Homey.get('use-password') ?? false,
             useBLL: await Homey.get('useBll') ?? false,
+            disableWebPagePreview: await Homey.get('disableWebPagePreview') ?? false,
             password: await Homey.get('password') ?? undefined,
             token: await Homey.get('bot-token') ?? undefined,
             markdown: await Homey.get('markdown') ?? undefined,
@@ -93,6 +96,14 @@ export default class DebugMenu extends React.Component<Props, State> {
                     <div className="codeBlock">{this.state.useBLL + ""}</div>
                 </div>
                 <div className="logWidget">
+                    <Badge color={BadgeColor.GRAY}>{Homey.__("settings.debugMenu.disableWebPagePreview")}</Badge>
+                    <div className="codeBlock">{this.state.disableWebPagePreview + ""}</div>
+                </div>
+                <div className="logWidget">
+                    <Badge color={BadgeColor.GRAY}>{Homey.__("settings.debugMenu.markdown")}</Badge>
+                    <div className="codeBlock">{this.state.markdown}</div>
+                </div>
+                <div className="logWidget">
                     <Badge color={BadgeColor.GRAY}>{Homey.__("settings.debugMenu.questions")}</Badge>
                     <div className="codeBlock">{JSON.stringify(JSON.parse(this.state.questions), null, 2)}</div>
                 </div>
@@ -107,10 +118,6 @@ export default class DebugMenu extends React.Component<Props, State> {
                 <div className="logWidget">
                     <Badge color={BadgeColor.GRAY}>{Homey.__("settings.debugMenu.password")}</Badge>
                     <div className="codeBlock">{this.state.password}</div>
-                </div>
-                <div className="logWidget">
-                    <Badge color={BadgeColor.GRAY}>{Homey.__("settings.debugMenu.markdown")}</Badge>
-                    <div className="codeBlock">{this.state.markdown}</div>
                 </div>
                 <div className="logWidget">
                     <Badge color={BadgeColor.GRAY}>{Homey.__("settings.debugMenu.logs")}</Badge>

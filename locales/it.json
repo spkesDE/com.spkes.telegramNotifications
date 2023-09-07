@@ -29,6 +29,7 @@
       "botSettings": "Impostazioni Bot",
       "botToken": "Token Bot",
       "botTokenPlaceholder": "Inserisci qui il tuo token!",
+      "disableWebPagePreview": "Disattiva l'anteprima dei collegamenti per i link",
       "markdown": {
         "html": "HTML",
         "markdownV2": "MarkdownV2",
@@ -61,9 +62,11 @@
     },
     "debugMenu": {
       "debugMenu": "Menu Debug",
+      "disableWebPagePreview": "Disabilita anteprima pagina web",
       "fuckedUpMenu": "Ho fatto un casino, man! - Menu",
       "fuckedUpWarning": "Sei sicuro di voler eseguire l'azione action Questa azione non può essere annullata!",
       "logs": "Registri",
+      "markdown": "Markdown",
       "password": "Password",
       "questions": "Domande",
       "resetEverything": "Reset Tutto",

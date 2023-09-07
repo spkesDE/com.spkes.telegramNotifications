@@ -12,7 +12,8 @@ export default class SendImageWithMessage {
             await app.bot.api.sendPhoto(args.user.id, args.url,
               {
                 parse_mode: app.markdown,
-                caption: await BL.decode(args.message), message_thread_id: args.user.topic
+                caption: await BL.decode(args.message),
+                message_thread_id: args.user.topic
               }
             );
           } catch (err) {

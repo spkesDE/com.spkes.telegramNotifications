@@ -70,7 +70,7 @@ export default class HandleQuestions {
     });
 
     receiveQuestionAnswerAutocomplete.registerRunListener(async (args, state) => {
-      return args.question.id === state.uuid && args.answer.name == state.answer && state.customId == '';
+      return args.question.id === state.uuid && args.answer.id == state.answerId && state.customId == '';
     });
 
     receiveQuestionAnswerAutocompleteWithCustomId.registerRunListener(async (args, state) => {
@@ -80,9 +80,11 @@ export default class HandleQuestions {
 
     //This event will trigger once an inline button is pressed
     app.bot.on('callback_query:data', async (ctx, next) => {
+      console.log("Callback!", ctx)
       if (!ctx.chat || ctx.callbackQuery.data == 'ignore-me' || ctx.callbackQuery.data == 'user-add') {
         return next();
       }
+      console.log("Here - 1")
       const parts = ctx.callbackQuery.data.split('.');
       const questionId: string = parts[0];
       const answerId = Number(parts[1]);
@@ -96,7 +98,7 @@ export default class HandleQuestions {
         await ctx.reply(app.homey.__("questions.notFound"));
         throw new Error('Question with UUID ' + questionId + ' not found');
       }
-
+      console.log("Here - 2")
       // https://apps.developer.homey.app/the-basics/flow/arguments#flow-state
       //Building Token
       const token = {
@@ -109,25 +111,27 @@ export default class HandleQuestions {
         chatId: ctx.chat.id,
         id: ctx.callbackQuery.message?.message_id ?? 0,
       };
-
+      console.log("Here - 3")
       //Trigger Card with given state
       const state = {
-        uuid: question.UUID, answer: Question.getAnswer(question, answerId), customId: customId
+        uuid: question.UUID, answer: Question.getAnswer(question, answerId), answerId: answerId, customId: customId
       };
       await receiveQuestionAnswerTrigger.trigger(token, state).catch(app.error); //Deprecated Flow
-      await receiveQuestionAnswerWithAnswerTrigger.trigger(token, state).catch(app.error);
-      await receiveQuestionAnswerAutocomplete.trigger(token, state).catch(app.error);
+      console.log("Here - 3.1")
+      await receiveQuestionAnswerWithAnswerTrigger.trigger(token, state);
+      console.log("Here - 3.2")
+      await receiveQuestionAnswerAutocomplete.trigger(token, state);
+      console.log("Here - 3.3")
       await receiveQuestionAnswerAutocompleteWithCustomId.trigger(token, state).catch(app.error);
-
+      console.log("Here - 4")
       if (!question.keepButtons) {
         const keyboardRow = [InlineKeyboard.text(question.buttons[answerId], 'ignore-me')];
         await ctx.editMessageReplyMarkup({
           reply_markup: InlineKeyboard.from([keyboardRow]),
         }).catch(app.error);
       }
-      await ctx.answerCallbackQuery({
-        cache_time: 30 * 24 * 3600
-      }).catch(app.error);
+      console.log("Here - 5")
+      await ctx.answerCallbackQuery().catch(app.error);
     });
   }
 }

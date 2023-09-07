@@ -29,6 +29,7 @@
       "botSettings": "Ustawienia Bota",
       "botToken": "Token Bota",
       "botTokenPlaceholder": "Wprowadź swój token tutaj!",
+      "disableWebPagePreview": "Wyłącza podgląd linków dla linków",
       "markdown": {
         "html": "HTML",
         "markdownV2": "MarkdownV2",
@@ -61,9 +62,11 @@
     },
     "debugMenu": {
       "debugMenu": "Menu Debugowania",
+      "disableWebPagePreview": "Wyłącz podgląd strony internetowej",
       "fuckedUpMenu": "Zepsułem to, człowieku! - Menu",
       "fuckedUpWarning": "Czy na pewno chcesz wykonać akcję __action__? Ta operacja nie może zostać cofnięta!",
       "logs": "Logi",
+      "markdown": "Markdown",
       "password": "Hasło",
       "questions": "Pytania",
       "resetEverything": "Zresetuj wszystko",

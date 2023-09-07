@@ -15,6 +15,7 @@ interface Props {
 interface State {
     usePassword: boolean,
     useBLL: boolean,
+    disableWebPagePreview: boolean,
     password: string | undefined,
     token: string | undefined,
     markdown: string | undefined,
@@ -27,6 +28,7 @@ class SettingsMenu extends React.Component<Props, State> {
         this.state = {
             usePassword: false,
             useBLL: false,
+            disableWebPagePreview: false,
             password: undefined,
             token: undefined,
             markdown: undefined,
@@ -39,6 +41,7 @@ class SettingsMenu extends React.Component<Props, State> {
         this.setState({
             usePassword: await Homey.get('use-password') ?? false,
             useBLL: await Homey.get('useBll') ?? false,
+            disableWebPagePreview: await Homey.get('disableWebPagePreview') ?? false,
             password: await Homey.get('password') ?? undefined,
             token: await Homey.get('bot-token') ?? undefined,
             markdown: await Homey.get('markdown') ?? undefined,
@@ -114,6 +117,12 @@ class SettingsMenu extends React.Component<Props, State> {
                             </option>
                         </select>
                     </MenuItemWrapper>
+                    <MenuItemWrapper>
+                        <h2>{Homey.__('settings.botSettings.disableWebPagePreview')}</h2>
+                        <Switch id={"disableWebPagePreview"}
+                                onChange={(e) => this.handleDisableWebPagePreview(e.currentTarget.checked)}
+                                value={this.state.disableWebPagePreview}/>
+                    </MenuItemWrapper>
                 </MenuItemGroup>
                 <MenuItemGroup>
                     <MenuItemWrapper className={"noPadding"}>
@@ -153,9 +162,9 @@ class SettingsMenu extends React.Component<Props, State> {
         await Homey.set('bot-token', this.state.token);
         await Homey.set('use-password', this.state.usePassword ?? false);
         await Homey.set('useBll', this.state.useBLL ?? false);
+        await Homey.set('disableWebPagePreview', this.state.disableWebPagePreview ?? false);
         if (this.state.usePassword && this.state.password)
             await Homey.set('password', this.state.password).catch((r) => Homey.alert(r));
-
         if (this.state.markdown)
             await Homey.set('markdown', this.state.markdown);
         else
@@ -171,10 +180,15 @@ class SettingsMenu extends React.Component<Props, State> {
         })
     };
 
-
     private handleUseBll(value: boolean) {
         this.setState({
             useBLL: value,
+        })
+    }
+
+    private handleDisableWebPagePreview(value: boolean) {
+        this.setState({
+            disableWebPagePreview: value,
         })
     }
 

@@ -29,6 +29,7 @@
       "botSettings": "Bot Settings",
       "botToken": "Bot Token",
       "botTokenPlaceholder": "Enter your token here!",
+      "disableWebPagePreview": "Disables link previews for links",
       "markdown": {
         "html": "HTML",
         "markdownV2": "MarkdownV2",
@@ -61,9 +62,11 @@
     },
     "debugMenu": {
       "debugMenu": "Debug Menu",
+      "disableWebPagePreview": "Disable Web Page Preview",
       "fuckedUpMenu": "I fucked up, man! - Menu",
       "fuckedUpWarning": "Are you sure you want to run the action __action__ This action can't be undone!",
       "logs": "Logs",
+      "markdown": "Markdown",
       "password": "Password",
       "questions": "Questions",
       "resetEverything": "Reset Everything",

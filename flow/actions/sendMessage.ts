@@ -11,6 +11,7 @@ export default class SendMessage {
           await app.bot.api.sendMessage(args.user.id, await BL.decode(args.message),
             {
               parse_mode: app.markdown,
+              disable_web_page_preview: app.disableWebPagePreview,
               message_thread_id: args.user.topic
             }
           );

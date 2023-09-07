@@ -33,6 +33,7 @@ export class TelegramNotifications extends HomeyApp {
     private registerFlowHandler = false;
     customIdMessages: { message_id: number; chat_id: number; customId: string; }[] = [];
     markdown: ParseMode | undefined = undefined;
+    disableWebPagePreview: boolean = false;
 
     async onInit() {
       this.token = await this.homey.settings.get('bot-token');
@@ -58,12 +59,14 @@ export class TelegramNotifications extends HomeyApp {
         if (key === 'useBll') {
           this.startBll();
         }
-
           if (key === "markdown") {
               let markdown = this.homey.settings.get('markdown');
               if (markdown === "none") this.markdown = undefined;
               else this.markdown = markdown;
           }
+          if (key === "disableWebPagePreview")
+              this.disableWebPagePreview = this.homey.settings.get('disableWebPagePreview') ?? false;
+
       });
 
         this.loadSettings();

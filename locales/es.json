@@ -29,6 +29,7 @@
       "botSettings": "Configuración del Bot",
       "botToken": "Token del Bot",
       "botTokenPlaceholder": "Ingresa tu token aquí",
+      "disableWebPagePreview": "Deshabilita las vistas previas de enlaces para enlaces",
       "markdown": {
         "html": "HTML",
         "markdownV2": "MarkdownV2",
@@ -61,9 +62,11 @@
     },
     "debugMenu": {
       "debugMenu": "Menú de Depuración",
+      "disableWebPagePreview": "Desactivar vista previa de página we",
       "fuckedUpMenu": "¡Me lo he cargado, tío! - Menú",
       "fuckedUpWarning": "¿Estás seguro de que deseas realizar la acción __action__? ¡Esta acción no se puede deshacer!",
       "logs": "Registros",
+      "markdown": "Markdown",
       "password": "Contraseña",
       "questions": "Preguntas",
       "resetEverything": "Restablecer todo",
