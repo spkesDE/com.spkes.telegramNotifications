@@ -223,5 +223,8 @@
   },
   "2.8.9": {
     "en": "Bug fixes"
+  },
+  "2.8.10": {
+    "en": "Adds a option to disable web page previews"
   }
 }
