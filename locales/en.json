@@ -113,6 +113,8 @@
       "addQuestion": "Add a Question",
       "answerPlaceholder": "Enter your answer...",
       "btnPerRow": "Buttons per row",
+      "checkMark": "Checkmark",
+      "checkMarkTooltip": "Briefly replace the button text with a check.",
       "deleteQuestion": "Delete the Question",
       "disableNotifications": "Disable notifications",
       "editQuestion": "Edit a Question",

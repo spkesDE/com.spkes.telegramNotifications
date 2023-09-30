@@ -113,6 +113,8 @@
       "addQuestion": "Frage hinzufügen",
       "answerPlaceholder": "Geben Sie Ihre Antwort ein...",
       "btnPerRow": "Schaltflächen pro Zeile",
+      "checkMark": "Häkchen",
+      "checkMarkTooltip": "Ersetzen Sie den Schaltflächentext kurzzeitig durch ein Häkchen.",
       "deleteQuestion": "Frage löschen",
       "disableNotifications": "Benachrichtigungen deaktivieren",
       "editQuestion": "Frage bearbeiten",

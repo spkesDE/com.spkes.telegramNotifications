@@ -113,6 +113,8 @@
       "addQuestion": "Legg til spørsmål",
       "answerPlaceholder": "Skriv inn svaret ditt...",
       "btnPerRow": "Knapper per rad",
+      "checkMark": "Sjekkmerke",
+      "checkMarkTooltip": "Midlertidig erstatt knappeteksten med en hake.",
       "deleteQuestion": "Slett spørsmål",
       "disableNotifications": "Deaktiver varsler",
       "editQuestion": "Rediger spørsmål",

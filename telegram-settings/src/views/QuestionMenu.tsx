@@ -24,6 +24,7 @@ interface State {
     UUID: string;
     buttons: string[];
     keepButtons: boolean;
+    checkmark: boolean;
     disable_notification: boolean;
     columns: number;
     gotData: boolean;
@@ -42,6 +43,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
             UUID: props.question?.UUID ?? this.getNanoId(),
             buttons: props.question?.buttons ?? [],
             keepButtons: props.question?.keepButtons ?? false,
+            checkmark: props.question?.checkmark ?? false,
             disable_notification: props.question?.disable_notification ?? false,
             columns: props.question?.columns ?? 2,
             gotData: true,
@@ -58,7 +60,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
         questions.push({
             UUID: this.state.UUID, buttons: this.state.buttons,
             columns: this.state.columns, disable_notification: this.state.disable_notification,
-            keepButtons: this.state.keepButtons, question: this.state.question
+            keepButtons: this.state.keepButtons, question: this.state.question, checkmark: this.state.checkmark
         })
         await Homey.set('questions', JSON.stringify(questions));
         this.setState({gotData: true});
@@ -169,6 +171,14 @@ export default class QuestionMenu extends React.Component<Props, State> {
                         value={this.state.disable_notification}/>
                 </MenuItemWrapper>
                 <MenuItemWrapper>
+                    <h2>{Homey.__("settings.questionMenu.checkMark")}</h2>
+                    <Switch
+                        onChange={(e) => {
+                            this.setState({checkmark: e.currentTarget.checked})
+                        }}
+                        value={this.state.checkmark}/>
+                </MenuItemWrapper>
+                <MenuItemWrapper>
                     <h2>{Homey.__("settings.questionMenu.btnPerRow")}</h2>
                     <div style={{display: "flex"}}>
                         <input id="columnSize" max="4" min="1" type="range"
@@ -187,6 +197,10 @@ export default class QuestionMenu extends React.Component<Props, State> {
                         }}
                         value={this.state.showAsGrid}/>
                 </MenuItemWrapper>
+                <p className={"itemGroupHint"}>
+                    <i className="fas fa-info-circle"></i>
+                    {Homey.__('settings.questionMenu.checkMark')}: {Homey.__('settings.questionMenu.checkMarkTooltip')}
+                </p>
             </MenuItemGroup>
 
             <MenuItemGroup>

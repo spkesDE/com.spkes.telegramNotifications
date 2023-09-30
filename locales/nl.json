@@ -113,6 +113,8 @@
       "addQuestion": "Vraag toevoegen",
       "answerPlaceholder": "Voer uw antwoord in...",
       "btnPerRow": "Knoppen per rij",
+      "checkMark": "Vinkje",
+      "checkMarkTooltip": "Vervang kortstondig de knoptekst door een vinkje.",
       "deleteQuestion": "Vraag verwijderen",
       "disableNotifications": "Notificaties uitschakelen",
       "editQuestion": "Vraag bewerken",

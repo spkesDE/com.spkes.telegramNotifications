@@ -113,6 +113,8 @@
       "addQuestion": "Aggiungi una Domanda",
       "answerPlaceholder": "Inserisci la tua risposta...",
       "btnPerRow": "Pulsanti per riga",
+      "checkMark": "Segno di spunta",
+      "checkMarkTooltip": "Sostituisci brevemente il testo del pulsante con una spunta.",
       "deleteQuestion": "Elimina la Domanda",
       "disableNotifications": "Disabilita le notifiche",
       "editQuestion": "Modifica una Domanda",

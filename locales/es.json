@@ -113,6 +113,8 @@
       "addQuestion": "Agregar pregunta",
       "answerPlaceholder": "Ingresa tu respuesta...",
       "btnPerRow": "Botones por fila",
+      "checkMark": "Marca de verificación",
+      "checkMarkTooltip": "Sustituye brevemente el texto del botón por una marca de verificación.",
       "deleteQuestion": "Eliminar pregunta",
       "disableNotifications": "Desactivar notificaciones",
       "editQuestion": "Editar pregunta",

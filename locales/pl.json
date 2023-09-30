@@ -113,6 +113,8 @@
       "addQuestion": "Dodaj pytanie",
       "answerPlaceholder": "Wprowadź odpowiedź...",
       "btnPerRow": "Przyciski na wiersz",
+      "checkMark": "Znak sprawdzający",
+      "checkMarkTooltip": "Chwilowo zamień tekst przycisku na znak sprawdzający.",
       "deleteQuestion": "Usuń pytanie",
       "disableNotifications": "Wyłącz powiadomienia",
       "editQuestion": "Edytuj pytanie",

@@ -6,8 +6,31 @@ export default class Question {
     UUID = '';
     buttons: string[] = [];
     keepButtons = false;
+    checkmark = false;
     disable_notification = false;
     columns = 2;
+
+    static createKeyboard(q: Question, opts?: {
+        messageOverride?: string,
+        customId?: string,
+        image?: string,
+        topic?: number
+        replace?: number,
+        replaceWith?: string
+    }) {
+        let keyboard = new InlineKeyboard();
+        q.buttons.forEach((value, i) => {
+            let id = q.UUID + '.' + i;
+            if (opts?.customId != undefined && opts?.customId.length < 21) id += "." + opts?.customId;
+
+            if (opts?.replace && opts?.replaceWith && opts?.replace === i)
+                keyboard.text(opts.replaceWith)
+            else
+                keyboard.text(value, id)
+        });
+        keyboard = keyboard.toFlowed(q.columns ?? 2);
+        return keyboard
+    }
 
     static async createMessage(q: Question, app: TelegramNotifications, userId: number, opts?: {
         messageOverride?: string,
@@ -15,14 +38,8 @@ export default class Question {
         image?: string,
         topic?: number
     }) {
-        let keyboard = new InlineKeyboard();
-        q.buttons.forEach((value, i) => {
-            let id = q.UUID + '.' + i;
-            if (opts?.customId != undefined && opts?.customId.length < 21) id += "." + opts?.customId;
-            keyboard.text(value, id)
-        });
-        keyboard = keyboard.toFlowed(q.columns ?? 2);
-        if (opts?.image != undefined) {
+        let keyboard = this.createKeyboard(q, opts);
+        if (opts?.image) {
             app.bot?.api.sendPhoto(userId, opts.image, {
                 caption: opts?.messageOverride == undefined ? q.question : opts?.messageOverride,
                 disable_notification: q.disable_notification ?? false,

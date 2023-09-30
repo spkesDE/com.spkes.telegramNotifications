@@ -113,6 +113,8 @@
       "addQuestion": "Lägg till fråga",
       "answerPlaceholder": "Ange ditt svar...",
       "btnPerRow": "Knappar per rad",
+      "checkMark": "Kryssmarkering",
+      "checkMarkTooltip": "Byt kortvarigt ut knappens text med en kryssmarkering.",
       "deleteQuestion": "Ta bort fråga",
       "disableNotifications": "Inaktivera notiser",
       "editQuestion": "Redigera fråga",

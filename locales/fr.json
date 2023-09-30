@@ -113,6 +113,8 @@
       "addQuestion": "Ajouter une question",
       "answerPlaceholder": "Entrez votre réponse...",
       "btnPerRow": "Boutons par ligne",
+      "checkMark": "Coche",
+      "checkMarkTooltip": "Remplacez brièvement le texte du bouton par une coche.",
       "deleteQuestion": "Supprimer la question",
       "disableNotifications": "Désactiver les notifications",
       "editQuestion": "Modifier la question",

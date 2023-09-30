@@ -113,6 +113,8 @@
       "addQuestion": "Tilføj spørgsmål",
       "answerPlaceholder": "Indtast dit svar...",
       "btnPerRow": "Knapper pr. række",
+      "checkMark": "Afkrydsningsmarkering",
+      "checkMarkTooltip": "Skift kortvarigt knapteksten til en afkrydsning.",
       "deleteQuestion": "Slet spørgsmål",
       "disableNotifications": "Deaktiver notifikationer",
       "editQuestion": "Rediger spørgsmål",

@@ -10,7 +10,8 @@ export const defaultQuestions: Question[] = [
         columns: 2,
         disable_notification: false,
         keepButtons: false,
-        question: "Do you want to close the shutters?"
+        checkmark: false,
+        question: "Do you want to close the shutters?",
     },
     {
         UUID: "uqc8tDVeHQ",
@@ -21,7 +22,8 @@ export const defaultQuestions: Question[] = [
         columns: 2,
         disable_notification: false,
         keepButtons: false,
-        question: "Close the door?"
+        checkmark: false,
+        question: "Close the door?",
     },
     {
         UUID: "JxtjlA6cLX",
@@ -47,7 +49,8 @@ export const defaultQuestions: Question[] = [
         columns: 4,
         disable_notification: false,
         keepButtons: true,
-        question: "Shopping List: What to add...?"
+        checkmark: true,
+        question: "Shopping List: What to add...?",
     }
 ]
 
