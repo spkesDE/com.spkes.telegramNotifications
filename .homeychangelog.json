@@ -226,5 +226,8 @@
   },
   "2.8.10": {
     "en": "Adds a option to disable web page previews"
+  },
+  "2.8.11": {
+    "en": "Added temp. checkmark for successful question callbacks"
   }
 }
