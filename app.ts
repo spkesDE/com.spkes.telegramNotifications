@@ -111,7 +111,8 @@ export class TelegramNotifications extends HomeyApp {
                       });
                   if (this.bot != null && prevSize !== r.length)
                       this.bot.api.setMyCommands(r).catch(this.error);
-              });
+              })
+              .catch(this.error);
         this.debug('Debug => Total-Users ' + this.chats.length + ', Question-Size: ' + this.questions.length +
                 ', Log-Size: ' + this.getLogSize() + ' and start was ' + (this.startSuccess ? 'successful' : 'unsuccessful'));
         this.changeBotState(true);
