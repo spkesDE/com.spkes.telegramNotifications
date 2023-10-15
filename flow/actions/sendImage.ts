@@ -1,6 +1,7 @@
 import {FlowCardAction} from 'homey';
 import {TelegramNotifications} from '../../app';
 import Utils from '../../utils';
+import {InputFile} from "grammy";
 
 export default class SendImage {
   constructor(app: TelegramNotifications, card: FlowCardAction) {
@@ -8,7 +9,7 @@ export default class SendImage {
       if (app.bot != null) {
         if (Utils.validateURL(args.url)) {
           try {
-            await app.bot.api.sendPhoto(args.user.id, args.url,
+            await app.bot.api.sendPhoto(args.user.id, new InputFile({url: args.url}, ""),
               {
                 message_thread_id: args.user.topic
               }
