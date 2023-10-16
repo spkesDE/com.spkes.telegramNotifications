@@ -7,11 +7,11 @@ import {InputFile} from "grammy";
 export default class SendTagImageWithMessage {
   constructor(app: TelegramNotifications, card: FlowCardAction) {
     card.registerRunListener(async (args) => {
-      const url = args.droptoken.cloudUrl ??
+      const url = args.droptoken.localUrl ??
                 'https://' + await app.homey.cloud.getHomeyId() + '.connect.athom.com/api/image/' + args.droptoken.id;
       const imageExists = await Utils.isImageValid(url);
       if (!imageExists) {
-        app.error('Image source is invalid for flow card send-a-image-with-tag-message! URL: ' + url + '(' + args.droptoken.cloudUrl + ')');
+        app.error('Image source is invalid for flow card send-a-image-with-tag-message! URL: ' + ' ( ' + args.droptoken.cloudUrl + ' )');
         throw new Error('Image source is invalid for flow card send-a-image-with-tag-message!');
       }
       if (app.bot == null) {
