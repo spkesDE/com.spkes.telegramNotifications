@@ -235,5 +235,11 @@
   },
   "2.9.1": {
     "en": "Bug fixes"
+  },
+  "2.9.2": {
+    "en": "Possible Performance improvments while sending local images"
+  },
+  "2.9.3": {
+    "en": "Possible Performance improvements while sending local images"
   }
 }
