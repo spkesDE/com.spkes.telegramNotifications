@@ -250,5 +250,8 @@
   },
   "2.9.6": {
     "en": "Bug fixes"
+  },
+  "2.10.0": {
+    "en": "Performance improvements while sending local images"
   }
 }
