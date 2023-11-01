@@ -20,7 +20,8 @@ import DeleteByCustomId from './flow/actions/deleteByCustomId';
 import HandleTopics from './flow/triggers/handleTopics';
 import ReceiveMessageFromTopic from './flow/triggers/receiveMessageFromTopic';
 import {ParseMode} from 'grammy/types';
-import {defaultQuestions} from "./assets/defaultQuestions";
+import {defaultQuestions} from './assets/defaultQuestions';
+import {apiThrottler} from '@grammyjs/transformer-throttler';
 
 
 export class TelegramNotifications extends HomeyApp {
@@ -33,7 +34,7 @@ export class TelegramNotifications extends HomeyApp {
     private registerFlowHandler = false;
     customIdMessages: { message_id: number; chat_id: number; customId: string; }[] = [];
     markdown: ParseMode | undefined = undefined;
-    disableWebPagePreview: boolean = false;
+    disableWebPagePreview = false;
 
     async onInit() {
       this.token = await this.homey.settings.get('bot-token');
@@ -59,17 +60,21 @@ export class TelegramNotifications extends HomeyApp {
         if (key === 'useBll') {
           this.startBll();
         }
-          if (key === "markdown") {
-              let markdown = this.homey.settings.get('markdown');
-              if (markdown === "none") this.markdown = undefined;
-              else this.markdown = markdown;
+        if (key === 'markdown') {
+          const markdown = this.homey.settings.get('markdown');
+          if (markdown === 'none') {
+            this.markdown = undefined;
+          } else {
+            this.markdown = markdown;
           }
-          if (key === "disableWebPagePreview")
-              this.disableWebPagePreview = this.homey.settings.get('disableWebPagePreview') ?? false;
+        }
+        if (key === 'disableWebPagePreview') {
+          this.disableWebPagePreview = this.homey.settings.get('disableWebPagePreview') ?? false;
+        }
 
       });
 
-        this.loadSettings();
+      this.loadSettings();
       this.startBot();
       this.startBll().then();
     }
@@ -82,6 +87,10 @@ export class TelegramNotifications extends HomeyApp {
         return;
       }
       this.bot = new Bot(this.token);
+
+      const throttler = apiThrottler();
+      this.bot.api.config.use(throttler);
+
       this.loadSavedArrays();
 
       if (!this.registerFlowHandler) {
@@ -96,23 +105,26 @@ export class TelegramNotifications extends HomeyApp {
         this.log('Failed to start. Token most likely wrong.');
       } else {
         this.log('Telegram Notifications app is initialized.');
-          this.bot.api.getMyCommands()
-              .then((r) => {
-                  let prevSize = r.length;
-                  if (!r.some(e => e.command === "start"))
-                      r.push({
-                          'command': 'start',
-                          'description': this.homey.__("commands.start")
-                      });
-                  if (!r.some(e => e.command === "registertopic"))
-                      r.push({
-                          'command': 'registertopic',
-                          'description': this.homey.__("commands.registertopic")
-                      });
-                  if (this.bot != null && prevSize !== r.length)
-                      this.bot.api.setMyCommands(r).catch(this.error);
-              })
-              .catch(this.error);
+        this.bot.api.getMyCommands()
+          .then((r) => {
+            const prevSize = r.length;
+            if (!r.some(e => e.command === 'start')) {
+              r.push({
+                'command': 'start',
+                'description': this.homey.__('commands.start')
+              });
+            }
+            if (!r.some(e => e.command === 'registertopic')) {
+              r.push({
+                'command': 'registertopic',
+                'description': this.homey.__('commands.registertopic')
+              });
+            }
+            if (this.bot != null && prevSize !== r.length) {
+              this.bot.api.setMyCommands(r).catch(this.error);
+            }
+          })
+          .catch(this.error);
         this.debug('Debug => Total-Users ' + this.chats.length + ', Question-Size: ' + this.questions.length +
                 ', Log-Size: ' + this.getLogSize() + ' and start was ' + (this.startSuccess ? 'successful' : 'unsuccessful'));
         this.changeBotState(true);
@@ -201,14 +213,14 @@ export class TelegramNotifications extends HomeyApp {
       });
     }
 
-    loadQuestions(onStart: boolean = false) {
+    loadQuestions(onStart = false) {
       this.debug('Loading Questions..');
       if (this.homey.settings.get('questions') !== null) {
         this.questions = JSON.parse(this.homey.settings.get('questions')) as Question[];
-          if (this.questions.length === 0 && onStart) {
-              this.questions = defaultQuestions;
-              this.homey.settings.set('questions', JSON.stringify(this.questions));
-          }
+        if (this.questions.length === 0 && onStart) {
+          this.questions = defaultQuestions;
+          this.homey.settings.set('questions', JSON.stringify(this.questions));
+        }
       }
     }
 
@@ -219,7 +231,7 @@ export class TelegramNotifications extends HomeyApp {
     private loadSavedArrays() {
       this.debug('Loading Data...');
       this.loadUsers();
-        this.loadQuestions(true);
+      this.loadQuestions(true);
     }
 
     private loadUsers() {
@@ -244,9 +256,12 @@ export class TelegramNotifications extends HomeyApp {
     }
 
     private loadSettings() {
-        let markdown = this.homey.settings.get('markdown');
-        if (markdown === "none") this.markdown = undefined;
-        else this.markdown = markdown;
+      const markdown = this.homey.settings.get('markdown');
+      if (markdown === 'none') {
+        this.markdown = undefined;
+      } else {
+        this.markdown = markdown;
+      }
     }
 }
 
