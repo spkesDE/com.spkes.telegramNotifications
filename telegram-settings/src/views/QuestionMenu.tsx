@@ -58,7 +58,7 @@ export default class QuestionMenu extends React.Component<Props, State> {
         let questions: Question[] = JSON.parse(await Homey.get('questions') ?? "[]");
         questions = questions.filter((q) => q.UUID !== this.state.UUID)
         questions.push({
-            UUID: this.state.UUID, buttons: this.state.buttons,
+            UUID: this.state.UUID, buttons: this.state.buttons.filter((v) => v === ""),
             columns: this.state.columns, disable_notification: this.state.disable_notification,
             keepButtons: this.state.keepButtons, question: this.state.question, checkmark: this.state.checkmark
         })
@@ -116,7 +116,6 @@ export default class QuestionMenu extends React.Component<Props, State> {
                        required={i === 0}
                        placeholder={Homey.__("settings.questionMenu.answerPlaceholder")}
                        onChange={(e) => {
-                           if (e.currentTarget.value == "") return;
                            let buttons = this.state.buttons
                            buttons[i] = e.currentTarget.value;
                            this.setState({buttons: buttons});
