@@ -1,5 +1,5 @@
 import {TelegramNotifications} from './app';
-import {InlineKeyboard} from 'grammy';
+import {InlineKeyboard, InputFile} from 'grammy';
 
 export default class Question {
     question = '';
@@ -40,7 +40,7 @@ export default class Question {
     }) {
         let keyboard = this.createKeyboard(q, opts);
         if (opts?.image) {
-            app.bot?.api.sendPhoto(userId, opts.image, {
+            app.bot?.api.sendPhoto(userId, new InputFile({url: opts.image}, ""), {
                 caption: opts?.messageOverride == undefined ? q.question : opts?.messageOverride,
                 disable_notification: q.disable_notification ?? false,
                 message_thread_id: opts?.topic ?? undefined,
