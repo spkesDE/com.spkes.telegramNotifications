@@ -256,5 +256,8 @@
   },
   "2.10.1": {
     "en": "Bug fix. (Fixed an issue where empty buttons would be saved/changed to empty after editing a question)"
+  },
+  "2.10.2": {
+    "en": "Added Throttler"
   }
 }
