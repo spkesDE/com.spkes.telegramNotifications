@@ -109,6 +109,15 @@ export default class HandleQuestions {
         id: ctx.callbackQuery.message?.message_id ?? 0,
       };
 
+      //Trigger Card with given state
+      const state = {
+        uuid: question.UUID, answer: Question.getAnswer(question, answerId), answerId: answerId, customId: customId
+      };
+      await receiveQuestionAnswerAutocomplete.trigger(token, state);
+      await receiveQuestionAnswerAutocompleteWithCustomId.trigger(token, state).catch(app.error);
+      await receiveQuestionAnswerTrigger.trigger(token, state).catch(app.error); //Deprecated Flow
+      await receiveQuestionAnswerWithAnswerTrigger.trigger(token, state);  //Deprecated Flow
+
       if (question.keepButtons && question.checkmark) {
         let keyboard = Question.createKeyboard(question, {
           replace: answerId,
@@ -124,15 +133,6 @@ export default class HandleQuestions {
           }).catch(app.error);
         }, 5000)
       }
-
-      //Trigger Card with given state
-      const state = {
-        uuid: question.UUID, answer: Question.getAnswer(question, answerId), answerId: answerId, customId: customId
-      };
-      await receiveQuestionAnswerTrigger.trigger(token, state).catch(app.error); //Deprecated Flow
-      await receiveQuestionAnswerWithAnswerTrigger.trigger(token, state);
-      await receiveQuestionAnswerAutocomplete.trigger(token, state);
-      await receiveQuestionAnswerAutocompleteWithCustomId.trigger(token, state).catch(app.error);
       if (!question.keepButtons) {
         const keyboardRow = [InlineKeyboard.text(question.buttons[answerId], 'ignore-me')];
         await ctx.editMessageReplyMarkup({
