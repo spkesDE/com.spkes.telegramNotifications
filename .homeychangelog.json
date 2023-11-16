@@ -259,5 +259,8 @@
   },
   "2.10.2": {
     "en": "Added Throttler"
+  },
+  "2.10.3": {
+    "en": "Enabled debuggung for a user with issues"
   }
 }
