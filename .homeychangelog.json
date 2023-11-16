@@ -262,5 +262,8 @@
   },
   "2.10.3": {
     "en": "Enabled debuggung for a user with issues"
+  },
+  "2.10.4": {
+    "en": "Maybe a bug fix"
   }
 }
