@@ -68,6 +68,23 @@
     color: var(--color-mono-10);
 }
 
+.fancySelect {
+    border-radius: var(--border-radius-small);
+    font-size: var(--font-size-default);
+    font-weight: var(--font-weight-regular);
+    border-color: var(--color-mono-10);
+    padding: var(--su-05);
+    padding-left: var(--su-2);
+    padding-right: var(--su-2);
+    color: var(--color-mono-60);
+}
+
+.fancySelect option {
+    color: var(--color-mono-60);
+    font-size: var(--font-size-default);
+    font-weight: var(--font-weight-regular);
+}
+
 .noButton {
     background: var(--bg-color-gray) none;
     color: var(--color-mono-10);

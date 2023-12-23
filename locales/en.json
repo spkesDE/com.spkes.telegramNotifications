@@ -1,23 +1,44 @@
 {
+  "commands": {
+    "registertopic": "Register the topic",
+    "start": "Register the chat"
+  },
+  "newUser": {
+    "error": "Something went wrong! Can't get the Chat Id",
+    "knownChat": "Already in the user list!",
+    "register": "Register this Telegram chat.",
+    "register2": "Press the button below to register this chat!",
+    "welcome": "Welcome to the Homey Telegram Bot!",
+    "wrongPassword": "Wrong password."
+  },
+  "questions": {
+    "notFound": "ERROR: Question not found. Did the question get deleted?"
+  },
   "settings": {
-    "mainMenu": {
-      "questions": "Question",
-      "settings": "Bot Settings",
-      "users": "Users / Group Chats",
-      "debugMenu": "Debug Menu",
-      "topics": "Topics",
-      "logs": "App Logs"
+    "aboutMenu": {
+      "community": "You, the Homey Community",
+      "contributor": "__name__ (Contributor and Developer)",
+      "contributors": "This app wouldn't be the same without these awesome people",
+      "dev": "__name__ (Developer for __app__)",
+      "joinTelegram": "Join the community telegram group!",
+      "title": "About",
+      "translator": "__name__ (Translation for __lang__)",
+      "using": "This app uses the following awesome tools and languages"
     },
     "botSettings": {
       "botSettings": "Bot Settings",
       "botToken": "Bot Token",
       "botTokenPlaceholder": "Enter your token here!",
-      "usePassword": "Use Password",
-      "password": "Password",
-      "passwordPlaceholder": "Enter your password here!",
-      "passwordHint": "To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram",
+      "disableWebPagePreview": "Disables link previews for links",
+      "markdown": {
+        "html": "HTML",
+        "markdownV2": "MarkdownV2",
+        "none": "Off"
+      },
       "miscSettings": "Miscellaneous Settings",
-      "useBll": "Enable Better Logic Library Support",
+      "password": "Password",
+      "passwordHint": "To Register a user/chat now you have to enter /start [yourPassword] to the bot via Telegram",
+      "passwordPlaceholder": "Enter your password here!",
       "saveChanges": "Save Changes",
       "setup": {
         "step1": "Set up your own Telegram bot. This is fully secure and private, since you are the only one who can access the message archive. Enter @Botfather in the search tab of Telegram and choose the @Botfather bot.",
@@ -28,82 +49,110 @@
         "step4": "Write your bot over Telegram /start and follow the instructions.",
         "step4-1": "Each user has to also send the Bot the /start command. You can share the Bot via Telegram over the profile or search for the like you searched for the BotFather bot.",
         "title": "How to setup"
-      }
+      },
+      "useBll": "Enable Better Logic Library Support",
+      "useMarkdown": "Use Markdown",
+      "usePassword": "Use Password"
     },
-    "questionMenu": {
-      "addQuestion": "Add a Question",
-      "editQuestion": "Edit a Question",
-      "questions": "Questions",
-      "question": "Question",
-      "questionPlaceholder": "Enter a Question...",
-      "keepButton": "Keep the Buttons",
-      "disableNotifications": "Disable notifications",
-      "btnPerRow": "Buttons per row",
-      "addAnswer": "Add Answer",
-      "answerPlaceholder": "Enter your answer...",
-      "saveQuestion": "Save the Question",
-      "deleteQuestion": "Delete the Question",
-      "questionPopup": "Are you sure you want to delete this question? This action can't be undone!"
-    },
-    "userMenu": {
-      "users": "Users",
-      "user": "User",
-      "group": "Group",
-      "supergroup": "Supergroup",
-      "unknown": "Unknown",
-      "legend": "Legend"
-    },
-    "topicsMenu": {
-      "topicsMenu": "Topics"
-    },
-    "logMenu": {
-      "logs": "Logs",
-      "showInfoLogs": "Show Information logs",
-      "showDebugLogs": "Show Debug logs",
-      "info": "Info",
-      "error": "Error",
-      "debug": "Debug",
-      "copy": "Copy"
+    "chatGTPSettings": {
+      "apiKey": "API-Key",
+      "enable": "Activate",
+      "title": "Chat GTP",
+      "useGtp": "Use ChatGTP"
     },
     "debugMenu": {
       "debugMenu": "Debug Menu",
-      "status": "Status",
-      "users": "Users",
-      "useBll": "Use Better Logic Library",
-      "questions": "Questions",
-      "token": "Token",
-      "usePassword": "Use password",
-      "password": "Password",
-      "logs": "Logs",
+      "disableWebPagePreview": "Disable Web Page Preview",
       "fuckedUpMenu": "I fucked up, man! - Menu",
-      "resetUsers": "Reset users",
-      "resetQuestions": "Reset Questions",
+      "fuckedUpWarning": "Are you sure you want to run the action __action__ This action can't be undone!",
+      "logs": "Logs",
+      "markdown": "Markdown",
+      "password": "Password",
+      "questions": "Questions",
+      "resetEverything": "Reset Everything",
       "resetLogs": "Reset Users",
       "resetPassword": "Reset Password",
-      "resetEverything": "Reset Everything",
-      "fuckedUpWarning": "Are you sure you want to run the action __action__ This action can't be undone!"
+      "resetQuestions": "Reset Questions",
+      "resetUsers": "Reset users",
+      "status": "Status",
+      "token": "Token",
+      "useBll": "Use Better Logic Library",
+      "usePassword": "Use password",
+      "users": "Users"
+    },
+    "logMenu": {
+      "copy": "Copy",
+      "debug": "Debug",
+      "error": "Error",
+      "info": "Info",
+      "logs": "Logs",
+      "showDebugLogs": "Show Debug logs",
+      "showInfoLogs": "Show Information logs"
+    },
+    "mainMenu": {
+      "about": "About",
+      "debugMenu": "Debug Menu",
+      "logs": "App Logs",
+      "questions": "Question",
+      "settings": "Bot Settings",
+      "topics": "Topics",
+      "users": "Users / Group Chats"
+    },
+    "misc": {
+      "back": "Back",
+      "edit": "Edit",
+      "empty": "Empty",
+      "loading": "Loading",
+      "no": "No",
+      "soon": "Coming soon",
+      "warning": "Warning",
+      "yes": "Yes"
+    },
+    "questionMenu": {
+      "addAnswer": "Add Answer",
+      "addQuestion": "Add a Question",
+      "answerPlaceholder": "Enter your answer...",
+      "btnPerRow": "Buttons per row",
+      "checkMark": "Checkmark",
+      "checkMarkTooltip": "Briefly replace the button text with a check.",
+      "deleteQuestion": "Delete the Question",
+      "disableNotifications": "Disable notifications",
+      "editQuestion": "Edit a Question",
+      "keepButton": "Keep the Buttons",
+      "question": "Question",
+      "questionPlaceholder": "Enter a Question...",
+      "questionPopup": "Are you sure you want to delete this question? This action can't be undone!",
+      "questions": "Questions",
+      "saveQuestion": "Save the Question",
+      "showAsGrid": "Show answers as grid"
     },
     "status": {
       "bot": "Bot",
       "chats": "Chats",
-      "questions": "Questions",
-      "logSize": "Log Size: __value__ (Max: 100)",
       "errors": "Errors",
+      "logSize": "Log Size: __value__ (Max: 100)",
+      "questions": "Questions",
       "state": {
-        "on": "Online",
         "off": "Offline",
+        "on": "Online",
         "unknown": "Unknown"
       }
     },
-    "misc": {
-      "loading": "Loading",
-      "soon": "Coming soon",
-      "back": "Back",
-      "edit": "Edit",
-      "yes": "Yes",
-      "no": "No",
-      "warning": "Warning",
-      "empty": "Empty"
+    "topicsMenu": {
+      "topicsMenu": "Topics"
+    },
+    "userMenu": {
+      "group": "Group",
+      "legend": "Legend",
+      "supergroup": "Supergroup",
+      "unknown": "Unknown",
+      "user": "User",
+      "users": "Users"
     }
+  },
+  "topics": {
+    "knownTopic": "Topic is already registered.",
+    "noTopic": "Chat is not a forum/topic chat.",
+    "notRegistered": "Chat is not registered."
   }
 }

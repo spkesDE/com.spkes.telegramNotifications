@@ -1,0 +1,58 @@
+.answerInput {
+    flex: 1;
+    min-height: 45px;
+    background: var(--white);
+    box-shadow: var(--box-shadow-light);
+    font-size: var(--font-size-small);
+    line-height: var(--font-size-small);
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.answerInputBreak {
+    flex-basis: 100% !important;
+}
+
+.answerInput.cornerTopLeft {
+    border-top-left-radius: var(--border-radius);
+}
+
+.answerInput.cornerTopRight {
+    border-top-right-radius: var(--border-radius);
+}
+
+.answerInput.cornerBottomLeft {
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.answerInput.cornerBottomRight {
+    border-bottom-right-radius: var(--border-radius);
+}
+
+
+.answerInput:not(.noPadding) {
+    padding: 0 var(--su-2);
+}
+
+.answerInput.flexCol {
+    flex-direction: column;
+}
+
+.answerInput.flexStart {
+    align-items: flex-start;
+}
+
+.answerInput ol {
+    margin-bottom: 0;
+}
+
+.answerInput.fullPadding {
+    padding: var(--su-2);
+}
+
+.answerInput > h2 {
+    margin-bottom: 0;
+}

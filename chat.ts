@@ -5,9 +5,9 @@ export default class Chat {
     topics?: Topic[] = [];
 
     constructor(chatId: number, chatName: string, type: number) {
-        this.chatName = chatName;
-        this.chatId = chatId;
-        this.type = type;
+      this.chatName = chatName;
+      this.chatId = chatId;
+      this.type = type;
     }
 }
 
@@ -16,8 +16,8 @@ export class Topic {
     topicName: string
 
     constructor(topicId: number, topicName: string) {
-        this.topicId = topicId;
-        this.topicName = topicName;
+      this.topicId = topicId;
+      this.topicName = topicName;
     }
 }
 

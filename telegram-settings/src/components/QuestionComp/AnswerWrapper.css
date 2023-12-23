@@ -1,0 +1,4 @@
+.answerWrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
