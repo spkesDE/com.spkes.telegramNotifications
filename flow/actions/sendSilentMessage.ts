@@ -12,7 +12,9 @@ export default class SendSilentMessage {
             {
               disable_notification: true,
               parse_mode: app.markdown,
-                disable_web_page_preview: app.disableWebPagePreview,
+              link_preview_options: {
+                is_disabled: !app.disableWebPagePreview
+              },
               message_thread_id: args.user.topic
             }
           );

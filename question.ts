@@ -62,7 +62,9 @@ export default class Question {
                 disable_notification: q.disable_notification ?? false,
                 message_thread_id: opts?.topic ?? undefined,
                 parse_mode: app.markdown,
-                disable_web_page_preview: app.disableWebPagePreview,
+                link_preview_options: {
+                    is_disabled: !app.disableWebPagePreview
+                },
                 reply_markup: keyboard
             }).then((response) => {
                 if (opts?.customId != undefined && opts?.customId.length < 21) {
