@@ -96,6 +96,7 @@ export default class HandleQuestions {
         await ctx.reply(app.homey.__("questions.notFound"));
         throw new Error('Question with UUID ' + questionId + ' not found');
       }
+      app.debug(`State of handleQuestions is: ${question.UUID} Answer: ${answerId} CustomId: ${customId}}`)
       // https://apps.developer.homey.app/the-basics/flow/arguments#flow-state
       //Building Token
       const token = {
@@ -108,17 +109,24 @@ export default class HandleQuestions {
         chatId: ctx.chat.id,
         id: ctx.callbackQuery.message?.message_id ?? 0,
       };
+      app.debug(`Token: ${JSON.stringify(token)}`);
 
       //Trigger Card with given state
       const state = {
         uuid: question.UUID, answer: Question.getAnswer(question, answerId), answerId: answerId, customId: customId
       };
-      await receiveQuestionAnswerAutocomplete.trigger(token, state);
-      await receiveQuestionAnswerAutocompleteWithCustomId.trigger(token, state).catch(app.error);
-      await receiveQuestionAnswerTrigger.trigger(token, state).catch(app.error); //Deprecated Flow
-      await receiveQuestionAnswerWithAnswerTrigger.trigger(token, state);  //Deprecated Flow
+      app.debug(`State: ${JSON.stringify(state)}`);
+      void receiveQuestionAnswerAutocomplete.trigger(token, state).catch(app.error);
+      app.debug(`Triggered receiveQuestionAnswerAutocomplete`)
+      void receiveQuestionAnswerAutocompleteWithCustomId.trigger(token, state).catch(app.error);
+      app.debug(`Triggered receiveQuestionAnswerAutocompleteWithCustomId`)
+      void receiveQuestionAnswerTrigger.trigger(token, state).catch(app.error); //Deprecated Flow
+      app.debug(`Triggered receiveQuestionAnswerTrigger (Deprecated)`)
+      void receiveQuestionAnswerWithAnswerTrigger.trigger(token, state).catch(app.error);  //Deprecated Flow
+      app.debug(`Triggered receiveQuestionAnswerWithAnswerTrigger (Deprecated)`)
 
       if (question.keepButtons && question.checkmark) {
+        app.debug(`Keep Buttons and Checkmark is true`)
         let keyboard = Question.createKeyboard(question, {
           replace: answerId,
           replaceWith: "✅",
@@ -126,11 +134,13 @@ export default class HandleQuestions {
         await ctx.editMessageReplyMarkup({
           reply_markup: keyboard,
         }).catch(app.error);
+        app.debug(`Edited Message Reply Markup`)
 
         app.homey.setTimeout(() => {
           ctx.editMessageReplyMarkup({
             reply_markup: Question.createKeyboard(question),
           }).catch(app.error);
+          app.debug(`Edited Message Reply Markup back to normal`)
         }, 5000)
       }
       if (!question.keepButtons) {
@@ -139,7 +149,9 @@ export default class HandleQuestions {
           reply_markup: InlineKeyboard.from([keyboardRow]),
         }).catch(app.error);
       }
+      app.debug(`Answered question ${question.UUID} with answer ${answerId}`)
       await ctx.answerCallbackQuery().catch(app.error);
+      app.debug(`Handled Question is done`)
     });
   }
 }

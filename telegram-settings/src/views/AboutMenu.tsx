@@ -37,11 +37,12 @@ export default class AboutMenu extends React.Component<Props, State> {
                     <MenuContentWrapper>
                         <h2>{Homey.__("settings.aboutMenu.using")}</h2>
                         <ul>
-                            <li>Grammy.dev <Badge color={BadgeColor.ORANGE} size={BadgeSize.SMALL}>v1.17.2</Badge></li>
+                            <li>Grammy.dev <Badge color={BadgeColor.ORANGE} size={BadgeSize.SMALL}>v1.20</Badge></li>
                             <li>Better Logic Library <Badge color={BadgeColor.MAGENTA}
-                                                            size={BadgeSize.SMALL}>v0.9.18</Badge></li>
-                            <li>React</li>
-                            <li>Typescript</li>
+                                                            size={BadgeSize.SMALL}>v0.10</Badge></li>
+                            <li>Node-fetch <Badge color={BadgeColor.BLUE} size={BadgeSize.SMALL}>v3</Badge></li>
+                            <li>React <Badge color={BadgeColor.CYAN} size={BadgeSize.SMALL}>v18</Badge></li>
+                            <li>Typescript, because it's better!</li>
                         </ul>
                     </MenuContentWrapper>
                 </MenuItemGroup>
@@ -54,6 +55,7 @@ export default class AboutMenu extends React.Component<Props, State> {
                                 lang: "🇬🇧 🇳🇱"
                             })}</li>
                             <li>{Homey.__("settings.aboutMenu.translator", {name: "ilpaolino", lang: "🇮🇹"})}</li>
+                            <li>{Homey.__("settings.aboutMenu.translator", {name: "oleg", lang: "🇷🇺"})}</li>
                             <li>{Homey.__("settings.aboutMenu.translator", {
                                 name: "ChatGTP-3",
                                 lang: "🇵🇱 🇪🇸 🇩🇰 🇸🇪 🇳🇴 🇫🇷"

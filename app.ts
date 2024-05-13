@@ -35,6 +35,7 @@ export class TelegramNotifications extends HomeyApp {
     customIdMessages: { message_id: number; chat_id: number; customId: string; }[] = [];
     markdown: ParseMode | undefined = undefined;
     disableWebPagePreview = false;
+    private debugMode: Boolean = false;
 
     async onInit() {
       this.token = await this.homey.settings.get('bot-token');
@@ -168,6 +169,7 @@ export class TelegramNotifications extends HomeyApp {
     }
 
     public debug(message: unknown) {
+        if (!this.debugMode) return
       this.writeLog(message, 2).then();
       this.homey.log(message);
     }
