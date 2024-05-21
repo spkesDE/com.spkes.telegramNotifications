@@ -83,6 +83,7 @@
     --border-radius-small: 5px;
     --su: 8px;
     --su-1: var(--su);
+    --su-05: calc(var(--su) * 0.5);
     --su-2: calc(var(--su) * 2);
     --su-3: calc(var(--su) * 3);
     --su-4: calc(var(--su) * 4);
@@ -96,6 +97,7 @@
     --bg-color-magenta: #ec3a51;
     --bg-color-purple: #5655dc;
     --bg-color-gray: #8f8f91;
+    --bg-color-cyan: #00a9d1;
 }
 
 html > body {

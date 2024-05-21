@@ -3,6 +3,7 @@ export interface Question {
     UUID: string;
     buttons: string[];
     keepButtons: boolean;
+    checkmark: boolean;
     disable_notification: boolean;
     columns: number;
 }

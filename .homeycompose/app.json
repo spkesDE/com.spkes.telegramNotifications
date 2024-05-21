@@ -1,6 +1,6 @@
 {
   "id": "com.spkes.telegramNotifications",
-  "version": "2.7.0",
+  "version": "2.12.0",
   "compatibility": ">=8.1.0",
   "sdk": 3,
   "brandColor": "#229ED9",
@@ -87,7 +87,7 @@
         "email": ""
       },
       {
-        "name": "telegraf.js - v4.11.2",
+        "name": "grammy.dev - v1.17.1",
         "email": ""
       }
     ],
@@ -114,6 +114,7 @@
     "url": "https://github.com/spkesDE/TelegramNotifications/issues"
   },
   "source": "https://github.com/spkesDE/TelegramNotifications",
-  "support": "https://github.com/spkesDE",
+  "support": "https://t.me/homeyCommunity",
+  "homepage": "https://t.me/homeyCommunity",
   "homeyCommunityTopicId": 66622
 }

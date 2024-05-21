@@ -1,0 +1,158 @@
+{
+  "commands": {
+    "registertopic": "Registrer emnet",
+    "start": "Registrer chatten"
+  },
+  "newUser": {
+    "error": "Noget gik galt! Kan ikke hente chat-id.",
+    "knownChat": "Allerede på brugerlisten!",
+    "register": "Registrer denne Telegram-chat.",
+    "register2": "Tryk på knappen nedenfor for at registrere denne chat!",
+    "welcome": "Velkommen til Homey Telegram Bot!",
+    "wrongPassword": "Forkert adgangskode."
+  },
+  "questions": {
+    "notFound": "FEJL: Spørgsmål ikke fundet. Blev spørgsmålet slettet?"
+  },
+  "settings": {
+    "aboutMenu": {
+      "community": "Du, Homey-fællesskabet",
+      "contributor": "__name__ (Bidragyder og Udvikler)",
+      "contributors": "Denne app ville ikke være det samme uden disse fantastiske mennesker",
+      "dev": "__name__ (Udvikler for __app__)",
+      "joinTelegram": "Deltag i fællesskabets Telegram-gruppe!",
+      "title": "Om",
+      "translator": "__name__ (Oversættelse for __lang__)",
+      "using": "Denne app bruger følgende fantastiske værktøjer og sprog"
+    },
+    "botSettings": {
+      "botSettings": "Bot-indstillinger",
+      "botToken": "Bot-token",
+      "botTokenPlaceholder": "Indtast din token her!",
+      "disableWebPagePreview": "Deaktiverer linkforsigtighed for links",
+      "markdown": {
+        "html": "HTML",
+        "markdownV2": "MarkdownV2",
+        "none": "Ingen"
+      },
+      "miscSettings": "Diverse indstillinger",
+      "password": "Adgangskode",
+      "passwordHint": "For at registrere en bruger/chat, skal du sende /start [DinAdgangskode] til botten via Telegram",
+      "passwordPlaceholder": "Indtast din adgangskode her!",
+      "saveChanges": "Gem ændringer",
+      "setup": {
+        "step1": "Konfigurér din egen Telegram-bot. Dette er fuldstændig sikkert og privat, da du er den eneste, der kan få adgang til meddelelsesarkivet. Søg efter @Botfather på Telegram og vælg botten @Botfather.",
+        "step2": "Klik på \"Start\" for at aktivere @BotFather-botten, eller skriv /newbot.",
+        "step2-1": "/setjoingroup deaktiverer, at botten kan deltage i en gruppe.",
+        "step2-2": "/setprivacy deaktiverer, at botten kan læse meddelelser i en gruppe",
+        "step3": "Indtast tokenet i appens indstillinger",
+        "step4": "Skriv /start til din bot via Telegram og følg instruktionerne.",
+        "step4-1": "Hver bruger skal også sende kommandoen /start til botten. Du kan dele botten via profilen eller søgningen på Telegram, præcis som du gjorde med @Botfather-botten.",
+        "title": "Sådan konfigurerer du botten"
+      },
+      "useBll": "Aktivér understøttelse af Better Logic Library",
+      "useMarkdown": "Brug Markdown",
+      "usePassword": "Brug adgangskode"
+    },
+    "chatGTPSettings": {
+      "apiKey": "API-nøgle",
+      "enable": "Aktivér",
+      "title": "Chat GTP",
+      "useGtp": "Brug Chat GTP"
+    },
+    "debugMenu": {
+      "debugMenu": "Fejlfinding-menu",
+      "disableWebPagePreview": "Deaktiver websideforhåndsvisning",
+      "fuckedUpMenu": "Jeg har ødelagt alt, mand! - Menu",
+      "fuckedUpWarning": "Er du sikker på, at du vil udføre handlingen __action__? Denne handling kan ikke fortrydes!",
+      "logs": "Logs",
+      "markdown": "Markdown",
+      "password": "Adgangskode",
+      "questions": "Spørgsmål",
+      "resetEverything": "Nulstil alt",
+      "resetLogs": "Nulstil logs",
+      "resetPassword": "Nulstil adgangskode",
+      "resetQuestions": "Nulstil spørgsmål",
+      "resetUsers": "Nulstil brugere",
+      "status": "Status",
+      "token": "Token",
+      "useBll": "Brug Better Logic Library",
+      "usePassword": "Brug adgangskode",
+      "users": "Brugere"
+    },
+    "logMenu": {
+      "copy": "Kopier",
+      "debug": "Fejlfinding",
+      "error": "Fejl",
+      "info": "Information",
+      "logs": "Logs",
+      "showDebugLogs": "Vis fejlfindingslogs",
+      "showInfoLogs": "Vis informationslogs"
+    },
+    "mainMenu": {
+      "about": "Om",
+      "debugMenu": "Fejlfinding-menu",
+      "logs": "App-logs",
+      "questions": "Spørgsmål",
+      "settings": "Bot-indstillinger",
+      "topics": "Emner",
+      "users": "Brugere/Gruppechats"
+    },
+    "misc": {
+      "back": "Tilbage",
+      "edit": "Rediger",
+      "empty": "Tom",
+      "loading": "Indlæser",
+      "no": "Nej",
+      "soon": "Kommer snart",
+      "warning": "Advarsel",
+      "yes": "Ja"
+    },
+    "questionMenu": {
+      "addAnswer": "Tilføj svar",
+      "addQuestion": "Tilføj spørgsmål",
+      "answerPlaceholder": "Indtast dit svar...",
+      "btnPerRow": "Knapper pr. række",
+      "checkMark": "Afkrydsningsmarkering",
+      "checkMarkTooltip": "Skift kortvarigt knapteksten til en afkrydsning.",
+      "deleteQuestion": "Slet spørgsmål",
+      "disableNotifications": "Deaktiver notifikationer",
+      "editQuestion": "Rediger spørgsmål",
+      "keepButton": "Behold knapper",
+      "question": "Spørgsmål",
+      "questionPlaceholder": "Indtast et spørgsmål...",
+      "questionPopup": "Er du sikker på, at du vil slette dette spørgsmål? Denne handling kan ikke fortrydes!",
+      "questions": "Spørgsmål",
+      "saveQuestion": "Gem spørgsmål",
+      "showAsGrid": "Vis svar som gitter"
+    },
+    "status": {
+      "bot": "Bot",
+      "chats": "Chats",
+      "errors": "Fejl",
+      "logSize": "Logstørrelse: __value__ (maksimalt: 100)",
+      "questions": "Spørgsmål",
+      "state": {
+        "off": "Slukket",
+        "on": "Tændt",
+        "unknown": "Ukendt"
+      }
+    },
+    "topicsMenu": {
+      "topicsMenu": "Emner"
+    },
+    "userMenu": {
+      "group": "Gruppe",
+      "legend": "Forklaring",
+      "supergroup": "Supergruppe",
+      "unknown": "Ukendt",
+      "user": "Bruger",
+      "users": "Brugere"
+    }
+  },
+  "topics": {
+    "knownTopic": "Emnet er allerede registreret.",
+    "noTopic": "Chatten er ikke en forum-/emnechat.",
+    "notRegistered": "Chatten er ikke registreret."
+  }
+}

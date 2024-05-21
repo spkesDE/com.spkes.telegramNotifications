@@ -193,5 +193,89 @@
   },
   "2.7.0": {
     "en": "Added \"A message from Topic is received\". Thanks to enyineer / nico for programming this!"
+  },
+  "2.7.1": {
+    "en": "Fixed an error where tagged images that where created as a URL based homey image wasn't being followed on redirects"
+  },
+  "2.8.0": {
+    "en": "Changed Telegram API, Added Markdown support, Added about page"
+  },
+  "2.8.1": {
+    "en": "Translations, Custom Bot commands will be not overwritten anymore"
+  },
+  "2.8.3": {
+    "en": "Changed Questions Menu view"
+  },
+  "2.8.4": {
+    "en": "Changed Questions Menu view"
+  },
+  "2.8.5": {
+    "en": "Added placeholder questions"
+  },
+  "2.8.6": {
+    "en": "Changed Default Question option to start only"
+  },
+  "2.8.7": {
+    "en": "Bug fixes"
+  },
+  "2.8.8": {
+    "en": "Bug fixes"
+  },
+  "2.8.9": {
+    "en": "Bug fixes"
+  },
+  "2.8.10": {
+    "en": "Adds a option to disable web page previews"
+  },
+  "2.8.11": {
+    "en": "Added temp. checkmark for successful question callbacks"
+  },
+  "2.9.0": {
+    "en": "Bug fixes"
+  },
+  "2.9.1": {
+    "en": "Bug fixes"
+  },
+  "2.9.2": {
+    "en": "Possible Performance improvments while sending local images"
+  },
+  "2.9.3": {
+    "en": "Possible Performance improvements while sending local images"
+  },
+  "2.9.4": {
+    "en": "Bug fixes"
+  },
+  "2.9.5": {
+    "en": "Bug fixes"
+  },
+  "2.9.6": {
+    "en": "Bug fixes"
+  },
+  "2.10.0": {
+    "en": "Performance improvements while sending local images"
+  },
+  "2.10.1": {
+    "en": "Bug fix. (Fixed an issue where empty buttons would be saved/changed to empty after editing a question)"
+  },
+  "2.10.2": {
+    "en": "Added Throttler"
+  },
+  "2.10.3": {
+    "en": "Enabled debuggung for a user with issues"
+  },
+  "2.10.4": {
+    "en": "Maybe a bug fix"
+  },
+  "2.10.5": {
+    "en": "Bug fixes"
+  },
+  "2.11.0": {
+    "en": "Updated Dependencies"
+  },
+  "2.11.1": {
+    "en": "Bug fixes"
+  },
+  "2.12.0": {
+    "en": "Updated deps"
   }
 }

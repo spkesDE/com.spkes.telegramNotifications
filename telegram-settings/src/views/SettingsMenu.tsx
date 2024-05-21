@@ -15,8 +15,10 @@ interface Props {
 interface State {
     usePassword: boolean,
     useBLL: boolean,
+    disableWebPagePreview: boolean,
     password: string | undefined,
     token: string | undefined,
+    markdown: string | undefined,
     gotData: boolean
 }
 
@@ -26,8 +28,10 @@ class SettingsMenu extends React.Component<Props, State> {
         this.state = {
             usePassword: false,
             useBLL: false,
+            disableWebPagePreview: false,
             password: undefined,
             token: undefined,
+            markdown: undefined,
             gotData: process.env!.NODE_ENV === "development"
         }
     }
@@ -37,10 +41,14 @@ class SettingsMenu extends React.Component<Props, State> {
         this.setState({
             usePassword: await Homey.get('use-password') ?? false,
             useBLL: await Homey.get('useBll') ?? false,
+            disableWebPagePreview: await Homey.get('disableWebPagePreview') ?? false,
             password: await Homey.get('password') ?? undefined,
             token: await Homey.get('bot-token') ?? undefined,
+            markdown: await Homey.get('markdown') ?? undefined,
             gotData: true
-        })
+        });
+
+
     }
 
     render() {
@@ -94,6 +102,27 @@ class SettingsMenu extends React.Component<Props, State> {
                         <Switch id={"useBll"} onChange={(e) => this.handleUseBll(e.currentTarget.checked)}
                                 value={this.state.useBLL}/>
                     </MenuItemWrapper>
+                    <MenuItemWrapper>
+                        <h2>{Homey.__('settings.botSettings.useMarkdown')}</h2>
+                        <select className={"fancySelect"} id={"useMarkdown"}
+                                onChange={(e) => this.handleUseMarkdown(e.currentTarget.value)}>
+                            <option value="none" selected={this.state.markdown === undefined}>
+                                {Homey.__("settings.botSettings.markdown.none")}
+                            </option>
+                            <option value="MarkdownV2" selected={this.state.markdown === "MarkdownV2"}>
+                                {Homey.__("settings.botSettings.markdown.markdownV2")}
+                            </option>
+                            <option value="HTML" selected={this.state.markdown === "HTML"}>
+                                {Homey.__("settings.botSettings.markdown.html")}
+                            </option>
+                        </select>
+                    </MenuItemWrapper>
+                    <MenuItemWrapper>
+                        <h2>{Homey.__('settings.botSettings.disableWebPagePreview')}</h2>
+                        <Switch id={"disableWebPagePreview"}
+                                onChange={(e) => this.handleDisableWebPagePreview(e.currentTarget.checked)}
+                                value={this.state.disableWebPagePreview}/>
+                    </MenuItemWrapper>
                 </MenuItemGroup>
                 <MenuItemGroup>
                     <MenuItemWrapper className={"noPadding"}>
@@ -133,7 +162,14 @@ class SettingsMenu extends React.Component<Props, State> {
         await Homey.set('bot-token', this.state.token);
         await Homey.set('use-password', this.state.usePassword ?? false);
         await Homey.set('useBll', this.state.useBLL ?? false);
-        await Homey.set('password', this.state.password);
+        await Homey.set('disableWebPagePreview', this.state.disableWebPagePreview ?? false);
+        if (this.state.usePassword && this.state.password)
+            await Homey.set('password', this.state.password).catch((r) => Homey.alert(r));
+        if (this.state.markdown)
+            await Homey.set('markdown', this.state.markdown);
+        else
+            await Homey.unset('markdown');
+
         this.setState({gotData: true})
         console.log("Saved Settings")
     }
@@ -144,10 +180,21 @@ class SettingsMenu extends React.Component<Props, State> {
         })
     };
 
-
     private handleUseBll(value: boolean) {
         this.setState({
             useBLL: value,
+        })
+    }
+
+    private handleDisableWebPagePreview(value: boolean) {
+        this.setState({
+            disableWebPagePreview: value,
+        })
+    }
+
+    private handleUseMarkdown(value: string | undefined) {
+        this.setState({
+            markdown: value
         })
     }
 }
