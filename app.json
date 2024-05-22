@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.spkes.telegramNotifications",
-  "version": "2.12.0",
+  "version": "2.13.0",
   "compatibility": ">=8.1.0",
   "sdk": 3,
   "brandColor": "#229ED9",
@@ -1468,10 +1468,10 @@
           "nl": "Verstuur een afbeelding"
         },
         "titleFormatted": {
-          "en": "Send an image [[url]] to [[user]]",
-          "it": "Invia una Immagine [[url]] a [[user]]",
-          "de": "Bild [[url]] an [[user]] senden",
-          "nl": "Afbeelding [[url]] naar [[user]] versturen"
+          "en": "Send an image [[url]] to [[user]] ([[disable_notification]])",
+          "it": "Invia una Immagine [[url]] a [[user]] ([[disable_notification]])",
+          "de": "Bild [[url]] an [[user]] senden ([[disable_notification]])",
+          "nl": "Afbeelding [[url]] naar [[user]] versturen ([[disable_notification]])"
         },
         "hint": {
           "en": "Sends a Image to your Telegram chat. Only HTTPS is supported.",
@@ -1511,6 +1511,23 @@
               "de": "Erstellt mit <3",
               "nl": "Gemaakt met <3"
             }
+          },
+          {
+            "type": "checkbox",
+            "name": "disable_notification",
+            "title": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "placeholder": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "required": false
           }
         ],
         "id": "send-a-image"
@@ -1523,10 +1540,10 @@
           "nl": "Verstuur een afbeelding met een bericht"
         },
         "titleFormatted": {
-          "en": "Send image [[url]] to [[user]] with the message [[message]]",
-          "it": "Invia immagine [[url]] a [[user]] con il messaggio [[message]]",
-          "de": "Bild [[url]] mit Nachricht [[message]] an [[user]] senden",
-          "nl": "Stuur afbeelding [[url]] naar [[user]] met het bericht [[message]]"
+          "en": "Send image [[url]] to [[user]] with the message [[message]] ([[disable_notification]])",
+          "it": "Invia immagine [[url]] a [[user]] con il messaggio [[message]] ([[disable_notification]])",
+          "de": "Bild [[url]] mit Nachricht [[message]] an [[user]] senden ([[disable_notification]])",
+          "nl": "Stuur afbeelding [[url]] naar [[user]] met het bericht [[message]] ([[disable_notification]])"
         },
         "hint": {
           "en": "Sends a Image to your Telegram chat. Only HTTPS is supported.",
@@ -1582,6 +1599,23 @@
               "de": "Erstellt mit <3",
               "nl": "Gemaakt met <3"
             }
+          },
+          {
+            "type": "checkbox",
+            "name": "disable_notification",
+            "title": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "placeholder": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "required": false
           }
         ],
         "id": "send-a-image-with-message"
@@ -1594,10 +1628,10 @@
           "nl": "Verstuur een afbeelding met een bericht"
         },
         "titleFormatted": {
-          "en": "Send image [[droptoken]] to [[user]] with the message [[message]]",
-          "it": "Invia immagine [[droptoken]] a [[user]] con il messaggio [[message]]",
-          "de": "Bild [[droptoken]] mit Nachricht [[message]] an [[user]] senden",
-          "nl": "Stuur afbeelding [[droptoken]] naar [[user]] met het bericht [[message]]"
+          "en": "Send image [[droptoken]] to [[user]] with the message [[message]] ([[disable_notification]])",
+          "it": "Invia immagine [[droptoken]] a [[user]] con il messaggio [[message]] ([[disable_notification]])",
+          "de": "Bild [[droptoken]] mit Nachricht [[message]] an [[user]] senden ([[disable_notification]])",
+          "nl": "Stuur afbeelding [[droptoken]] naar [[user]] met het bericht [[message]] ([[disable_notification]])"
         },
         "hint": {
           "en": "Sends a Image to your Telegram chat",
@@ -1640,6 +1674,23 @@
               "de": "Erstellt mit <3",
               "nl": "Gemaakt met <3"
             }
+          },
+          {
+            "type": "checkbox",
+            "name": "disable_notification",
+            "title": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "placeholder": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "required": false
           }
         ],
         "id": "send-a-image-with-message-and-tag"
@@ -1652,10 +1703,10 @@
           "nl": "Verstuur een afbeelding"
         },
         "titleFormatted": {
-          "en": "Send an image [[droptoken]] to [[user]]",
-          "it": "Invia una immagine [[droptoken]] a [[user]]",
-          "de": "Bild [[droptoken]] an [[user]] senden",
-          "nl": "Afbeelding [[droptoken]] naar [[user]] versturen"
+          "en": "Send an image [[droptoken]] to [[user]] ([[disable_notification]])",
+          "it": "Invia una immagine [[droptoken]] a [[user]] ([[disable_notification]])",
+          "de": "Bild [[droptoken]] an [[user]] senden ([[disable_notification]])",
+          "nl": "Afbeelding [[droptoken]] naar [[user]] versturen ([[disable_notification]])"
         },
         "hint": {
           "en": "Sends a Image to your Telegram chat",
@@ -1682,6 +1733,23 @@
               "de": "Erstellt mit <3",
               "nl": "Gemaakt met <3"
             }
+          },
+          {
+            "type": "checkbox",
+            "name": "disable_notification",
+            "title": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "placeholder": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "required": false
           }
         ],
         "id": "send-a-image-with-tag"
