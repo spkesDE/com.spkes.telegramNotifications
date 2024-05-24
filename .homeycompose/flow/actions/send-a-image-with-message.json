@@ -6,10 +6,10 @@
     "nl": "Verstuur een afbeelding met een bericht"
   },
   "titleFormatted": {
-    "en": "Send image [[url]] to [[user]] with the message [[message]]",
-    "it": "Invia immagine [[url]] a [[user]] con il messaggio [[message]]",
-    "de": "Bild [[url]] mit Nachricht [[message]] an [[user]] senden",
-    "nl": "Stuur afbeelding [[url]] naar [[user]] met het bericht [[message]]"
+    "en": "Send image [[url]] to [[user]] with the message [[message]] ([[disable_notification]])",
+    "it": "Invia immagine [[url]] a [[user]] con il messaggio [[message]] ([[disable_notification]])",
+    "de": "Bild [[url]] mit Nachricht [[message]] an [[user]] senden ([[disable_notification]])",
+    "nl": "Stuur afbeelding [[url]] naar [[user]] met het bericht [[message]] ([[disable_notification]])"
   },
   "hint": {
     "en": "Sends a Image to your Telegram chat. Only HTTPS is supported.",
@@ -65,6 +65,23 @@
         "de": "Erstellt mit <3",
         "nl": "Gemaakt met <3"
       }
+    },
+    {
+     "type": "checkbox",
+        "name": "disable_notification",
+        "title": {
+          "en": "Disable Notification",
+          "it": "Disabilita Notifica",
+          "de": "Benachrichtigung deaktivieren",
+          "nl": "Melding uitschakelen"
+        },
+        "placeholder": {
+          "en": "Disable Notification",
+          "it": "Disabilita Notifica",
+          "de": "Benachrichtigung deaktivieren",
+          "nl": "Melding uitschakelen"
+        },
+        "required": false
     }
   ]
 }

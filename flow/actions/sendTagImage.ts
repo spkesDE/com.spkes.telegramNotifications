@@ -26,7 +26,8 @@ export default class SendTagImage {
       }
       await app.bot.api.sendPhoto(args.user.id, new InputFile({url: url}, ""),
           {
-            message_thread_id: args.user.topic
+            message_thread_id: args.user.topic,
+            disable_notification: args.disable_notification ?? false,
           }
       ).catch(app.error);
     });

@@ -14,7 +14,8 @@ export default class SendImageWithMessage {
               {
                 parse_mode: app.markdown,
                 caption: await BL.decode(args.message),
-                message_thread_id: args.user.topic
+                message_thread_id: args.user.topic,
+                disable_notification: args.disable_notification ?? false,
               }
             );
           } catch (err) {

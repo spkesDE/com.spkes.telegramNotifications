@@ -11,7 +11,8 @@ export default class SendImage {
           try {
             await app.bot.api.sendPhoto(args.user.id, new InputFile({url: args.url}, ""),
               {
-                message_thread_id: args.user.topic
+                message_thread_id: args.user.topic,
+                disable_notification: args.disable_notification ?? false,
               }
             );
           } catch (err) {
