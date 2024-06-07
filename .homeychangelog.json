@@ -283,5 +283,8 @@
   },
   "2.14.0": {
     "en": "Added a send location flow card"
+  },
+  "2.14.1": {
+    "en": "Added send location as one string input"
   }
 }
