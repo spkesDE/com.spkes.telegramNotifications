@@ -280,5 +280,8 @@
   },
   "2.13.0": {
     "en": "Added `disable notification` field to send image flow cards. This field allows users to disable notifications when sending an image."
+  },
+  "2.14.0": {
+    "en": "Added a send location flow card"
   }
 }
