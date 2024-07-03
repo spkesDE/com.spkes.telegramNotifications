@@ -286,5 +286,8 @@
   },
   "2.14.1": {
     "en": "Added send location as one string input"
+  },
+  "2.15.0": {
+    "en": "Added Privacy Command. Check the settings to enable it."
   }
 }
