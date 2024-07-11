@@ -289,5 +289,8 @@
   },
   "2.15.0": {
     "en": "Added Privacy Command. Check the settings to enable it."
+  },
+  "2.15.1": {
+    "en": "Added Send a message by chat ID"
   }
 }

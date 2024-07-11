@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.spkes.telegramNotifications",
-  "version": "2.15.0",
+  "version": "2.15.1",
   "compatibility": ">=8.1.0",
   "sdk": 3,
   "brandColor": "#229ED9",
@@ -2407,6 +2407,55 @@
           }
         ],
         "id": "send-message-silent"
+      },
+      {
+        "title": {
+          "en": "Send a message by chat ID",
+          "it": "Invia messaggio per ID chat",
+          "de": "Eine Nachricht senden mit Chat-ID",
+          "nl": "Verstuur een bericht per chat-ID"
+        },
+        "titleFormatted": {
+          "en": "Send message [[message]] to [[user]] by chat ID",
+          "it": "Invia [[message]] a [[user]] per ID chat",
+          "de": "Nachricht [[message]] an [[user]] senden mittels Chat-ID",
+          "nl": "Bericht [[message]] naar [[user]] versturen per chat-ID"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "Message",
+              "it": "Messaggio",
+              "de": "Nachricht",
+              "nl": "Bericht"
+            },
+            "placeholder": {
+              "en": "Hello from Homey!",
+              "it": "Ciao da Homey!",
+              "de": "Hallo von Homey!",
+              "nl": "Hallo van Homey!"
+            }
+          },
+          {
+            "type": "text",
+            "name": "user",
+            "title": {
+              "en": "Chat-ID",
+              "it": "ID chat",
+              "de": "Chat-ID",
+              "nl": "Chat-ID"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-notification-with-chat-id"
       },
       {
         "highlight": true,
