@@ -23,12 +23,12 @@
     "aboutMenu": {
       "joinTelegram": "Unisciti al gruppo telegram della community!",
       "title": "Informazioni",
-      "using": "Questa app utilizza gli strumenti e i linguaggi fantastici seguenti",
-      "contributors": "Questa app non sarebbe la stessa senza queste persone fantastiche",
+      "using": "Questa app utilizza i seguenti fantastici strumenti e linguaggi",
+      "contributors": "Questa app non sarebbe la stessa senza queste fantastiche persone",
       "dev": "__name__ (Sviluppatore per __app__)",
       "contributor": "__name__ (Contributore e Sviluppatore)",
       "translator": "__name__ (Traduzione per __lang__)",
-      "community": "Tu, la Community di Homey"
+      "community": "Noi, la Community di Homey"
     },
     "botSettings": {
       "botSettings": "Impostazioni Bot",
@@ -36,43 +36,43 @@
       "botTokenPlaceholder": "Inserisci qui il tuo token!",
       "miscSettings": "Impostazioni Varie",
       "password": "Password",
-      "passwordHint": "Per registrare un utente/chat ora devi inserire /start [tuaPassword] al bot tramite Telegram",
+      "passwordHint": "Per registrare un utente/chat ora devi scrivere /start [tuaPassword] al bot tramite Telegram",
       "passwordPlaceholder": "Inserisci qui la tua password!",
       "saveChanges": "Salva Modifiche",
       "markdown": {
-        "none": "Fuori da",
+        "none": "Off",
         "markdownV2": "MarkdownV2",
         "html": "HTML"
       },
       "setup": {
-        "step1": "Configura il tuo bot Telegram personale. Questo è completamente sicuro e privato, poiché sei l'unico che può accedere all'archivio dei messaggi. Digita @Botfather nella barra di ricerca di Telegram e scegli il bot @Botfather.",
+        "step1": "Configura il tuo bot Telegram personale. Esso è completamente sicuro e privato, poiché sei l'unico che può accedere all'archivio dei messaggi. Digita @Botfather nella barra di ricerca di Telegram e scegli il bot @Botfather.",
         "step2": "Clicca su “Start” per attivare il bot @BotFather o digita /newbot.",
-        "step2-1": "/setjoingroup disabilita l'abilitazione del bot a unirsi a un gruppo.",
-        "step2-2": "/setprivacy disabilita la possibilità del bot di leggere i messaggi all'interno di un gruppo",
+        "step2-1": "/setjoingroup disattiva la possibilità del bot di unirsi ai gruppi.",
+        "step2-2": "/setprivacy disattiva la possibilità del bot di leggere i messaggi all'interno di un gruppo",
         "step3": "Inserisci il Token nelle impostazioni dell'app",
         "step4": "Scrivi al tuo bot su Telegram /start e segui le istruzioni.",
-        "step4-1": "Ogni utente deve inviare anche il comando /start al Bot. Puoi condividere il Bot su Telegram dal profilo o cercarlo come hai cercato il bot BotFather.",
+        "step4-1": "Ogni utente deve inviare il comando /start al Bot. Puoi condividere il Bot su Telegram dal profilo o cercarlo come hai cercato il bot BotFather.",
         "title": "Come Configurare"
       },
       "useBll": "Abilita il supporto alla Better Logic Library",
       "usePassword": "Usa Password",
-      "useMarkdown": "Usa Ribasso"
+      "useMarkdown": "Usa Markdown"
     },
     "chatGTPSettings": {
-      "apiKey": "",
-      "enable": "",
+      "apiKey": "Chiave API",
+      "enable": "Attiva",
       "title": "Chat GTP",
-      "useGtp": ""
+      "useGtp": "Usare ChatGPT?"
     },
     "debugMenu": {
       "debugMenu": "Menu Debug",
-      "fuckedUpMenu": "Ho fatto un casino, man! - Menu",
-      "fuckedUpWarning": "Sei sicuro di voler eseguire l'azione action Questa azione non può essere annullata!",
+      "fuckedUpMenu": "Ho fatto casino amico! - Menu",
+      "fuckedUpWarning": "Sei sicuro di voler eseguire l'azione __action__ Questa azione non può essere annullata!",
       "logs": "Registri",
       "password": "Password",
       "questions": "Domande",
-      "resetEverything": "Reset Tutto",
-      "resetLogs": "Reset Registri",
+      "resetEverything": "Reset tutto",
+      "resetLogs": "Reset registri",
       "resetPassword": "Reset Password",
       "resetQuestions": "Reset Domande",
       "resetUsers": "Reset utenti",
@@ -86,15 +86,15 @@
       "copy": "Copia",
       "debug": "Debug",
       "error": "Errore",
-      "info": "Informazioni",
+      "info": "Info",
       "logs": "Registri",
       "showDebugLogs": "Mostra registri di debug",
       "showInfoLogs": "Mostra registri delle informazioni"
     },
     "mainMenu": {
-      "about": "",
+      "about": "Informazioni su",
       "debugMenu": "Menu di Debug",
-      "logs": "Log dell'app",
+      "logs": "Registri dell'app",
       "questions": "Domande",
       "settings": "Impostazioni Bot",
       "topics": "Argomenti",
@@ -111,25 +111,25 @@
       "yes": "Sì"
     },
     "questionMenu": {
-      "addAnswer": "Aggiungi Risposta",
-      "addQuestion": "Aggiungi una Domanda",
+      "addAnswer": "Aggiungi risposta",
+      "addQuestion": "Aggiungi una domanda",
       "answerPlaceholder": "Inserisci la tua risposta...",
       "btnPerRow": "Pulsanti per riga",
-      "deleteQuestion": "Elimina la Domanda",
+      "deleteQuestion": "Elimina la domanda",
       "disableNotifications": "Disabilita le notifiche",
-      "editQuestion": "Modifica una Domanda",
-      "keepButton": "Mantieni i Pulsanti",
+      "editQuestion": "Modifica una domanda",
+      "keepButton": "Mantieni i pulsanti",
       "question": "Domanda",
-      "questionPlaceholder": "Inserisci una Domanda...",
+      "questionPlaceholder": "Inserisci una domanda...",
       "questionPopup": "Sei sicuro di voler eliminare questa domanda? Questa azione non può essere annullata!",
       "questions": "Domande",
-      "saveQuestion": "Salva la Domanda"
+      "saveQuestion": "Salva la domanda"
     },
     "status": {
       "bot": "Bot",
       "chats": "Chat",
       "errors": "Errori",
-      "logSize": "Dimensione Registro: value (Max: 100)",
+      "logSize": "Dimensione Registro: __value__ (Max: 100)",
       "questions": "Domande",
       "state": {
         "off": "Offline",
