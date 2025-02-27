@@ -292,5 +292,8 @@
   },
   "2.15.1": {
     "en": "Added Send a message by chat ID"
+  },
+  "2.16.0": {
+    "en": "Dependencies updated. Undepricated \"When a Question has been answered\"."
   }
 }
