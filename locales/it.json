@@ -1,23 +1,44 @@
 {
+  "commands": {
+    "registertopic": "Registrare l'argomento",
+    "start": "Registrare la chat"
+  },
+  "newUser": {
+    "error": "Qualcosa è andato storto! Impossibile ottenere l'ID della chat.",
+    "knownChat": "Già presente nella lista degli utenti!",
+    "register": "Registra questa chat di Telegram.",
+    "register2": "Premi il pulsante qui sotto per registrare questa chat!",
+    "welcome": "Benvenuto nel Bot Telegram di Homey!",
+    "wrongPassword": "Password errata."
+  },
+  "questions": {
+    "notFound": "ERRORE: Domanda non trovata. La domanda è stata eliminata?"
+  },
   "settings": {
-    "mainMenu": {
-      "questions": "Domande",
-      "settings": "Impostazioni Bot",
-      "users": "Utenti / Chat di gruppo",
-      "debugMenu": "Menu di Debug",
-      "topics": "Argomenti",
-      "logs": "Log dell'app"
+    "aboutMenu": {
+      "community": "Tu, la Community di Homey",
+      "contributor": "__name__ (Contributore e Sviluppatore)",
+      "contributors": "Questa app non sarebbe la stessa senza queste persone fantastiche",
+      "dev": "__name__ (Sviluppatore per __app__)",
+      "joinTelegram": "Unisciti al gruppo telegram della community!",
+      "title": "Informazioni",
+      "translator": "__name__ (Traduzione per __lang__)",
+      "using": "Questa app utilizza gli strumenti e i linguaggi fantastici seguenti"
     },
     "botSettings": {
       "botSettings": "Impostazioni Bot",
       "botToken": "Token Bot",
       "botTokenPlaceholder": "Inserisci qui il tuo token!",
-      "usePassword": "Usa Password",
-      "password": "Password",
-      "passwordPlaceholder": "Inserisci qui la tua password!",
-      "passwordHint": "Per registrare un utente/chat ora devi inserire /start [tuaPassword] al bot tramite Telegram",
+      "disableWebPagePreview": "Disattiva l'anteprima dei collegamenti per i link",
+      "markdown": {
+        "html": "HTML",
+        "markdownV2": "MarkdownV2",
+        "none": "Fuori da"
+      },
       "miscSettings": "Impostazioni Varie",
-      "useBll": "Abilita il supporto alla Better Logic Library",
+      "password": "Password",
+      "passwordHint": "Per registrare un utente/chat ora devi inserire /start [tuaPassword] al bot tramite Telegram",
+      "passwordPlaceholder": "Inserisci qui la tua password!",
       "saveChanges": "Salva Modifiche",
       "setup": {
         "step1": "Configura il tuo bot Telegram personale. Questo è completamente sicuro e privato, poiché sei l'unico che può accedere all'archivio dei messaggi. Digita @Botfather nella barra di ricerca di Telegram e scegli il bot @Botfather.",
@@ -28,82 +49,110 @@
         "step4": "Scrivi al tuo bot su Telegram /start e segui le istruzioni.",
         "step4-1": "Ogni utente deve inviare anche il comando /start al Bot. Puoi condividere il Bot su Telegram dal profilo o cercarlo come hai cercato il bot BotFather.",
         "title": "Come Configurare"
-      }
+      },
+      "useBll": "Abilita il supporto alla Better Logic Library",
+      "useMarkdown": "Usa Ribasso",
+      "usePassword": "Usa Password"
     },
-    "questionMenu": {
-      "addQuestion": "Aggiungi una Domanda",
-      "editQuestion": "Modifica una Domanda",
-      "questions": "Domande",
-      "question": "Domanda",
-      "questionPlaceholder": "Inserisci una Domanda...",
-      "keepButton": "Mantieni i Pulsanti",
-      "disableNotifications": "Disabilita le notifiche",
-      "btnPerRow": "Pulsanti per riga",
-      "addAnswer": "Aggiungi Risposta",
-      "answerPlaceholder": "Inserisci la tua risposta...",
-      "saveQuestion": "Salva la Domanda",
-      "deleteQuestion": "Elimina la Domanda",
-      "questionPopup": "Sei sicuro di voler eliminare questa domanda? Questa azione non può essere annullata!"
-    },
-    "userMenu": {
-      "users": "Utenti",
-      "user": "Utente",
-      "group": "Gruppo",
-      "supergroup": "Supergruppo",
-      "unknown": "Sconosciuto",
-      "legend": "Legenda"
-    },
-    "logMenu": {
-      "logs": "Registri",
-      "showInfoLogs": "Mostra registri delle informazioni",
-      "showDebugLogs": "Mostra registri di debug",
-      "info": "Informazioni",
-      "error": "Errore",
-      "debug": "Debug",
-      "copy": "Copia"
-    },
-    "topicsMenu": {
-      "topicsMenu": "Argomenti"
+    "chatGTPSettings": {
+      "apiKey": "",
+      "enable": "",
+      "title": "Chat GTP",
+      "useGtp": ""
     },
     "debugMenu": {
       "debugMenu": "Menu Debug",
-      "status": "Stato",
-      "users": "Utenti",
-      "useBll": "Usa Better Logic Library",
-      "questions": "Domande",
-      "token": "Token",
-      "usePassword": "Usa password",
-      "password": "Password",
-      "logs": "Registri",
+      "disableWebPagePreview": "Disabilita anteprima pagina web",
       "fuckedUpMenu": "Ho fatto un casino, man! - Menu",
-      "resetUsers": "Reset utenti",
-      "resetQuestions": "Reset Domande",
+      "fuckedUpWarning": "Sei sicuro di voler eseguire l'azione action Questa azione non può essere annullata!",
+      "logs": "Registri",
+      "markdown": "Markdown",
+      "password": "Password",
+      "questions": "Domande",
+      "resetEverything": "Reset Tutto",
       "resetLogs": "Reset Registri",
       "resetPassword": "Reset Password",
-      "resetEverything": "Reset Tutto",
-      "fuckedUpWarning": "Sei sicuro di voler eseguire l'azione action Questa azione non può essere annullata!"
+      "resetQuestions": "Reset Domande",
+      "resetUsers": "Reset utenti",
+      "status": "Stato",
+      "token": "Token",
+      "useBll": "Usa Better Logic Library",
+      "usePassword": "Usa password",
+      "users": "Utenti"
+    },
+    "logMenu": {
+      "copy": "Copia",
+      "debug": "Debug",
+      "error": "Errore",
+      "info": "Informazioni",
+      "logs": "Registri",
+      "showDebugLogs": "Mostra registri di debug",
+      "showInfoLogs": "Mostra registri delle informazioni"
+    },
+    "mainMenu": {
+      "about": "",
+      "debugMenu": "Menu di Debug",
+      "logs": "Log dell'app",
+      "questions": "Domande",
+      "settings": "Impostazioni Bot",
+      "topics": "Argomenti",
+      "users": "Utenti / Chat di gruppo"
+    },
+    "misc": {
+      "back": "Indietro",
+      "edit": "Modifica",
+      "empty": "Vuoto",
+      "loading": "Caricamento",
+      "no": "No",
+      "soon": "Prossimamente",
+      "warning": "Attenzione",
+      "yes": "Sì"
+    },
+    "questionMenu": {
+      "addAnswer": "Aggiungi Risposta",
+      "addQuestion": "Aggiungi una Domanda",
+      "answerPlaceholder": "Inserisci la tua risposta...",
+      "btnPerRow": "Pulsanti per riga",
+      "checkMark": "Segno di spunta",
+      "checkMarkTooltip": "Sostituisci brevemente il testo del pulsante con una spunta.",
+      "deleteQuestion": "Elimina la Domanda",
+      "disableNotifications": "Disabilita le notifiche",
+      "editQuestion": "Modifica una Domanda",
+      "keepButton": "Mantieni i Pulsanti",
+      "question": "Domanda",
+      "questionPlaceholder": "Inserisci una Domanda...",
+      "questionPopup": "Sei sicuro di voler eliminare questa domanda? Questa azione non può essere annullata!",
+      "questions": "Domande",
+      "saveQuestion": "Salva la Domanda",
+      "showAsGrid": "Mostra risposte come griglia"
     },
     "status": {
       "bot": "Bot",
       "chats": "Chat",
-      "questions": "Domande",
-      "logSize": "Dimensione Registro: value (Max: 100)",
       "errors": "Errori",
+      "logSize": "Dimensione Registro: value (Max: 100)",
+      "questions": "Domande",
       "state": {
-        "on": "Online",
         "off": "Offline",
+        "on": "Online",
         "unknown": "Sconosciuto"
       }
     },
-    "misc": {
-      "loading": "Caricamento",
-      "soon": "Prossimamente",
-      "back": "Indietro",
-      "edit": "Modifica",
-      "yes": "Sì",
-      "no": "No",
-      "warning": "Attenzione",
-      "empty": "Vuoto"
+    "topicsMenu": {
+      "topicsMenu": "Argomenti"
+    },
+    "userMenu": {
+      "group": "Gruppo",
+      "legend": "Legenda",
+      "supergroup": "Supergruppo",
+      "unknown": "Sconosciuto",
+      "user": "Utente",
+      "users": "Utenti"
     }
+  },
+  "topics": {
+    "knownTopic": "L'argomento è già registrato.",
+    "noTopic": "La chat non è una chat di un forum o di un argomento.",
+    "notRegistered": "La chat non è registrata."
   }
 }

@@ -5,7 +5,8 @@ export enum BadgeColor {
     GREEN = "bg-color-green",
     MAGENTA = "bg-color-magenta",
     PURPLE = "bg-color-purple",
-    GRAY = "bg-color-gray"
+    GRAY = "bg-color-gray",
+    CYAN = "bg-color-cyan",
 }
 
 export enum BadgeSize {

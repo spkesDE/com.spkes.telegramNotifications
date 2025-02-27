@@ -1,0 +1,158 @@
+{
+  "commands": {
+    "registertopic": "Зарегистрировать тему",
+    "start": "Зарегистрировать чат"
+  },
+  "newUser": {
+    "error": "Что-то пошло не так! Не могу получить идентификатор чата",
+    "knownChat": "Уже в списке пользователей!",
+    "register": "Зарегистрируйте этот чат в Telegram.",
+    "register2": "Нажмите кнопку ниже, чтобы зарегистрировать этот чат!",
+    "welcome": "Добро пожаловать в Telegram-бот Homey!",
+    "wrongPassword": "Неправильный пароль."
+  },
+  "questions": {
+    "notFound": "ОШИБКА: Вопрос не найден. Вопрос был удален?"
+  },
+  "settings": {
+    "aboutMenu": {
+      "community": "You, the Homey Community",
+      "contributor": "__name__ (Соавтор и разработчик)",
+      "contributors": "Это приложение не было бы таким без этих замечательных людей",
+      "dev": "__name__ (Разработчик __app__)",
+      "joinTelegram": "Присоединяйтесь к группе сообщества в Telegram!",
+      "title": "Заголовок",
+      "translator": "__name__ (Перевод для__lang__)",
+      "using": "В этом приложении используются следующие замечательные инструменты и языки"
+    },
+    "botSettings": {
+      "botSettings": "Настройки бота",
+      "botToken": "Токен бота",
+      "botTokenPlaceholder": "Введите свой токен здесь!",
+      "disableWebPagePreview": "Отключить предварительный просмотр ссылок",
+      "markdown": {
+        "html": "HTML",
+        "markdownV2": "MarkdownV2",
+        "none": "Off"
+      },
+      "miscSettings": "Другие настройки",
+      "password": "Пароль",
+      "passwordHint": "Чтобы зарегистрировать пользователя/чат сейчас, вам необходимо ввести /start  [yourPassword] боту через Telegram.",
+      "passwordPlaceholder": "Введите свой пароль здесь!",
+      "saveChanges": "Сохранить изменения",
+      "setup": {
+        "step1": "Настройте своего бота в Telegram. Это полностью безопасно и конфиденциально, поскольку вы единственный, кто имеет доступ к архиву сообщений. Введите @Botfather на вкладке поиска Telegram и выберите бота @Botfather.",
+        "step2": "Нажмите «Start», чтобы активировать бота @BotFather, или введите /newbot.",
+        "step2-1": "/setjoingroup запрещает боту присоединяться к группе.",
+        "step2-2": "/setprivacy запрещает боту читать сообщения внутри группы",
+        "step3": "Введите токен в настройках приложения.",
+        "step4": "Напишите своему боту через Telegram /start и следуйте инструкциям.",
+        "step4-1": "Каждый пользователь также должен отправить боту команду /start. Вы можете поделиться ботом в Telegram через профиль или выполнить поиск по боту BotFather, аналогичному тому, который вы искали.",
+        "title": "Как настроить"
+      },
+      "useBll": "Включите Better Logic Library Support",
+      "useMarkdown": "Используйте Markdown",
+      "usePassword": "Использовать пароль"
+    },
+    "chatGTPSettings": {
+      "apiKey": "API-Key",
+      "enable": "Активировать",
+      "title": "Chat GTP",
+      "useGtp": "Использовать ChatGTP"
+    },
+    "debugMenu": {
+      "debugMenu": "Меню отладки",
+      "disableWebPagePreview": "Отключить предварительный просмотр веб-страницы",
+      "fuckedUpMenu": "Я облажался, чувак! - Меню",
+      "fuckedUpWarning": "Вы уверены, что хотите выполнить действие __action__ Это действие нельзя отменить!",
+      "logs": "Логи",
+      "markdown": "Markdown",
+      "password": "Пароль",
+      "questions": "Вопросы",
+      "resetEverything": "Сбросить все настройки",
+      "resetLogs": "Сбросить пользователей",
+      "resetPassword": "Сброс пароля",
+      "resetQuestions": "Сбросить вопросы",
+      "resetUsers": "Сбросить пользователей",
+      "status": "Статус",
+      "token": "Токен",
+      "useBll": "Использовать Better Logic Library",
+      "usePassword": "Использовать пароль",
+      "users": "Пользователи"
+    },
+    "logMenu": {
+      "copy": "Копировать",
+      "debug": "Отладка",
+      "error": "Ошибка",
+      "info": "Инфо",
+      "logs": "Логи",
+      "showDebugLogs": "Показать журнал отладки",
+      "showInfoLogs": "Показать информационные логи"
+    },
+    "mainMenu": {
+      "about": "Описание",
+      "debugMenu": "Меню отладки",
+      "logs": "Логи приложения",
+      "questions": "Вопрос",
+      "settings": "Настройки бота",
+      "topics": "Темы",
+      "users": "Пользователи / Групповые чаты"
+    },
+    "misc": {
+      "back": "Назад",
+      "edit": "Редактировать",
+      "empty": "Очистить",
+      "loading": "Загрузка",
+      "no": "Нет",
+      "soon": "Скоро будет",
+      "warning": "Предупреждение",
+      "yes": "Да"
+    },
+    "questionMenu": {
+      "addAnswer": "Добавить ответ",
+      "addQuestion": "Добавить вопрос",
+      "answerPlaceholder": "Введите свой ответ...",
+      "btnPerRow": "Кнопки в каждом ряду",
+      "checkMark": "Галочка",
+      "checkMarkTooltip": "Кратко замените текст кнопки галочкой.",
+      "deleteQuestion": "Удалите этот вопрос",
+      "disableNotifications": "Отключить уведомления",
+      "editQuestion": "Отредактируйте вопрос",
+      "keepButton": "Оставить кнопки",
+      "question": "Вопрос",
+      "questionPlaceholder": "Введите вопрос...",
+      "questionPopup": "Вы уверены, что хотите удалить этот вопрос? Это действие невозможно отменить!",
+      "questions": "Вопросы",
+      "saveQuestion": "Сохранить вопрос",
+      "showAsGrid": "Показать ответы в виде сетки"
+    },
+    "status": {
+      "bot": "Бот",
+      "chats": "Чаты",
+      "errors": "Ошибки",
+      "logSize": "Размер логов: __value__ (Max: 100)",
+      "questions": "Вопросы",
+      "state": {
+        "off": "Offline",
+        "on": "Online",
+        "unknown": "Неизвестный"
+      }
+    },
+    "topicsMenu": {
+      "topicsMenu": "Темы"
+    },
+    "userMenu": {
+      "group": "Группа",
+      "legend": "Легенда",
+      "supergroup": "Супергруппа",
+      "unknown": "Неизвестный",
+      "user": "Пользователь",
+      "users": "Пользователи"
+    }
+  },
+  "topics": {
+    "knownTopic": "Тема уже зарегистрирована.",
+    "noTopic": "Чат не является форумным или тематическим чатом.",
+    "notRegistered": "Чат не зарегистрирован."
+  }
+}

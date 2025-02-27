@@ -53,3 +53,7 @@
 .bg-color-gray {
     background-color: var(--bg-color-gray);
 }
+
+.bg-color-cyan {
+    background-color: var(--bg-color-cyan);
+}

@@ -1,23 +1,44 @@
 {
+  "commands": {
+    "registertopic": "Den Topic registrieren",
+    "start": "Den Chat registrieren"
+  },
+  "newUser": {
+    "error": "Etwas ist schiefgelaufen! Die Chat-ID konnte nicht abgerufen werden.",
+    "knownChat": "Bereits in der Benutzerliste!",
+    "register": "Registriere diesen Telegram-Chat.",
+    "register2": "Drücke den untenstehenden Button, um diesen Chat zu registrieren!",
+    "welcome": "Willkommen beim Homey Telegram Bot!",
+    "wrongPassword": "Falsches Passwort."
+  },
+  "questions": {
+    "notFound": "FEHLER: Frage nicht gefunden. Wurde die Frage gelöscht?"
+  },
   "settings": {
-    "mainMenu": {
-      "questions": "Frage",
-      "settings": "Bot-Einstellungen",
-      "users": "Benutzer / Gruppenchats",
-      "debugMenu": "Debug-Menü",
-      "topics": "Themen",
-      "logs": "App-Protokolle"
+    "aboutMenu": {
+      "community": "Du, die Homey-Community",
+      "contributor": "__name__ (Mitwirkender und Entwickler)",
+      "contributors": "Diese App wäre ohne diese großartigen Menschen nicht dasselbe",
+      "dev": "__name__ (Entwickler für __app__)",
+      "joinTelegram": "Trete der Community-Telegram-Gruppe bei!",
+      "title": "Über",
+      "translator": "__name__ (Übersetzung für __lang__)",
+      "using": "Diese App verwendet die folgenden großartigen Tools und Sprachen"
     },
     "botSettings": {
       "botSettings": "Bot-Einstellungen",
       "botToken": "Bot-Token",
       "botTokenPlaceholder": "Geben Sie hier Ihren Token ein!",
-      "usePassword": "Passwort verwenden",
-      "password": "Passwort",
-      "passwordPlaceholder": "Geben Sie hier Ihr Passwort ein!",
-      "passwordHint": "Um einen Benutzer / Chat zu registrieren, müssen Sie jetzt /start [IhrPasswort] an den Bot über Telegram senden",
+      "disableWebPagePreview": "Deaktiviert die Linkvorschau für Links",
+      "markdown": {
+        "html": "HTML",
+        "markdownV2": "MarkdownV2",
+        "none": "Aus"
+      },
       "miscSettings": "Verschiedene Einstellungen",
-      "useBll": "Better Logic Library-Unterstützung aktivieren",
+      "password": "Passwort",
+      "passwordHint": "Um einen Benutzer / Chat zu registrieren, müssen Sie jetzt /start [IhrPasswort] an den Bot über Telegram senden",
+      "passwordPlaceholder": "Geben Sie hier Ihr Passwort ein!",
       "saveChanges": "Änderungen speichern",
       "setup": {
         "step1": "Richten Sie Ihren eigenen Telegram-Bot ein. Dies ist vollständig sicher und privat, da Sie der einzige sind, der auf das Nachrichtenarchiv zugreifen kann. Geben Sie in Telegram @Botfather in das Suchfeld ein und wählen Sie den Bot @Botfather.",
@@ -28,82 +49,110 @@
         "step4": "Schreiben Sie Ihren Bot über Telegram /start und folgen Sie den Anweisungen.",
         "step4-1": "Jeder Benutzer muss dem Bot auch den Befehl /start senden. Sie können den Bot über das Profil oder die Suche in Telegram teilen, wie Sie nach dem BotFather-Bot gesucht haben.",
         "title": "So richten Sie den Bot ein"
-      }
+      },
+      "useBll": "Better Logic Library-Unterstützung aktivieren",
+      "useMarkdown": "Markdown verwenden",
+      "usePassword": "Passwort verwenden"
     },
-    "questionMenu": {
-      "addQuestion": "Frage hinzufügen",
-      "editQuestion": "Frage bearbeiten",
-      "questions": "Fragen",
-      "question": "Frage",
-      "questionPlaceholder": "Geben Sie eine Frage ein...",
-      "keepButton": "Schaltflächen beibehalten",
-      "disableNotifications": "Benachrichtigungen deaktivieren",
-      "btnPerRow": "Schaltflächen pro Zeile",
-      "addAnswer": "Antwort hinzufügen",
-      "answerPlaceholder": "Geben Sie Ihre Antwort ein...",
-      "saveQuestion": "Frage speichern",
-      "deleteQuestion": "Frage löschen",
-      "questionPopup": "Sind Sie sicher, dass Sie diese Frage löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden!"
-    },
-    "userMenu": {
-      "users": "Benutzer",
-      "user": "Benutzer",
-      "group": "Gruppe",
-      "supergroup": "Supergroup",
-      "unknown": "Unbekannt",
-      "legend": "Legende"
-    },
-    "topicsMenu": {
-      "topicsMenu": "Themen"
-    },
-    "logMenu": {
-      "logs": "Logs",
-      "showInfoLogs": "Information-Logs anzeigen",
-      "showDebugLogs": "Debug-Logs anzeigen",
-      "info": "Information",
-      "error": "Fehler",
-      "debug": "Debug",
-      "copy": "Kopieren"
+    "chatGTPSettings": {
+      "apiKey": "API-Key",
+      "enable": "Aktivieren",
+      "title": "Chat GTP",
+      "useGtp": "Chat GTP Benutzen"
     },
     "debugMenu": {
       "debugMenu": "Debug-Menü",
-      "status": "Status",
-      "users": "Benutzer",
-      "useBll": "Better Logic Library verwendet",
-      "questions": "Fragen",
-      "token": "Token",
-      "usePassword": "Passwort verwenden",
-      "password": "Passwort",
-      "logs": "Logs",
+      "disableWebPagePreview": "Webseitenvorschau deaktivieren",
       "fuckedUpMenu": "Ich hab's verbockt, Mann! - Menü",
-      "resetUsers": "Benutzer zurücksetzen",
-      "resetQuestions": "Fragen zurücksetzen",
+      "fuckedUpWarning": "Sind Sie sicher, dass Sie die Aktion __action__ ausführen möchten? Diese Aktion kann nicht rückgängig gemacht werden!",
+      "logs": "Logs",
+      "markdown": "Markdown",
+      "password": "Passwort",
+      "questions": "Fragen",
+      "resetEverything": "Alles zurücksetzen",
       "resetLogs": "Logs zurücksetzen",
       "resetPassword": "Passwort zurücksetzen",
-      "resetEverything": "Alles zurücksetzen",
-      "fuckedUpWarning": "Sind Sie sicher, dass Sie die Aktion __action__ ausführen möchten? Diese Aktion kann nicht rückgängig gemacht werden!"
+      "resetQuestions": "Fragen zurücksetzen",
+      "resetUsers": "Benutzer zurücksetzen",
+      "status": "Status",
+      "token": "Token",
+      "useBll": "Better Logic Library verwendet",
+      "usePassword": "Passwort verwenden",
+      "users": "Benutzer"
+    },
+    "logMenu": {
+      "copy": "Kopieren",
+      "debug": "Debug",
+      "error": "Fehler",
+      "info": "Information",
+      "logs": "Logs",
+      "showDebugLogs": "Debug-Logs anzeigen",
+      "showInfoLogs": "Information-Logs anzeigen"
+    },
+    "mainMenu": {
+      "about": "Über",
+      "debugMenu": "Debug-Menü",
+      "logs": "App-Protokolle",
+      "questions": "Frage",
+      "settings": "Bot-Einstellungen",
+      "topics": "Themen",
+      "users": "Benutzer / Gruppenchats"
+    },
+    "misc": {
+      "back": "Zurück",
+      "edit": "Bearbeiten",
+      "empty": "Leer",
+      "loading": "Laden",
+      "no": "Nein",
+      "soon": "Demnächst verfügbar",
+      "warning": "Warnung",
+      "yes": "Ja"
+    },
+    "questionMenu": {
+      "addAnswer": "Antwort hinzufügen",
+      "addQuestion": "Frage hinzufügen",
+      "answerPlaceholder": "Geben Sie Ihre Antwort ein...",
+      "btnPerRow": "Schaltflächen pro Zeile",
+      "checkMark": "Häkchen",
+      "checkMarkTooltip": "Ersetzen Sie den Schaltflächentext kurzzeitig durch ein Häkchen.",
+      "deleteQuestion": "Frage löschen",
+      "disableNotifications": "Benachrichtigungen deaktivieren",
+      "editQuestion": "Frage bearbeiten",
+      "keepButton": "Schaltflächen beibehalten",
+      "question": "Frage",
+      "questionPlaceholder": "Geben Sie eine Frage ein...",
+      "questionPopup": "Sind Sie sicher, dass Sie diese Frage löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden!",
+      "questions": "Fragen",
+      "saveQuestion": "Frage speichern",
+      "showAsGrid": "Antworten als Raster anzeigen"
     },
     "status": {
       "bot": "Bot",
       "chats": "Chats",
-      "questions": "Fragen",
-      "logSize": "Log-Größe: __value__ (maximal: 100)",
       "errors": "Fehler",
+      "logSize": "Log-Größe: __value__ (maximal: 100)",
+      "questions": "Fragen",
       "state": {
-        "on": "Online",
         "off": "Offline",
+        "on": "Online",
         "unknown": "Unbekannt"
       }
     },
-    "misc": {
-      "loading": "Laden",
-      "soon": "Demnächst verfügbar",
-      "back": "Zurück",
-      "edit": "Bearbeiten",
-      "yes": "Ja",
-      "no": "Nein",
-      "warning": "Warnung",
-      "empty": "Leer"
+    "topicsMenu": {
+      "topicsMenu": "Themen"
+    },
+    "userMenu": {
+      "group": "Gruppe",
+      "legend": "Legende",
+      "supergroup": "Supergroup",
+      "unknown": "Unbekannt",
+      "user": "Benutzer",
+      "users": "Benutzer"
     }
+  },
+  "topics": {
+    "knownTopic": "Das Thema ist bereits registriert.",
+    "noTopic": "Dieser Chat ist kein Forum-/Themenchat.",
+    "notRegistered": "Dieser Chat ist nicht registriert."
   }
 }

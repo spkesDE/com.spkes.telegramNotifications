@@ -10,6 +10,8 @@ import {BadgeColor} from "../statics/Colors";
 import Popup from "../components/UIComps/Popup";
 import Loading from "./Loading";
 import Homey from "../Homey";
+import AnswerInput from "../components/QuestionComp/AnswerInput";
+import AnswerWrapper from "../components/QuestionComp/AnswerWrapper";
 
 interface Props {
     question?: Question
@@ -22,10 +24,12 @@ interface State {
     UUID: string;
     buttons: string[];
     keepButtons: boolean;
+    checkmark: boolean;
     disable_notification: boolean;
     columns: number;
     gotData: boolean;
     showDeletePopup: boolean;
+    showAsGrid: boolean;
 }
 
 export default class QuestionMenu extends React.Component<Props, State> {
@@ -39,35 +43,37 @@ export default class QuestionMenu extends React.Component<Props, State> {
             UUID: props.question?.UUID ?? this.getNanoId(),
             buttons: props.question?.buttons ?? [],
             keepButtons: props.question?.keepButtons ?? false,
+            checkmark: props.question?.checkmark ?? false,
             disable_notification: props.question?.disable_notification ?? false,
             columns: props.question?.columns ?? 2,
             gotData: true,
+            showAsGrid: true,
             showDeletePopup: false
         }
     }
 
     async onSave() {
         console.log("Saving question...")
-        await this.setState({gotData: false});
+        this.setState({gotData: false});
         let questions: Question[] = JSON.parse(await Homey.get('questions') ?? "[]");
         questions = questions.filter((q) => q.UUID !== this.state.UUID)
         questions.push({
-            UUID: this.state.UUID, buttons: this.state.buttons,
+            UUID: this.state.UUID, buttons: this.state.buttons.filter((v) => v !== "" && v !== " "),
             columns: this.state.columns, disable_notification: this.state.disable_notification,
-            keepButtons: this.state.keepButtons, question: this.state.question
+            keepButtons: this.state.keepButtons, question: this.state.question, checkmark: this.state.checkmark
         })
         await Homey.set('questions', JSON.stringify(questions));
-        await this.setState({gotData: true});
+        this.setState({gotData: true});
         console.log("Question saved.")
         this.props.changeViewOnSave(Views.Questions_Overview);
     }
 
     async deleteQuestion() {
-        await this.setState({gotData: false});
+        this.setState({gotData: false});
         let questions: Question[] = JSON.parse(await Homey.get('questions') ?? "[]");
         questions = questions.filter((q) => q.UUID !== this.state.UUID)
         await Homey.set('questions', JSON.stringify(questions));
-        await this.setState({gotData: true});
+        this.setState({gotData: true});
         this.props.changeViewOnSave(Views.Questions_Overview);
     }
 
@@ -75,33 +81,58 @@ export default class QuestionMenu extends React.Component<Props, State> {
      * NanoId https://github.com/ai/nanoid
      *
      * @param length
-     * @returns {string|string}
+     * @returns {string}
      */
-    getNanoId(length = 10) {
+    getNanoId(length = 10): string {
         return crypto.getRandomValues(new Uint8Array(length))
             .reduce(((t, e) => t += (e &= 63) < 36 ? e.toString(36) : e < 62 ? (e - 26).toString(36)
                 .toUpperCase() : e > 62 ? '-' : '_'), '');
     }
 
     getAnswerFields() {
-        let result = [];
+        const result = [];
+        const columns = this.state.showAsGrid ? this.state.columns : 1;
+        const totalRows: number = Math.ceil(this.state.answers / columns);
+        let currentRow = 0;
         for (let i = 0; i < this.state.answers; i++) {
-            result.push(<MenuItemWrapper key={"wrapper-" + i}>
+            const isFirstInRow = i % columns === 0;
+            const isLastInRow = (i + 1) % columns === 0 || i === this.state.answers - 1;
+            const firstRow = currentRow === 0;
+            const lastRow = currentRow === totalRows - 1;
+
+            // Apply classes for each corner.
+            let classes = "";
+            if (isFirstInRow && firstRow) classes += " cornerTopLeft"
+            if (isLastInRow && firstRow) classes += " cornerTopRight"
+            if (isFirstInRow && lastRow) classes += " cornerBottomLeft"
+            if (isLastInRow && lastRow) classes += " cornerBottomRight"
+
+
+            result.push(<AnswerInput
+                className={classes} key={"wrapper-" + i}>
                 <input className="menuItem-input-full hy-nostyle"
                        type="text"
                        key={"answer-" + i}
                        required={i === 0}
                        placeholder={Homey.__("settings.questionMenu.answerPlaceholder")}
                        onChange={(e) => {
-                           if (e.currentTarget.value == "") return;
                            let buttons = this.state.buttons
                            buttons[i] = e.currentTarget.value;
                            this.setState({buttons: buttons});
                        }}
                        defaultValue={this.state.buttons[i]}/>
-            </MenuItemWrapper>);
+            </AnswerInput>);
+
+            // Check if the current row is full
+            if ((i + 1) % columns === 0) {
+                result.push(<div className={"answerInputBreak"}></div>)
+                currentRow++;
+            }
         }
-        return result;
+        return (
+            <AnswerWrapper>
+                {result}
+            </AnswerWrapper>);
     }
 
     render() {
@@ -139,6 +170,14 @@ export default class QuestionMenu extends React.Component<Props, State> {
                         value={this.state.disable_notification}/>
                 </MenuItemWrapper>
                 <MenuItemWrapper>
+                    <h2>{Homey.__("settings.questionMenu.checkMark")}</h2>
+                    <Switch
+                        onChange={(e) => {
+                            this.setState({checkmark: e.currentTarget.checked})
+                        }}
+                        value={this.state.checkmark}/>
+                </MenuItemWrapper>
+                <MenuItemWrapper>
                     <h2>{Homey.__("settings.questionMenu.btnPerRow")}</h2>
                     <div style={{display: "flex"}}>
                         <input id="columnSize" max="4" min="1" type="range"
@@ -149,12 +188,28 @@ export default class QuestionMenu extends React.Component<Props, State> {
                         <Badge color={BadgeColor.GRAY}>{this.state.columns}</Badge>
                     </div>
                 </MenuItemWrapper>
+                <MenuItemWrapper>
+                    <h2>{Homey.__("settings.questionMenu.showAsGrid")}</h2>
+                    <Switch
+                        onChange={(e) => {
+                            this.setState({showAsGrid: e.currentTarget.checked})
+                        }}
+                        value={this.state.showAsGrid}/>
+                </MenuItemWrapper>
+                <p className={"itemGroupHint"}>
+                    <i className="fas fa-info-circle"></i>
+                    {Homey.__('settings.questionMenu.checkMark')}: {Homey.__('settings.questionMenu.checkMarkTooltip')}
+                </p>
             </MenuItemGroup>
+
             <MenuItemGroup>
                 {this.getAnswerFields()}
+            </MenuItemGroup>
+
+            <MenuItemGroup>
                 <MenuItemWrapper className={"noPadding"} key={"wrapper-save"}>
                     <button
-                        className={"menuItem-button-blue-noRadiusTop hy-nostyle"}
+                        className={"menuItem-button-blue hy-nostyle"}
                         onClick={() => {
                             this.setState({answers: this.state.answers + 1})
                         }}>

@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.spkes.telegramNotifications",
-  "version": "2.7.0",
+  "version": "2.15.1",
   "compatibility": ">=8.1.0",
   "sdk": 3,
   "brandColor": "#229ED9",
@@ -88,7 +88,7 @@
         "email": ""
       },
       {
-        "name": "telegraf.js - v4.11.2",
+        "name": "grammy.dev - v1.17.1",
         "email": ""
       }
     ],
@@ -115,7 +115,8 @@
     "url": "https://github.com/spkesDE/TelegramNotifications/issues"
   },
   "source": "https://github.com/spkesDE/TelegramNotifications",
-  "support": "https://github.com/spkesDE",
+  "support": "https://t.me/homeyCommunity",
+  "homepage": "https://t.me/homeyCommunity",
   "homeyCommunityTopicId": 66622,
   "flow": {
     "triggers": [
@@ -509,6 +510,7 @@
           "de": "Die Frage [[question]] wurde beantwortet",
           "nl": "De vraag [[question]] is beantwoord"
         },
+        "deprecated": true,
         "args": [
           {
             "type": "autocomplete",
@@ -1466,10 +1468,10 @@
           "nl": "Verstuur een afbeelding"
         },
         "titleFormatted": {
-          "en": "Send an image [[url]] to [[user]]",
-          "it": "Invia una Immagine [[url]] a [[user]]",
-          "de": "Bild [[url]] an [[user]] senden",
-          "nl": "Afbeelding [[url]] naar [[user]] versturen"
+          "en": "Send an image [[url]] to [[user]] ([[disable_notification]])",
+          "it": "Invia una Immagine [[url]] a [[user]] ([[disable_notification]])",
+          "de": "Bild [[url]] an [[user]] senden ([[disable_notification]])",
+          "nl": "Afbeelding [[url]] naar [[user]] versturen ([[disable_notification]])"
         },
         "hint": {
           "en": "Sends a Image to your Telegram chat. Only HTTPS is supported.",
@@ -1509,6 +1511,23 @@
               "de": "Erstellt mit <3",
               "nl": "Gemaakt met <3"
             }
+          },
+          {
+            "type": "checkbox",
+            "name": "disable_notification",
+            "title": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "placeholder": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "required": false
           }
         ],
         "id": "send-a-image"
@@ -1521,10 +1540,10 @@
           "nl": "Verstuur een afbeelding met een bericht"
         },
         "titleFormatted": {
-          "en": "Send image [[url]] to [[user]] with the message [[message]]",
-          "it": "Invia immagine [[url]] a [[user]] con il messaggio [[message]]",
-          "de": "Bild [[url]] mit Nachricht [[message]] an [[user]] senden",
-          "nl": "Stuur afbeelding [[url]] naar [[user]] met het bericht [[message]]"
+          "en": "Send image [[url]] to [[user]] with the message [[message]] ([[disable_notification]])",
+          "it": "Invia immagine [[url]] a [[user]] con il messaggio [[message]] ([[disable_notification]])",
+          "de": "Bild [[url]] mit Nachricht [[message]] an [[user]] senden ([[disable_notification]])",
+          "nl": "Stuur afbeelding [[url]] naar [[user]] met het bericht [[message]] ([[disable_notification]])"
         },
         "hint": {
           "en": "Sends a Image to your Telegram chat. Only HTTPS is supported.",
@@ -1580,6 +1599,23 @@
               "de": "Erstellt mit <3",
               "nl": "Gemaakt met <3"
             }
+          },
+          {
+            "type": "checkbox",
+            "name": "disable_notification",
+            "title": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "placeholder": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "required": false
           }
         ],
         "id": "send-a-image-with-message"
@@ -1592,10 +1628,10 @@
           "nl": "Verstuur een afbeelding met een bericht"
         },
         "titleFormatted": {
-          "en": "Send image [[droptoken]] to [[user]] with the message [[message]]",
-          "it": "Invia immagine [[droptoken]] a [[user]] con il messaggio [[message]]",
-          "de": "Bild [[droptoken]] mit Nachricht [[message]] an [[user]] senden",
-          "nl": "Stuur afbeelding [[droptoken]] naar [[user]] met het bericht [[message]]"
+          "en": "Send image [[droptoken]] to [[user]] with the message [[message]] ([[disable_notification]])",
+          "it": "Invia immagine [[droptoken]] a [[user]] con il messaggio [[message]] ([[disable_notification]])",
+          "de": "Bild [[droptoken]] mit Nachricht [[message]] an [[user]] senden ([[disable_notification]])",
+          "nl": "Stuur afbeelding [[droptoken]] naar [[user]] met het bericht [[message]] ([[disable_notification]])"
         },
         "hint": {
           "en": "Sends a Image to your Telegram chat",
@@ -1638,6 +1674,23 @@
               "de": "Erstellt mit <3",
               "nl": "Gemaakt met <3"
             }
+          },
+          {
+            "type": "checkbox",
+            "name": "disable_notification",
+            "title": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "placeholder": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "required": false
           }
         ],
         "id": "send-a-image-with-message-and-tag"
@@ -1650,10 +1703,10 @@
           "nl": "Verstuur een afbeelding"
         },
         "titleFormatted": {
-          "en": "Send an image [[droptoken]] to [[user]]",
-          "it": "Invia una immagine [[droptoken]] a [[user]]",
-          "de": "Bild [[droptoken]] an [[user]] senden",
-          "nl": "Afbeelding [[droptoken]] naar [[user]] versturen"
+          "en": "Send an image [[droptoken]] to [[user]] ([[disable_notification]])",
+          "it": "Invia una immagine [[droptoken]] a [[user]] ([[disable_notification]])",
+          "de": "Bild [[droptoken]] an [[user]] senden ([[disable_notification]])",
+          "nl": "Afbeelding [[droptoken]] naar [[user]] versturen ([[disable_notification]])"
         },
         "hint": {
           "en": "Sends a Image to your Telegram chat",
@@ -1680,6 +1733,23 @@
               "de": "Erstellt mit <3",
               "nl": "Gemaakt met <3"
             }
+          },
+          {
+            "type": "checkbox",
+            "name": "disable_notification",
+            "title": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "placeholder": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen"
+            },
+            "required": false
           }
         ],
         "id": "send-a-image-with-tag"
@@ -1991,6 +2061,306 @@
       },
       {
         "title": {
+          "en": "Send Location",
+          "it": "Invia Posizione",
+          "de": "Lokation senden",
+          "nl": "Verstuur locatie",
+          "ru": "Отправить локацию",
+          "da": "Send lokation",
+          "es": "Enviar ubicación",
+          "fr": "Envoyer une localisation",
+          "no": "Send lokasjon",
+          "pl": "Wyslij lokalizację",
+          "sv": "Skicka lokation"
+        },
+        "titleFormatted": {
+          "en": "Send location [[latitude]], [[longitude]] to [[user]] ([[disable_notification]])",
+          "it": "Invia Posizione [[latitude]], [[longitude]] a [[user]] ([[disable_notification]])",
+          "de": "Standort [[latitude]], [[longitude]] an [[user]] senden ([[disable_notification]])",
+          "nl": "Verstuur locatie [[latitude]], [[longitude]] naar [[user]] ([[disable_notification]])",
+          "ru": "Отправить локацию [[latitude]], [[longitude]] на [[user]] ([[disable_notification]])",
+          "da": "Send lokation [[latitude]], [[longitude]] til [[user]] ([[disable_notification]])",
+          "es": "Enviar ubicación [[latitude]], [[longitude]] a [[user]] ([[disable_notification]])",
+          "fr": "Envoyer une localisation [[latitude]], [[longitude]] a [[user]] ([[disable_notification]])",
+          "no": "Send lokasjon [[latitude]], [[longitude]] til [[user]] ([[disable_notification]])",
+          "pl": "Wyslij lokalizację [[latitude]], [[longitude]] do [[user]] ([[disable_notification]])",
+          "sv": "Skicka lokation [[latitude]], [[longitude]] till [[user]] ([[disable_notification]])"
+        },
+        "hint": {
+          "en": "Sends a Location to your Telegram chat",
+          "it": "Invia una Posizione nella tua chat Telegram",
+          "de": "Sendet eine Standort an deinen Telegram-Chat",
+          "nl": "Verstuur een locatie naar uw Telegram chat",
+          "ru": "Отправить локацию в чате Telegram",
+          "da": "Send lokation til din Telegram chat",
+          "es": "Enviar ubicación en tu chat de Telegram",
+          "fr": "Envoyer une localisation dans votre chat Telegram",
+          "no": "Send lokasjon til din Telegram chat",
+          "pl": "Wyslij lokalizację do twojego czata Telegram",
+          "sv": "Skicka en lokation till din Telegram-chatt"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "latitude",
+            "title": {
+              "en": "Latitude",
+              "it": "Latitudine",
+              "de": "Breitengrad",
+              "nl": "Breedtegraad",
+              "ru": "Широта",
+              "da": "Breddegrad",
+              "es": "Latitud",
+              "fr": "Latitude",
+              "no": "Breddegrad",
+              "pl": "Długosść",
+              "sv": "Lattitud"
+            },
+            "placeholder": {
+              "en": "Latitude",
+              "it": "Latitudine",
+              "de": "Breitengrad",
+              "nl": "Breedtegraad",
+              "ru": "Широта",
+              "da": "Breddegrad",
+              "es": "Latitud",
+              "fr": "Latitude",
+              "no": "Breddegrad",
+              "pl": "Długosść",
+              "sv": "Lattitud"
+            }
+          },
+          {
+            "type": "text",
+            "name": "longitude",
+            "title": {
+              "en": "Longitude",
+              "it": "Longitudine",
+              "de": "Längengrad",
+              "nl": "Lengtegraad",
+              "ru": "Долгота",
+              "da": "Længdegrad",
+              "es": "Longitud",
+              "fr": "Longitude",
+              "no": "Lengdegrad",
+              "pl": "Długosść",
+              "sv": "Lontitud"
+            },
+            "placeholder": {
+              "en": "Longitude",
+              "it": "Longitudine",
+              "de": "Längengrad",
+              "nl": "Lengtegraad",
+              "ru": "Долгота",
+              "da": "Længdegrad",
+              "es": "Longitud",
+              "fr": "Longitude",
+              "no": "Lengdegrad",
+              "pl": "Długosść",
+              "sv": "Lontitud"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "Chat / Topic",
+              "it": "Chat / Argomento",
+              "de": "Chat / Topic",
+              "nl": "Chat / Onderwerp",
+              "ru": "Чат / Тема",
+              "da": "Chat / Emne",
+              "es": "Chat / Tema",
+              "fr": "Chat / Sujet",
+              "no": "Chat / Emne",
+              "pl": "Chat / Temat",
+              "sv": "Chat / Ämne"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3",
+              "ru": "Создано с <3",
+              "da": "Oprettet med <3",
+              "es": "Creado con <3",
+              "fr": "Creé avec <3",
+              "no": "Laget med <3",
+              "pl": "Stworzone przez <3",
+              "sv": "Skapad med <3"
+            }
+          },
+          {
+            "type": "checkbox",
+            "name": "disable_notification",
+            "title": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen",
+              "ru": "Отключить уведомления",
+              "da": "Deaktiver notifikation",
+              "es": "Desactivar notificación",
+              "fr": "Désactiver la notification",
+              "no": "Deaktivere melding",
+              "pl": "Wyłącz powiadomienia",
+              "sv": "Inaktivera meddelande"
+            },
+            "placeholder": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen",
+              "ru": "Отключить уведомления",
+              "da": "Deaktiver notifikation",
+              "es": "Desactivar notificación",
+              "fr": "Désactiver la notification",
+              "no": "Deaktivere melding",
+              "pl": "Wyłącz powiadomienia",
+              "sv": "Inaktivera meddelande"
+            },
+            "required": false
+          }
+        ],
+        "id": "send-location"
+      },
+      {
+        "title": {
+          "en": "Send Location",
+          "it": "Invia Posizione",
+          "de": "Lokation senden",
+          "nl": "Verstuur locatie",
+          "ru": "Отправить локацию",
+          "da": "Send lokation",
+          "es": "Enviar ubicación",
+          "fr": "Envoyer une localisation",
+          "no": "Send lokasjon",
+          "pl": "Wyslij lokalizację",
+          "sv": "Skicka lokation"
+        },
+        "titleFormatted": {
+          "en": "Send location [[location]] to [[user]] ([[disable_notification]])",
+          "it": "Invia Posizione [[location]] a [[user]] ([[disable_notification]])",
+          "de": "Standort [[location]] an [[user]] senden ([[disable_notification]])",
+          "nl": "Verstuur locatie [[location]] naar [[user]] ([[disable_notification]])",
+          "ru": "Отправить локацию [[location]] на [[user]] ([[disable_notification]])",
+          "da": "Send lokation [[location]] til [[user]] ([[disable_notification]])",
+          "es": "Enviar ubicación [[location]] a [[user]] ([[disable_notification]])",
+          "fr": "Envoyer une localisation [[location]] a [[user]] ([[disable_notification]])",
+          "no": "Send lokasjon [[location]] til [[user]] ([[disable_notification]])",
+          "pl": "Wyslij lokalizację [[location]] do [[user]] ([[disable_notification]])",
+          "sv": "Skicka lokation [[location]] till [[user]] ([[disable_notification]])"
+        },
+        "hint": {
+          "en": "Sends a Location to your Telegram chat",
+          "it": "Invia una Posizione nella tua chat Telegram",
+          "de": "Sendet eine Standort an deinen Telegram-Chat",
+          "nl": "Verstuur een locatie naar uw Telegram chat",
+          "ru": "Отправить локацию в чате Telegram",
+          "da": "Send lokation til din Telegram chat",
+          "es": "Enviar ubicación en tu chat de Telegram",
+          "fr": "Envoyer une localisation dans votre chat Telegram",
+          "no": "Send lokasjon til din Telegram chat",
+          "pl": "Wyslij lokalizację do twojego czata Telegram",
+          "sv": "Skicka en lokation till din Telegram-chatt"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "location",
+            "title": {
+              "en": "Latitude, Longitude",
+              "it": "Latitudine, Longitudine",
+              "de": "Breitengrad, Längengrad",
+              "nl": "Breedtegraad, Lengtegraad",
+              "ru": "Широта, Долгота",
+              "da": "Breddegrad, Længdegrad",
+              "es": "Latitud, Longitud",
+              "fr": "Latitude, Longitude",
+              "no": "Breddegrad, Lengdegrad",
+              "pl": "Szerokosść, Długosść",
+              "sv": "Bredd, Länge"
+            },
+            "placeholder": {
+              "en": "Latitude, Longitude",
+              "it": "Latitudine, Longitudine",
+              "de": "Breitengrad, Längengrad",
+              "nl": "Breedtegraad, Lengtegraad",
+              "ru": "Широта, Долгота",
+              "da": "Breddegrad, Længdegrad",
+              "es": "Latitud, Longitud",
+              "fr": "Latitude, Longitude",
+              "no": "Breddegrad, Lengdegrad",
+              "pl": "Szerokosść, Długosść",
+              "sv": "Bredd, Län"
+            }
+          },
+          {
+            "type": "autocomplete",
+            "name": "user",
+            "title": {
+              "en": "Chat / Topic",
+              "it": "Chat / Argomento",
+              "de": "Chat / Topic",
+              "nl": "Chat / Onderwerp",
+              "ru": "Чат / Тема",
+              "da": "Chat / Emne",
+              "es": "Chat / Tema",
+              "fr": "Chat / Sujet",
+              "no": "Chat / Emne",
+              "pl": "Chat / Temat",
+              "sv": "Chat / Ämne"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3",
+              "ru": "Создано с <3",
+              "da": "Oprettet med <3",
+              "es": "Creado con <3",
+              "fr": "Creé avec <3",
+              "no": "Laget med <3",
+              "pl": "Stworzone przez <3",
+              "sv": "Skapad med <3"
+            }
+          },
+          {
+            "type": "checkbox",
+            "name": "disable_notification",
+            "title": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen",
+              "ru": "Отключить уведомления",
+              "da": "Deaktiver notifikation",
+              "es": "Desactivar notificación",
+              "fr": "Désactiver la notification",
+              "no": "Deaktivere melding",
+              "pl": "Wyłącz powiadomienia",
+              "sv": "Inaktivera meddelande"
+            },
+            "placeholder": {
+              "en": "Disable Notification",
+              "it": "Disabilita Notifica",
+              "de": "Benachrichtigung deaktivieren",
+              "nl": "Melding uitschakelen",
+              "ru": "Отключить уведомления",
+              "da": "Deaktiver notifikation",
+              "es": "Desactivar notificación",
+              "fr": "Désactiver la notification",
+              "no": "Deaktivere melding",
+              "pl": "Wyłącz powiadomienia",
+              "sv": "Inaktivera meddelande"
+            },
+            "required": false
+          }
+        ],
+        "id": "send-location-as-one"
+      },
+      {
+        "title": {
           "en": "Send a silent message",
           "it": "Invia un messaggio silenzioso",
           "de": "Eine Leise Nachricht versenden",
@@ -2037,6 +2407,55 @@
           }
         ],
         "id": "send-message-silent"
+      },
+      {
+        "title": {
+          "en": "Send a message by chat ID",
+          "it": "Invia messaggio per ID chat",
+          "de": "Eine Nachricht senden mit Chat-ID",
+          "nl": "Verstuur een bericht per chat-ID"
+        },
+        "titleFormatted": {
+          "en": "Send message [[message]] to [[user]] by chat ID",
+          "it": "Invia [[message]] a [[user]] per ID chat",
+          "de": "Nachricht [[message]] an [[user]] senden mittels Chat-ID",
+          "nl": "Bericht [[message]] naar [[user]] versturen per chat-ID"
+        },
+        "args": [
+          {
+            "type": "text",
+            "name": "message",
+            "title": {
+              "en": "Message",
+              "it": "Messaggio",
+              "de": "Nachricht",
+              "nl": "Bericht"
+            },
+            "placeholder": {
+              "en": "Hello from Homey!",
+              "it": "Ciao da Homey!",
+              "de": "Hallo von Homey!",
+              "nl": "Hallo van Homey!"
+            }
+          },
+          {
+            "type": "text",
+            "name": "user",
+            "title": {
+              "en": "Chat-ID",
+              "it": "ID chat",
+              "de": "Chat-ID",
+              "nl": "Chat-ID"
+            },
+            "placeholder": {
+              "en": "Created with <3",
+              "it": "Creato con <3",
+              "de": "Erstellt mit <3",
+              "nl": "Gemaakt met <3"
+            }
+          }
+        ],
+        "id": "send-notification-with-chat-id"
       },
       {
         "highlight": true,
