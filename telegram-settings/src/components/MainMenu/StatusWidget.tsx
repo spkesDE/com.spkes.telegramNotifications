@@ -17,6 +17,7 @@ interface State {
     questions: string;
     logSize: string;
     errors: string;
+    privacyCommand: boolean;
     gotData: boolean;
 }
 
@@ -30,6 +31,7 @@ export default class StatusWidget extends React.Component<Props, State> {
             questions: "0",
             logSize: "0",
             errors: "0",
+            privacyCommand: false,
             gotData: process.env!.NODE_ENV === "development"
         }
     }
@@ -56,6 +58,7 @@ export default class StatusWidget extends React.Component<Props, State> {
             questions: (JSON.parse(await Homey.get('questions') ?? "[]")).length ?? "0",
             logSize: logs.length ?? "0",
             errors: logs.filter((e: LogEntry) => e.type === 1).length ?? "0",
+            privacyCommand: await Homey.get('privacyCommand') ?? false,
             gotData: true
         })
     }
@@ -63,28 +66,34 @@ export default class StatusWidget extends React.Component<Props, State> {
     render() {
         if (this.state.gotData)
             return (
-                <div className="statusWidget">
-                    <div className="title">
-                        Status
-                    </div>
-                    <hr/>
-                    <div className="data">
-                        <div className={"data"}>
-                            <div className="col">
-                                <p>{Homey.__("settings.status.bot")}: {this.state.status}</p>
-                                <p>{Homey.__("settings.status.chats")}: {this.state.users}</p>
-                                <p>{Homey.__("settings.status.questions")}: {this.state.questions}</p>
-                            </div>
-                            <div className="col">
-                                <p>{Homey.__("settings.status.logSize", {value: this.state.logSize})}</p>
-                                <p>{Homey.__("settings.status.errors")}: {this.state.errors}</p>
-                                <p></p>
-                            </div>
+                <>
+                    <div className="statusWidget">
+                        <div className="title">
+                            Status
                         </div>
-                        <img src={"./img/icon.svg"} height={60} width={60} className={"logo telegramColorFilter"}
-                             alt={"Telegram Logo"}/>
+                        <hr/>
+                        <div className="data">
+                            <div className={"data"}>
+                                <div className="col">
+                                    <p>{Homey.__("settings.status.bot")}: {this.state.status}</p>
+                                    <p>{Homey.__("settings.status.chats")}: {this.state.users}</p>
+                                    <p>{Homey.__("settings.status.questions")}: {this.state.questions}</p>
+                                </div>
+                                <div className="col">
+                                    <p>{Homey.__("settings.status.logSize", {value: this.state.logSize})}</p>
+                                    <p>{Homey.__("settings.status.errors")}: {this.state.errors}</p>
+                                    <p></p>
+                                </div>
+                            </div>
+                            <img src={"./img/icon.svg"} height={60} width={60} className={"logo telegramColorFilter"}
+                                 alt={"Telegram Logo"}/>
+                        </div>
                     </div>
-                </div>
+                    {!this.state.privacyCommand ? <div className="warningWidget">
+                            <i className={"fas fa-exclamation-triangle"}></i> {Homey.__('settings.botSettings.privacyCommandWarning')}
+                        </div>
+                        : ''}
+                </>
             );
         else return <div className="statusWidget"><Loading/></div>
     }

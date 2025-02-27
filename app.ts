@@ -12,6 +12,7 @@ import SendQuestion from './flow/actions/sendQuestion';
 import HandleQuestions from './flow/triggers/handleQuestions';
 import HandleNewUsers from './flow/triggers/handleNewUsers';
 import SendSilentMessage from './flow/actions/sendSilentMessage';
+import SendLocation from './flow/actions/sendLocation';
 import {BL} from 'betterlogiclibrary';
 import ReceiveMessageFromChat from './flow/triggers/receiveMessageFromChat';
 import DeleteById from './flow/actions/deleteById';
@@ -22,6 +23,8 @@ import ReceiveMessageFromTopic from './flow/triggers/receiveMessageFromTopic';
 import {ParseMode} from 'grammy/types';
 import {defaultQuestions} from './assets/defaultQuestions';
 import {apiThrottler} from '@grammyjs/transformer-throttler';
+import PrivacyCommand from "./privacyCommand";
+import SendMessageById from "./flow/actions/sendMessageById";
 
 
 export class TelegramNotifications extends HomeyApp {
@@ -35,7 +38,8 @@ export class TelegramNotifications extends HomeyApp {
     customIdMessages: { message_id: number; chat_id: number; customId: string; }[] = [];
     markdown: ParseMode | undefined = undefined;
     disableWebPagePreview = false;
-    private debugMode: Boolean = false;
+    privacyCommand: boolean = false;
+    private debugMode: boolean = false;
 
     async onInit() {
       this.token = await this.homey.settings.get('bot-token');
@@ -61,6 +65,9 @@ export class TelegramNotifications extends HomeyApp {
         if (key === 'useBll') {
           this.startBll();
         }
+          if (key === 'privacyCommand') {
+              this.privacyCommand = this.homey.settings.get('privacyCommand') ?? false;
+          }
         if (key === 'markdown') {
           const markdown = this.homey.settings.get('markdown');
           if (markdown === 'none') {
@@ -126,6 +133,7 @@ export class TelegramNotifications extends HomeyApp {
             }
           })
           .catch(this.error);
+          new PrivacyCommand(this);
         this.debug('Debug => Total-Users ' + this.chats.length + ', Question-Size: ' + this.questions.length +
                 ', Log-Size: ' + this.getLogSize() + ' and start was ' + (this.startSuccess ? 'successful' : 'unsuccessful'));
         this.changeBotState(true);
@@ -144,6 +152,7 @@ export class TelegramNotifications extends HomeyApp {
 
       //Action Cards
       new SendMessage(this, this.homey.flow.getActionCard('sendNotification'));
+        new SendMessageById(this, this.homey.flow.getActionCard('send-notification-with-chat-id'));
       new SendSilentMessage(this, this.homey.flow.getActionCard('send-message-silent'));
       new SendQuestion(this, this.homey.flow.getActionCard('send-a-question'));
       new SendQuestion(this, this.homey.flow.getActionCard('send-a-question-with-custom-text'));
@@ -158,6 +167,10 @@ export class TelegramNotifications extends HomeyApp {
       new SendImageWithMessage(this, this.homey.flow.getActionCard('send-a-image-with-message'));
       new SendTagImage(this, this.homey.flow.getActionCard('send-a-image-with-tag'));
       new SendTagImageWithMessage(this, this.homey.flow.getActionCard('send-a-image-with-message-and-tag'));
+
+        new SendLocation(this, this.homey.flow.getActionCard('send-location'));
+        new SendLocation(this, this.homey.flow.getActionCard('send-location-as-one'));
+
       this.debug('Flow cards initialized');
     }
 
@@ -264,6 +277,7 @@ export class TelegramNotifications extends HomeyApp {
       } else {
         this.markdown = markdown;
       }
+        this.privacyCommand = this.homey.settings.get('privacyCommand') ?? false;
     }
 }
 

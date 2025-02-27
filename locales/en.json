@@ -52,7 +52,10 @@
       },
       "useBll": "Enable Better Logic Library Support",
       "useMarkdown": "Use Markdown",
-      "usePassword": "Use Password"
+      "usePassword": "Use Password",
+      "privacyCommand": "Privacy Command (/privacy)",
+      "privacyCommandHint": "Privacy Command is required according to Telegram Bot Terms of Service. This command is automatically created and cannot be changed. It is recommended to activate this command to prevent the bot from being banned by Telegram.",
+      "privacyCommandWarning": "Privacy Command is disabled. It is recommended to activate the Privacy Command."
     },
     "chatGTPSettings": {
       "apiKey": "API-Key",

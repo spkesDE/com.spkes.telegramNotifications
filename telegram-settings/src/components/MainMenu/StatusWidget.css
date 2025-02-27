@@ -11,6 +11,17 @@
     flex-direction: column;
 }
 
+.warningWidget {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+    color: var(--color-text-danger);
+    border: none;
+    padding: 1em;
+    margin: var(--su-2);
+    font-weight: bold;
+}
+
 .telegramColorFilter {
     filter: invert(56%) sepia(20%) saturate(2144%) hue-rotate(159deg) brightness(91%) contrast(85%);
 }

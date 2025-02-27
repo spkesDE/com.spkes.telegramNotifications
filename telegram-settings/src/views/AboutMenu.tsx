@@ -37,7 +37,7 @@ export default class AboutMenu extends React.Component<Props, State> {
                     <MenuContentWrapper>
                         <h2>{Homey.__("settings.aboutMenu.using")}</h2>
                         <ul>
-                            <li>Grammy.dev <Badge color={BadgeColor.ORANGE} size={BadgeSize.SMALL}>v1.23</Badge></li>
+                            <li>Grammy.dev <Badge color={BadgeColor.ORANGE} size={BadgeSize.SMALL}>v1.26</Badge></li>
                             <li>Better Logic Library <Badge color={BadgeColor.MAGENTA}
                                                             size={BadgeSize.SMALL}>v0.10</Badge></li>
                             <li>Node-fetch <Badge color={BadgeColor.BLUE} size={BadgeSize.SMALL}>v3</Badge></li>

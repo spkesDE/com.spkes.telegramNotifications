@@ -16,6 +16,7 @@ interface State {
     usePassword: boolean,
     useBLL: boolean,
     disableWebPagePreview: boolean,
+    privacyCommand: boolean,
     password: string | undefined,
     token: string | undefined,
     markdown: string | undefined,
@@ -29,6 +30,7 @@ class SettingsMenu extends React.Component<Props, State> {
             usePassword: false,
             useBLL: false,
             disableWebPagePreview: false,
+            privacyCommand: false,
             password: undefined,
             token: undefined,
             markdown: undefined,
@@ -42,6 +44,7 @@ class SettingsMenu extends React.Component<Props, State> {
             usePassword: await Homey.get('use-password') ?? false,
             useBLL: await Homey.get('useBll') ?? false,
             disableWebPagePreview: await Homey.get('disableWebPagePreview') ?? false,
+            privacyCommand: await Homey.get('privacyCommand') ?? false,
             password: await Homey.get('password') ?? undefined,
             token: await Homey.get('bot-token') ?? undefined,
             markdown: await Homey.get('markdown') ?? undefined,
@@ -123,6 +126,16 @@ class SettingsMenu extends React.Component<Props, State> {
                                 onChange={(e) => this.handleDisableWebPagePreview(e.currentTarget.checked)}
                                 value={this.state.disableWebPagePreview}/>
                     </MenuItemWrapper>
+                    <MenuItemWrapper>
+                        <h2>{Homey.__('settings.botSettings.privacyCommand')}</h2>
+                        <Switch id={"privacyCommand"}
+                                onChange={(e) => this.handlePrivacyCommand(e.currentTarget.checked)}
+                                value={this.state.privacyCommand}/>
+                    </MenuItemWrapper>
+                    <p className={"itemGroupHint"}>
+                        <i className="fas fa-info-circle"></i>
+                        {Homey.__('settings.botSettings.privacyCommandHint')}
+                    </p>
                 </MenuItemGroup>
                 <MenuItemGroup>
                     <MenuItemWrapper className={"noPadding"}>
@@ -137,7 +150,7 @@ class SettingsMenu extends React.Component<Props, State> {
                         {Homey.__('settings.botSettings.setup.title')}
                     </p>
                     <MenuItemWrapper className={"flexCol flexStart fullPadding"}>
-                        <ol>
+                        <ol style={{marginTop: "0"}}>
                             <li className={"defaultFont"}>{Homey.__('settings.botSettings.setup.step1')}</li>
                             <li className={"defaultFont"}>
                                 {Homey.__('settings.botSettings.setup.step2')}<br/>
@@ -169,6 +182,7 @@ class SettingsMenu extends React.Component<Props, State> {
             await Homey.set('markdown', this.state.markdown);
         else
             await Homey.unset('markdown');
+        await Homey.set('privacyCommand', this.state.privacyCommand ?? false);
 
         this.setState({gotData: true})
         console.log("Saved Settings")
@@ -189,6 +203,12 @@ class SettingsMenu extends React.Component<Props, State> {
     private handleDisableWebPagePreview(value: boolean) {
         this.setState({
             disableWebPagePreview: value,
+        })
+    }
+
+    private handlePrivacyCommand(value: boolean) {
+        this.setState({
+            privacyCommand: value,
         })
     }
 

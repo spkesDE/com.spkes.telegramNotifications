@@ -52,7 +52,10 @@
       },
       "useBll": "Abilita il supporto alla Better Logic Library",
       "useMarkdown": "Usa Ribasso",
-      "usePassword": "Usa Password"
+      "usePassword": "Usa Password",
+      "privacyCommand": "Comando Privacy (/privacy)",
+      "privacyCommandHint": "Il Comando Privacy è richiesto secondo i Termini di Servizio di Telegram Bot. Questo comando viene creato automaticamente e non può essere modificato. Si consiglia di attivare questo comando per evitare che il bot venga bannato da Telegram.",
+      "privacyCommandWarning": "Il Comando Privacy è disattivato. Si consiglia di attivare il Comando Privacy."
     },
     "chatGTPSettings": {
       "apiKey": "",

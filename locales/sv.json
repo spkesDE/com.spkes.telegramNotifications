@@ -52,7 +52,10 @@
       },
       "useBll": "Aktivera stöd för Better Logic Library",
       "useMarkdown": "Använda Markdown",
-      "usePassword": "Använda lösenord"
+      "usePassword": "Använda lösenord",
+      "privacyCommand": "Sekretesskommando (/privacy)",
+      "privacyCommandHint": "Sekretesskommando krävs enligt Telegram Bots användarvillkor. Denna kommando skapas automatiskt och kan inte ändras. Det rekommenderas att aktivera denna kommando för att förhindra att boten blockeras av Telegram.",
+      "privacyCommandWarning": "Sekretesskommando är inaktiverad. Det rekommenderas att aktivera Sekretesskommando."
     },
     "chatGTPSettings": {
       "apiKey": "API-nyckel",
