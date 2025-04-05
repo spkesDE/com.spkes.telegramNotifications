@@ -2060,103 +2060,38 @@
       },
       {
         "title": {
-          "en": "Send Location",
-          "it": "Invia Posizione",
-          "de": "Lokation senden",
-          "nl": "Verstuur locatie",
-          "ru": "Отправить локацию",
-          "da": "Send lokation",
-          "es": "Enviar ubicación",
-          "fr": "Envoyer une localisation",
-          "no": "Send lokasjon",
-          "pl": "Wyslij lokalizację",
-          "sv": "Skicka lokation"
+          "en": "Send a Video",
+          "it": "Invia un Video",
+          "de": "Ein Video senden",
+          "nl": "Verstuur een video"
         },
         "titleFormatted": {
-          "en": "Send location [[latitude]], [[longitude]] to [[user]] ([[disable_notification]])",
-          "it": "Invia Posizione [[latitude]], [[longitude]] a [[user]] ([[disable_notification]])",
-          "de": "Standort [[latitude]], [[longitude]] an [[user]] senden ([[disable_notification]])",
-          "nl": "Verstuur locatie [[latitude]], [[longitude]] naar [[user]] ([[disable_notification]])",
-          "ru": "Отправить локацию [[latitude]], [[longitude]] на [[user]] ([[disable_notification]])",
-          "da": "Send lokation [[latitude]], [[longitude]] til [[user]] ([[disable_notification]])",
-          "es": "Enviar ubicación [[latitude]], [[longitude]] a [[user]] ([[disable_notification]])",
-          "fr": "Envoyer une localisation [[latitude]], [[longitude]] a [[user]] ([[disable_notification]])",
-          "no": "Send lokasjon [[latitude]], [[longitude]] til [[user]] ([[disable_notification]])",
-          "pl": "Wyslij lokalizację [[latitude]], [[longitude]] do [[user]] ([[disable_notification]])",
-          "sv": "Skicka lokation [[latitude]], [[longitude]] till [[user]] ([[disable_notification]])"
+          "en": "Send a video [[url]] to [[user]] ([[disable_notification]])",
+          "it": "Invia un Video [[url]] a [[user]] ([[disable_notification]])",
+          "de": "Video [[url]] an [[user]] senden ([[disable_notification]])",
+          "nl": "Video [[url]] naar [[user]] versturen ([[disable_notification]])"
         },
         "hint": {
-          "en": "Sends a Location to your Telegram chat",
-          "it": "Invia una Posizione nella tua chat Telegram",
-          "de": "Sendet eine Standort an deinen Telegram-Chat",
-          "nl": "Verstuur een locatie naar uw Telegram chat",
-          "ru": "Отправить локацию в чате Telegram",
-          "da": "Send lokation til din Telegram chat",
-          "es": "Enviar ubicación en tu chat de Telegram",
-          "fr": "Envoyer une localisation dans votre chat Telegram",
-          "no": "Send lokasjon til din Telegram chat",
-          "pl": "Wyslij lokalizację do twojego czata Telegram",
-          "sv": "Skicka en lokation till din Telegram-chatt"
+          "en": "Sends a Video to your Telegram chat. Only HTTPS is supported.",
+          "it": "Invia un Video nella tua chat Telegram. Only HTTPS is supported.",
+          "de": "Sendet ein Video an deinen Telegram-Chat. Nur HTTPS protokoll ist unterstützt.",
+          "nl": "Verstuur een video naar uw Telegram chat. Alleen HTTPS wordt ondersteund."
         },
         "args": [
           {
             "type": "text",
-            "name": "latitude",
+            "name": "url",
             "title": {
-              "en": "Latitude",
-              "it": "Latitudine",
-              "de": "Breitengrad",
-              "nl": "Breedtegraad",
-              "ru": "Широта",
-              "da": "Breddegrad",
-              "es": "Latitud",
-              "fr": "Latitude",
-              "no": "Breddegrad",
-              "pl": "Długosść",
-              "sv": "Lattitud"
+              "en": "URL",
+              "it": "URL",
+              "de": "URL",
+              "nl": "URL"
             },
             "placeholder": {
-              "en": "Latitude",
-              "it": "Latitudine",
-              "de": "Breitengrad",
-              "nl": "Breedtegraad",
-              "ru": "Широта",
-              "da": "Breddegrad",
-              "es": "Latitud",
-              "fr": "Latitude",
-              "no": "Breddegrad",
-              "pl": "Długosść",
-              "sv": "Lattitud"
-            }
-          },
-          {
-            "type": "text",
-            "name": "longitude",
-            "title": {
-              "en": "Longitude",
-              "it": "Longitudine",
-              "de": "Längengrad",
-              "nl": "Lengtegraad",
-              "ru": "Долгота",
-              "da": "Længdegrad",
-              "es": "Longitud",
-              "fr": "Longitude",
-              "no": "Lengdegrad",
-              "pl": "Długosść",
-              "sv": "Lontitud"
-            },
-            "placeholder": {
-              "en": "Longitude",
-              "it": "Longitudine",
-              "de": "Längengrad",
-              "nl": "Lengtegraad",
-              "ru": "Долгота",
-              "da": "Længdegrad",
-              "es": "Longitud",
-              "fr": "Longitude",
-              "no": "Lengdegrad",
-              "pl": "Długosść",
-              "sv": "Lontitud"
+              "en": "https://url/video.mp4",
+              "it": "https://url/video.mp4",
+              "de": "https://url/video.mp4",
+              "nl": "https://url/video.mp4"
             }
           },
           {
@@ -2166,27 +2101,13 @@
               "en": "Chat / Topic",
               "it": "Chat / Argomento",
               "de": "Chat / Topic",
-              "nl": "Chat / Onderwerp",
-              "ru": "Чат / Тема",
-              "da": "Chat / Emne",
-              "es": "Chat / Tema",
-              "fr": "Chat / Sujet",
-              "no": "Chat / Emne",
-              "pl": "Chat / Temat",
-              "sv": "Chat / Ämne"
+              "nl": "Chat / Onderwerp"
             },
             "placeholder": {
               "en": "Created with <3",
               "it": "Creato con <3",
               "de": "Erstellt mit <3",
-              "nl": "Gemaakt met <3",
-              "ru": "Создано с <3",
-              "da": "Oprettet med <3",
-              "es": "Creado con <3",
-              "fr": "Creé avec <3",
-              "no": "Laget med <3",
-              "pl": "Stworzone przez <3",
-              "sv": "Skapad med <3"
+              "nl": "Gemaakt met <3"
             }
           },
           {
@@ -2196,167 +2117,18 @@
               "en": "Disable Notification",
               "it": "Disabilita Notifica",
               "de": "Benachrichtigung deaktivieren",
-              "nl": "Melding uitschakelen",
-              "ru": "Отключить уведомления",
-              "da": "Deaktiver notifikation",
-              "es": "Desactivar notificación",
-              "fr": "Désactiver la notification",
-              "no": "Deaktivere melding",
-              "pl": "Wyłącz powiadomienia",
-              "sv": "Inaktivera meddelande"
+              "nl": "Melding uitschakelen"
             },
             "placeholder": {
               "en": "Disable Notification",
               "it": "Disabilita Notifica",
               "de": "Benachrichtigung deaktivieren",
-              "nl": "Melding uitschakelen",
-              "ru": "Отключить уведомления",
-              "da": "Deaktiver notifikation",
-              "es": "Desactivar notificación",
-              "fr": "Désactiver la notification",
-              "no": "Deaktivere melding",
-              "pl": "Wyłącz powiadomienia",
-              "sv": "Inaktivera meddelande"
+              "nl": "Melding uitschakelen"
             },
             "required": false
           }
         ],
-        "id": "send-location"
-      },
-      {
-        "title": {
-          "en": "Send Location",
-          "it": "Invia Posizione",
-          "de": "Lokation senden",
-          "nl": "Verstuur locatie",
-          "ru": "Отправить локацию",
-          "da": "Send lokation",
-          "es": "Enviar ubicación",
-          "fr": "Envoyer une localisation",
-          "no": "Send lokasjon",
-          "pl": "Wyslij lokalizację",
-          "sv": "Skicka lokation"
-        },
-        "titleFormatted": {
-          "en": "Send location [[location]] to [[user]] ([[disable_notification]])",
-          "it": "Invia Posizione [[location]] a [[user]] ([[disable_notification]])",
-          "de": "Standort [[location]] an [[user]] senden ([[disable_notification]])",
-          "nl": "Verstuur locatie [[location]] naar [[user]] ([[disable_notification]])",
-          "ru": "Отправить локацию [[location]] на [[user]] ([[disable_notification]])",
-          "da": "Send lokation [[location]] til [[user]] ([[disable_notification]])",
-          "es": "Enviar ubicación [[location]] a [[user]] ([[disable_notification]])",
-          "fr": "Envoyer une localisation [[location]] a [[user]] ([[disable_notification]])",
-          "no": "Send lokasjon [[location]] til [[user]] ([[disable_notification]])",
-          "pl": "Wyslij lokalizację [[location]] do [[user]] ([[disable_notification]])",
-          "sv": "Skicka lokation [[location]] till [[user]] ([[disable_notification]])"
-        },
-        "hint": {
-          "en": "Sends a Location to your Telegram chat",
-          "it": "Invia una Posizione nella tua chat Telegram",
-          "de": "Sendet eine Standort an deinen Telegram-Chat",
-          "nl": "Verstuur een locatie naar uw Telegram chat",
-          "ru": "Отправить локацию в чате Telegram",
-          "da": "Send lokation til din Telegram chat",
-          "es": "Enviar ubicación en tu chat de Telegram",
-          "fr": "Envoyer une localisation dans votre chat Telegram",
-          "no": "Send lokasjon til din Telegram chat",
-          "pl": "Wyslij lokalizację do twojego czata Telegram",
-          "sv": "Skicka en lokation till din Telegram-chatt"
-        },
-        "args": [
-          {
-            "type": "text",
-            "name": "location",
-            "title": {
-              "en": "Latitude, Longitude",
-              "it": "Latitudine, Longitudine",
-              "de": "Breitengrad, Längengrad",
-              "nl": "Breedtegraad, Lengtegraad",
-              "ru": "Широта, Долгота",
-              "da": "Breddegrad, Længdegrad",
-              "es": "Latitud, Longitud",
-              "fr": "Latitude, Longitude",
-              "no": "Breddegrad, Lengdegrad",
-              "pl": "Szerokosść, Długosść",
-              "sv": "Bredd, Länge"
-            },
-            "placeholder": {
-              "en": "Latitude, Longitude",
-              "it": "Latitudine, Longitudine",
-              "de": "Breitengrad, Längengrad",
-              "nl": "Breedtegraad, Lengtegraad",
-              "ru": "Широта, Долгота",
-              "da": "Breddegrad, Længdegrad",
-              "es": "Latitud, Longitud",
-              "fr": "Latitude, Longitude",
-              "no": "Breddegrad, Lengdegrad",
-              "pl": "Szerokosść, Długosść",
-              "sv": "Bredd, Län"
-            }
-          },
-          {
-            "type": "autocomplete",
-            "name": "user",
-            "title": {
-              "en": "Chat / Topic",
-              "it": "Chat / Argomento",
-              "de": "Chat / Topic",
-              "nl": "Chat / Onderwerp",
-              "ru": "Чат / Тема",
-              "da": "Chat / Emne",
-              "es": "Chat / Tema",
-              "fr": "Chat / Sujet",
-              "no": "Chat / Emne",
-              "pl": "Chat / Temat",
-              "sv": "Chat / Ämne"
-            },
-            "placeholder": {
-              "en": "Created with <3",
-              "it": "Creato con <3",
-              "de": "Erstellt mit <3",
-              "nl": "Gemaakt met <3",
-              "ru": "Создано с <3",
-              "da": "Oprettet med <3",
-              "es": "Creado con <3",
-              "fr": "Creé avec <3",
-              "no": "Laget med <3",
-              "pl": "Stworzone przez <3",
-              "sv": "Skapad med <3"
-            }
-          },
-          {
-            "type": "checkbox",
-            "name": "disable_notification",
-            "title": {
-              "en": "Disable Notification",
-              "it": "Disabilita Notifica",
-              "de": "Benachrichtigung deaktivieren",
-              "nl": "Melding uitschakelen",
-              "ru": "Отключить уведомления",
-              "da": "Deaktiver notifikation",
-              "es": "Desactivar notificación",
-              "fr": "Désactiver la notification",
-              "no": "Deaktivere melding",
-              "pl": "Wyłącz powiadomienia",
-              "sv": "Inaktivera meddelande"
-            },
-            "placeholder": {
-              "en": "Disable Notification",
-              "it": "Disabilita Notifica",
-              "de": "Benachrichtigung deaktivieren",
-              "nl": "Melding uitschakelen",
-              "ru": "Отключить уведомления",
-              "da": "Deaktiver notifikation",
-              "es": "Desactivar notificación",
-              "fr": "Désactiver la notification",
-              "no": "Deaktivere melding",
-              "pl": "Wyłącz powiadomienia",
-              "sv": "Inaktivera meddelande"
-            },
-            "required": false
-          }
-        ],
-        "id": "send-location-as-one"
+        "id": "send-a-video"
       },
       {
         "title": {
@@ -2406,55 +2178,6 @@
           }
         ],
         "id": "send-message-silent"
-      },
-      {
-        "title": {
-          "en": "Send a message by chat ID",
-          "it": "Invia messaggio per ID chat",
-          "de": "Eine Nachricht senden mit Chat-ID",
-          "nl": "Verstuur een bericht per chat-ID"
-        },
-        "titleFormatted": {
-          "en": "Send message [[message]] to [[user]] by chat ID",
-          "it": "Invia [[message]] a [[user]] per ID chat",
-          "de": "Nachricht [[message]] an [[user]] senden mittels Chat-ID",
-          "nl": "Bericht [[message]] naar [[user]] versturen per chat-ID"
-        },
-        "args": [
-          {
-            "type": "text",
-            "name": "message",
-            "title": {
-              "en": "Message",
-              "it": "Messaggio",
-              "de": "Nachricht",
-              "nl": "Bericht"
-            },
-            "placeholder": {
-              "en": "Hello from Homey!",
-              "it": "Ciao da Homey!",
-              "de": "Hallo von Homey!",
-              "nl": "Hallo van Homey!"
-            }
-          },
-          {
-            "type": "text",
-            "name": "user",
-            "title": {
-              "en": "Chat-ID",
-              "it": "ID chat",
-              "de": "Chat-ID",
-              "nl": "Chat-ID"
-            },
-            "placeholder": {
-              "en": "Created with <3",
-              "it": "Creato con <3",
-              "de": "Erstellt mit <3",
-              "nl": "Gemaakt met <3"
-            }
-          }
-        ],
-        "id": "send-notification-with-chat-id"
       },
       {
         "highlight": true,

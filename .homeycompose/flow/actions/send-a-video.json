@@ -1,0 +1,71 @@
+{
+  "title": {
+    "en": "Send a Video",
+    "it": "Invia un Video",
+    "de": "Ein Video senden",
+    "nl": "Verstuur een video"
+  },
+  "titleFormatted": {
+    "en": "Send a video [[url]] to [[user]] ([[disable_notification]])",
+    "it": "Invia un Video [[url]] a [[user]] ([[disable_notification]])",
+    "de": "Video [[url]] an [[user]] senden ([[disable_notification]])",
+    "nl": "Video [[url]] naar [[user]] versturen ([[disable_notification]])"
+  },
+  "hint": {
+    "en": "Sends a Video to your Telegram chat. Only HTTPS is supported.",
+    "it": "Invia un Video nella tua chat Telegram. Only HTTPS is supported.",
+    "de": "Sendet ein Video an deinen Telegram-Chat. Nur HTTPS protokoll ist unterstützt.",
+    "nl": "Verstuur een video naar uw Telegram chat. Alleen HTTPS wordt ondersteund."
+  },
+  "args": [
+    {
+      "type": "text",
+      "name": "url",
+      "title": {
+        "en": "URL",
+        "it": "URL",
+        "de": "URL",
+        "nl": "URL"
+      },
+      "placeholder": {
+        "en": "https://url/video.mp4",
+        "it": "https://url/video.mp4",
+        "de": "https://url/video.mp4",
+        "nl": "https://url/video.mp4"
+      }
+    },
+    {
+      "type": "autocomplete",
+      "name": "user",
+      "title": {
+        "en": "Chat / Topic",
+        "it": "Chat / Argomento",
+        "de": "Chat / Topic",
+        "nl": "Chat / Onderwerp"
+      },
+      "placeholder": {
+        "en": "Created with <3",
+        "it": "Creato con <3",
+        "de": "Erstellt mit <3",
+        "nl": "Gemaakt met <3"
+      }
+    },
+    {
+      "type": "checkbox",
+      "name": "disable_notification",
+      "title": {
+        "en": "Disable Notification",
+        "it": "Disabilita Notifica",
+        "de": "Benachrichtigung deaktivieren",
+        "nl": "Melding uitschakelen"
+      },
+      "placeholder": {
+        "en": "Disable Notification",
+        "it": "Disabilita Notifica",
+        "de": "Benachrichtigung deaktivieren",
+        "nl": "Melding uitschakelen"
+      },
+      "required": false
+    }
+  ]
+}

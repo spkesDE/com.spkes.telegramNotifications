@@ -25,6 +25,8 @@ import {defaultQuestions} from './assets/defaultQuestions';
 import {apiThrottler} from '@grammyjs/transformer-throttler';
 import PrivacyCommand from "./privacyCommand";
 import SendMessageById from "./flow/actions/sendMessageById";
+import SendVideo from "./flow/actions/sendVideo";
+import SendVideoWithMessage from "./flow/actions/sendVideoWithMessage";
 
 
 export class TelegramNotifications extends HomeyApp {
@@ -165,6 +167,8 @@ export class TelegramNotifications extends HomeyApp {
 
       new SendImage(this, this.homey.flow.getActionCard('send-a-image'));
       new SendImageWithMessage(this, this.homey.flow.getActionCard('send-a-image-with-message'));
+      new SendVideo(this, this.homey.flow.getActionCard('send-a-video'));
+      new SendVideoWithMessage(this, this.homey.flow.getActionCard('send-a-video-with-message'));
       new SendTagImage(this, this.homey.flow.getActionCard('send-a-image-with-tag'));
       new SendTagImageWithMessage(this, this.homey.flow.getActionCard('send-a-image-with-message-and-tag'));
 
