@@ -298,5 +298,8 @@
   },
   "2.17.0": {
     "en": "Send Video via Telegram"
+  },
+  "2.17.1": {
+    "en": "Fixed Settingspage"
   }
 }
