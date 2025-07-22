@@ -7,21 +7,21 @@
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore ."
   },
   "devDependencies": {
-    "@tsconfig/node12": "^1.0.11",
-    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.6",
-    "@types/node": "^18.11.17",
-    "@typescript-eslint/eslint-plugin": "^5.60.1",
-    "@typescript-eslint/parser": "^5.60.1",
-    "eslint": "^7.32.0",
-    "eslint-import-resolver-typescript": "^3.5.5",
+    "@tsconfig/node12": "^12.1.4",
+    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.12",
+    "@types/node": "^24.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "eslint": "^9.31.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-homey-app": "^1.0.2",
-    "eslint-plugin-import": "^2.27.5",
-    "typescript": "^5.5.3"
+    "eslint-plugin-import": "^2.32.0",
+    "typescript": "^5.8.3"
   },
   "dependencies": {
     "@grammyjs/transformer-throttler": "^1.2.1",
     "betterlogiclibrary": "^0.10.2",
-    "grammy": "^1.35.0",
+    "grammy": "^1.37.0",
     "node-fetch": "^3.3.2"
   }
 }
