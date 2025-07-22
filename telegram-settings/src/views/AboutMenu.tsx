@@ -22,10 +22,10 @@ export default class AboutMenu extends React.Component<Props, State> {
     }
 
     render() {
-        const grammyVersion = process.env.REACT_APP_GRAMMY_VERSION || 'unknown';
-        const betterLogicVersion = process.env.REACT_APP_BETTER_LOGIC_VERSION || 'unknown';
-        const nodeFetchVersion = process.env.REACT_APP_NODE_FETCH_VERSION || 'unknown';
-        const reactVersion = process.env.REACT_APP_REACT_VERSION || 'unknown';
+        const grammyVersion = import.meta.env.VITE_GRAMMY_VERSION || 'unknown';
+        const betterLogicVersion = import.meta.env.VITE_BETTER_LOGIC_VERSION || 'unknown';
+        const nodeFetchVersion = import.meta.env.VITE_NODE_FETCH_VERSION || 'unknown';
+        const reactVersion = import.meta.env.VITE_REACT_VERSION || 'unknown';
 
         return (
             <MenuWrapper title={Homey.__("settings.aboutMenu.title")}

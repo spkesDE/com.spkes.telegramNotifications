@@ -1,6 +1,7 @@
 {
   "name": "telegram-settings",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "homepage": "./",
   "dependencies": {
@@ -9,12 +10,14 @@
     "@types/react-dom": "^19.1.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-scripts": "5.0.1",
     "typescript": "^5.8.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "node setVersionsEnv.js && react-scripts build",
+    "start": "vite",
+    "serve": "vite serve",
+    "preview": "vite preview",
+    "version": "node scripts/setVersionsEnv.js",
+    "build": "node scripts/setVersionsEnv.js && vite build",
     "delete-target": "rd /s /q \"H:/com.spkes.telegramNotifications/settings\" && mkdir \"H:/com.spkes.telegramNotifications/settings\"",
     "copy-files": "(robocopy ./build/ \"H:/com.spkes.telegramNotifications/settings \" /s /e /NFL /NDL /NJH /NJS /nc /ns /np) ^& exit 0"
   },
@@ -29,5 +32,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^7.0.5"
   }
 }
