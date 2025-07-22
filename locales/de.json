@@ -52,7 +52,10 @@
       },
       "useBll": "Better Logic Library-Unterstützung aktivieren",
       "useMarkdown": "Markdown verwenden",
-      "usePassword": "Passwort verwenden"
+      "usePassword": "Passwort verwenden",
+      "privacyCommand": "Datenschutz-Befehl (/privacy)",
+      "privacyCommandHint": "Datenschutz-Befehl ist laut Telegram Bot Terms of Service erforderlich. Dieser Befehl wird automatisch erstellt und kann nicht geändert werden. Es wird empfohlen, diesen Befehl zu aktivieren damit der Bot von Telegram nicht gesperrt wird.",
+      "privacyCommandWarning": "Datenschutz-Befehl ist deaktiviert. Es ist empfohlen, den Datenschutz-Befehl zu aktivieren."
     },
     "chatGTPSettings": {
       "apiKey": "API-Key",

@@ -3,11 +3,25 @@ import Chat from "./chat";
 import Question from "./question";
 
 export default class Utils {
-    public static validateURL(link: string) {
-        if (link.indexOf("http://") == 0) {
-            return false;
+    public static validateURL(link: string): boolean {
+        try {
+            const url = new URL(link);
+            const hostname = url.hostname;
+
+            const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1';
+            const isPrivateIP = /^10\./.test(hostname) ||
+                /^192\.168\./.test(hostname) ||
+                /^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(hostname);
+
+            const isInternalHostname = /^[^.\s]+$/.test(hostname) || hostname.endsWith('.local');
+
+            if (url.protocol === 'https:') {
+                return true;
+            }
+            return url.protocol === 'http:' && (isLocalhost || isPrivateIP || isInternalHostname);
+        } catch (e) {
+            return false; // invalid URL
         }
-        return link.indexOf("https://") == 0;
     }
 
     public static async isImageValid(url: string) {

@@ -292,5 +292,14 @@
   },
   "2.15.1": {
     "en": "Added Send a message by chat ID"
+  },
+  "2.16.0": {
+    "en": "Dependencies updated. Undepricated \"When a Question has been answered\"."
+  },
+  "2.17.0": {
+    "en": "Send Video via Telegram"
+  },
+  "2.17.1": {
+    "en": "Fixed Settingspage"
   }
 }

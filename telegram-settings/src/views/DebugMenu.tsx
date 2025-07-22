@@ -23,6 +23,7 @@ interface State {
     usePassword: boolean,
     disableWebPagePreview: boolean,
     useBLL: boolean,
+    privacyCommand: boolean,
     password: string,
     token: string,
     markdown: string | undefined,
@@ -50,6 +51,7 @@ export default class DebugMenu extends React.Component<Props, State> {
             gotData: process.env!.NODE_ENV === "development",
             usePassword: false,
             useBLL: false,
+            privacyCommand: false,
             disableWebPagePreview: false,
             password: "",
             token: "",
@@ -68,6 +70,7 @@ export default class DebugMenu extends React.Component<Props, State> {
             questions: await Homey.get('questions') ?? "{}",
             usePassword: await Homey.get('use-password') ?? false,
             useBLL: await Homey.get('useBll') ?? false,
+            privacyCommand: await Homey.get('privacyCommand') ?? false,
             disableWebPagePreview: await Homey.get('disableWebPagePreview') ?? false,
             password: await Homey.get('password') ?? undefined,
             token: await Homey.get('bot-token') ?? undefined,
@@ -94,6 +97,10 @@ export default class DebugMenu extends React.Component<Props, State> {
                 <div className="logWidget">
                     <Badge color={BadgeColor.GRAY}>{Homey.__("settings.debugMenu.useBll")}</Badge>
                     <div className="codeBlock">{this.state.useBLL + ""}</div>
+                </div>
+                <div className="logWidget">
+                    <Badge color={BadgeColor.GRAY}>{Homey.__("settings.botSettings.privacyCommand")}</Badge>
+                    <div className="codeBlock">{this.state.privacyCommand + ""}</div>
                 </div>
                 <div className="logWidget">
                     <Badge color={BadgeColor.GRAY}>{Homey.__("settings.debugMenu.disableWebPagePreview")}</Badge>

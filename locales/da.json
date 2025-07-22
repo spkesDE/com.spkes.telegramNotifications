@@ -52,7 +52,10 @@
       },
       "useBll": "Aktivér understøttelse af Better Logic Library",
       "useMarkdown": "Brug Markdown",
-      "usePassword": "Brug adgangskode"
+      "usePassword": "Brug adgangskode",
+      "privacyCommand": "Privatlivs-Kommando (/privacy)",
+      "privacyCommandHint": "Privatlivs-Kommando er påkrævet ifølge Telegram Bot Terms of Service. Denne kommando oprettes automatisk og kan ikke ændres. Det anbefales at aktivere denne kommando for at undgå, at botten bliver blokeret af Telegram.",
+      "privacyCommandWarning": "Privatlivs-Kommando er deaktiveret. Det anbefales at aktivere Privatlivs-Kommandoen."
     },
     "chatGTPSettings": {
       "apiKey": "API-nøgle",

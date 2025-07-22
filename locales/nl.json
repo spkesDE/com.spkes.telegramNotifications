@@ -52,7 +52,10 @@
       },
       "useBll": "Better Logic Library ondersteuning inschakelen",
       "useMarkdown": "Gebruik Markdown",
-      "usePassword": "Wachtwoord gebruiken"
+      "usePassword": "Wachtwoord gebruiken",
+      "privacyCommand": "Privacy Commando (/privacy)",
+      "privacyCommandHint": "Privacy Commando is vereist volgens de Telegram Bot Terms of Service. Dit commando wordt automatisch aangemaakt en kan niet worden gewijzigd. Het wordt aanbevolen dit commando te activeren om te voorkomen dat de bot door Telegram wordt verbannen.",
+      "privacyCommandWarning": "Privacy Commando is uitgeschakeld. Het wordt aanbevolen het Privacy Commando te activeren."
     },
     "chatGTPSettings": {
       "apiKey": "",

@@ -52,7 +52,10 @@
       },
       "useBll": "Włącz obsługę biblioteki Better Logic Library",
       "useMarkdown": "Użyj Markdown",
-      "usePassword": "Użyj hasła"
+      "usePassword": "Użyj hasła",
+      "privacyCommand": "Komenda Prywatności (/privacy)",
+      "privacyCommandHint": "Komenda Prywatności jest wymagana zgodnie z Warunkami Usługi Telegram Bot. Ta komenda jest tworzona automatycznie i nie może być zmieniana. Zaleca się aktywowanie tej komendy, aby zapobiec zablokowaniu bota przez Telegram.",
+      "privacyCommandWarning": "Komenda Prywatności jest wyłączona. Zaleca się aktywowanie Komendy Prywatności."
     },
     "chatGTPSettings": {
       "apiKey": "Klucz API",
