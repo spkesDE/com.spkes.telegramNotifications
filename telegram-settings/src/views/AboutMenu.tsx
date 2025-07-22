@@ -22,6 +22,11 @@ export default class AboutMenu extends React.Component<Props, State> {
     }
 
     render() {
+        const grammyVersion = process.env.REACT_APP_GRAMMY_VERSION || 'unknown';
+        const betterLogicVersion = process.env.REACT_APP_BETTER_LOGIC_VERSION || 'unknown';
+        const nodeFetchVersion = process.env.REACT_APP_NODE_FETCH_VERSION || 'unknown';
+        const reactVersion = process.env.REACT_APP_REACT_VERSION || 'unknown';
+
         return (
             <MenuWrapper title={Homey.__("settings.aboutMenu.title")}
                          onBack={() => this.props.changeView(Views.MainMenu)}>
@@ -37,11 +42,10 @@ export default class AboutMenu extends React.Component<Props, State> {
                     <MenuContentWrapper>
                         <h2>{Homey.__("settings.aboutMenu.using")}</h2>
                         <ul>
-                            <li>Grammy.dev <Badge color={BadgeColor.ORANGE} size={BadgeSize.SMALL}>v1.35</Badge></li>
-                            <li>Better Logic Library <Badge color={BadgeColor.MAGENTA}
-                                                            size={BadgeSize.SMALL}>v0.10</Badge></li>
-                            <li>Node-fetch <Badge color={BadgeColor.BLUE} size={BadgeSize.SMALL}>v3</Badge></li>
-                            <li>React <Badge color={BadgeColor.CYAN} size={BadgeSize.SMALL}>v18</Badge></li>
+                            <li>Grammy.dev <Badge color={BadgeColor.ORANGE} size={BadgeSize.SMALL}>{grammyVersion}</Badge></li>
+                            <li>Better Logic Library <Badge color={BadgeColor.MAGENTA} size={BadgeSize.SMALL}>{betterLogicVersion}</Badge></li>
+                            <li>Node-fetch <Badge color={BadgeColor.BLUE} size={BadgeSize.SMALL}>{nodeFetchVersion}</Badge></li>
+                            <li>React <Badge color={BadgeColor.CYAN} size={BadgeSize.SMALL}>{reactVersion}</Badge></li>
                             <li>Typescript, because it's better!</li>
                         </ul>
                     </MenuContentWrapper>
