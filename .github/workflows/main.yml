@@ -1,0 +1,74 @@
+name: Auto Version Bump & Publish Homey App
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - master
+
+jobs:
+  bump-and-publish:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'master' && github.event.pull_request.head.ref == 'dev'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # needed to push and fetch branches
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Extract current version
+        id: extract_version
+        run: |
+          version=$(jq -r .version .homeycompose/app.json)
+          echo "Current version: $version"
+          IFS='.' read -r major minor patch <<< "$version"
+          patch=$((patch + 1))
+          new_version="$major.$minor.$patch"
+          echo "new_version=$new_version" >> $GITHUB_OUTPUT
+
+      - name: Update version in app.json
+        run: |
+          jq ".version = \"${{ steps.extract_version.outputs.new_version }}\"" .homeycompose/app.json > tmp && mv tmp .homeycompose/app.json
+
+      - name: Update .homeychangelog.json
+        run: |
+          changelog_title="${{ github.event.pull_request.title }}"
+          version="${{ steps.extract_version.outputs.new_version }}"
+          jq --arg version "$version" --arg title "$changelog_title" \
+            '. + {($version): {"en": $title}}' .homeychangelog.json > tmp && mv tmp .homeychangelog.json
+
+      - name: Commit and push version bump and changelog to master
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .homeycompose/app.json .homeychangelog.json
+          git commit -m "Bump version to ${{ steps.extract_version.outputs.new_version }} and update changelog"
+          git push origin master
+
+      - name: Push the same changes back to dev
+        run: |
+          # Fetch dev branch
+          git fetch origin dev
+          # Checkout dev branch locally
+          git checkout dev
+          # Merge master into dev (fast-forward only)
+          git merge --ff-only origin/master
+          # Push dev branch update
+          git push origin dev
+
+      - name: Publish Homey App
+        uses: athombv/github-action-homey-app-publish@master
+        id: publish
+        with:
+          personal_access_token: ${{ secrets.HOMEY_PAT }}
+
+      - name: Show app URL
+        run: |
+          echo "Manage your app at ${{ steps.publish.outputs.url }}" >> $GITHUB_STEP_SUMMARY
