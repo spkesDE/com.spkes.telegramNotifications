@@ -304,5 +304,8 @@
   },
   "2.17.2": {
     "en": "Upgrade packages to latest versions and fix security issues"
+  },
+  "2.17.3": {
+    "en": "Upgrade packages to latest versions and fix security issues"
   }
 }
