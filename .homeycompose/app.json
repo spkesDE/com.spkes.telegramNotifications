@@ -1,6 +1,6 @@
 {
   "id": "com.spkes.telegramNotifications",
-  "version": "2.17.4",
+  "version": "2.17.5",
   "compatibility": ">=8.1.0",
   "sdk": 3,
   "brandColor": "#229ED9",
