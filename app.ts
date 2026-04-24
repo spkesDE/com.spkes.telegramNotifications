@@ -191,7 +191,7 @@ export class TelegramNotifications extends HomeyApp {
       this.homey.log(message);
     }
 
-    public error(message: unknown) {
+    public error = (message: unknown) => {
       this.writeLog(message, 1).then();
       this.homey.error(message);
     }
