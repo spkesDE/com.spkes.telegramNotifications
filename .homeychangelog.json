@@ -310,5 +310,8 @@
   },
   "2.17.4": {
     "en": "Fixed Settings Page"
+  },
+  "2.17.5": {
+    "en": "Fixed the Settings Page again."
   }
 }
