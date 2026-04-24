@@ -23,7 +23,7 @@ export default class Question {
             let id = q.UUID + '.' + i;
             if (opts?.customId != undefined && opts?.customId.length < 21) id += "." + opts?.customId;
 
-            if (opts?.replace && opts?.replaceWith && opts?.replace === i)
+            if (opts?.replace !== undefined && opts?.replaceWith && opts?.replace === i)
                 keyboard.text(opts.replaceWith)
             else
                 keyboard.text(value, id)
