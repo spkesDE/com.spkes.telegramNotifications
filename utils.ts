@@ -25,6 +25,15 @@ export default class Utils {
     }
 
     public static async isImageValid(url: string) {
+    public static ensureValidRemoteUrl(url: string): string {
+        if (!this.validateURL(url)) {
+            throw new Error(
+                `Invalid media URL "${url}". Allowed are HTTPS URLs and internal HTTP URLs such as localhost, private IPs, or .local hosts.`
+            );
+        }
+        return url;
+    }
+
         let statusCode = await this.getStatusCode(url);
         return statusCode === 200;
     }
