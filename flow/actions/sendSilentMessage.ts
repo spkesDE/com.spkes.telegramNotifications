@@ -9,14 +9,11 @@ export default class SendSilentMessage {
       if (app.bot != null) {
         try {
           await app.bot.api.sendMessage(args.user.id, await BL.decode(args.message),
-            {
-              disable_notification: true,
-              parse_mode: app.markdown,
-              link_preview_options: {
-                is_disabled: !app.disableWebPagePreview
-              },
-              message_thread_id: args.user.topic
-            }
+            app.createSendOptions({
+              topic: args.user.topic,
+              disableNotification: true,
+              includeTextFormatting: true
+            })
           );
         } catch (err) {
           app.error(err);

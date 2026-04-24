@@ -281,7 +281,38 @@ export class TelegramNotifications extends HomeyApp {
       } else {
         this.markdown = markdown;
       }
+        this.disableWebPagePreview = this.homey.settings.get('disableWebPagePreview') ?? false;
         this.privacyCommand = this.homey.settings.get('privacyCommand') ?? false;
+    }
+
+    public createSendOptions(opts?: {
+      topic?: number,
+      disableNotification?: boolean,
+      includeTextFormatting?: boolean,
+    }) {
+      const sendOptions: {
+        disable_notification?: boolean,
+        message_thread_id?: number,
+        parse_mode?: ParseMode,
+        link_preview_options?: {
+          is_disabled: boolean,
+        },
+      } = {};
+
+      if (opts?.disableNotification !== undefined) {
+        sendOptions.disable_notification = opts.disableNotification;
+      }
+      if (opts?.topic !== undefined) {
+        sendOptions.message_thread_id = opts.topic;
+      }
+      if (opts?.includeTextFormatting) {
+        sendOptions.parse_mode = this.markdown;
+        sendOptions.link_preview_options = {
+          is_disabled: this.disableWebPagePreview
+        };
+      }
+
+      return sendOptions;
     }
 }
 

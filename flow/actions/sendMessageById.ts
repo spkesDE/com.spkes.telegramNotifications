@@ -13,12 +13,9 @@ export default class SendMessageById {
                 if (app.chats.filter(chat => chat.chatId === args.user).length === 0) throw new Error('User ID is not found as a registered chat. Please register the chat first.');
                 try {
                     await app.bot.api.sendMessage(args.user, await BL.decode(args.message),
-                        {
-                            parse_mode: app.markdown,
-                            link_preview_options: {
-                                is_disabled: !app.disableWebPagePreview
-                            }
-                        }
+                        app.createSendOptions({
+                            includeTextFormatting: true
+                        })
                     );
                 } catch (err) {
                     app.error(err);

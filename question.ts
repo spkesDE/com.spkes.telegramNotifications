@@ -59,12 +59,11 @@ export default class Question {
             })
         } else {
             app.bot?.api.sendMessage(userId, opts?.messageOverride == undefined ? q.question : opts?.messageOverride, {
-                disable_notification: q.disable_notification ?? false,
-                message_thread_id: opts?.topic ?? undefined,
-                parse_mode: app.markdown,
-                link_preview_options: {
-                    is_disabled: !app.disableWebPagePreview
-                },
+                ...app.createSendOptions({
+                    topic: opts?.topic,
+                    disableNotification: q.disable_notification ?? false,
+                    includeTextFormatting: true
+                }),
                 reply_markup: keyboard
             }).then((response) => {
                 if (opts?.customId != undefined && opts?.customId.length < 21) {

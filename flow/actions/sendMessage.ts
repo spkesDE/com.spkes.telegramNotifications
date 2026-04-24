@@ -9,13 +9,10 @@ export default class SendMessage {
       if (app.bot != null) {
         try {
           await app.bot.api.sendMessage(args.user.id, await BL.decode(args.message),
-            {
-              parse_mode: app.markdown,
-              link_preview_options: {
-                is_disabled: !app.disableWebPagePreview
-              },
-              message_thread_id: args.user.topic
-            }
+            app.createSendOptions({
+              topic: args.user.topic,
+              includeTextFormatting: true
+            })
           );
         } catch (err) {
           app.error(err);
