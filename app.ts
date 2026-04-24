@@ -51,21 +51,13 @@ export class TelegramNotifications extends HomeyApp {
         }
         if (key === 'bot-token') {
           this.token = this.homey.settings.get('bot-token');
-          if (this.bot === null || !this.startSuccess) {
-            this.startBot();
-            this.changeBotState(true);
-          } else {
-            this.bot.stop();
-            this.changeBotState(false);
-            this.bot = null;
-            this.startBot();
-          }
+          void this.restartBot();
         }
         if (key === 'users') {
           this.loadUsers();
         }
         if (key === 'useBll') {
-          this.startBll();
+          void this.startBll();
         }
           if (key === 'privacyCommand') {
               this.privacyCommand = this.homey.settings.get('privacyCommand') ?? false;
@@ -85,15 +77,25 @@ export class TelegramNotifications extends HomeyApp {
       });
 
       this.loadSettings();
-      this.startBot();
-      this.startBll().then();
+      await this.startBot();
+      await this.startBll();
     }
 
-    private startBot() {
+    private async restartBot() {
+      if (this.bot !== null) {
+        this.bot.stop();
+        this.bot = null;
+      }
+      this.changeBotState(false);
+      await this.startBot();
+    }
+
+    private async startBot() {
       this.log('Telegram Notifications app is starting...');
       if (this.token === null || this.token === '' || this.token.length < 43) {
         this.log('Telegram Notifications has no token. Please enter a Token in the Settings!');
         this.changeBotState(false);
+        this.bot = null;
         return;
       }
       this.bot = new Bot(this.token);
@@ -108,37 +110,51 @@ export class TelegramNotifications extends HomeyApp {
         this.registerFlowHandler = true;
       }
 
-      this.bot.catch(this.error);
-      this.bot.start().then().catch(this.error);
-      this.bot.init().catch(() => this.changeBotState(false));
-      if (!this.startSuccess) {
-        this.log('Failed to start. Token most likely wrong.');
-      } else {
+      this.bot.catch((err) => {
+        this.error(err);
+      });
+
+      try {
+        await this.bot.init();
         this.log('Telegram Notifications app is initialized.');
-        this.bot.api.getMyCommands()
-          .then((r) => {
-            const prevSize = r.length;
-            if (!r.some(e => e.command === 'start')) {
-              r.push({
-                'command': 'start',
-                'description': this.homey.__('commands.start')
-              });
-            }
-            if (!r.some(e => e.command === 'registertopic')) {
-              r.push({
-                'command': 'registertopic',
-                'description': this.homey.__('commands.registertopic')
-              });
-            }
-            if (this.bot != null && prevSize !== r.length) {
-              this.bot.api.setMyCommands(r).catch(this.error);
-            }
-          })
-          .catch(this.error);
-          new PrivacyCommand(this);
+        await this.registerCommands();
+        new PrivacyCommand(this);
         this.debug('Debug => Total-Users ' + this.chats.length + ', Question-Size: ' + this.questions.length +
                 ', Log-Size: ' + this.getLogSize() + ' and start was ' + (this.startSuccess ? 'successful' : 'unsuccessful'));
         this.changeBotState(true);
+        void this.bot.start().catch((err) => {
+          this.error(err);
+          this.changeBotState(false);
+        });
+      } catch (err) {
+        this.error(err);
+        this.log('Failed to start. Token most likely wrong.');
+        this.changeBotState(false);
+        this.bot = null;
+      }
+    }
+
+    private async registerCommands() {
+      if (this.bot == null) {
+        return;
+      }
+
+      const commands = await this.bot.api.getMyCommands();
+      const prevSize = commands.length;
+      if (!commands.some((command) => command.command === 'start')) {
+        commands.push({
+          command: 'start',
+          description: this.homey.__('commands.start')
+        });
+      }
+      if (!commands.some((command) => command.command === 'registertopic')) {
+        commands.push({
+          command: 'registertopic',
+          description: this.homey.__('commands.registertopic')
+        });
+      }
+      if (prevSize !== commands.length) {
+        await this.bot.api.setMyCommands(commands);
       }
     }
 
@@ -217,6 +233,9 @@ export class TelegramNotifications extends HomeyApp {
 
     private getLogSize(): number {
       const oldLogs = this.homey.settings.get('logs');
+      if (oldLogs === null || oldLogs === undefined || oldLogs === '') {
+        return 0;
+      }
       const savedHistory = JSON.parse(oldLogs);
       return savedHistory.length;
     }
@@ -264,11 +283,13 @@ export class TelegramNotifications extends HomeyApp {
     //endregion
 
     private async startBll() {
-      if (await this.homey.settings.get('useBll') ?? false) {
+      if (this.homey.settings.get('useBll') ?? false) {
         this.log('Using BLL, starting initialization');
         await BL.init({
           homey: this.homey
-        }).catch(this.error);
+        }).catch((err) => {
+          this.error(err);
+        });
       } else {
         this.log('BLL NOT used');
       }
