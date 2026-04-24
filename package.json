@@ -7,15 +7,15 @@
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore ."
   },
   "devDependencies": {
-    "@tsconfig/node12": "^1.0.11",
+    "@tsconfig/node12": "^12.1.7",
     "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.12",
-    "@types/node": "^24.1.0",
-    "typescript": "^5.8.3"
+    "@types/node": "^25.6.0",
+    "typescript": "^6.0.3"
   },
   "dependencies": {
     "@grammyjs/transformer-throttler": "^1.2.1",
     "betterlogiclibrary": "^0.10.2",
-    "grammy": "^1.37.0",
+    "grammy": "^1.42.0",
     "node-fetch": "^3.3.2"
   }
 }
