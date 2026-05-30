@@ -133,6 +133,14 @@
   background-color: var(--bg-color-orange);
 }
 
+.bg-color-cyan {
+  background-color: var(--bg-color-cyan);
+}
+
+.bg-color-purple {
+  background-color: var(--bg-color-purple);
+}
+
 .bg-color-blue {
   background-color: var(--bg-color-blue);
 }

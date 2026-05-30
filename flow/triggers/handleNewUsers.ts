@@ -50,10 +50,8 @@ export default class HandleNewUsers {
         user = new Chat(ctx.chat?.id ?? 0, ctx.chat?.first_name ?? 'Error', 0);
       }
       if (user !== null && user.chatId !== 0) {
-        if (!app.chats.some((u) => u.chatId === user?.chatId)) {
-          app.chats.push(user);
+        if (app.registerChat(user)) {
           await ctx.reply('\u{1F44D}');
-          app.homey.settings.set('users', JSON.stringify(app.chats));
         } else {
           await ctx.reply('\u{1F44E}');
           await ctx.reply(app.homey.__("newUser.knownChat"));

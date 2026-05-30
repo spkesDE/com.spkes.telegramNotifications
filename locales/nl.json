@@ -55,7 +55,12 @@
       "usePassword": "Wachtwoord gebruiken",
       "privacyCommand": "Privacy Commando (/privacy)",
       "privacyCommandHint": "Privacy Commando is vereist volgens de Telegram Bot Terms of Service. Dit commando wordt automatisch aangemaakt en kan niet worden gewijzigd. Het wordt aanbevolen dit commando te activeren om te voorkomen dat de bot door Telegram wordt verbannen.",
-      "privacyCommandWarning": "Privacy Commando is uitgeschakeld. Het wordt aanbevolen het Privacy Commando te activeren."
+      "privacyCommandWarning": "Privacy Commando is uitgeschakeld. Het wordt aanbevolen het Privacy Commando te activeren.",
+      "autoAdd": "Auto Toevoegen Chats",
+      "autoAddHint": "Registreer automatisch kanalen, groepen en privé-chats wanneer de bot wordt toegevoegd.",
+      "autoAddChats": "Chats",
+      "autoAddGroups": "Groepen",
+      "autoAddChannels": "Kanalen"
     },
     "chatGTPSettings": {
       "apiKey": "",
@@ -148,6 +153,7 @@
       "group": "Groep",
       "legend": "Legenda",
       "supergroup": "Supergroep",
+      "channel": "Kanaal",
       "unknown": "Onbekend",
       "user": "Gebruiker",
       "users": "Gebruikers"

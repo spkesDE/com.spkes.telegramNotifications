@@ -18,6 +18,9 @@ const state = reactive({
   useBLL: false,
   disableWebPagePreview: false,
   privacyCommand: false,
+  autoAddChats: false,
+  autoAddGroups: false,
+  autoAddChannels: false,
   password: undefined as string | undefined,
   token: undefined as string | undefined,
   markdown: undefined as string | undefined,
@@ -29,6 +32,9 @@ onMounted(async () => {
   state.useBLL = (await Homey.get<boolean>("useBll")) ?? false;
   state.disableWebPagePreview = (await Homey.get<boolean>("disableWebPagePreview")) ?? false;
   state.privacyCommand = (await Homey.get<boolean>("privacyCommand")) ?? false;
+  state.autoAddChats = (await Homey.get<boolean>("autoAddChats")) ?? false;
+  state.autoAddGroups = (await Homey.get<boolean>("autoAddGroups")) ?? false;
+  state.autoAddChannels = (await Homey.get<boolean>("autoAddChannels")) ?? false;
   state.password = (await Homey.get<string>("password")) ?? undefined;
   state.token = (await Homey.get<string>("bot-token")) ?? undefined;
   state.markdown = (await Homey.get<string>("markdown")) ?? undefined;
@@ -50,6 +56,9 @@ async function onSave() {
     await Homey.unset("markdown");
   }
   await Homey.set("privacyCommand", state.privacyCommand ?? false);
+  await Homey.set("autoAddChats", state.autoAddChats ?? false);
+  await Homey.set("autoAddGroups", state.autoAddGroups ?? false);
+  await Homey.set("autoAddChannels", state.autoAddChannels ?? false);
   state.gotData = true;
 }
 </script>
@@ -155,6 +164,40 @@ async function onSave() {
       <p class="itemGroupHint">
         <i class="fas fa-info-circle"></i>
         {{ Homey.__('settings.botSettings.privacyCommandHint') }}
+      </p>
+    </MenuItemGroup>
+
+    <MenuItemGroup>
+      <p class="itemGroupTitle">
+        {{ Homey.__('settings.botSettings.autoAdd') }}
+      </p>
+      <MenuItemWrapper>
+        <h2>{{ Homey.__('settings.botSettings.autoAddChats') }}</h2>
+        <Switch
+          id="autoAddChats"
+          :model-value="state.autoAddChats"
+          @update:model-value="state.autoAddChats = $event"
+        />
+      </MenuItemWrapper>
+      <MenuItemWrapper>
+        <h2>{{ Homey.__('settings.botSettings.autoAddGroups') }}</h2>
+        <Switch
+          id="autoAddGroups"
+          :model-value="state.autoAddGroups"
+          @update:model-value="state.autoAddGroups = $event"
+        />
+      </MenuItemWrapper>
+      <MenuItemWrapper>
+        <h2>{{ Homey.__('settings.botSettings.autoAddChannels') }}</h2>
+        <Switch
+          id="autoAddChannels"
+          :model-value="state.autoAddChannels"
+          @update:model-value="state.autoAddChannels = $event"
+        />
+      </MenuItemWrapper>
+      <p class="itemGroupHint">
+        <i class="fas fa-info-circle"></i>
+        {{ Homey.__('settings.botSettings.autoAddHint') }}
       </p>
     </MenuItemGroup>
 

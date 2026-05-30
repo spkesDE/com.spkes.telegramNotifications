@@ -55,7 +55,12 @@
       "usePassword": "Brug adgangskode",
       "privacyCommand": "Privatlivs-Kommando (/privacy)",
       "privacyCommandHint": "Privatlivs-Kommando er påkrævet ifølge Telegram Bot Terms of Service. Denne kommando oprettes automatisk og kan ikke ændres. Det anbefales at aktivere denne kommando for at undgå, at botten bliver blokeret af Telegram.",
-      "privacyCommandWarning": "Privatlivs-Kommando er deaktiveret. Det anbefales at aktivere Privatlivs-Kommandoen."
+      "privacyCommandWarning": "Privatlivs-Kommando er deaktiveret. Det anbefales at aktivere Privatlivs-Kommandoen.",
+      "autoAdd": "Auto Tilføj Chats",
+      "autoAddHint": "Registrer automatisk kanaler, grupper og private chats, når botten tilføjes.",
+      "autoAddChats": "Chats",
+      "autoAddGroups": "Grupper",
+      "autoAddChannels": "Kanaler"
     },
     "chatGTPSettings": {
       "apiKey": "API-nøgle",
@@ -148,6 +153,7 @@
       "group": "Gruppe",
       "legend": "Forklaring",
       "supergroup": "Supergruppe",
+      "channel": "Kanal",
       "unknown": "Ukendt",
       "user": "Bruger",
       "users": "Brugere"

@@ -19,6 +19,7 @@ import DeleteById from './flow/actions/deleteById';
 import DeleteByIdAndChatId from './flow/actions/deleteByIdAndChatId';
 import DeleteByCustomId from './flow/actions/deleteByCustomId';
 import HandleTopics from './flow/triggers/handleTopics';
+import HandleMyChatMember from './events/handleMyChatMember';
 import ReceiveMessageFromTopic from './flow/triggers/receiveMessageFromTopic';
 import {ParseMode} from 'grammy/types';
 import {defaultQuestions} from './assets/defaultQuestions';
@@ -41,6 +42,9 @@ export class TelegramNotifications extends HomeyApp {
     markdown: ParseMode | undefined = undefined;
     disableWebPagePreview = false;
     privacyCommand: boolean = false;
+    autoAddChats: boolean = false;
+    autoAddGroups: boolean = false;
+    autoAddChannels: boolean = false;
     private debugMode: boolean = false;
     public readonly handleError = (message: unknown) => this.error(message);
 
@@ -73,6 +77,15 @@ export class TelegramNotifications extends HomeyApp {
         }
         if (key === 'disableWebPagePreview') {
           this.disableWebPagePreview = this.homey.settings.get('disableWebPagePreview') ?? false;
+        }
+        if (key === 'autoAddChats') {
+          this.autoAddChats = this.homey.settings.get('autoAddChats') ?? false;
+        }
+        if (key === 'autoAddGroups') {
+          this.autoAddGroups = this.homey.settings.get('autoAddGroups') ?? false;
+        }
+        if (key === 'autoAddChannels') {
+          this.autoAddChannels = this.homey.settings.get('autoAddChannels') ?? false;
         }
 
       });
@@ -168,6 +181,7 @@ export class TelegramNotifications extends HomeyApp {
       new ReceiveMessageFromTopic(this, this.homey.flow.getTriggerCard('receive-message-from-topic'));
       new HandleQuestions(this);
       new HandleTopics(this);
+      new HandleMyChatMember(this);
 
       //Action Cards
       new SendMessage(this, this.homey.flow.getActionCard('sendNotification'));
@@ -252,6 +266,30 @@ export class TelegramNotifications extends HomeyApp {
       });
     }
 
+    public saveChats() {
+        this.debug('Saving chats..');
+        this.homey.settings.set('users', JSON.stringify(this.chats));
+    }
+
+    public registerChat(chat: Chat): boolean {
+        if (!this.chats.some((c) => c.chatId === chat.chatId)) {
+            this.chats.push(chat);
+            this.saveChats();
+            return true;
+        }
+        return false;
+    }
+
+    public unregisterChat(chatId: number): boolean {
+        const index = this.chats.findIndex((c) => c.chatId === chatId);
+        if (index !== -1) {
+            this.chats.splice(index, 1);
+            this.saveChats();
+            return true;
+        }
+        return false;
+    }
+
     loadQuestions(onStart = false) {
       this.debug('Loading Questions..');
       if (this.homey.settings.get('questions') !== null) {
@@ -305,6 +343,9 @@ export class TelegramNotifications extends HomeyApp {
       }
         this.disableWebPagePreview = this.homey.settings.get('disableWebPagePreview') ?? false;
         this.privacyCommand = this.homey.settings.get('privacyCommand') ?? false;
+        this.autoAddChats = this.homey.settings.get('autoAddChats') ?? false;
+        this.autoAddGroups = this.homey.settings.get('autoAddGroups') ?? false;
+        this.autoAddChannels = this.homey.settings.get('autoAddChannels') ?? false;
     }
 
     public createSendOptions(opts?: {

@@ -73,16 +73,17 @@ export default class Utils {
         });
     }
 
-    public static userAutocomplete(users: Chat[], query: string, opts?: {
+    public static chatAutocomplete(users: Chat[], query: string, opts?: {
         skipTopics?: boolean,
     }) {
         const results: any[] = [];
         users.forEach((chat) => {
             let type = "Unknown";
             if (chat.type != undefined) {
-                if (chat.type == 0) type = "User";
-                else if (chat.type == 1) type = "Group";
-                else if (chat.type == 2) type = "Supergroup";
+                if (chat.type == Chat.TYPE_PRIVATE) type = "User";
+                else if (chat.type == Chat.TYPE_GROUP) type = "Group";
+                else if (chat.type == Chat.TYPE_SUPERGROUP) type = "Supergroup";
+                else if (chat.type == Chat.TYPE_CHANNEL) type = "Channel";
             }
             results.push({
                 name: chat.chatName,

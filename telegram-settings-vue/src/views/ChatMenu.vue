@@ -24,6 +24,7 @@ const chatTypeLegend = computed(() => [
   {label: Homey.__("settings.userMenu.user"), color: BadgeColor.BLUE},
   {label: Homey.__("settings.userMenu.group"), color: BadgeColor.PURPLE},
   {label: Homey.__("settings.userMenu.supergroup"), color: BadgeColor.ORANGE},
+  {label: Homey.__("settings.userMenu.channel"), color: BadgeColor.CYAN},
   {label: Homey.__("settings.userMenu.unknown"), color: BadgeColor.GRAY}
 ]);
 
@@ -36,6 +37,7 @@ function getTypeColor(chat: Chat) {
   if (chat.type === 0) return BadgeColor.BLUE;
   if (chat.type === 1) return BadgeColor.PURPLE;
   if (chat.type === 2) return BadgeColor.ORANGE;
+  if (chat.type === 3) return BadgeColor.CYAN;
   return BadgeColor.GRAY;
 }
 
