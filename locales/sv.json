@@ -55,7 +55,12 @@
       "usePassword": "Använda lösenord",
       "privacyCommand": "Sekretesskommando (/privacy)",
       "privacyCommandHint": "Sekretesskommando krävs enligt Telegram Bots användarvillkor. Denna kommando skapas automatiskt och kan inte ändras. Det rekommenderas att aktivera denna kommando för att förhindra att boten blockeras av Telegram.",
-      "privacyCommandWarning": "Sekretesskommando är inaktiverad. Det rekommenderas att aktivera Sekretesskommando."
+      "privacyCommandWarning": "Sekretesskommando är inaktiverad. Det rekommenderas att aktivera Sekretesskommando.",
+      "autoAdd": "Auto Lägg till Chats",
+      "autoAddHint": "Registrera automatiskt kanaler, grupper och privata chattar när boten läggs till.",
+      "autoAddChats": "Chattar",
+      "autoAddGroups": "Grupper",
+      "autoAddChannels": "Kanaler"
     },
     "chatGTPSettings": {
       "apiKey": "API-nyckel",
@@ -148,6 +153,7 @@
       "group": "Grupp",
       "legend": "Förklaring",
       "supergroup": "Supergrupp",
+      "channel": "Kanal",
       "unknown": "Okänd",
       "user": "Användare",
       "users": "Användare"

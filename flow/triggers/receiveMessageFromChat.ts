@@ -13,7 +13,7 @@ export default class ReceiveMessageFromChat {
 
     card.registerArgumentAutocompleteListener(
       'chat',
-      async (query) => Utils.userAutocomplete(app.chats, query, {
+      async (query) => Utils.chatAutocomplete(app.chats, query, {
         skipTopics: true
       })
     );

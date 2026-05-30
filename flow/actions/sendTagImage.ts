@@ -37,7 +37,7 @@ export default class SendTagImage {
       }
     });
     card.registerArgumentAutocompleteListener(
-      'user', async (query) => Utils.userAutocomplete(app.chats, query)
+      'user', async (query) => Utils.chatAutocomplete(app.chats, query)
     );
   }
 }
