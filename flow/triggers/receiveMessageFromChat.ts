@@ -37,7 +37,7 @@ export default class ReceiveMessageFromChat {
         id: ctx.chat.id,
       };
       card.trigger(token, state)
-        .catch(app.error)
+        .catch(app.handleError)
         .then();
       next();
     });

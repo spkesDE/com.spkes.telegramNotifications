@@ -34,7 +34,7 @@ export default class HandleNewUsers {
         from: ctx.chat.type === 'private' ? ctx.chat.first_name ?? 'unknown' : ctx.chat.title ?? 'unknown',
         username: ctx.chat.type === 'private' ? ctx.chat.username ?? 'unknown' : ctx.chat.title ?? 'unknown',
         chatType: ctx.chat.type ?? 'unknown',
-      }).catch(app.error).then();
+      }).catch(app.handleError).then();
     });
 
     app.bot.callbackQuery('user-add', async (ctx) => {

@@ -42,6 +42,7 @@ export class TelegramNotifications extends HomeyApp {
     disableWebPagePreview = false;
     privacyCommand: boolean = false;
     private debugMode: boolean = false;
+    public readonly handleError = (message: unknown) => this.error(message);
 
     async onInit() {
       this.token = await this.homey.settings.get('bot-token');
@@ -207,7 +208,7 @@ export class TelegramNotifications extends HomeyApp {
       this.homey.log(message);
     }
 
-    public error = (message: unknown) => {
+    public error(message: unknown) {
       this.writeLog(message, 1).then();
       this.homey.error(message);
     }

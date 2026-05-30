@@ -105,13 +105,13 @@ export default class HandleQuestions {
         uuid: question.UUID, answer: Question.getAnswer(question, answerId), answerId: answerId, customId: customId
       };
       app.debug(`State: ${JSON.stringify(state)}`);
-      void receiveQuestionAnswerAutocomplete.trigger(token, state).catch(app.error);
+      void receiveQuestionAnswerAutocomplete.trigger(token, state).catch(app.handleError);
       app.debug('Triggered receiveQuestionAnswerAutocomplete');
-      void receiveQuestionAnswerAutocompleteWithCustomId.trigger(token, state).catch(app.error);
+      void receiveQuestionAnswerAutocompleteWithCustomId.trigger(token, state).catch(app.handleError);
       app.debug('Triggered receiveQuestionAnswerAutocompleteWithCustomId');
-      void receiveQuestionAnswerTrigger.trigger(token, state).catch(app.error);
+      void receiveQuestionAnswerTrigger.trigger(token, state).catch(app.handleError);
       app.debug('Triggered receiveQuestionAnswerTrigger (Deprecated)');
-      void receiveQuestionAnswerWithAnswerTrigger.trigger(token, state).catch(app.error);
+      void receiveQuestionAnswerWithAnswerTrigger.trigger(token, state).catch(app.handleError);
       app.debug('Triggered receiveQuestionAnswerWithAnswerTrigger (Deprecated)');
 
       if (question.keepButtons && question.checkmark) {
@@ -122,13 +122,13 @@ export default class HandleQuestions {
         });
         await ctx.editMessageReplyMarkup({
           reply_markup: keyboard,
-        }).catch(app.error);
+        }).catch(app.handleError);
         app.debug('Edited Message Reply Markup');
 
         app.homey.setTimeout(() => {
           ctx.editMessageReplyMarkup({
             reply_markup: Question.createKeyboard(question),
-          }).catch(app.error);
+          }).catch(app.handleError);
           app.debug('Edited Message Reply Markup back to normal');
         }, 5000);
       }
@@ -136,10 +136,10 @@ export default class HandleQuestions {
         const keyboardRow = [InlineKeyboard.text(question.buttons[answerId], 'ignore-me')];
         await ctx.editMessageReplyMarkup({
           reply_markup: InlineKeyboard.from([keyboardRow]),
-        }).catch(app.error);
+        }).catch(app.handleError);
       }
       app.debug(`Answered question ${question.UUID} with answer ${answerId}`);
-      await ctx.answerCallbackQuery().catch(app.error);
+      await ctx.answerCallbackQuery().catch(app.handleError);
       app.debug('Handled Question is done');
     });
   }

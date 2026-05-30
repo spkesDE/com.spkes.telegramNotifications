@@ -1,0 +1,70 @@
+.statusWidget {
+  min-height: 100px;
+  margin: var(--su-2);
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-light);
+  border: none;
+  padding: 1em;
+  font-size: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.warningWidget {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-light);
+  color: var(--color-text-danger);
+  border: none;
+  padding: 1em;
+  margin: var(--su-2);
+  font-weight: bold;
+}
+
+.telegramColorFilter {
+  filter: invert(56%) sepia(20%) saturate(2144%) hue-rotate(159deg) brightness(91%) contrast(85%);
+}
+
+.statusWidget .title {
+  color: var(--blue);
+  font-size: var(--font-size-default);
+}
+
+.statusWidget .data {
+  display: flex;
+  justify-content: space-between;
+}
+
+.statusWidget .data p {
+  margin-bottom: 0;
+}
+
+.statusWidget .data .col {
+  padding-right: 2em;
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.badge.green {
+  background: var(--bg-color-green);
+}
+
+.badge.red {
+  background: var(--bg-color-red);
+}
+
+.badge.gray {
+  background: var(--bg-color-gray);
+}
+
+.badge.orange {
+  background: var(--bg-color-orange);
+}
