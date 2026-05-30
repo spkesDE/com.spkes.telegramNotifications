@@ -5,6 +5,9 @@
     "outDir": ".homeybuild/"
   },
   "exclude": [
-    "telegram-settings"
+    "settings",
+    "settings-vue",
+    "telegram-settings",
+    "telegram-settings-vue"
   ]
 }

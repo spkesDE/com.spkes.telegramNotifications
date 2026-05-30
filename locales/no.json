@@ -55,7 +55,12 @@
       "usePassword": "Bruk passord",
       "privacyCommand": "Personvern-kommando (/privacy)",
       "privacyCommandHint": "Personvern-kommando er påkrevd i henhold til Telegram Bots vilkår for bruk. Denne kommandoen opprettes automatisk og kan ikke endres. Det anbefales å aktivere denne kommandoen for å forhindre at boten blir utestengt av Telegram.",
-      "privacyCommandWarning": "Personvern-kommando er deaktivert. Det anbefales å aktivere Personvern-kommandoen."
+      "privacyCommandWarning": "Personvern-kommando er deaktivert. Det anbefales å aktivere Personvern-kommandoen.",
+      "autoAdd": "Auto Legg til Chats",
+      "autoAddHint": "Registrer automatisk kanaler, grupper og private chatter når boten legges til.",
+      "autoAddChats": "Chatter",
+      "autoAddGroups": "Grupper",
+      "autoAddChannels": "Kanaler"
     },
     "chatGTPSettings": {
       "apiKey": "API-nøkkel",
@@ -148,6 +153,7 @@
       "group": "Gruppe",
       "legend": "Legende",
       "supergroup": "Supergroup",
+      "channel": "Kanal",
       "unknown": "Ukjent",
       "user": "Bruker",
       "users": "Brukere"

@@ -1,5 +1,6 @@
 /env.json
 /node_modules/
 /.homeybuild/
-/telegram-settings/node_modules/
-/telegram-settings/build/
+/telegram-settings-vue/node_modules/
+/telegram-settings-vue/build/
+/telegram-settings-vue/.env

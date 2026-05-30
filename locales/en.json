@@ -55,7 +55,12 @@
       "usePassword": "Use Password",
       "privacyCommand": "Privacy Command (/privacy)",
       "privacyCommandHint": "Privacy Command is required according to Telegram Bot Terms of Service. This command is automatically created and cannot be changed. It is recommended to activate this command to prevent the bot from being banned by Telegram.",
-      "privacyCommandWarning": "Privacy Command is disabled. It is recommended to activate the Privacy Command."
+      "privacyCommandWarning": "Privacy Command is disabled. It is recommended to activate the Privacy Command.",
+      "autoAdd": "Auto Add Chats",
+      "autoAddHint": "Automatically register channels, groups and private chats when the bot is added.",
+      "autoAddChats": "Chats",
+      "autoAddGroups": "Groups",
+      "autoAddChannels": "Channels"
     },
     "chatGTPSettings": {
       "apiKey": "API-Key",
@@ -148,6 +153,7 @@
       "group": "Group",
       "legend": "Legend",
       "supergroup": "Supergroup",
+      "channel": "Channel",
       "unknown": "Unknown",
       "user": "User",
       "users": "Users"

@@ -50,7 +50,7 @@ export default class ReceiveMessageFromTopic {
         topic: topic?.topicId,
       };
       card.trigger(token, state)
-        .catch(app.error)
+        .catch(app.handleError)
         .then();
       next();
     });

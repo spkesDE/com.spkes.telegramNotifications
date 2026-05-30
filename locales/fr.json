@@ -55,7 +55,12 @@
       "usePassword": "Utiliser un mot de passe",
       "privacyCommand": "Commande de Confidentialité (/privacy)",
       "privacyCommandHint": "La Commande de Confidentialité est requise selon les Conditions d'Utilisation de Telegram Bot. Cette commande est automatiquement créée et ne peut pas être modifiée. Il est recommandé d'activer cette commande pour éviter que le bot soit banni par Telegram.",
-      "privacyCommandWarning": "La Commande de Confidentialité est désactivée. Il est recommandé d'activer la Commande de Confidentialité."
+      "privacyCommandWarning": "La Commande de Confidentialité est désactivée. Il est recommandé d'activer la Commande de Confidentialité.",
+      "autoAdd": "Ajout Automatique des Chats",
+      "autoAddHint": "Enregistrer automatiquement les canaux, groupes et chats privés lorsque le bot est ajouté.",
+      "autoAddChats": "Chats",
+      "autoAddGroups": "Groupes",
+      "autoAddChannels": "Canaux"
     },
     "chatGTPSettings": {
       "apiKey": "Clé API",
@@ -148,6 +153,7 @@
       "group": "Groupe",
       "legend": "Légende",
       "supergroup": "Super-groupe",
+      "channel": "Canal",
       "unknown": "Inconnu",
       "user": "Utilisateur",
       "users": "Utilisateurs"

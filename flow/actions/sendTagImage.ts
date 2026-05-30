@@ -24,15 +24,20 @@ export default class SendTagImage {
         app.error('Image source is invalid for flow card send-a-image-with-tag! URL: ' + url + ' ( ' + args.droptoken.cloudUrl + ' )');
         throw new Error('Image source is invalid for flow card send-a-image-with-tag!');
       }
-      await app.bot.api.sendPhoto(args.user.id, new InputFile({url: url}, ""),
-          {
-            message_thread_id: args.user.topic,
-            disable_notification: args.disable_notification ?? false,
-          }
-      ).catch(app.error);
+      try {
+        await app.bot.api.sendPhoto(args.user.id, new InputFile({url}, ""),
+          app.createSendOptions({
+            topic: args.user.topic,
+            disableNotification: args.disable_notification ?? false
+          })
+        );
+      } catch (err) {
+        app.error(err);
+        throw err;
+      }
     });
     card.registerArgumentAutocompleteListener(
-      'user', async (query) => Utils.userAutocomplete(app.chats, query)
+      'user', async (query) => Utils.chatAutocomplete(app.chats, query)
     );
   }
 }

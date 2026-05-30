@@ -1,0 +1,24 @@
+{
+  "name": "telegram-settings-vue",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "homepage": "./",
+  "scripts": {
+    "start": "vite",
+    "serve": "vite serve",
+    "preview": "vite preview",
+    "version": "node scripts/setVersionsEnv.js",
+    "build": "node scripts/setVersionsEnv.js && vite build",
+    "delete-target": "rd /s /q \"H:/com.spkes.telegramNotifications/settings\" && mkdir \"H:/com.spkes.telegramNotifications/settings\"",
+    "copy-files": "(robocopy ./build/ \"H:/com.spkes.telegramNotifications/settings\" /s /e /NFL /NDL /NJH /NJS /nc /ns /np) ^& exit 0"
+  },
+  "dependencies": {
+    "typescript": "^5.9.3",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.6",
+    "vite": "^8.0.10"
+  }
+}

@@ -34,7 +34,7 @@ export default class HandleTopics {
         new Topic(ctx.message.message_thread_id, (ctx.message.reply_to_message as any).forum_topic_created.name)
       );
       app.homey.settings.set('users', JSON.stringify(app.chats));
-      await ctx.reply('👍');
+      await ctx.reply('\u{1F44D}');
       next();
     });
   }

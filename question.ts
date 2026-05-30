@@ -23,7 +23,7 @@ export default class Question {
             let id = q.UUID + '.' + i;
             if (opts?.customId != undefined && opts?.customId.length < 21) id += "." + opts?.customId;
 
-            if (opts?.replace && opts?.replaceWith && opts?.replace === i)
+            if (opts?.replace !== undefined && opts?.replaceWith && opts?.replace === i)
                 keyboard.text(opts.replaceWith)
             else
                 keyboard.text(value, id)
@@ -40,11 +40,14 @@ export default class Question {
     }) {
         let keyboard = this.createKeyboard(q, opts);
         if (opts?.image) {
-            app.bot?.api.sendPhoto(userId, new InputFile({url: opts.image}, ""), {
+            const imageUrl = opts.image;
+            app.bot?.api.sendPhoto(userId, new InputFile({url: imageUrl}, ""), {
                 caption: opts?.messageOverride == undefined ? q.question : opts?.messageOverride,
-                disable_notification: q.disable_notification ?? false,
-                message_thread_id: opts?.topic ?? undefined,
-                parse_mode: app.markdown,
+                ...app.createSendOptions({
+                    topic: opts?.topic,
+                    disableNotification: q.disable_notification ?? false,
+                    includeTextFormatting: true
+                }),
                 reply_markup: keyboard
             }).then((response) => {
                 if (opts?.customId != undefined && opts?.customId.length < 21) {
@@ -59,12 +62,11 @@ export default class Question {
             })
         } else {
             app.bot?.api.sendMessage(userId, opts?.messageOverride == undefined ? q.question : opts?.messageOverride, {
-                disable_notification: q.disable_notification ?? false,
-                message_thread_id: opts?.topic ?? undefined,
-                parse_mode: app.markdown,
-                link_preview_options: {
-                    is_disabled: !app.disableWebPagePreview
-                },
+                ...app.createSendOptions({
+                    topic: opts?.topic,
+                    disableNotification: q.disable_notification ?? false,
+                    includeTextFormatting: true
+                }),
                 reply_markup: keyboard
             }).then((response) => {
                 if (opts?.customId != undefined && opts?.customId.length < 21) {

@@ -23,18 +23,18 @@ export default class HandleNewUsers {
       }
       const keyboardRow = [InlineKeyboard.text(app.homey.__("newUser.register"), 'user-add')];
       ctx.reply(
-          app.homey.__("newUser.welcome")
+        app.homey.__("newUser.welcome")
         + '\n\n'
-          + app.homey.__("newUser.register2"),
+        + app.homey.__("newUser.register2"),
         {
           reply_markup: InlineKeyboard.from([keyboardRow]),
         }
       );
       card.trigger({
-        from: ctx.chat.type === 'private' ? ctx.chat.first_name ?? "unknown" : ctx.chat.title ?? "unknown",
-        username: ctx.chat.type === 'private' ? ctx.chat.username ?? "unknown" : ctx.chat.title ?? "unknown",
-        chatType: ctx.chat.type ?? "unknown",
-      }).catch(app.error).then();
+        from: ctx.chat.type === 'private' ? ctx.chat.first_name ?? 'unknown' : ctx.chat.title ?? 'unknown',
+        username: ctx.chat.type === 'private' ? ctx.chat.username ?? 'unknown' : ctx.chat.title ?? 'unknown',
+        chatType: ctx.chat.type ?? 'unknown',
+      }).catch(app.handleError).then();
     });
 
     app.bot.callbackQuery('user-add', async (ctx) => {
@@ -42,7 +42,6 @@ export default class HandleNewUsers {
         return;
       }
       let user: Chat | null = null;
-      //0 Chat, 1 Group, 3 Supergroup
       if (ctx.chat?.type === 'group') {
         user = new Chat(ctx.chat?.id ?? 0, ctx.chat?.title ?? 'Error', 1);
       } else if (ctx.chat?.type === 'supergroup') {
@@ -51,12 +50,10 @@ export default class HandleNewUsers {
         user = new Chat(ctx.chat?.id ?? 0, ctx.chat?.first_name ?? 'Error', 0);
       }
       if (user !== null && user.chatId !== 0) {
-        if (!app.chats.some((u) => u.chatId === user?.chatId)) {
-          app.chats.push(user);
-          await ctx.reply('👍');
-          app.homey.settings.set('users', JSON.stringify(app.chats));
+        if (app.registerChat(user)) {
+          await ctx.reply('\u{1F44D}');
         } else {
-          await ctx.reply('👎');
+          await ctx.reply('\u{1F44E}');
           await ctx.reply(app.homey.__("newUser.knownChat"));
         }
       } else {

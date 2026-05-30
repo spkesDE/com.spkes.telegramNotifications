@@ -20,7 +20,7 @@ export default class ReceiveMessage {
         id: ctx.message.message_id
       };
       card.trigger(token)
-        .catch(app.error)
+        .catch(app.handleError)
         .then();
       next();
     });
