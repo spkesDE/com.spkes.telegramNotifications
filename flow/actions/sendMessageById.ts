@@ -18,6 +18,9 @@ export default class SendMessageById {
                         })
                     );
                 } catch (err) {
+                    if (app.handleTelegramError(err, args.user)) {
+                        return;
+                    }
                     app.error(err);
                     throw err;
                 }

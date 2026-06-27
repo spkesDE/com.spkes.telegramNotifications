@@ -39,46 +39,43 @@ export default class Question {
         topic?: number
     }) {
         let keyboard = this.createKeyboard(q, opts);
-        if (opts?.image) {
-            const imageUrl = opts.image;
-            app.bot?.api.sendPhoto(userId, new InputFile({url: imageUrl}, ""), {
-                caption: opts?.messageOverride == undefined ? q.question : opts?.messageOverride,
-                ...app.createSendOptions({
-                    topic: opts?.topic,
-                    disableNotification: q.disable_notification ?? false,
-                    includeTextFormatting: true
-                }),
-                reply_markup: keyboard
-            }).then((response) => {
-                if (opts?.customId != undefined && opts?.customId.length < 21) {
-                    app.customIdMessages.push({
-                        message_id: response.message_id,
-                        chat_id: response.chat.id,
-                        customId: opts?.customId
-                    })
-                }
-            }).catch((e) => {
-                app.error(e)
-            })
-        } else {
-            app.bot?.api.sendMessage(userId, opts?.messageOverride == undefined ? q.question : opts?.messageOverride, {
-                ...app.createSendOptions({
-                    topic: opts?.topic,
-                    disableNotification: q.disable_notification ?? false,
-                    includeTextFormatting: true
-                }),
-                reply_markup: keyboard
-            }).then((response) => {
-                if (opts?.customId != undefined && opts?.customId.length < 21) {
-                    app.customIdMessages.push({
-                        message_id: response.message_id,
-                        chat_id: response.chat.id,
-                        customId: opts?.customId
-                    })
-                }
-            }).catch((e) => {
-                app.error(e)
-            })
+        if (app.bot == null) {
+            throw new Error('Bot has failed to initialize');
+        }
+
+        try {
+            const response = opts?.image
+                ? await app.bot.api.sendPhoto(userId, new InputFile({url: opts.image}, ""), {
+                    caption: opts?.messageOverride == undefined ? q.question : opts?.messageOverride,
+                    ...app.createSendOptions({
+                        topic: opts?.topic,
+                        disableNotification: q.disable_notification ?? false,
+                        includeTextFormatting: true
+                    }),
+                    reply_markup: keyboard
+                })
+                : await app.bot.api.sendMessage(userId, opts?.messageOverride == undefined ? q.question : opts?.messageOverride, {
+                    ...app.createSendOptions({
+                        topic: opts?.topic,
+                        disableNotification: q.disable_notification ?? false,
+                        includeTextFormatting: true
+                    }),
+                    reply_markup: keyboard
+                });
+
+            if (opts?.customId != undefined && opts?.customId.length < 21) {
+                app.customIdMessages.push({
+                    message_id: response.message_id,
+                    chat_id: response.chat.id,
+                    customId: opts?.customId
+                })
+            }
+        } catch (e) {
+            if (app.handleTelegramError(e, userId)) {
+                return;
+            }
+            app.error(e);
+            throw e;
         }
     }
 

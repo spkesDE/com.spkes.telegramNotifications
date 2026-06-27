@@ -21,6 +21,9 @@ export default class SendVideoWithMessage {
             }
           );
         } catch (err) {
+          if (app.handleTelegramError(err, args.user.id)) {
+            return;
+          }
           app.error(err);
           throw err;
         }

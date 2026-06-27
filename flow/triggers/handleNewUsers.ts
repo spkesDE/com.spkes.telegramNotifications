@@ -8,7 +8,7 @@ export default class HandleNewUsers {
     if (app.bot == null) {
       return;
     }
-    app.bot.command('start', (ctx, next) => {
+    app.bot.command('start', async (ctx, next) => {
       if (!ctx.message) {
         return next();
       }
@@ -17,19 +17,31 @@ export default class HandleNewUsers {
         const enteredPassword = ctx.message.text.split(' ')[1] ?? '';
         const password = app.homey.settings.get('password');
         if (password === null || password !== enteredPassword) {
-          ctx.reply(app.homey.__("newUser.wrongPassword"));
+          try {
+            await ctx.reply(app.homey.__("newUser.wrongPassword"));
+          } catch (err) {
+            if (!app.handleTelegramError(err, ctx.chat.id)) {
+              throw err;
+            }
+          }
           return;
         }
       }
       const keyboardRow = [InlineKeyboard.text(app.homey.__("newUser.register"), 'user-add')];
-      ctx.reply(
-        app.homey.__("newUser.welcome")
-        + '\n\n'
-        + app.homey.__("newUser.register2"),
-        {
-          reply_markup: InlineKeyboard.from([keyboardRow]),
+      try {
+        await ctx.reply(
+          app.homey.__("newUser.welcome")
+          + '\n\n'
+          + app.homey.__("newUser.register2"),
+          {
+            reply_markup: InlineKeyboard.from([keyboardRow]),
+          }
+        );
+      } catch (err) {
+        if (!app.handleTelegramError(err, ctx.chat.id)) {
+          throw err;
         }
-      );
+      }
       card.trigger({
         from: ctx.chat.type === 'private' ? ctx.chat.first_name ?? 'unknown' : ctx.chat.title ?? 'unknown',
         username: ctx.chat.type === 'private' ? ctx.chat.username ?? 'unknown' : ctx.chat.title ?? 'unknown',

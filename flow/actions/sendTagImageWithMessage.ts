@@ -37,6 +37,9 @@ export default class SendTagImageWithMessage {
           }
         );
       } catch (err) {
+        if (app.handleTelegramError(err, args.user.id)) {
+          return;
+        }
         app.error(err);
         throw err;
       }
