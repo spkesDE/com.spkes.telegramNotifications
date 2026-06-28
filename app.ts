@@ -290,6 +290,27 @@ export class TelegramNotifications extends HomeyApp {
         return false;
     }
 
+    public handleTelegramError(err: unknown, chatId?: number): boolean {
+      if (!this.isTelegramForbiddenError(err)) {
+        return false;
+      }
+
+      if (chatId !== undefined) {
+        const removed = this.unregisterChat(chatId);
+        this.log(`Telegram delivery failed for chat ${chatId}: bot was blocked or forbidden.${removed ? ' Chat was unregistered.' : ''}`);
+      } else {
+        this.log('Telegram delivery failed: bot was blocked or forbidden.');
+      }
+
+      return true;
+    }
+
+    private isTelegramForbiddenError(err: unknown): boolean {
+      const telegramError = err as { error_code?: number; description?: string; message?: string };
+      const description = telegramError?.description ?? telegramError?.message ?? '';
+      return telegramError?.error_code === 403 || description.includes('403: Forbidden');
+    }
+
     loadQuestions(onStart = false) {
       this.debug('Loading Questions..');
       if (this.homey.settings.get('questions') !== null) {

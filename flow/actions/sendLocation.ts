@@ -20,6 +20,9 @@ export default class sendLocation {
                             message_thread_id: args.user.topic
                         });
                     } catch (err) {
+                        if (app.handleTelegramError(err, args.user.id)) {
+                            return;
+                        }
                         console.error('Error sending location message:', err);
                         app.error(err);
                         throw err;
@@ -41,6 +44,9 @@ export default class sendLocation {
                             message_thread_id: args.user.topic
                         });
                     } catch (err) {
+                        if (app.handleTelegramError(err, args.user.id)) {
+                            return;
+                        }
                         console.error('Error sending location message:', err);
                         app.error(err);
                         throw err;
