@@ -316,5 +316,8 @@
   },
   "2.17.6": {
     "en": "Added Auto Add for Chats, Group, Channels. Added Channel Support. Changed Settings Framework"
+  },
+  "2.17.7": {
+    "en": "Bug fixes"
   }
 }
